@@ -1,0 +1,7 @@
+VIS Versuchsflächeninformationssystem
+-----------------------------
+
+Bitte beachten Sie, dass das Programm nur dann einwandfrei läuft, wenn Sie die Java Runtime Engine 1.5.0 oder höher auf Ihrem Rechner geladen haben.
+
+
+J.Nagel

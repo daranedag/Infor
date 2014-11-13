@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.0
+Created-By: 1.6.0_21-b06 (Sun Microsystems Inc.)
+Main-Class: treegross.standsimulation.ForestSimulator
+Class-Path: lib/chart2d.jar lib/jcommon-1.0.0-rc1.jar lib/jdom.jar lib
+ /jep-2.4.1.jar lib/jfreechart-1.0.0-rc1.jar lib/pg73jdbc3.jar lib/Abs
+ oluteLayout.jar lib/swing-layout-1.0.jar lib/jacksum.jar
+X-COMMENT: Main-Class will be added automatically by build
+

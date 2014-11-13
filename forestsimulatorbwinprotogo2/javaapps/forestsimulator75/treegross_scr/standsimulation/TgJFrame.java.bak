@@ -1,0 +1,1059 @@
+/** TreeGrOSS : class TgJFrame produce the GUI
+/* http://treegross.sourceforge.net
+   Version 14-Sep-2005
+   (c) 2002 Juergen Nagel, Forest Research Station of  Lower Saxony, 
+       Grätzelstr.2, 37079 Göttingen, Germany
+       E-Mail: Juergen.Nagel@nfv.gwdg.de
+ 
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT  WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+ */
+package treegross.standsimulation;
+import treegross.base.*;
+import treegross.Stand3D.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.border.*;
+import java.io.*;
+import java.io.IOException.*;
+import java.util.*;
+import javax.swing.filechooser.FileFilter;
+
+
+/**
+ * @author Juergen Nagel
+ *
+ * Main jFrame of the Forest Simulator, this controlls the whole GUI
+ */
+public class TgJFrame extends JFrame implements ActionListener, ItemListener
+{	
+   String bwinproVersion="Beta 0.7 Version";
+   static Stand st = new Stand();
+   StringBuffer ColorInfo; 
+   String seite;
+//   TgStandMap zf  = new TgStandMap(st, this); //add standmap class
+//   TgPPmap pp = new TgPPmap(st, this); //add prallel projection class
+   TgStandMap zf;   //add standmap class
+   TgPPmap pp;  //add prallel projection class
+   TgHTMLsv sv = new TgHTMLsv(st);
+//   TgGrafik gr = new TgGrafik(st);
+   TgGrafik gr ;
+   TgProgramInfo tgProgramInfo;
+   TgDesign sd;
+   TgYieldTable yt = new TgYieldTable();
+   Treatment tl = new Treatment();    
+   TgTreatmentMan2 treatmentMan2;
+   TgStandInfo tsi; 
+   String language="en";
+   
+   MyMenubar menubar;
+   TgStandMapMenu tgStandMapMenu;
+   TgPPMapMenu tgPPMapMenu;
+   TgTreatmentMan2Menu tgTreatmentMan2Menu;
+   TgGrafikMenu tgGrafikMenu;
+   TgToolbar toolbar;
+   Tgksptoolbar ksptoolbar;
+   TgScreentoolbar tgScreentoolbar;
+   TgInternalFrame[] iframe  = new TgInternalFrame[8];
+   JDesktopPane dp = new JDesktopPane();
+   TgUser user= new TgUser();
+   private JFrame owner; 
+   ResourceBundle messages;
+   private Manager3D manager3d;
+
+   
+   
+   boolean grafik3D = false;
+   boolean StandardColors = false;
+   boolean tfUpdateTrue = true;
+   String programDir="";
+   String workingDir="";
+   String dataDir="";
+   String plugIn="default";
+   String kspDataFile="";
+   String kspNextPlot="";
+   Dimension scr;
+   
+   int kspTyp=0;
+   
+	// Konstruktor of TgJFrame()
+	public TgJFrame(Stand stneu)
+	{  
+           st=stneu; 
+           scr= Toolkit.getDefaultToolkit().getScreenSize();                
+           setSize(scr.width,(scr.height-(scr.height/50)));
+           java.io.File f = new java.io.File("");
+           String localPath="";
+           try{ localPath= f.getCanonicalPath();
+              } catch (Exception e){};
+           if (user.fileExists("standsimulation.ini")==false) {
+                    JDialog settings = new TgUserDialog(this, true);
+                    settings.setVisible(true);
+                    JTextArea about = new JTextArea("Please restart program with new settings");
+                    JOptionPane.showMessageDialog(this, about, "About", JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
+            }
+            else {System.out.println("Settings laden "); 
+                      user.loadSettings();
+                      language=user.getLanguageShort();
+                      plugIn=user.getPlugIn();}
+            setTitle(getTitle()+"Forest Simulator BWINPro 7 "+bwinproVersion+" - Region: "+plugIn);
+            
+            
+            zf  = new TgStandMap(st, this); //add standmap class
+            pp = new TgPPmap(st, this); //add prallel projection class
+            gr = new TgGrafik(st);    
+            Locale currentLocale;
+            currentLocale = new Locale(language, "");
+            if (user.grafik3D==0) grafik3D=true;
+                programDir=user.getProgramDir();
+                workingDir=user.getWorkingDir();
+                st.setProgramDir(programDir);
+ 
+            messages = ResourceBundle.getBundle("treegross.standsimulation.TgJFrame",currentLocale);
+                 
+                JPanel zfneu = new JPanel();
+                zfneu.setLayout(new BorderLayout());
+                JPanel tgStandMapMenus = new JPanel();
+                tgStandMapMenus.setLayout(new BoxLayout(tgStandMapMenus, BoxLayout.X_AXIS));                
+           // adding the menu
+		tgStandMapMenu = new TgStandMapMenu(this, this, language); 
+                tgStandMapMenu.setAlignmentY(Component.CENTER_ALIGNMENT);
+                tgStandMapMenus.add(tgStandMapMenu); 
+                zfneu.add(tgStandMapMenus,BorderLayout.NORTH);
+                zfneu.add(zf,BorderLayout.CENTER);
+//
+// Simple parallel project  or 3D View of stand              
+                JPanel ppneu = new JPanel();
+               if (grafik3D){
+                    manager3d =new Manager3D(new JPanel(),programDir);
+                    if (manager3d.get3DAvailable()){
+                      ppneu.setPreferredSize(new Dimension((((scr.width-140)/2)-(scr.width/50)), (scr.height/2)-(scr.height/50)));                           
+                      manager3d =new Manager3D(ppneu, programDir);
+                      grafik3D = true;
+                    }
+                }
+                else{
+                    ppneu.setLayout(new BorderLayout());
+                    JPanel tgPPMapMenus = new JPanel();
+                    tgPPMapMenus.setLayout(new BoxLayout(tgPPMapMenus, BoxLayout.X_AXIS));                
+           // adding the menu
+		    tgPPMapMenu = new TgPPMapMenu(this, this, language); 
+                    tgPPMapMenu.setAlignmentY(Component.CENTER_ALIGNMENT);
+                    tgPPMapMenus.add(tgPPMapMenu); 
+                    ppneu.add(tgPPMapMenus,BorderLayout.NORTH);
+                    ppneu.add(pp,BorderLayout.CENTER);
+                    grafik3D = false;
+                }
+
+         
+//                
+                tsi = new TgStandInfo(language);
+
+// Treatment Manager Window                
+                treatmentMan2 = new TgTreatmentMan2(st, this,language);
+                JPanel treatmentPanel = new JPanel();
+                treatmentPanel.setLayout(new BorderLayout());
+                JPanel tgTreatmentMenus = new JPanel();
+                tgTreatmentMenus.setLayout(new BoxLayout(tgTreatmentMenus, BoxLayout.X_AXIS));                
+                tgTreatmentMan2Menu = new TgTreatmentMan2Menu(this,this, language);
+                tgTreatmentMan2Menu.setAlignmentY(Component.CENTER_ALIGNMENT);
+                tgTreatmentMenus.add(tgTreatmentMan2Menu);
+                treatmentPanel.add(tgTreatmentMenus,BorderLayout.NORTH); 
+                treatmentPanel.add(treatmentMan2,BorderLayout.CENTER); 
+                
+                sd = new TgDesign(st, this, language);
+// add Grafik Menu 
+                JPanel grWithMenu = new JPanel();
+                grWithMenu.setLayout(new BorderLayout());
+                JPanel tggrMenus = new JPanel();
+                tggrMenus.setLayout(new BoxLayout(tggrMenus, BoxLayout.X_AXIS));                
+		tgGrafikMenu = new TgGrafikMenu(this, this, language); 
+                tgGrafikMenu.setAlignmentY(Component.CENTER_ALIGNMENT);
+                tggrMenus.add(tgGrafikMenu); 
+                grWithMenu.add(tggrMenus,BorderLayout.NORTH);
+                grWithMenu.add(gr,BorderLayout.CENTER);
+                
+                iframe[0] = new TgInternalFrame(zfneu, messages.getString("Standmap"));
+                iframe[1] = new TgInternalFrame(ppneu, messages.getString("Parallel_Projection"));
+            	iframe[2] = new TgInternalFrame(grWithMenu, messages.getString("Graphics"));
+                iframe[3] = new TgInternalFrame(sd, messages.getString("Add_Trees"));
+                iframe[4] = new TgInternalFrame(treatmentPanel, messages.getString("Simulation_Setting"));
+                iframe[5] = new TgInternalFrame(tsi,messages.getString("Stand_Info"));
+   
+//                user.currentDir();
+                
+              
+                tgProgramInfo = new TgProgramInfo(this);
+                iframe[6] = new TgInternalFrame(tgProgramInfo,messages.getString("Program_Info"));
+              
+                
+                JPanel menus = new JPanel();
+                menus.setLayout(new BoxLayout(menus, BoxLayout.X_AXIS));                
+           // adding the menu
+	 	menubar = new MyMenubar(this, this, language); 
+                menubar.setAlignmentY(Component.CENTER_ALIGNMENT);
+                menus.add(menubar); 
+		menus.add(Box.createRigidArea(new Dimension(20, 0)));
+           //adding the toolbar
+                toolbar = new TgToolbar(this, programDir, language);
+                menus.add(toolbar);
+                ksptoolbar = new Tgksptoolbar(this);
+                menus.add(ksptoolbar);
+           // adding screen toolbar
+                tgScreentoolbar = new TgScreentoolbar(this, programDir);
+                menus.add(tgScreentoolbar);
+                getContentPane().add(menus, BorderLayout.NORTH);
+                
+                // Adding the InternalFrames
+                iframe[0].setLocation(155,0);
+                iframe[1].setLocation((140+(scr.width-140)/2),0);
+                iframe[2].setLocation(100,0);
+                iframe[0].setVisible(false);
+                iframe[1].setVisible(false);
+                iframe[2].setVisible(false);
+                iframe[3].setVisible(false);
+                iframe[4].setVisible(false);
+                iframe[5].setVisible(false);
+                iframe[3].setLocation(((scr.width-100)/2),0);
+                iframe[4].setLocation(0,0);              
+                iframe[5].setLocation(0,(scr.height/2+(scr.height/20)));
+                iframe[6].setLocation(0,0);              
+                iframe[6].setVisible(true);
+                
+                
+                
+                for(int i = 0; i<7; i++)
+                {
+                    iframe[i].addInternalFrameListener(new MyInternalFrameListener());
+                    dp.add(iframe[i]);
+                }
+                
+                getContentPane().add(dp, BorderLayout.CENTER);
+                
+		 
+		// add a windowListener for closing the window		
+		addWindowListener(
+			new WindowAdapter ()
+		{	public void windowClosing (WindowEvent e)
+			{	
+                            //writeFile(ColorInfo);
+                            dispose(); System.exit(0); 
+			}
+		});
+		
+                // make TgJFrame visible
+                ksptoolbar.setVisible(false);
+                user.loadSettings();            
+                setVisible(true);
+                zf.neuzeichnen();
+                pp.neuzeichnen();
+                gr.starten();
+                tfUpdateTrue=true;
+               // sd.showdesigner(st); 
+                
+	}
+        
+//-----------------------------------------------------------------------------	
+        /** In case an action is performed */
+	public void actionPerformed(ActionEvent e)
+	{	
+            Object obj= e.getSource(); 
+            String cmd= e.getActionCommand(); 
+                System.out.println(cmd);
+            if (obj instanceof JMenuItem)
+            {	
+                if (cmd.equals("new"))
+                {
+                    yt.setYieldTableNew();
+                    showIframes();
+                    JDialog newstand = new TgNewStand(this, true, st, this, language );   
+                    Model mo =new Model();
+                    st.setModelRegion(mo.getPlugInName(plugIn));
+                    newstand.setVisible(true);
+                    if (grafik3D ) manager3d.setStand(st);
+                    tfUpdateTrue=true;
+                    if (st.size>0){
+                        iframe[3].setVisible(true);
+                        menubar.cmi[3].setSelected(true);
+                    }
+                    if (st.modelRegion.indexOf("default")>-1) {
+                           st.ingrowthActive=true;
+                           treatmentMan2.setLoeweDefault(); 
+                           tgTreatmentMan2Menu.cbi[2].setSelected(true);
+                           treatmentMan2.loadSettingsToStandRule();
+                    }
+                }                     
+               
+                // menu item open: read stand data from unformatted file
+                if (cmd.equals("openTreegross"))
+                { 
+                       
+                       yt.setYieldTableNew();
+                       ksptoolbar.setVisible(false);
+                       DataExchangeFormat dataex = new DataExchangeFormat();
+                       JFileChooser fc = new JFileChooser();
+                       TxtFileFilter txtFilter = new TxtFileFilter();
+                       fc.addChoosableFileFilter(txtFilter);
+                       fc.setCurrentDirectory(new File(user.getDataDir()));
+                       int auswahl = fc.showOpenDialog(owner);
+                       String pa= fc.getSelectedFile().getPath();
+                       String dn= fc.getSelectedFile().getName();
+                       Model mo =new Model();
+                       st.setModelRegion(mo.getPlugInName(plugIn));
+                                              
+                       dataex.read(st,pa);
+                       if (st.ntrees==0){
+                           dataex.readOldFormat1(st,pa);
+                       }
+                       if (st.ntrees==0){
+                           dataex.readOldFormat2(st,pa);
+                       } 
+                       if (st.ntrees==0){
+                           dataex.readOldFormat3(st,pa);
+                       }                        
+                       if (st.getSpeciesDefinedTrue()==false) {
+                           String text = st.getSpeciesUndefinedCode();
+                           JTextArea about = new JTextArea(messages.getString("ERROR_Reading_Tree1")+text+
+                                                           messages.getString("ERROR_Reading_Tree2")+
+                                                           messages.getString("ERROR_Reading_Tree3"));
+                           about.setBackground(Color.LIGHT_GRAY);
+                           JOptionPane.showMessageDialog(this, about, "Error", JOptionPane.INFORMATION_MESSAGE);
+                           st.ntrees=0;
+                           st.nspecies=0;
+                       }
+
+                       st.sortbyd();
+                       st.missingData();
+                       st.descspecies();
+                       // set Löwe default
+                       Treatment te= new Treatment();
+                       GenerateXY gxy =new GenerateXY();
+                       gxy.zufall(st);
+                       if (grafik3D) manager3d.setStand(st);
+
+                       tfUpdateTrue=true;
+                       updatetp();
+                       tfUpdateTrue=true;
+                       if (st.modelRegion.indexOf("default")>-1) {
+                           st.ingrowthActive=true;
+                           treatmentMan2.setLoeweDefault(); 
+                           tgTreatmentMan2Menu.cbi[2].setSelected(true);
+                           treatmentMan2.loadSettingsToStandRule();
+                       }
+                       gr.starten();
+                       showIframes();
+                 }
+                if (cmd.equals("openKsp"))
+                { 
+                       yt.setYieldTableNew();
+                       ksptoolbar.setVisible(true);
+                       treegross.ksp.KspDataFormat kspData = new treegross.ksp.KspDataFormat();
+                       JFileChooser fc = new JFileChooser();
+                       TxtFileFilter txtFilter = new TxtFileFilter();
+                       fc.addChoosableFileFilter(txtFilter);
+                       fc.setCurrentDirectory(new File(user.getDataDir()));
+                       int auswahl = fc.showOpenDialog(owner);
+                       kspDataFile= fc.getSelectedFile().getPath();
+                       String dn= fc.getSelectedFile().getName();
+                       Model mo =new Model();
+                       st.setModelRegion(mo.getPlugInName(plugIn));
+                       kspNextPlot=kspData.read(st,kspDataFile,"");
+                       ksptoolbar.setTextField1(kspNextPlot);
+                       st.sortbyd();
+                       
+                       st.missingData();
+                       st.descspecies();
+                       // set Löwe default
+                       Treatment te= new Treatment();
+                       te.setLoeweDefault(st);
+                       GenerateXY gxy =new GenerateXY();
+                       gxy.zufall(st);
+ 
+                       
+                       tfUpdateTrue=true;
+                       if (grafik3D ) manager3d.setStand(st);
+
+                       updatetp();
+                       tfUpdateTrue=true;
+                       gr.starten();
+                       kspTyp=3;
+                       showIframes();
+                 }
+                if (cmd.equals("openKspNFP"))
+                { 
+                       yt.setYieldTableNew();
+                       ksptoolbar.setVisible(true);
+                       treegross.ksp.KspDataFormatNFP kspData = new treegross.ksp.KspDataFormatNFP();
+                       JFileChooser fc = new JFileChooser();
+                       TxtFileFilter txtFilter = new TxtFileFilter();
+                       fc.addChoosableFileFilter(txtFilter);
+                       fc.setCurrentDirectory(new File(user.getDataDir()));
+                       int auswahl = fc.showOpenDialog(owner);
+                       kspDataFile= fc.getSelectedFile().getPath();
+                       String dn= fc.getSelectedFile().getName();
+                       Model mo =new Model();
+                       st.setModelRegion(mo.getPlugInName(plugIn));
+                       kspNextPlot=kspData.read(st,kspDataFile,"");
+                       ksptoolbar.setTextField1(kspNextPlot);
+                       st.sortbyd();
+                       
+                       st.missingData();
+                       st.descspecies();
+                       // set Löwe default
+                       Treatment te= new Treatment();
+                       te.setLoeweDefault(st);
+                       GenerateXY gxy =new GenerateXY();
+                       gxy.zufall(st);
+ 
+                       
+                       tfUpdateTrue=true;
+                       if (grafik3D ) manager3d.setStand(st);
+                       updatetp();
+                       tfUpdateTrue=true;
+                       gr.starten();
+                       kspTyp=0;
+                       showIframes();
+                 }
+// Alnus -Project File
+                if (cmd.equals("openAlnus"))
+                { 
+                       yt.setYieldTableNew();
+                       ksptoolbar.setVisible(true);
+                       treegross.ksp.KspDataFormat kspData = new treegross.ksp.KspDataFormat();
+                       JFileChooser fc = new JFileChooser();
+                       TxtFileFilter txtFilter = new TxtFileFilter();
+                       fc.addChoosableFileFilter(txtFilter);
+                       fc.setCurrentDirectory(new File(user.getDataDir()));
+                       int auswahl = fc.showOpenDialog(owner);
+                       kspDataFile= fc.getSelectedFile().getPath();
+                       String dn= fc.getSelectedFile().getName();
+                       Model mo =new Model();
+                       st.setModelRegion(mo.getPlugInName(plugIn));
+                       if (st.modelRegion.indexOf("badenwuerttemberg")>-1)
+                           kspNextPlot=kspData.readBadenWuerttemberg(st,kspDataFile,"");
+                       else   kspNextPlot=kspData.readAlnus(st,kspDataFile,"");
+                       ksptoolbar.setTextField1(kspNextPlot);
+                       st.sortbyd();
+                       st.missingData();
+                       st.descspecies();
+                       // set Löwe default
+                       Treatment te= new Treatment();
+                       te.setLoeweDefault(st);
+                       tfUpdateTrue=true;
+                       if (grafik3D ) manager3d.setStand(st);
+                       updatetp();
+                       tfUpdateTrue=true;
+                       gr.starten();
+                       kspTyp=1;
+                       showIframes();
+                 }
+// ElSalto -Project File
+                if (cmd.equals("openElSalto"))
+                { 
+                       yt.setYieldTableNew();
+                       ksptoolbar.setVisible(true);
+                       treegross.ksp.KspDataFormat kspData = new treegross.ksp.KspDataFormat();
+                       JFileChooser fc = new JFileChooser();
+                       TxtFileFilter txtFilter = new TxtFileFilter();
+                       fc.addChoosableFileFilter(txtFilter);
+                       fc.setCurrentDirectory(new File(user.getDataDir()));
+                       int auswahl = fc.showOpenDialog(owner);
+                       kspDataFile= fc.getSelectedFile().getPath();
+                       String dn= fc.getSelectedFile().getName();
+                       Model mo =new Model();
+                       kspNextPlot=kspData.readElSalto(st,kspDataFile,"");
+                       ksptoolbar.setTextField1(kspNextPlot);
+                       st.sortbyd();
+                       if (grafik3D ) manager3d.setStand(st);
+                       updatetp();
+                       tfUpdateTrue=true;
+                       gr.starten();
+                       kspTyp=2;
+                       showIframes();
+                 }
+                
+                // read stand data from unformatted file
+		if (cmd.equals("save"))
+		{ 
+                    DataExchangeFormat dataex = new DataExchangeFormat();
+		    JFileChooser fc = new JFileChooser();
+                    TxtFileFilter txtFilter = new TxtFileFilter();
+                    fc.addChoosableFileFilter(txtFilter);
+                    fc.setCurrentDirectory(new File(user.getDataDir()));
+                    int auswahl = fc.showSaveDialog(owner);
+                    String pa= fc.getSelectedFile().getPath();
+                    String dn= fc.getSelectedFile().getName();    
+                    dataex.save(st,pa);
+                  }
+                
+                //Menu save as jpg
+
+                if (cmd.equals("ppJPG")){
+                     pp.getJPEG();
+                     pp.neuzeichnen();                    
+                    
+                }            
+		  
+                if (cmd.equals("Tree values"))
+		  { 
+                      TgHTMLsv sv= new TgHTMLsv(st);
+		      sv.newreport(st,workingDir,"treelist.html",language);
+	              seite="file://"+sv.getFilename();
+                      try 
+                      {
+                           Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+seite);
+                      }
+		      catch ( Exception e2) 
+                      {
+                          System.out.println(e2); 
+                      }	         
+		  }  
+		  if (cmd.equals("Stand table"))
+		  { 
+                        st.sortbyd();
+                        st.descspecies();
+                        yt.enterStandDesc(st);
+                        yt.writeTable(st,workingDir,"standtable.html", language);
+	                seite="file://"+yt.getFilename();
+                        try 
+                        {
+                             Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+seite);
+                        }
+                          catch ( Exception e2) 
+                          {	
+                              System.out.println(e2); 
+                          } 
+		  }
+//
+		  if (cmd.equals("Structure table"))  { 
+                        st.sortbyd();
+                        st.descspecies();
+                        TgStructureTable tgStructureTable = new TgStructureTable();
+                        tgStructureTable.writeTable(st,workingDir,"standstructure.html", language);
+	                seite="file://"+tgStructureTable.getFilename();
+                        try { Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+seite);
+                        }
+                        catch ( Exception e2) { System.out.println(e2); 
+                        } 
+		  }
+// This next command is not official                
+		  if (cmd.equals("tree_table"))  { 
+                        st.sortbyd();
+                        st.descspecies();
+                        DataExchangeFormat dataex = new DataExchangeFormat();
+                        dataex.writeTreeTable(st);
+		  }
+                 
+//                
+                  if (cmd.equals("Info page")){ 
+                       seite="file://"+user.programDir+"/index.html";
+                       try {
+                           Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+seite);
+                       }
+		       catch ( Exception e2){ System.out.println(e2); }		 
+		  } 
+//                
+                  if (cmd.equals("License")){ 
+                       seite="file://"+user.programDir+"/gpl.html";
+                       try {
+                           Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+seite);
+                       }
+		       catch ( Exception e2){ System.out.println(e2); }		 
+		  } 
+//                
+                  if (cmd.equals("Introduction")){ 
+// Here we check if there is an individual learning unit for the plugin, otherwise take the
+// default version                    
+                      String fileName=user.programDir+"/help/index.htm";
+                      if (user.fileExists(fileName)==false) {
+// set to default
+                          Model model = new Model();
+                          int mStart = fileName.indexOf(model.getPlugInName(user.plugIn));
+                          fileName=user.programDir.substring(0, mStart)+"/help/index.htm";
+                      }
+
+                    
+                       String seite="file://"+fileName;
+                       try {
+                           Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+seite);
+                       }
+		       catch ( Exception e2){ System.out.println(e2); }		 
+		  } 
+//                
+                
+                // menu item exit
+		if (cmd.equals("exit")) 
+                {
+                    System.exit(0); 
+                }                
+                
+
+                
+           
+                
+            //Menu "Properties"
+            
+                  if(cmd.equals("Program Settings"))
+                  {
+                      JDialog settings = new TgUserDialog(this, true);
+                      settings.setVisible(true);
+                      programDir=user.getWorkingDir();
+                      JTextArea about = new JTextArea(messages.getString("Please_restart"));
+                  }
+
+                
+                  if(cmd.equals("Species Manager"))
+                  {
+//                      System.out.println("in work");
+                      TgSpeciesMan spman = new TgSpeciesMan(this, true, language);
+                      spman.setVisible(true);
+                  }
+              //Menu "Help"
+                
+                if(cmd.equals("About"))
+                {
+                    JTextArea about = new JTextArea("TreeGrOSS: ForestSimulation BWINPro 7.0 \n http://treegross.sourceforge.net  or  http://www.nfv.gwdg.de \n "+bwinproVersion+" \n (c) 2002-2005 Juergen Nagel, Forest Research Station of  Lower Saxony, \n Grätzelstr.2, 37079 Göttingen, Germany \n E-Mail: Juergen.Nagel@nfv.gwdg.de");
+                    about.setBackground(Color.LIGHT_GRAY);
+                    JOptionPane.showMessageDialog(this, about, "About", JOptionPane.INFORMATION_MESSAGE);
+                    Competition comp = new Competition();
+                    for (int itest=0;itest<st.ntrees;itest++){
+                         comp.replaceC66xyAndC66cxy(st.tr[itest],6.0);
+                         System.out.println(itest+" "+st.tr[itest].d+"  "+st.tr[itest].c66+"  "+comp.getc66(st.tr[itest])+
+                                            "  "+st.tr[itest].c66xy+"  "+st.tr[itest].c66cxy);
+                    }
+                }
+  
+            }
+				
+            if (cmd.equals("Grow"))
+            {
+                this.setCursor(WAIT_CURSOR);
+                st.sortbyd();
+                st.descspecies();
+                yt.enterStandDesc(st);
+                st.grow(5,st.ingrowthActive);  //grow a 5-year cycle, means  ingrowth
+                updatetp();
+                gr.drawGraph();
+                repaint();
+                this.setCursor(DEFAULT_CURSOR);
+            } 
+            
+            if (cmd.equals("Treatment"))
+            {
+                this.setCursor(WAIT_CURSOR);
+                st.descspecies();
+                st.sortbyd();
+                tl.executeManager2(st);
+                updatetp();
+		zf.neuzeichnen(); //Zeichenfläche neu zeichnen
+//                pp.neuzeichnen();
+                gr.drawGraph();
+                repaint();
+                this.setCursor(DEFAULT_CURSOR);
+            } 
+            
+            if(cmd.equals("Sorting"))
+            {
+                TgSorter sorter = new TgSorter(this, true, language);
+                sorter.setDirectory(programDir,workingDir);
+                sorter.setVisible(true);
+            }
+// from Toolbar KSP
+           if (cmd.equals("nextPlot"))
+                { 
+                       yt.setYieldTableNew();
+                       System.out.println("in next Plot"+cmd);
+                       ksptoolbar.setVisible(true);
+                       Model mo =new Model();
+                       st.setModelRegion(mo.getPlugInName(plugIn));
+                       treegross.ksp.KspDataFormatNFP kspData;
+                       if (kspTyp==0){
+                           kspData= new treegross.ksp.KspDataFormatNFP();
+                           kspNextPlot=kspData.read(st,kspDataFile,kspNextPlot);
+                       }    
+                       treegross.ksp.KspDataFormat kspDataAlnus;
+                       if (kspTyp==1){
+                           kspDataAlnus = new treegross.ksp.KspDataFormat();
+                           if (st.modelRegion.indexOf("badenwuerttemberg")>-1)
+                               kspNextPlot=kspDataAlnus.readBadenWuerttemberg(st,kspDataFile,kspNextPlot);
+                           else  kspNextPlot=kspDataAlnus.readAlnus(st,kspDataFile,kspNextPlot);
+                       }    
+                       if (kspTyp==3){
+                           kspDataAlnus = new treegross.ksp.KspDataFormat();
+                           kspNextPlot=kspDataAlnus.read(st,kspDataFile,kspNextPlot);
+                       }    
+                       treegross.ksp.KspDataFormat kspDataElSalto;
+                       if (kspTyp==2){
+                           kspDataAlnus = new treegross.ksp.KspDataFormat();
+                           kspNextPlot=kspDataAlnus.readElSalto(st,kspDataFile,kspNextPlot);
+                       }    
+                       ksptoolbar.setTextField1(kspNextPlot);
+                       st.sortbyd();
+                       if (grafik3D ) manager3d.setStand(st);
+                       updatetp();
+                       tfUpdateTrue=true;
+                       gr.starten();
+                 }
+           if (cmd.equals("searchPlot"))
+                { 
+       //                System.out.println("in next Plot"+cmd);
+                       yt.setYieldTableNew();
+                       ksptoolbar.setVisible(true);
+                       Model mo =new Model();
+                       st.setModelRegion(mo.getPlugInName(plugIn));
+                       treegross.ksp.KspDataFormatNFP kspData;
+                       if (kspTyp==0){
+                           kspData= new treegross.ksp.KspDataFormatNFP();
+                           kspNextPlot=kspData.read(st,kspDataFile,ksptoolbar.getTextField1());
+                       }    
+                       treegross.ksp.KspDataFormat kspDataAlnus;
+                       if (kspTyp==3){
+                           kspDataAlnus = new treegross.ksp.KspDataFormat();
+                           kspNextPlot=kspDataAlnus.read(st,kspDataFile,ksptoolbar.getTextField1());
+                       }    
+                       if (kspTyp==2){
+                           kspDataAlnus = new treegross.ksp.KspDataFormat();
+                           kspNextPlot=kspDataAlnus.readElSalto(st,kspDataFile,ksptoolbar.getTextField1());
+                       }    
+//                        treegross.ksp.KspDataFormat kspDataAlnus;
+                       if (kspTyp==1){
+                           kspDataAlnus = new treegross.ksp.KspDataFormat();
+                           if (st.modelRegion.indexOf("badenwuerttemberg")>-1)
+                               kspNextPlot=kspDataAlnus.readBadenWuerttemberg(st,kspDataFile,ksptoolbar.getTextField1());
+                           else  kspNextPlot=kspDataAlnus.readAlnus(st,kspDataFile,ksptoolbar.getTextField1());
+                       }    
+                       ksptoolbar.setTextField1(kspNextPlot);
+                       st.sortbyd();
+                       if (grafik3D ) manager3d.setStand(st);
+                       updatetp();
+                       tfUpdateTrue=true;
+                       gr.starten();
+                 }
+// Screen Toolbar                
+             if (cmd.equals("screen1")){
+                int xp = (int) (scr.width*0.65); 
+                int yp = (int) ((scr.height-105)*0.5);
+                iframe[0].setLocation(xp,0);
+                iframe[0].setSize(new Dimension(scr.width-xp,scr.height-105-yp));
+                iframe[0].setVisible(true);
+                iframe[1].setLocation(xp,yp);
+                iframe[1].setSize(new Dimension(scr.width-xp,scr.height-105-yp));
+                iframe[1].setVisible(true);
+                iframe[2].setVisible(false);
+                iframe[3].setVisible(false);
+                yp = (int) ((scr.height-105)*0.7);
+                iframe[4].setLocation(0,0);
+                iframe[4].setSize(new Dimension(xp,yp));
+                iframe[4].setVisible(true);
+                iframe[5].setLocation(0,yp);
+                iframe[5].setSize(new Dimension(xp,scr.height-105-yp));
+                iframe[5].setVisible(true);
+                iframe[6].setVisible(false);
+             }
+             if (cmd.equals("screen2")){
+                iframe[0].setVisible(false);
+                iframe[1].setLocation(0,0);
+                int yp =(int) ((scr.height-105)*0.65);
+                iframe[1].setSize(new Dimension(scr.width,yp));
+                iframe[1].setVisible(true);
+                iframe[2].setVisible(false);
+                iframe[3].setVisible(false);
+                iframe[4].setVisible(false);
+                iframe[5].setVisible(true);
+                iframe[5].setLocation(0,yp);
+                iframe[5].setSize(new Dimension(scr.width,scr.height-105-yp));
+                iframe[6].setVisible(false);
+             }
+             if (cmd.equals("screen3")){
+                iframe[0].setVisible(false);
+                iframe[1].setVisible(false);
+                iframe[2].setVisible(false);
+                iframe[3].setVisible(false);
+                iframe[4].setVisible(false);
+                iframe[5].setVisible(false);
+                iframe[6].setVisible(false);
+                iframe[1].setLocation(0,0);
+                iframe[1].setVisible(true);
+                iframe[1].setSize(new Dimension(scr.width,scr.height-105));
+             }
+
+		 
+
+// Action commands of stand map menu 
+            if (cmd.equals("saveStandMapToJPG")){zf.getJPEG();zf.neuzeichnen();}
+            if (cmd.equals("refreshStandMap")){ zf.neuzeichnen();}
+            if (cmd.equals("zoomStandMapIn")){ zf.zoomStatus=1; zf.neuzeichnen();}
+            if (cmd.equals("zoomStandMapOut")){ 
+                       zf.zoomStatus=0;zf.xlzoom=0;zf.ylzoom=0;zf.xuzoom=0;zf.yuzoom=0;
+                       zf.neuzeichnen();
+                }
+            if (cmd.equals("Factor=1")){ zf.setDbhFactor(1);zf.neuzeichnen();}
+            if (cmd.equals("Factor=3")){ zf.setDbhFactor(3);zf.neuzeichnen();}
+            if (cmd.equals("Factor=5")){ zf.setDbhFactor(5);zf.neuzeichnen();}
+// Action commands of parallel projekction map menu 
+            if (cmd.equals("savePPMapToJPG")){pp.getJPEG();pp.neuzeichnen();}
+            if (cmd.equals("refreshPPMap")){ pp.neuzeichnen();}
+            if (cmd.equals("zoomPPMapIn")){ pp.zoomStatus=1; pp.neuzeichnen();}
+            if (cmd.equals("zoomPPMapOut")){ 
+                       pp.zoomStatus=0;pp.xlzoom=0;pp.ylzoom=0;pp.xuzoom=0;pp.yuzoom=0;
+                       pp.neuzeichnen();
+                }
+            if (cmd.equals("ppSkyColor")){    javax.swing.JColorChooser cc= new javax.swing.JColorChooser();
+                          pp.setSkyColor(cc.showDialog(this, "Choose Sky Color",pp.getSkyColor() ));
+                          pp.neuzeichnen();}
+            if (cmd.equals("ppGroundColor")){    javax.swing.JColorChooser cc= new javax.swing.JColorChooser();
+                          pp.setGroundColor(cc.showDialog(this, "Choose Ground Color",pp.getGroundColor() ));
+                          pp.neuzeichnen();}
+            if (cmd.equals("ppStandGroundColor")){    javax.swing.JColorChooser cc= new javax.swing.JColorChooser();
+                          pp.setStandGroundColor(cc.showDialog(this, "Choose Stand Ground Color",pp.getStandGroundColor() ));
+                          pp.neuzeichnen();}
+// Action commands of Grafik Window 
+            if (cmd.equals("SpeciesByCrownSurfaceArea")){gr.setGraphType(0);gr.neuzeichnen();
+                              iframe[2].setVisible(false);iframe[2].setVisible(true);}
+            if (cmd.equals("DiameterDistribution")){gr.setGraphType(1);gr.neuzeichnen();
+                              iframe[2].setVisible(false);iframe[2].setVisible(true);}
+            if (cmd.equals("DiameterDistributionCT")){gr.setGraphType(2);gr.neuzeichnen();
+                              iframe[2].setVisible(false);iframe[2].setVisible(true);}
+            if (cmd.equals("HeightDiameterPlot")){gr.setGraphType(3);gr.neuzeichnen();
+                              iframe[2].setVisible(false);iframe[2].setVisible(true);}
+            if (cmd.equals("saveChartToJPG")) {gr.saveToJPEG(workingDir); }
+// Action commands of TreatmentMan2                
+            if (cmd.equals("setLoewe")) {treatmentMan2.setLoeweDefault(); }
+            if (cmd.equals("setAgeClass")) {treatmentMan2.setAgeClassDefault(); }
+                
+                                       
+	}
+        
+//------------------------------------------------------------------------------        
+        
+        public void itemStateChanged(ItemEvent e)
+        {
+           Object source = e.getItemSelectable();
+           for (int i = 0; i<7; i++)
+           {
+                if(source==menubar.cmi[i])
+                {
+                    if(e.getStateChange()==ItemEvent.SELECTED)
+                    {
+                        iframe[i].setVisible(true);
+                    }
+                    else
+                    {
+                        iframe[i].setVisible(false);
+                    }
+                }
+           } 
+// item event for stand map           
+          if(source==tgStandMapMenu.cmi[0]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)zf.setStandMapInfo(true);
+              else zf.setStandMapInfo(false);
+              zf.neuzeichnen() ;
+          }
+          if(source==tgStandMapMenu.cmi[1]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)zf.setPlotCrownWidth(true);
+              else zf.setPlotCrownWidth(false);
+              zf.neuzeichnen() ;
+          }
+          if(source==tgStandMapMenu.cmi[2]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)zf.setPlotTreeNumber(true);
+              else zf.setPlotTreeNumber(false);
+              zf.neuzeichnen() ;
+          }
+          if(source==tgStandMapMenu.cmi[8]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)zf.setMouseThinning(true);
+              else zf.setMouseThinning(false);
+              if (grafik3D) manager3d.refreshStand(); else pp.neuzeichnen() ;
+          }
+          if(source==tgStandMapMenu.cmi[9]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)zf.setMouseCropTree(true);
+              else zf.setMouseCropTree(false);
+              pp.neuzeichnen() ;
+          }
+// item event for parallel map 
+          if (grafik3D == false){ 
+            if(source==tgPPMapMenu.cmi[0] ) {
+              if (e.getStateChange()==ItemEvent.SELECTED)pp.setLivingTrees(true);
+              else pp.setLivingTrees(false);
+              pp.neuzeichnen() ;
+            }
+          if(source==tgPPMapMenu.cmi[1] ) {
+              if (e.getStateChange()==ItemEvent.SELECTED)pp.setThinnedTrees(true);
+              else pp.setThinnedTrees(false);
+              pp.neuzeichnen() ;
+            }
+            if(source==tgPPMapMenu.cmi[2] ) {
+              if (e.getStateChange()==ItemEvent.SELECTED)pp.setDeadTrees(true);
+              else pp.setDeadTrees(false);
+              pp.neuzeichnen() ;
+            }
+          }
+// item event for treatment manager2  
+          if(source==tgTreatmentMan2Menu.cbi[0]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)st.distanceDependent=true;
+              else st.distanceDependent=false;
+          }
+          if(source==tgTreatmentMan2Menu.cbi[1]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)st.randomGrowthEffects=true;
+              else st.randomGrowthEffects=false;
+          }
+          if(source==tgTreatmentMan2Menu.cbi[2]) {
+              if (e.getStateChange()==ItemEvent.SELECTED)st.ingrowthActive=true;
+              else st.ingrowthActive=false;
+          }
+
+        }
+       
+        
+        
+        
+        void updatetp()
+        {
+            gr.neuzeichnen();
+            st.descspecies();
+            zf.neuzeichnen();
+            if (grafik3D == true) manager3d.refreshStand();
+            else pp.neuzeichnen();
+            tsi.formUpdate(st);
+            if (tfUpdateTrue==true) {treatmentMan2.formUpdate(st);tfUpdateTrue=false;}
+            if (iframe[2].isVisible()==true){
+                iframe[2].setVisible(false);
+                iframe[2].setVisible(true);
+            }
+                       
+        }
+
+        void showIframes(){
+                int xp = (int) (scr.width*0.65); 
+                int yp = (int) ((scr.height-105)*0.5);
+                iframe[0].setLocation(xp,0);
+                iframe[0].setSize(new Dimension(scr.width-xp,scr.height-105-yp));
+                iframe[0].setVisible(true);
+                iframe[1].setLocation(xp,yp);
+                iframe[1].setSize(new Dimension(scr.width-xp,scr.height-105-yp));
+                iframe[1].setVisible(true);
+                iframe[2].setVisible(false);
+                iframe[3].setVisible(false);
+                yp = (int) ((scr.height-105)*0.7);
+                iframe[4].setLocation(0,0);
+                iframe[4].setSize(new Dimension(xp,yp));
+                iframe[4].setVisible(true);
+                iframe[5].setLocation(0,yp);
+                iframe[5].setSize(new Dimension(xp,scr.height-105-yp));
+                iframe[5].setVisible(true);
+                iframe[6].setVisible(false);
+        }
+//
+// start a stand from other programs
+//     public v        
+
+        public void setStand(Stand stl){
+            st=stl;
+            Model mo =new Model();
+            st.setModelRegion(mo.getPlugInName(plugIn));
+            System.out.println("set Stand down");
+            updatetp();
+            System.out.println("set Stand down");
+        }
+        StringBuffer getFile(String path, String name)
+        {
+            
+            File file = new File(path,name);
+            FileReader fr;
+            StringBuffer sbuffer = new StringBuffer(500);
+            
+            try
+            {
+                fr = new FileReader(file);
+                boolean end = false;
+                int c;
+                while(!end)
+                {
+                    c = fr.read();
+                    if(c==-1)
+                    {
+                        end = true;
+                    }
+                    else
+                    {
+                        sbuffer.append( (char)c);
+                    }
+                }
+                fr.close();
+                
+            }
+        
+        catch(java.io.IOException e){System.out.println("IOException");}
+            
+            return sbuffer;
+        }
+        
+        public void updateColor()
+        {
+            String filename;
+            if(StandardColors)
+            {
+                filename="standardcolor.txt";
+            }
+            else
+            {
+                filename="color.txt";
+            }
+            ColorInfo=getFile(programDir,filename);
+        }
+        
+       
+        
+        public class MyInternalFrameListener extends InternalFrameAdapter
+        {
+            public void internalFrameClosing(InternalFrameEvent e) {
+                for(int i = 0; i<7; i++)
+                {
+                    if(e.getInternalFrame()==iframe[i])
+                    {
+                        iframe[i].setVisible(false);
+                        menubar.cmi[i].setState(false);
+                    }
+                }
+            }
+        }  
+        
+
+}
+
+
+/*class TxtFileFilter extends FileFilter 
+{
+	final static String txt = "txt";
+	public boolean accept(File f) {
+            if(f.isDirectory()) return true;
+            String s = f.getName();
+            int i = s.lastIndexOf('.');
+            
+            if(i > 0 &&  i < s.length() - 1) 
+            {
+                String extension = s.substring(i+1).toLowerCase();
+                if (txt.equals(extension) == true) 
+                return true;
+                else
+                return false;
+            }
+            return false;
+        }
+ */
+/*	public String getDescription() 
+        {
+            return "Text Files (*.txt)";
+	}
+*/
+
+
+ 

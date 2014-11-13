@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jsmoothproject>
+<JVMSearchPath>registry</JVMSearchPath>
+<JVMSearchPath>javahome</JVMSearchPath>
+<JVMSearchPath>jrepath</JVMSearchPath>
+<JVMSearchPath>jdkpath</JVMSearchPath>
+<JVMSearchPath>exepath</JVMSearchPath>
+<JVMSearchPath>jview</JVMSearchPath>
+<arguments></arguments>
+<classPath>jars\jcommon-1.0.0-rc1.jar</classPath>
+<classPath>jars\jfreechart-1.0.0-rc1.jar</classPath>
+<classPath>jars\mysql-connector-java-3.1.6-bin.jar</classPath>
+<classPath>jars\StammVerteilung.jar</classPath>
+<classPath>dist\Vis2006.jar</classPath>
+<classPath>jars\jdom.jar</classPath>
+<classPath>jars\ForestSimulator.jar</classPath>
+<classPath>jars\poi-3.5-beta5-20090219.jar</classPath>
+<classPath>jars\poi-contrib-3.5-beta5-20090219.jar</classPath>
+<classPath>jars\poi-ooxml-3.5-beta5-20090219.jar</classPath>
+<classPath>jars\poi-scratchpad-3.5-beta5-20090219.jar</classPath>
+<classPath>jars\itext-1.2.1.jar</classPath>
+<currentDirectory>.</currentDirectory>
+<embeddedJar>true</embeddedJar>
+<executableName>vis.exe</executableName>
+<iconLocation>vislogo.png</iconLocation>
+<initialMemoryHeap>-1</initialMemoryHeap>
+<jarLocation>dist\Vis2006.jar</jarLocation>
+<mainClassName>vis2006.Vis2006</mainClassName>
+<maximumMemoryHeap>536870912</maximumMemoryHeap>
+<maximumVersion></maximumVersion>
+<minimumVersion>1.5</minimumVersion>
+<skeletonName>Console Wrapper</skeletonName>
+<skeletonProperties>
+<key>Message</key>
+<value>Java has not been found on your computer. Do you want to download it?</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>PressKey</key>
+<value>0</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>Debug</key>
+<value>0</value>
+</skeletonProperties>
+</jsmoothproject>

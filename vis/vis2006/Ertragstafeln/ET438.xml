@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <?xml-stylesheet type="text/xsl" href="etafel.xsl"?>
+<Ertragstafel><Tafelname>Marilandica Pappel Nordbaden</Tafelname>
+<Baumart>Marilandica Pappel</Baumart>
+<LatinName>Populus</LatinName>
+<ArtCodeNds>438</ArtCodeNds>
+<Autor>Crocoll</Autor>
+<Jahr>1954</Jahr>
+<Quelle>Der Massenertrag von Pappelbeständen in der nordbadischen Rheinebene </Quelle>
+<Region>Nord Baden</Region>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 10</Alter><N>350</N><Hg>13.5</Hg><H100>0.0</H100><G>  7.2</G><Dg> 16.2</Dg><V>37</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>0</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>0</V_ausscheidend><iG>0.00</iG><iV> 0.0</iV><GWL>37</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 15</Alter><N>350</N><Hg>19.9</Hg><H100>0.0</H100><G> 12.9</G><Dg> 21.7</Dg><V>101</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>0</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>0</V_ausscheidend><iG>0.00</iG><iV>12.8</iV><GWL>101</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 20</Alter><N>242</N><Hg>23.9</Hg><H100>0.0</H100><G> 16.7</G><Dg> 29.6</Dg><V>158</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>108</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>10</V_ausscheidend><iG>0.00</iG><iV>13.4</iV><GWL>168</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 25</Alter><N>190</N><Hg>27.1</Hg><H100>0.0</H100><G> 20.0</G><Dg> 36.6</Dg><V>216</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>52</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>12</V_ausscheidend><iG>0.00</iG><iV>14.0</iV><GWL>238</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 30</Alter><N>158</N><Hg>29.7</Hg><H100>0.0</H100><G> 22.6</G><Dg> 42.7</Dg><V>273</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>32</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>22</V_ausscheidend><iG>0.00</iG><iV>15.8</iV><GWL>317</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 35</Alter><N>133</N><Hg>31.8</Hg><H100>0.0</H100><G> 24.2</G><Dg> 48.1</Dg><V>318</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>25</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>40</V_ausscheidend><iG>0.00</iG><iV>17.0</iV><GWL>402</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 40</Alter><N>112</N><Hg>33.4</Hg><H100>0.0</H100><G> 25.2</G><Dg> 53.5</Dg><V>352</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>21</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>48</V_ausscheidend><iG>0.00</iG><iV>16.4</iV><GWL>484</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 45</Alter><N>95</N><Hg>34.7</Hg><H100>0.0</H100><G> 25.9</G><Dg> 58.9</Dg><V>381</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>17</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>46</V_ausscheidend><iG>0.00</iG><iV>15.0</iV><GWL>559</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 50</Alter><N>81</N><Hg>35.7</Hg><H100>0.0</H100><G> 26.4</G><Dg> 64.4</Dg><V>404</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>14</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>44</V_ausscheidend><iG>0.00</iG><iV>13.4</iV><GWL>626</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 55</Alter><N>70</N><Hg>36.4</Hg><H100>0.0</H100><G> 26.7</G><Dg> 69.7</Dg><V>420</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>11</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>42</V_ausscheidend><iG>0.00</iG><iV>11.6</iV><GWL>684</GWL></Zeile>
+<Zeile><Ertragsklasse>2</Ertragsklasse><Alter> 60</Alter><N>61</N><Hg>36.9</Hg><H100>0.0</H100><G> 26.9</G><Dg> 74.9</Dg><V>432</V><Hg_ausscheidend>    </Hg_ausscheidend><N_ausscheidend>9</N_ausscheidend><G_ausscheidend>    </G_ausscheidend><V_ausscheidend>39</V_ausscheidend><iG>0.00</iG><iV>10.2</iV><GWL>735</GWL></Zeile>
+</Ertragstafel>

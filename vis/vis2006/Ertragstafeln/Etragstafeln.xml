@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?> <?xml-stylesheet type="text/xsl" href="ertragstafelliste.xsl"?>
+<Ertragstafelliste>
+<Ertragstafel><Tafelname>Eiche maessige Durchforstung </Tafelname>
+<Baumart>Eiche</Baumart>
+<ArtCodeNds>111</ArtCodeNds>
+<Autor>Juettner</Autor>
+<Jahr>1955</Jahr>
+<Quelle>Juettner 1955</Quelle>
+<Datei>ET111.xml</Datei></Ertragstafel>
+<Ertragstafel><Tafelname>Buche maessige Durchforstung </Tafelname>
+<Baumart>Buche</Baumart>
+<ArtCodeNds>211</ArtCodeNds>
+<Autor>Schober</Autor>
+<Jahr>1971</Jahr>
+<Quelle>Die Rotbuche. J.D.Sauerlaender Frankfurt a.M.</Quelle>
+<Datei>ET211.xml</Datei></Ertragstafel>
+<Ertragstafel><Tafelname>Bergahorn  </Tafelname>
+<Baumart>Bergahorn</Baumart>
+<ArtCodeNds>321</ArtCodeNds>
+<Autor>Nagel</Autor>
+<Jahr>1985</Jahr>
+<Quelle>Dissertation Goettingen 1985</Quelle>
+<Datei>ET321.xml</Datei></Ertragstafel>
+<Ertragstafel><Tafelname>Esche maessige Durchforstung </Tafelname>
+<Baumart>Esche</Baumart>
+<ArtCodeNds>311</ArtCodeNds>
+<Autor>Volquardts</Autor>
+<Jahr>1958</Jahr>
+<Quelle>Dissertation Goettingen 1958</Quelle>
+<Datei>ET311.xml</Datei></Ertragstafel>
+<Ertragstafel><Tafelname>Roteiche </Tafelname>
+<Baumart>Roteiche</Baumart>
+<ArtCodeNds>113</ArtCodeNds>
+<Autor>Bauer</Autor>
+<Jahr>1955</Jahr>
+<Quelle>Die Roteiche. J.D.Sauerlaender,Frankfurt a.M.</Quelle>
+<Ertragstafel><Tafelname>Douglasien maessige Durchforstung mittleres Ertragsniveau </Tafelname>
+<Baumart>Douglasie</Baumart>
+<ArtCodeNds>611</ArtCodeNds>
+<Autor>Bergel</Autor>
+<Jahr>1985</Jahr>
+<Datei>ET113.xml</Datei></Ertragstafel>
+<Quelle>Douglasienertragstafel fuer Nordwestdeutschland, 1985</Quelle>
+<Datei>ET611.xml</Datei></Ertragstafel>
+<Ertragstafel><Tafelname>Fichtenertragstafel maessige Durchforstung </Tafelname>
+<Baumart>Fichte</Baumart>
+<ArtCodeNds>511</ArtCodeNds>
+<Autor>Wiedemann</Autor>
+<Jahr>1936/1942</Jahr>
+<Quelle>Eine Korrektur an der Fichtenertragstafel. Mitteilungen aus</Quelle>
+<Datei>ET511.xml</Datei></Ertragstafel>
+<Ertragstafel><Tafelname>Kiefer maessige Durchforstung </Tafelname>
+<Baumart>Kiefer</Baumart>
+<ArtCodeNds>711</ArtCodeNds>
+<Autor>Wiedemann</Autor>
+<Jahr>1943</Jahr>
+<Quelle>Die Kiefer. Schaper Hannover 1948</Quelle>
+<Datei>ET711.xml</Datei></Ertragstafel>
+<Ertragstafel><Tafelname>Europaeische Laerche maessige Durchforstung </Tafelname>
+<Baumart>Laerche</Baumart>
+<ArtCodeNds>811</ArtCodeNds>
+<Autor>Schober</Autor>
+<Jahr>1946</Jahr>
+<Quelle>Die Laerche. Schaper, Hannover 1949</Quelle>
+<Datei>ET811.xml</Datei></Ertragstafel>
+
+<Ertragstafel><Tafelname>Japan Laerche maessige Durchforstung </Tafelname>
+<Baumart>Japan Laerche</Baumart>
+<ArtCodeNds>812</ArtCodeNds>
+<Autor>Rusack</Autor>
+<Jahr>1972</Jahr>
+<Quelle>Dissertation Goettingen 1972</Quelle>
+<Datei>ET812.xml</Datei></Ertragstafel>
+
+</Ertragstafelliste>
