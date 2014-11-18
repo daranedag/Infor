@@ -292,23 +292,23 @@ public class SpeciesDefMap {
             String txt= st.sp[i].spDef.latinName;
             if (m > 1) txt = "<a href="+st.sp[i].spDef.latinName.substring(m+1,st.sp[i].spDef.latinName.length())+">"+st.sp[i].spDef.latinName.substring(0,m)+"</a>";
             out.println("<P><B>Baumart: "+st.sp[i].code+" "+st.sp[i].spDef.longName+"  "+txt+"</B>");
-            out.println("<BR>   Kronenbreite [m] = "+st.sp[i].spDef.crownwidthXML);
-            out.println("<BR>   Kronenansatz [m] = "+st.sp[i].spDef.crownbaseXML);
-            out.println("<BR>   Bonität      [m] = "+st.sp[i].spDef.siteindexXML);
-            out.println("<BR>   Potentielle Höhenzuwachs [%] = "+st.sp[i].spDef.potentialHeightIncrementXML);
-            out.println("<BR>   Höhenzuwachsmodulation [%] = "+st.sp[i].spDef.heightIncrementXML);
-            out.println("<BR>   Standardabweichung Höhenzuwachs [m] = "+(new Double(st.sp[i].spDef.heightIncrementError)).toString());
-            out.println("<BR>   Grundflächenzuwachs [cm²] = "+st.sp[i].spDef.diameterIncrementXML);
-            out.println("<BR>   Standardabweichung Grundflächenzuwachs [m²] = "+(new Double(st.sp[i].spDef.diameterIncrementError)).toString());
-            out.println("<BR>   Maximale Dichte [m²/ha] = "+st.sp[i].spDef.maximumDensityXML);
-            out.println("<BR>   Volumenfunktion [m³] = "+st.sp[i].spDef.volumeFunctionXML);
-            out.println("<BR>   Durchmesserverteilung : "+st.sp[i].spDef.diameterDistributionXML);
-            out.println("<BR>   Höhenkurvenfunktion = "+st.sp[i].spDef.heightCurve);
-            out.println("<BR>   Einheitshöhenkurve [m] = "+st.sp[i].spDef.uniformHeightCurveXML);
-            out.println("<BR>   Höhenkurvenvariation [m] = "+st.sp[i].spDef.heightVariationXML);
-            out.println("<BR>   Totholzzerfall [%] = "+st.sp[i].spDef.decayXML);
-            out.println("<BR>   Kronendarstellung = "+st.sp[i].spDef.crownType);
-            out.println("<BR>   Baumartenfarbe [RGB] = "+st.sp[i].spDef.colorXML);
+            out.println("<BR>   Kronenbreite [m] = "+st.sp[i].spDef.crownwidthXML);     //ancho de corona
+            out.println("<BR>   Kronenansatz [m] = "+st.sp[i].spDef.crownbaseXML);      //base de corona
+            out.println("<BR>   Bonität      [m] = "+st.sp[i].spDef.siteindexXML);      //solvencia
+            out.println("<BR>   Potentielle Höhenzuwachs [%] = "+st.sp[i].spDef.potentialHeightIncrementXML);   //potencial incremento de altura
+            out.println("<BR>   Höhenzuwachsmodulation [%] = "+st.sp[i].spDef.heightIncrementXML);  // porcentaje de incremento de altura
+            out.println("<BR>   Standardabweichung Höhenzuwachs [m] = "+(new Double(st.sp[i].spDef.heightIncrementError)).toString());  //desviación estandar de la altura
+            out.println("<BR>   Grundflächenzuwachs [cm²] = "+st.sp[i].spDef.diameterIncrementXML); // incremento en área basal
+            out.println("<BR>   Standardabweichung Grundflächenzuwachs [m²] = "+(new Double(st.sp[i].spDef.diameterIncrementError)).toString()); //desviación estandar del incremento en área basal
+            out.println("<BR>   Maximale Dichte [m²/ha] = "+st.sp[i].spDef.maximumDensityXML);  //densidad máxima
+            out.println("<BR>   Volumenfunktion [m³] = "+st.sp[i].spDef.volumeFunctionXML);     // función del volumen
+            out.println("<BR>   Durchmesserverteilung : "+st.sp[i].spDef.diameterDistributionXML);  // Distribución del diametro
+            out.println("<BR>   Höhenkurvenfunktion = "+st.sp[i].spDef.heightCurve);    // función de la curva alta
+            out.println("<BR>   Einheitshöhenkurve [m] = "+st.sp[i].spDef.uniformHeightCurveXML);   //uniformidad de la curva alta
+            out.println("<BR>   Höhenkurvenvariation [m] = "+st.sp[i].spDef.heightVariationXML);    // variación de la curva alta
+            out.println("<BR>   Totholzzerfall [%] = "+st.sp[i].spDef.decayXML);        // decaimiento
+            out.println("<BR>   Kronendarstellung = "+st.sp[i].spDef.crownType);    //tipo de corona, representación de la corona
+            out.println("<BR>   Baumartenfarbe [RGB] = "+st.sp[i].spDef.colorXML);  // colores de la especia del árbol
         }
 	out.println("</TABLE>");
 	out.println("<br>"+"created by ForestSimulatorBWINPro "+st.modelRegion+"</br></HTML>");
@@ -331,7 +331,7 @@ public class SpeciesDefMap {
         if (sd.latinName.indexOf("http") > -1) mm = sd.latinName.indexOf("http")-1;
         String txt= sd.latinName;
         if(mm > 1) txt = "<a href="+sd.latinName.substring(mm+1,sd.latinName.length())+">"+sd.latinName.substring(0,mm)+"</a>";
-        out.println("<BR>Baumart: "+sd.code+" "+sd.shortName+" "+sd.longName+"  "+txt+"");         
+        out.println("<BR>Baumart: "+sd.code+" "+sd.shortName+" "+sd.longName+"  "+txt+"");     // especie de árbol    
         out.println("</P></TABLE>"); 
 	out.println("<br>"+"created by ForestSimulatorBWINPro </br></HTML>"); 
 	out.close();    

@@ -109,13 +109,13 @@ public class HeightCurve
         public String getHeightCurveName(int number)
 	{ 
             numberOfFunctions=6;
-            String name="nicht gefunden";
-            if (number ==0) name= "0=Parabolic";
-            if (number ==1) name= "1=Prodan";
-            if (number ==2) name= "2=Petterson 3.0";
-            if (number ==3) name= "3=Korsun";
-            if (number ==4) name= "4=logarithmic";
-            if (number ==5) name= "5=Freese";
+            String name="nicht gefunden";  			//no encontrado
+            if (number ==0) name= "0=Parabolic";  	//0=Parabólico
+            if (number ==1) name= "1=Prodan";		//1=Prodan
+            if (number ==2) name= "2=Petterson 3.0";//2=Petterson 3.0
+            if (number ==3) name= "3=Korsun";		//3=Korsun
+            if (number ==4) name= "4=logarithmic";	//4=logaritmico
+            if (number ==5) name= "5=Freese";		//5=Freese
             return name;
 	}
 

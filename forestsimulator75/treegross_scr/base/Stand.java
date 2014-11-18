@@ -614,11 +614,11 @@ public class Stand implements Cloneable {
         
         if (nspecies>0 && naturalIngrowth==true){
             try {
-               String modelPlugIn="treegross.base."+sp[0].spDef.ingrowthXML;  
-               PlugInIngrowth ig = (PlugInIngrowth)Class.forName(modelPlugIn).newInstance();  
-               int ch = ig.checkSpecies(this);
+                String modelPlugIn="treegross.base."+sp[0].spDef.ingrowthXML;  
+                PlugInIngrowth ig = (PlugInIngrowth)Class.forName(modelPlugIn).newInstance();  
+                int ch = ig.checkSpecies(this);
                 if(ch > 0) JOptionPane.showMessageDialog(null,ch+" Baumart nicht in der Einwuchsroutine enthalten","InGrowth",JOptionPane.ERROR_MESSAGE);
-
+                                                                //especie de árbol no contenida en la rutina de crecimiento interno
 
                ig.predictIngrowth(this);    
                descspecies();         // new spcies description, dl00, h100 etc.

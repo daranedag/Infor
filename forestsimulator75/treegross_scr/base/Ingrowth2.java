@@ -28,7 +28,7 @@ package treegross.base;
 
 
 public class Ingrowth2 implements PlugInIngrowth {
-      String igModelName="Einwuchs Nordwestdeutschland";
+      String igModelName="Einwuchs Nordwestdeutschland"; //Crecimiento interno del Noroeste Alemán
       double p0,p1,p2,p3,p4 ;
       double heightNew;
       int ageNew=0;
@@ -732,16 +732,16 @@ public class Ingrowth2 implements PlugInIngrowth {
             }
         }
     }
-    // Vergasung für s Hessische Ried
+    // Vergasung für s Hessische Ried    --  Encespedado para s Hessiche Ried
     public double traubenkirsche(Stand st,int dominantSpecies, double c66kl){
         int ngrass = 0;
         if (c66kl< 1.0 && dominantSpecies != 2) {
           int ntr =0;
           for (int i=0; i < st.ntrees;i++)
               if (st.tr[i].code==452 && st.tr[i].out < 0) ntr=ntr+1;
-// keine Traubenkirsche vorhanden 2% Wahrscheinlichkeit
+// keine Traubenkirsche vorhanden 2% Wahrscheinlichkeit     -- sin cerezas disponibles en 2% probablemente
           if (ntr == 0) { if (Math.random() < 0.02) ntr=1 ;}
-// Traubenkirsche vorhanden 5 % Wahrscheinlickeit
+// Traubenkirsche vorhanden 5 % Wahrscheinlichkeit          -- cerezas disponibles en 5% probablemente
             else { ntr =0; if (Math.random() < 0.05) ntr=1 ;
             }
           for (int i=0;i< ntr;i++){
@@ -756,7 +756,7 @@ public class Ingrowth2 implements PlugInIngrowth {
 
         return c66kl;
     };
-    // Vergasung für s Hessische Ried
+    // Vergasung für s Hessische Ried       -- Encespedado  Sobrecarga
     public double vergrasung(Stand st,int dominantSpecies, double c66kl){
         int ngrass = 0;
         if (c66kl>=0.0 && c66kl< 0.2) ngrass=50;

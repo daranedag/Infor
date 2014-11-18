@@ -77,40 +77,55 @@ public class DataExchangeFormat {
             out.println(st.trule.maxOutVolume+";´Máximo volumen de muestreo (Cosecha+Adelgazamiento)");
             out.println(st.trule.standType+";StandType");
             out.println(st.trule.targetType+";TargetType");
-            out.println(st.trule.nHabitat+";Anzahl der Habitatbäume");
-            out.println(st.trule.treatmentStep+";Jahre zwischen den Eingriffen");
-            out.println(st.trule.harvestingYears+";Endnutzung startete vor x Jahren");
-            out.println(st.trule.maxHarvestingPeriode+";Endnutzungszeitraum maximal X Jahre");
+            out.println(st.trule.nHabitat+";Número de árboles del habitat");
+            out.println(st.trule.treatmentStep+";Años entre intervenciones");
+            out.println(st.trule.harvestingYears+";Endnutzung startete vor x Jahren");  //Uso final iniciado hace x años???  
+            out.println(st.trule.maxHarvestingPeriode+";Endnutzungszeitraum maximal X Jahre"); //Máximo periodo de uso final por año ???
             if (st.trule.harvestLayerFromBelow==true){pm=1;}
-            out.println(pm+";1-> Endnutzung einer zielstarken schicht von unten, 0-> Endnutzung einer zielstarken schicht von oben"); 
+            out.println(pm+";1-> Endnutzung einer zielstarken schicht von unten, 0-> Endnutzung einer zielstarken schicht von oben");
+            // 1-> Uso final de una fuerte capa interior , 0-> Uso final de una fuerte capa superior
             if (st.trule.selectCropTrees==true){pm=1;}
-            out.println(pm+";1-> Z-Baumauswahl an, 0-> Z-Baumauswahl aus");             
+            out.println(pm+";1-> Z-Baumauswahl an, 0-> Z-Baumauswahl aus");
+            // 1-> Z-Seleccion del arbol de, 0-> Z-Seleccion del arbol por
             if (st.trule.reselectCropTrees==true){pm=1;}
-            out.println(pm+";1-> Z-Baumnachwahl an, 0-> Z-Baumnachauswahl aus");       
+            out.println(pm+";1-> Z-Baumnachwahl an, 0-> Z-Baumnachauswahl aus");
+            // 1.- Z-Eleccion del arbol de 0-> Z-Eleccion del arbol por       
             if (st.trule.selectCropTreesOfAllSpecies==true){pm=1;}
             out.println(pm+";1-> Z-Bäume auch von Arten, die nicht dem Zieltyp entsprechen, 0-> Z-Bäume nur von Arten, die dem Zieltyp entsprechen"); 
+            // 1-> Z-Arboles por especie que no cumplen con el tipo de fondo (destino), 0-> Z-Arboles por especia que cumplen con el tipo de fondo(destino) 
             if (st.trule.releaseCropTrees==true){pm=1;}
-            out.println(pm+";1-> Z-Baumfreistellung an, 0-> Z-Baumfreistellung aus"); 
+            out.println(pm+";1-> Z-Baumfreistellung an, 0-> Z-Baumfreistellung aus");
+            // 1-> Z-Rebaje del arbol de, 0-> Z-Rebaje del arbol por 
             if (st.trule.releaseCropTreesSpeciesDependent==true){pm=1;}
             out.println(pm+";1-> Z-Baumfreistellung entsprechend des Zieltyps, 0-> Z-Baumfreistellung entsprechend der Bedrängungssituation"); 
+            // 1-> Z-Rebaje del arbol cumple con el tipo de fondo (destino),  0-> Z-Rebaje del arbol cumple con situación de opresión
             if (st.trule.cutCompetingCropTrees==true){pm=1;}
-            out.println(pm+";1-> Entnahme von sich bedrängenden Z-Bäumen, 0-> keine Entnahme von sich bedrängenden Z-Bäumen");       
+            out.println(pm+";1-> Entnahme von sich bedrängenden Z-Bäumen, 0-> keine Entnahme von sich bedrängenden Z-Bäumen");   
+            // 1-> Remoción de arboles auto asediados, 0-> No Remoción de árboles auto asediados    
             if (st.trule.thinArea==true){pm=1;}
-            out.println(pm+";1-> Durchforstung der Zwischenräume an, 0-> Durchforstung der Zwischenräume aus"); 
+            out.println(pm+";1-> Durchforstung der Zwischenräume an, 0-> Durchforstung der Zwischenräume aus");
+            // 1-> Adelgazamiento de las brechas en, 0-> Adelgazamiento de las brechas de 
             if (st.trule.thinAreaSpeciesDependent==true){pm=1;}
             out.println(pm+";1-> Durchforstung der Zwischenräume entsprechend des Zieltyps an, 0-> Durchforstung der Zwischenräume entsprechend der Bedrängungssituation"); 
+            // 1-> Adelgazamiento de las brechas que cumplen con el tipo de fondo (destino) en, 0-> Adelgazamiento de las brechas que cumplen con situación de opresión
             out.println(st.trule.thinningIntensityArea+";Freistellungsgrad der Zwischenräume");
+            // grado de rebaje de la brecha
             out.println(st.trule.typeOfHarvest+";Art der Endnutzung (0=Zielstärke, 1=Dg, 2=Alter");
+            // tipo de uso final (0=Fortalezas, 1=Dg, 2=Edad)
             out.println(st.trule.lastTreatment+";Die letzte Maßnahme wurde im Jahr X ausgeführt");
+            // La ultima medida será tomada en el año X
             if (st.trule.selectHabiatPart==true){pm=1;}            
-            out.println(pm+"; für eine Resthabitatbaumanzahl <0 wird ein weiterer Habitatbaum selektiert");          
+            out.println(pm+"; für eine Resthabitatbaumanzahl <0 wird ein weiterer Habitatbaum selektiert");
+            // para un numero de árboles del habitat <0  se seleccionara otro arbol como habitat          
             if (st.trule.protectMinorities==true){pm=1;}
             out.println(pm+";Schutz von Minderheiten");
+            // Proteccion de las minorías
 
 
             //Save treatment options for target main and secondary species
             // Sort species that the species with highest Targetpercent will be first
             out.println(st.nspecies+";Anzahl Arten");
+            // Numero de especies
             Species sptemp = new Species();
             for (int a=0;a<st.nspecies-1;a++){
                 for (int b=a+1;b<st.nspecies;b++){
@@ -123,16 +138,16 @@ public class DataExchangeFormat {
             }      
             
             for (int n=0;n<st.nspecies;n++){
-                out.println(st.sp[n].code+";Baumart "+n);              
-                out.println(st.sp[n].trule.thinningIntensity+";Freistellungsgrad Baumart "+n);
-                out.println(st.sp[n].trule.targetDiameter+";Zieldurchmesser Baumart "+n);  
-                out.println(st.sp[n].trule.targetDiameterLayer+";Zieldurchmesser Baumschicht "+n);    
-                out.println(st.sp[n].trule.targetAgeLayer+";Zielalter Baumschicht "+n); 
-                out.println(st.sp[n].trule.targetCrownPercent+";Zielprozent Baumart "+n);
-                out.println(st.sp[n].trule.minCropTreeHeight+";Mindesthöhe Durchforstung Baumart "+n);
-                out.println(st.sp[n].trule.maxAge+";Maximales Alter Baumart "+n);   
-                out.println(st.sp[n].trule.numberCropTreesWanted+";Anzahl Z-Bäume/ha"+n); 
-                out.println(st.sp[n].trule.targetRang+";Rang der Art im Zielbestand"+n); 
+                out.println(st.sp[n].code+";Baumart "+n);  //Especie de árbol     
+                out.println(st.sp[n].trule.thinningIntensity+";Freistellungsgrad Baumart "+n);  //Grado de rebaje de la especie del árbol
+                out.println(st.sp[n].trule.targetDiameter+";Zieldurchmesser Baumart "+n);  //Diametro de la especia del árbol
+                out.println(st.sp[n].trule.targetDiameterLayer+";Zieldurchmesser Baumschicht "+n); //Diametro de la capa del árbol
+                out.println(st.sp[n].trule.targetAgeLayer+";Zielalter Baumschicht "+n); //Edad de la capa del árbol
+                out.println(st.sp[n].trule.targetCrownPercent+";Zielprozent Baumart "+n); //Porcentaje objetivo de la especie de árbol
+                out.println(st.sp[n].trule.minCropTreeHeight+";Mindesthöhe Durchforstung Baumart "+n); //Altura mínima de adelgazamiento de la especia de árbol
+                out.println(st.sp[n].trule.maxAge+";Maximales Alter Baumart "+n);  // Edad máxima de la especie de árbol
+                out.println(st.sp[n].trule.numberCropTreesWanted+";Anzahl Z-Bäume/ha"+n);  // Número de arboles por hectárea
+                out.println(st.sp[n].trule.targetRang+";Rang der Art im Zielbestand"+n);  // Rango de especie en valor objetivo
             }
             out.println("Code;N;No;Age;DBH;Height;Site index;Crown Base;Crown width;alive;"+
             "Removal Code;x-Coord.;y-Coord.;z-Coord.;Crop tree; Temp Crop tree, Habitat tree");
