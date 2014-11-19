@@ -83,17 +83,17 @@ public double barkreduce(int funNo,double D)
 {
   double bark=0.0;
   {
-  if (funNo==0) {bark= 2.61029+0.28522*D;}                  //Rotbuche
-  if (funNo==1) {bark=10.18342+0.68997*D;}                  //Eiche,Stieleiche
-  if (funNo==2) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte
-  if (funNo==3) {bark=-2.13785+0.91597*D-0.00375*D*D;}      //Baumartengruppe Kiefer
-  if (funNo==4) {bark= 1.59099+0.50146*D;}                   //Baumartengruppe Douglasie
-  if (funNo==5) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte
-/*  if ((spcode>=500) && (spcode<=511)) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte
-  if ((spcode>=513) && (spcode<=519)) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte
-  if (spcode==512)                   {bark= 0.05167+0.81782*D-0.00968*D*D;}      //Sitkafichte
-  if ((spcode>=520) && (spcode<=550)) {bark= 1.76896+0.59175*D;}                  //Baumartengruppe Tanne
-  if ((spcode>=552) && (spcode<=599)) {bark= 1.76896+0.59175*D;}                  //Baumartengruppe Tanne
+  if (funNo==0) {bark= 2.61029+0.28522*D;}                  //Rotbuche                      Haya
+  if (funNo==1) {bark=10.18342+0.68997*D;}                  //Eiche,Stieleiche              Roble, Roble Inglés
+  if (funNo==2) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte        Abeto y especies agrupadas
+  if (funNo==3) {bark=-2.13785+0.91597*D-0.00375*D*D;}      //Baumartengruppe Kiefer        Pino y especies agrupadas
+  if (funNo==4) {bark= 1.59099+0.50146*D;}                   //Baumartengruppe Douglasie    Abeto de douglas y especies agrupadas
+  if (funNo==5) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte        Abeto y especies agrupadas
+/*  if ((spcode>=500) && (spcode<=511)) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte      Abeto y especies agrupadas
+  if ((spcode>=513) && (spcode<=519)) {bark= 0.85149+0.60934*D-0.00228*D*D;}      //Baumartengruppe Fichte        Abeto y especies agrupadas
+  if (spcode==512)                   {bark= 0.05167+0.81782*D-0.00968*D*D;}      //Sitkafichte                    Abeto Sitka
+  if ((spcode>=520) && (spcode<=550)) {bark= 1.76896+0.59175*D;}                  //Baumartengruppe Tanne         Abeto y especies agrupadas
+  if ((spcode>=552) && (spcode<=599)) {bark= 1.76896+0.59175*D;}                  //Baumartengruppe Tanne         Abeto y especies agrupadas
   if (spcode==551)                   {bark=-2.13785+0.91597*D-0.00375*D*D;}
   if ((spcode>=600) && (spcode<=699)) {bark=-2.13785+0.91597*D-0.00375*D*D;}
   if ((spcode>=700) && (spcode<=711)) {bark= 1.59099+0.50146*D;}
@@ -104,40 +104,40 @@ public double barkreduce(int funNo,double D)
   if ((spcode>=800) && (spcode<=811)) {bark= 3.58012+1.03147*D;}
   if ((spcode>=813) && (spcode<=899)) {bark= 3.58012+1.03147*D;}
   if (spcode==812)                    {bark=-3.77073+1.29960*D;}
-                                                                                 //Ende Nadelholz
-  if ((spcode>=110) && (spcode<=111)) {bark=10.18342+0.68997*D;}                  //Eiche,Stieleiche
-  if (spcode==112)                    {bark=14.31589+0.72699*D;}                  //Traubeneiche
-  if (spcode==441)                    {bark=14.31589+0.72699*D;}                  //Weide
-  if (spcode==113)                    {bark=-3.19581+0.93891*D-0.00596*D*D;}      //Roteiche
-  if (spcode==211)                    {bark= 2.61029+0.28522*D;}                  //Rotbuche
-  if (spcode==221)                    {bark= 7.47159+0.20957*D;}                  //Hainbuche
-  if (spcode==311)                    {bark=-7.97623+1.40182*D-0.01011*D*D;}      //Esche
-  if (spcode==321)                    {bark=-0.62466+0.73312*D-0.00482*D*D;}      //Bergahorn
-  if (spcode==322)                    {bark= 7.43957+0.43244*D;}                  //Spitzahorn
-  if ((spcode>=330) && (spcode<=331)) {bark= 8.26574+0.89505*D;}                  //Bergulme,Ulmen
-  if ((spcode>=340) && (spcode<=342)) {bark= 1.39565+0.65024*D;}                  //Linden
-  if ((spcode>=351) && (spcode<=353)) {bark=-2.57381+1.69622*D;}                  //Robinie,Esskastanie,Nuss
-  if (spcode==442)                   {bark=-2.57381+1.69622*D;}                  //Rosskastanie               
-  if ((spcode>=354) && (spcode<=356)) {bark= 4.05603+0.58080*D;}                  //Kirsche,(Wildapfel,Wildbirne,Speierling,                               
+                                                                                 //Ende Nadelholz         Fin madera blanda
+  if ((spcode>=110) && (spcode<=111)) {bark=10.18342+0.68997*D;}                  //Eiche,Stieleiche      Roble
+  if (spcode==112)                    {bark=14.31589+0.72699*D;}                  //Traubeneiche          Roble albar
+  if (spcode==441)                    {bark=14.31589+0.72699*D;}                  //Weide                 Sauce
+  if (spcode==113)                    {bark=-3.19581+0.93891*D-0.00596*D*D;}      //Roteiche              Roble rojo
+  if (spcode==211)                    {bark= 2.61029+0.28522*D;}                  //Rotbuche              Haya
+  if (spcode==221)                    {bark= 7.47159+0.20957*D;}                  //Hainbuche             Carpe
+  if (spcode==311)                    {bark=-7.97623+1.40182*D-0.01011*D*D;}      //Esche                 Fresno
+  if (spcode==321)                    {bark=-0.62466+0.73312*D-0.00482*D*D;}      //Bergahorn             Sicomoro
+  if (spcode==322)                    {bark= 7.43957+0.43244*D;}                  //Spitzahorn            Arce
+  if ((spcode>=330) && (spcode<=331)) {bark= 8.26574+0.89505*D;}                  //Bergulme,Ulmen        Olmo
+  if ((spcode>=340) && (spcode<=342)) {bark= 1.39565+0.65024*D;}                  //Linden                Tilo
+  if ((spcode>=351) && (spcode<=353)) {bark=-2.57381+1.69622*D;}                  //Robinie,Esskastanie,Nuss   Locust, castaño, nogal
+  if (spcode==442)                   {bark=-2.57381+1.69622*D;}                  //Rosskastanie            Buckeye, castaño de indias
+  if ((spcode>=354) && (spcode<=356)) {bark= 4.05603+0.58080*D;}                  //Kirsche,(Wildapfel,Wildbirne,Speierling,         Cereza                      
   if ((spcode>=358) && (spcode<=359)) {bark= 4.05603+0.58080*D;}                  //...
   if ((spcode>=364) && (spcode<=365)) {bark= 4.05603+0.58080*D;}                  //...
-  if ((spcode>=451) && (spcode<=452)) {bark= 4.05603+0.58080*D;}                  // Mehlbeere,Mispel,Wildzwetschge,Eberesche,Spätbl.Traubenkir.  
-  if (spcode==323)                   {bark= 1.63138+0.78958*D;}                  //Feldahorn
-  if ((spcode>=410) && (spcode<=413)) {bark= 1.63138+0.78958*D;}                  //Birke,Sandbirke,Moorbirke,(Japanische Birke)                              
-  if (spcode==357)                   {bark=-1.26961+1.21661*D-0.00624*D*D;}      //Elsbeere
-  if ((spcode>=361) && (spcode<=363)) {bark=-1.26961+1.21661*D-0.00624*D*D;}      //Tulpenbaum,Hickory,Platane
-  if ((spcode>=432) && (spcode<=434)) {bark=-1.26961+1.21661*D-0.00624*D*D;}      //Pappeln
-  if ((spcode>=421) && (spcode<=423)) {bark= 8.05239+0.84910*D;}                  //Erlen                                 
-  if (spcode==431)                   {bark= 9.88855+0.56734*D;}                  //Aspe,
-  if ((spcode>=332) && (spcode<=333)) {bark= 9.88855+0.56734*D;}                  //Flatterulme,Feldulme
+  if ((spcode>=451) && (spcode<=452)) {bark= 4.05603+0.58080*D;}                  // Mehlbeere,Mispel,Wildzwetschge,Eberesche,Spätbl.Traubenkir.        Mostajo, níspero, ciruela silvestre, fresno de montaña, cerezo negro 
+  if (spcode==323)                   {bark= 1.63138+0.78958*D;}                  //Feldahorn            Arce silvestre
+  if ((spcode>=410) && (spcode<=413)) {bark= 1.63138+0.78958*D;}                  //Birke,Sandbirke,Moorbirke,(Japanische Birke)              Abedul, abedul, abedul pubescente, (abedul japonés)                          
+  if (spcode==357)                   {bark=-1.26961+1.21661*D-0.00624*D*D;}      //Elsbeere           Sorbo silvestre 
+  if ((spcode>=361) && (spcode<=363)) {bark=-1.26961+1.21661*D-0.00624*D*D;}      //Tulpenbaum,Hickory,Platane        Árbol de tulipán, nogal, sicomoro
+  if ((spcode>=432) && (spcode<=434)) {bark=-1.26961+1.21661*D-0.00624*D*D;}      //Pappeln                           Álamos
+  if ((spcode>=421) && (spcode<=423)) {bark= 8.05239+0.84910*D;}                  //Erlen                             Aliso    
+  if (spcode==431)                   {bark= 9.88855+0.56734*D;}                  //Aspe,                            ???
+  if ((spcode>=332) && (spcode<=333)) {bark= 9.88855+0.56734*D;}                  //Flatterulme,Feldulme            Olmo blanco, Olmo
  **/
-  }                                                                              //Ende Laubholz
+  }                                                                              //Ende Laubholz        Fin madera dura
   bark=bark/10.0;
   return bark;
 } // end barkreduce
 
 /** finds the diameter at a given height */
-public double getDiameterEst(int funNo,double dbh,double height,double h,int barkindex,int sortindex)      //Berechnet Schaftradius bei gegebener stemheight h
+public double getDiameterEst(int funNo,double dbh,double height,double h,int barkindex,int sortindex)      //Berechnet Schaftradius bei gegebener stemheight h      Radio del eje calculado a una altura h del tallo/tronco dada
                                                                                                   //bei Rindabindex=1 wird die doppelte Rindenstärke vom Durchmesser abgezogen, als Eingangsvariable für die Berechnung der doppelten Rindenstärke wird der abgerundete Schaftdurchmesser benötigt                                                                                                 
                                                                                                   //bei Forstindex=1 wird der Schaftdurchmesser mit Rinde auf ganze cm abgerundet
 { double u,v,w,i;
