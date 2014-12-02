@@ -137,15 +137,15 @@ public double barkreduce(int funNo,double D)
 } // end barkreduce
 
 /** finds the diameter at a given height */
-public double getDiameterEst(int funNo,double dbh,double height,double h,int barkindex,int sortindex)      //Berechnet Schaftradius bei gegebener stemheight h      Radio del eje calculado a una altura h del tallo/tronco dada
-                                                                                                  //bei Rindabindex=1 wird die doppelte Rindenstärke vom Durchmesser abgezogen, als Eingangsvariable für die Berechnung der doppelten Rindenstärke wird der abgerundete Schaftdurchmesser benötigt                                                                                                 
-                                                                                                  //bei Forstindex=1 wird der Schaftdurchmesser mit Rinde auf ganze cm abgerundet
+public double getDiameterEst(int funNo,double dbh,double height,double h,int barkindex,int sortindex)      //Berechnet Schaftradius bei gegebener stemheight h      Radio del eje calculado  dada una altura h del tallo/tronco
+                                                                                                  //bei Rindabindex=1 wird die doppelte Rindenstärke vom Durchmesser abgezogen, als Eingangsvariable für die Berechnung der doppelten Rindenstärke wird der abgerundete Schaftdurchmesser benötigt    en Rindabindex = 1 el espesor doble corteza se resta del diámetro, como variable de entrada para el cálculo del espesor de la corteza del diámetro del vástago redondeado doble se requiere                                                                                             
+                                                                                                  //bei Forstindex=1 wird der Schaftdurchmesser mit Rinde auf ganze cm abgerundet  en Forstindex=1 se redondeará el diametro del eje con corteza al cm 
 { double u,v,w,i;
   double alpha,beta,Hilfsheight,diameter;  
   int testa0;diameter=0.0;
 //  System.out.println(dbh+" "+height+"  "+spcode);   
 
-  loadParameter(funNo);                                                                          //damit h im Procedurkopf [0,1] eingegeben werden kann
+  loadParameter(funNo);                                                                          //damit h im Procedurkopf [0,1] eingegeben werden kann  para que a altura h entre 0 y 1 pueda entrar
   h=h;
 //  System.out.println(dbh+" "+height);   
 
@@ -180,16 +180,16 @@ public double getDiameterEst(int funNo,double dbh,double height,double h,int bar
 
     testa0=(int)(Math.round(a[0]*10.0));  
    // System.out.println(dbh+" "+testa0);   
-                                                                     //über den gerundeten Koeffizienten a0 wird die Baumartengruppe ermittelt
-    if ((testa0==-2) && ((height/dbh)>=0.5585457+1.451182*Math.exp(Math.log(dbh)*(-0.03046118*dbh))))        //9.10.01;Extremfälle für Fichtenkodierte abfangen
-       {Hilfsheight=height;}                                                                     //Überprüfung ob der h/d-wert im Extrapolationsbereich bezüglich eines dbh und Baumarten spezifischen h/d-Wertes liegt
-    else if ((testa0==-2) && ((height/dbh)<0.5585457+1.451182*Math.exp(Math.log(dbh)*(-0.03046118*dbh))))    //falls im Extrapolationsbereich wird für die Berechnung der formbeschreibenden Koeffizienten alpha und beta eine Hilfsheight verwendet, die aus dem dbh und dem zugehörigen Grenz h/d-Wert resultiert
+                                                                     //über den gerundeten Koeffizienten a0 wird die Baumartengruppe ermittelt   sobre los coeficientes a0 redondeados se determinará el grupo de especies
+    if ((testa0==-2) && ((height/dbh)>=0.5585457+1.451182*Math.exp(Math.log(dbh)*(-0.03046118*dbh))))        //9.10.01;Extremfälle für Fichtenkodierte abfangen  Casos extremos de intercepción para codificado abeto
+       {Hilfsheight=height;}                                                                     //Überprüfung ob der h/d-wert im Extrapolationsbereich bezüglich eines dbh und Baumarten spezifischen h/d-Wertes liegt       Comprobación si el valor h/d está en la extrapolación con respecto a un dbh y especies especificas con valores h/d
+    else if ((testa0==-2) && ((height/dbh)<0.5585457+1.451182*Math.exp(Math.log(dbh)*(-0.03046118*dbh))))    //falls im Extrapolationsbereich wird für die Berechnung der formbeschreibenden Koeffizienten alpha und beta eine Hilfsheight verwendet, die aus dem dbh und dem zugehörigen Grenz h/d-Wert resultiert     Si la extrapolación se utiliza para el calculo de los coeficientes alpha y beta de una altura auxiliar, que resulta de la asociación del dbh y su correspondiente limite del valor h/d.
        {Hilfsheight=(0.5585457+1.451182*Math.exp(Math.log(dbh)*(-0.03046118*dbh)))*dbh;}
-    else if ((testa0==-6) && ((height/dbh)>=0.5548092+0.3495206*Math.exp(Math.log(dbh)*(-0.06206942*dbh))))  //9.10.01;Extremfälle für Douglasie abfangen
+    else if ((testa0==-6) && ((height/dbh)>=0.5548092+0.3495206*Math.exp(Math.log(dbh)*(-0.06206942*dbh))))  //9.10.01;Extremfälle für Douglasie abfangen  Casos extremos de abeto Douglas
        {Hilfsheight=height;}
     else if ((testa0==-6) && ((height/dbh)<0.5548092+0.3495206*Math.exp(Math.log(dbh)*(-0.06206942*dbh))))
        {Hilfsheight=(0.5548092+0.3495206*Math.exp(Math.log(dbh)*(-0.06206942*dbh)))*dbh;}
-    else if ((testa0==-17) && ((height/dbh)>=0.4276964+0.9883941*Math.exp(Math.log(dbh)*(-0.02910625*dbh)))) //9.10.01;Extremfälle Kiefernkodierte abfangen
+    else if ((testa0==-17) && ((height/dbh)>=0.4276964+0.9883941*Math.exp(Math.log(dbh)*(-0.02910625*dbh)))) //9.10.01;Extremfälle Kiefernkodierte abfangen  Casos extremos pino
        {Hilfsheight=height;}
     else if ((testa0==-17) && ((height/dbh)<0.4276964+0.9883941*Math.exp(Math.log(dbh)*(-0.02910625*dbh))))
        {Hilfsheight=(0.4276964+0.9883941*Math.exp(Math.log(dbh)*(-0.02910625*dbh)))*dbh;}
@@ -199,7 +199,7 @@ public double getDiameterEst(int funNo,double dbh,double height,double h,int bar
 //    System.out.println(alpha+" alpha u. beta "+beta+" "+Hilfsheight);   
     if (sortindex==1)
     {
-      diameter=(int)(2.0*(alpha*(1.0-Math.exp(Math.log(h/height)*3))+beta*Math.log(h/height)));                        //für die Berechnung der Schaftdurchmesser wird selbstverständlich die richtige Höhe verwendet
+      diameter=(int)(2.0*(alpha*(1.0-Math.exp(Math.log(h/height)*3))+beta*Math.log(h/height)));                        //für die Berechnung der Schaftdurchmesser wird selbstverständlich die richtige Höhe verwendet    para el calculo del diametro se utilizará la altura mas obviamente correcta
       if (barkindex==1)
       {
         diameter=(int)((2.0*(alpha*(1.0-Math.exp(Math.log(h/height)*3.0))+beta*Math.log(h/height))))-
@@ -231,28 +231,28 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
   loadParameter(funNo);
   h = new double[1000];
   testDurchmesser1=150;
-  double Length=0;                                         //Startabstand zwischen Vorgabe schaftd und imaginärem Schaftdurchmesser}
+  double Length=0;                                         //Startabstand zwischen Vorgabe schaftd und imaginärem Schaftdurchmesser}    Distancia inicial entre set schaftd y diametro del eje imaginario
   if (hardwood==true)
   {
     i=a[0]*dbh/2;
     u=i/(1-Math.exp(a[2]*(1.3-height)))+(dbh/2-i)*(1-1/(1-Math.exp(a[1]*(1.3-height))));
     v=(dbh/2-i)*Math.exp(a[1]*1.3)/(1-Math.exp(a[1]*(1.3-height)));
     w=i*Math.exp(-a[2]*height)/(1-Math.exp(a[2]*(1.3-height)));
-    for (j=1;j<=500;j++)                                           //Schrittweite ist 10cm, Maximalhöhe, die getestet wird, ist 50 m}
+    for (j=1;j<=500;j++)                                           //Schrittweite ist 10cm, Maximalhöhe, die getestet wird, ist 50 m}       Incremento es de 10 cm, Altura maxima, que será probada es de 50 m
     {
       h[j]=j/10;
       if (h[j]<height) 
       {
-        Durchmesser=2*(u+v*Math.exp(-a[1]*h[j])-w*Math.exp(a[2]*h[j]));   //Durchmesser in Stammhöhe h[j] berechnen
-        testDurchmesser2=Durchmesser-stemd;                     //Vergleich mit Vorgabe stemd
-        if (Math.abs(testDurchmesser2)<=testDurchmesser1)              //wenn sich die Differenz zwischen der Vorgabe und dem berechneten Schaftdurchmesser verringert neuen Vergleichswert festlegen
+        Durchmesser=2*(u+v*Math.exp(-a[1]*h[j])-w*Math.exp(a[2]*h[j]));   //Durchmesser in Stammhöhe h[j] berechnen    Calculo del diametro del tronco a altura h[j]
+        testDurchmesser2=Durchmesser-stemd;                     //Vergleich mit Vorgabe stemd     Comparar con stemd por defecto
+        if (Math.abs(testDurchmesser2)<=testDurchmesser1)              //wenn sich die Differenz zwischen der Vorgabe und dem berechneten Schaftdurchmesser verringert neuen Vergleichswert festlegen   Cuando la diferencia entre el valor por defecto y el diametro calculado se reduzca, se define un nuevo valor de comparacion
          {
            testDurchmesser1=Math.abs(testDurchmesser2);
-           testh1=h[j];                                         //zugehörige Höhe merken, in dieser Schleife wird die richtige Höhe auf dm genau ermittelt
+           testh1=h[j];                                         //zugehörige Höhe merken, in dieser Schleife wird die richtige Höhe auf dm genau ermittelt  Recuerda la altura asociada, en este bucle se determinará la altura correcta de manera exacta
          }
       }  
     }
-    for (r=-9;r<=9;r++)                                            //Plus und Minus 9 cm um den grob ermittelten Wert
+    for (r=-9;r<=9;r++)                                            //Plus und Minus 9 cm um den grob ermittelten Wert   Se determina más y menos 9 cm del valor bruto
     {
        testh2=testh1+r/100;
        if (testh2<height)
@@ -262,7 +262,7 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
        if (Math.abs(testDurchmesser2)<=testDurchmesser1 )
           {
            testDurchmesser1=Math.abs(testDurchmesser2);
-           testh11=testh2;                                          //zugehörige Höhe merken, in dieser Schleife wird die richtige Höhe auf cm genau ermittelt 
+           testh11=testh2;                                          //zugehörige Höhe merken, in dieser Schleife wird die richtige Höhe auf cm genau ermittelt    Recuerda la altura asociada, en este bucle se determinará la altura correcta de manera exacta
           }
        }
     }
@@ -286,7 +286,7 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
     else Hilfshoehe=height;
     alpha=a[0]+a[1]*(1/Math.log(Math.exp(Math.log(Hilfshoehe)*(1/dbh))))+a[2]*(1/Math.pow((Hilfshoehe/dbh),2.0));
     beta=b[0]+b[1]*(1/Math.log(Math.exp(Math.log(Hilfshoehe)*(1/dbh))))+b[2]*(1/Math.pow((Hilfshoehe/dbh),2.0));
-    for (j=1;j<=600;j++)                                                                               //10 cm Schrittweite:  Maximalhöhe, die getestet wird, ist 60 m}
+    for (j=1;j<=600;j++)                                                                               //10 cm Schrittweite:  Maximalhöhe, die getestet wird, ist 60 m}   Incremento de 10 cm, altura máxima a probar será de 60 metros
     {
       h[j]=j/10;   
       if (h[j]<height) 
@@ -300,7 +300,7 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
         }
       }
     }
-    for (r=-9;r<=9;r++)                                                                                //Plus minus 9 cm um den grob ermittelten Wert, Schrittweite 1 cm
+    for (r=-9;r<=9;r++)                                                                                //Plus minus 9 cm um den grob ermittelten Wert, Schrittweite 1 cm  Mas menos 9 cm del valor bruto determinado, Incremento 1 cm.
     {
        testh2=testh1+r/100;
        if (testh2<height) 
@@ -335,11 +335,11 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
     if (hardwood!=true)
     {	
 // Calculation in 4 cm pieces, over 0,6 m use function other cone      
-      if (h >0.60)                                                                                             //oberhalb von 60 cm Höhe direkt über die Funktion
+      if (h >0.60)                                                                                             //oberhalb von 60 cm Höhe direkt über die Funktion     por encima de 60 cm de altura sobre la funcion
       {                    
           for (i=15;i<=(int)(h*25);i++)                    
           { 
-            r=i*4;                                                                                              //Berechnung des Volumens in 4 cm Schritten                                 
+            r=i*4;                                                                                              //Berechnung des Volumens in 4 cm Schritten           Calculo del volumen en pasos de 4 cm                       
             Vol=Math.PI*4/3*(Math.pow
             ((getDiameterEst(funNo,dbh,height,(r/100),barkindex,sortindex)/2),2.0)+
             getDiameterEst(funNo,dbh,height,(r/100),barkindex,sortindex)/2*
@@ -355,7 +355,7 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
             for (i=(int)((h*25)*4);i<=(int)(h*100);i++)
             {
               r=i;  
-              Vol=Math.PI*1/3*(Math.pow(                                                                                //Höhe des Kegelstumpfes: 1 cm
+              Vol=Math.PI*1/3*(Math.pow(                                                                                //Höhe des Kegelstumpfes: 1 cm   Altura del cono truncado
               (getDiameterEst(funNo,dbh,height,(r/100),barkindex,sortindex)/2),2.0)+
               getDiameterEst(funNo,dbh,height,(r/100),barkindex,sortindex)/2*
               getDiameterEst(funNo,dbh,height,((r+1)/100),barkindex,sortindex)/2+Math.pow(
@@ -363,11 +363,11 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
               Volsum=Volsum+Vol/1000000;
             }
           }
-//die Painfunktion erfordert im Bereich unterhalb von 60 cm Stammhöhe eine Extrapolation
-          Extrapol=getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex)-                                      //Berechnung des Stammdurchmessers in 60 cm Höhe
-          getDiameterEst(funNo,dbh,height,1.2,barkindex,sortindex)+                                               //Berechnung des Stammdurchmessers in 120 cm Höhe
-          getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex);                                               //Die Differenz wird zum Stammdurchmesser in 60 Höhe addiert
-          Vol=Math.PI*60/3*(Math.pow(                                                                                   //Höhe des Kegelstumpfes: 60 cm}
+//die Painfunktion erfordert im Bereich unterhalb von 60 cm Stammhöhe eine Extrapolation   la función de dolor requiere un rango por debajo de 60cm de la altura extrapolada del tallo/tronco
+          Extrapol=getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex)-                                      //Berechnung des Stammdurchmessers in 60 cm Höhe    Calculo del diametro del tronco a 60 cm de altura
+          getDiameterEst(funNo,dbh,height,1.2,barkindex,sortindex)+                                               //Berechnung des Stammdurchmessers in 120 cm Höhe  Calculo del diametro del tronco a 120 cm de altura
+          getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex);                                               //Die Differenz wird zum Stammdurchmesser in 60 Höhe addiert   La diferencia se sumara del diametro del tronco en 60 altura
+          Vol=Math.PI*60/3*(Math.pow(                                                                                   //Höhe des Kegelstumpfes: 60 cm}   Altura del cono truncado
           (getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex)/2),2.0)+
           getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex)/2*Extrapol/2+
           Math.pow((Extrapol/2),2.0));
@@ -378,7 +378,7 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
           Extrapol=getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex)-                                      //s.o.
           getDiameterEst(funNo,dbh,height,1.2,barkindex,sortindex)+
           getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex);
-          Vol=Math.PI*h*100/3*(Math.pow(                                                                                //variable Höhe [0.1,0.6] des Kegelstumpfes je nach Sortiervorgabe
+          Vol=Math.PI*h*100/3*(Math.pow(                                                                                //variable Höhe [0.1,0.6] des Kegelstumpfes je nach Sortiervorgabe   altura variable del cono truncado dependiendo de la especificacion de la especie
           (getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex)/2),2.0)+
           getDiameterEst(funNo,dbh,height,0.6,barkindex,sortindex)/2*Extrapol/2+
           Math.pow((Extrapol/2),2.0));
@@ -387,7 +387,7 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
     }
     else //if (hardwood==false)                                                                                       //broadleafed tree species
     {                             
-      for (i=1;i<=(int)(h*25);i++)                                                                                //Berechnung des Volumens in 4 cm Schritten
+      for (i=1;i<=(int)(h*25);i++)                                                                                //Berechnung des Volumens in 4 cm Schritten   Calculo del volumen en pasos de 4 cm
       {
           r=i*4;
           Vol=Math.PI*4/3*(Math.pow((getDiameterEst(funNo,dbh,height,(r/100),barkindex,sortindex)/2),2.0)+
@@ -396,9 +396,9 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
           (getDiameterEst(funNo,dbh,height,((r+4)/100),barkindex,sortindex)/2),2.0));
           Volsum=Volsum+Vol/1000000;
       }
-      if (((int)(h*25)*4)<((int)(h*100)))                                                                       //bei 4 cm Schritten können an der Baumspitze max. 3 cm fehlen
+      if (((int)(h*25)*4)<((int)(h*100)))                                                                       //bei 4 cm Schritten können an der Baumspitze max. 3 cm fehlen   A los 4 cm de incremento se puede mirar en la copa del arbol maximos 3 cm faltantes
       {
-        for (i=(int)((h*25)*4);i<=(int)(h*100);i++)                                                              //Berechnung der letzten max. 3 cm mit 1cm Schrittweite
+        for (i=(int)((h*25)*4);i<=(int)(h*100);i++)                                                              //Berechnung der letzten max. 3 cm mit 1cm Schrittweite   Calculo de los ultimos maximos 3 cm con pasos de 1 cm
         {
           Vol=Math.PI*1/3*(Math.pow((getDiameterEst(funNo,dbh,height,(r/100),barkindex,sortindex)/2),2.0)+                         //Höhe des Kegelstumpfes: 1 cm       
           getDiameterEst(funNo,dbh,height,(r/100),barkindex,sortindex)/2*
@@ -407,7 +407,7 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
           Volsum=Volsum+Vol/1000000;
         }
       }
-    }                                                                                                          //spcode >=500 or <500: Unterscheidung Nadel- und Laubholz
+    }                                                                                                          //spcode >=500 or <500: Unterscheidung Nadel- und Laubholz   Distinción de madera blanda y dura
     return Volsum;
 }
 
@@ -422,10 +422,10 @@ public double getLengthEst(int funNo, double dbh,double height,double stemd)    
 
    public int getFunctionNumber(int speciesCode){
          int funNo=0;
-         if (speciesCode < 100) funNo=0;                  //Rotbuche
-         if (speciesCode >= 100 && speciesCode <200) funNo=1;               //Eiche,Stieleiche
-         if (speciesCode >= 200 && speciesCode <500) funNo=0;               //Eiche,Stieleiche
-         if (speciesCode >= 500) funNo=2;       //Spruce
+         if (speciesCode < 100) funNo=0;                  //Rotbuche  Haya europea
+         if (speciesCode >= 100 && speciesCode <200) funNo=1;               //Eiche,Stieleiche    Roble, roble ingles
+         if (speciesCode >= 200 && speciesCode <500) funNo=0;               //Eiche,Stieleiche    Roble, roble ingles
+         if (speciesCode >= 500) funNo=2;       //Spruce   Picea
          if (speciesCode >= 700 && speciesCode <800) funNo=3;               //Pine
          if (speciesCode == 611 ) funNo=4;               //Douglas fir
          if (speciesCode == 523 ) funNo=5;               //Abies grandis

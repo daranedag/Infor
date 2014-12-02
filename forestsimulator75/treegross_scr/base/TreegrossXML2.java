@@ -65,49 +65,49 @@ public class TreegrossXML2 {
 
         //Bestandesinformation
         rootElt= addString(rootElt, "Id","1");
-        rootElt= addString(rootElt, "Kennung",st.standname);
-        rootElt= addString(rootElt, "Allgemeines"," ");
-        rootElt= addString(rootElt, "Flaechengroesse_m2", Double.toString(st.size*10000));
-        rootElt= addString(rootElt, "HauptbaumArtCodeStd", Integer.toString(st.sp[0].code));
-        rootElt= addString(rootElt, "HauptbaumArtCodeLokal", Integer.toString(st.sp[0].code));
-        rootElt= addString(rootElt, "AufnahmeJahr", Integer.toString(st.year));
-        rootElt= addString(rootElt, "AufnahmeMonat", Integer.toString(st.monat));
-        rootElt= addString(rootElt, "DatenHerkunft",st.datenHerkunft);
-        rootElt= addString(rootElt, "Standort",st.standort);
-        rootElt= addString(rootElt, "Hochwert_m", Double.toString(st.hochwert_m));
-        rootElt= addString(rootElt, "Rechtswert_m", Double.toString(st.rechtswert_m));
-        rootElt= addString(rootElt, "Hoehe_uNN_m", Double.toString(st.hoehe_uNN_m));
-        rootElt= addString(rootElt, "Exposition_Gon", Integer.toString(st.exposition_Gon));
-        rootElt= addString(rootElt, "Hangneigung_Prozent", Double.toString(st.hangneigungProzent));
-        rootElt= addString(rootElt, "Wuchsgebiet",st.wuchsgebiet);
-        rootElt= addString(rootElt, "Wuchsbezirk",st.wuchsbezirk);
-        rootElt= addString(rootElt, "Standortskennziffer",st.standortsKennziffer);
+        rootElt= addString(rootElt, "Identificación",st.standname);
+        rootElt= addString(rootElt, "General"," ");
+        rootElt= addString(rootElt, "Tamaño de la zona_m2", Double.toString(st.size*10000));
+        rootElt= addString(rootElt, "HauptbaumArtCodeStd", Integer.toString(st.sp[0].code));  //Codigo estandar de la especie  principal del arbol
+        rootElt= addString(rootElt, "HauptbaumArtCodeLokal", Integer.toString(st.sp[0].code));  // Codigo local de la especie principal del arbol
+        rootElt= addString(rootElt, "Año de grabacion", Integer.toString(st.year));
+        rootElt= addString(rootElt, "Mes de grabacion", Integer.toString(st.monat));
+        rootElt= addString(rootElt, "Origen de los datos",st.datenHerkunft);
+        rootElt= addString(rootElt, "Ubicacion",st.standort);
+        rootElt= addString(rootElt, "Valor altura_m", Double.toString(st.hochwert_m));
+        rootElt= addString(rootElt, "Valor recto_m", Double.toString(st.rechtswert_m));
+        rootElt= addString(rootElt, "Altura_uNN_m", Double.toString(st.hoehe_uNN_m));
+        rootElt= addString(rootElt, "Exposicion_Gon", Integer.toString(st.exposition_Gon));
+        rootElt= addString(rootElt, "Porcentaje pendiente", Double.toString(st.hangneigungProzent));
+        rootElt= addString(rootElt, "Area de vegetacion",st.wuchsgebiet);
+        rootElt= addString(rootElt, "Distrito Crecimiento",st.wuchsbezirk);
+        rootElt= addString(rootElt, "Codigo de ubicacion",st.standortsKennziffer);
 
         /* Baumarten */;
         for (int i=0;i< st.nspecies;i++){
-            elt = new Element("Baumartencode");
-            elt= addString(elt, "Code", Integer.toString(st.sp[i].code));
-            elt= addString(elt, "deutscherName",st.sp[i].spDef.longName);
-            elt= addString(elt, "lateinischerName",st.sp[i].spDef.latinName);
+            elt = new Element("Codigo de especie");
+            elt= addString(elt, "Codigo", Integer.toString(st.sp[i].code));
+            elt= addString(elt, "Nombre aleman",st.sp[i].spDef.longName);
+            elt= addString(elt, "Nombre latin",st.sp[i].spDef.latinName);
             rootElt.addContent(elt);
         }
         /* Add center points */;
         if (st.ncpnt > 0){
-        elt = new Element("Eckpunkt");
+        elt = new Element("Vertice");
         elt= addString(elt, "Nr",st.center.no);
-        elt= addString(elt, "RelativeXKoordinate_m",f.format(st.center.x));
-        elt= addString(elt, "RelativeYKoordinate_m",f.format(st.center.y));
-        elt= addString(elt, "RelativeBodenhoehe_m",f.format(st.center.z));
+        elt= addString(elt, "Coordenada relativa X_m",f.format(st.center.x));
+        elt= addString(elt, "Coordenada relativa Y_m",f.format(st.center.y));
+        elt= addString(elt, "Coordenada relativa Z_m",f.format(st.center.z));
         rootElt.addContent(elt);
         }
 
         /* Add corner points */;
         for (int i=0;i< st.ncpnt;i++){
-            elt = new Element("Eckpunkt");
+            elt = new Element("Vertice");
             elt= addString(elt, "Nr",st.cpnt[i].no);
-            elt= addString(elt, "RelativeXKoordinate_m",f.format(st.cpnt[i].x));
-            elt= addString(elt, "RelativeYKoordinate_m",f.format(st.cpnt[i].y));
-            elt= addString(elt, "RelativeBodenhoehe_m",f.format(st.cpnt[i].z));
+            elt= addString(elt, "Coordenada relativa X_m",f.format(st.cpnt[i].x));
+            elt= addString(elt, "Corrdenada relativa Y_m",f.format(st.cpnt[i].y));
+            elt= addString(elt, "Coordenada relativa Z_m",f.format(st.cpnt[i].z));
             rootElt.addContent(elt);
         }
         /* Add Bäume */;
@@ -115,48 +115,48 @@ public class TreegrossXML2 {
             //System.out.println("test "+i);
             elt= new Element("Baum");
             elt= addString(elt, "Nr", Integer.toString(i+1));
-            elt= addString(elt, "Kennung",st.tr[i].no);
-            elt= addString(elt, "BaumartcodeStd","0");
-            elt= addString(elt, "BaumartcodeLokal", Integer.toString(st.tr[i].code));
-            elt= addString(elt, "Alter_Jahr", Integer.toString(st.tr[i].age));
+            elt= addString(elt, "Identificación",st.tr[i].no);
+            elt= addString(elt, "BaumartcodeStd","0");  //Codigo estandar de especie de arbol
+            elt= addString(elt, "BaumartcodeLokal", Integer.toString(st.tr[i].code));  //Codigo local de especie de arbol
+            elt= addString(elt, "Antigüedad_años", Integer.toString(st.tr[i].age));
             elt= addString(elt, "BHD_mR_cm",f.format(st.tr[i].d));
-            elt= addString(elt, "Hoehe_m",f.format(st.tr[i].h));
-            elt= addString(elt, "Kronenansatz_m",f.format(st.tr[i].cb));
-            elt= addString(elt, "MittlererKronenDurchmesser_m",f.format(st.tr[i].cw));
-            elt= addString(elt, "SiteIndex_m",f.format(st.tr[i].si));
-            elt= addString(elt, "RelativeXKoordinate_m",f.format(st.tr[i].x));
-            elt= addString(elt, "RelativeYKoordinate_m",f.format(st.tr[i].y));
-            elt= addString(elt, "RelativeBodenhoehe_m",f.format(st.tr[i].z));
+            elt= addString(elt, "Altura_m",f.format(st.tr[i].h));
+            elt= addString(elt, "Base de Corona_m",f.format(st.tr[i].cb));
+            elt= addString(elt, "Diametro de Corona media_m",f.format(st.tr[i].cw));
+            elt= addString(elt, "Indice de Sitio_m",f.format(st.tr[i].si));
+            elt= addString(elt, "Coordenada relativa X_m",f.format(st.tr[i].x));
+            elt= addString(elt, "Coordenada relativa Y_m",f.format(st.tr[i].y));
+            elt= addString(elt, "Coordenada relativa Z_m",f.format(st.tr[i].z));
 
             boolean lebend=true;
             if (st.tr[i].out > -1) lebend=false;
-            elt= addString(elt, "Lebend",Boolean.toString(lebend));
+            elt= addString(elt, "Vida",Boolean.toString(lebend));
 
             boolean entnommen=false;
             if (st.tr[i].outtype >= 2) entnommen=true;
 
-            elt= addString(elt, "Entnommen", Boolean.toString(entnommen));
-            elt= addString(elt, "AusscheideMonat","3");
-            elt= addString(elt, "AusscheideJahr", Integer.toString(st.tr[i].out));
+            elt= addString(elt, "Eliminado", Boolean.toString(entnommen));
+            elt= addString(elt, "Mes separacion","3");
+            elt= addString(elt, "Año separacion", Integer.toString(st.tr[i].out));
 
             String grund = "";
-            if (st.tr[i].outtype == 1) grund="Mortalität";
-            if (st.tr[i].outtype == 2) grund="Durchforstung";
-            if (st.tr[i].outtype == 3) grund="Ernte";
-            if (st.tr[i].outtype > 3)  grund="anderer";
-            elt= addString(elt, "AusscheideGrund", grund);
+            if (st.tr[i].outtype == 1) grund="Mortalidad";
+            if (st.tr[i].outtype == 2) grund="Adelgazamiento";
+            if (st.tr[i].outtype == 3) grund="Cosecha";
+            if (st.tr[i].outtype > 3)  grund="otro";
+            elt= addString(elt, "Rechazar razón", grund);
 
-            elt= addString(elt, "ZBaum", Boolean.toString(st.tr[i].crop));
-            elt= addString(elt, "ZBaumtemporaer", Boolean.toString(st.tr[i].tempcrop));
-            elt= addString(elt, "HabitatBaum", Boolean.toString(st.tr[i].habitat));
-            elt= addString(elt, "KraftscheKlasse","0");
-            elt= addString(elt, "Schicht", Integer.toString(st.tr[i].layer));
+            elt= addString(elt, "Arbol Z", Boolean.toString(st.tr[i].crop));
+            elt= addString(elt, "Arbol temporal Z", Boolean.toString(st.tr[i].tempcrop));
+            elt= addString(elt, "Arbol Habitat", Boolean.toString(st.tr[i].habitat));
+            elt= addString(elt, "Clase Kraftsche","0");
+            elt= addString(elt, "Capa", Integer.toString(st.tr[i].layer));
             f.setMaximumFractionDigits(4);
             f.setMinimumFractionDigits(4);
-            elt= addString(elt, "Flaechenfaktor",f.format(st.tr[i].fac));
+            elt= addString(elt, "Factor de área",f.format(st.tr[i].fac));
             elt= addString(elt, "Volumen_cbm",f.format(st.tr[i].v));
-            elt= addString(elt, "VolumenTotholz_cbm",f.format(st.tr[i].volumeDeadwood));
-            elt= addString(elt, "Bemerkung",st.tr[i].remarks);
+            elt= addString(elt, "Volumen de madera muerta_cbm",f.format(st.tr[i].volumeDeadwood));
+            elt= addString(elt, "Observación",st.tr[i].remarks);
             f.setMaximumFractionDigits(2);
             f.setMinimumFractionDigits(2);
             rootElt.addContent(elt);
@@ -191,74 +191,74 @@ public class TreegrossXML2 {
      
          Element bestand =  doc.getRootElement();  
          st.id = bestand.getChild("Id").getText();
-         st.addName(bestand.getChild("Kennung").getText());
-         st.addsize(Double.parseDouble(bestand.getChild("Flaechengroesse_m2").getText())/10000.0);
-         st.monat = Integer.parseInt(bestand.getChild("AufnahmeMonat").getText());
-         st.year=Integer.parseInt(bestand.getChild("AufnahmeJahr").getText());
-         st.datenHerkunft = bestand.getChild("DatenHerkunft").getText();
-         st.standort = bestand.getChild("Standort").getText();
-         st.rechtswert_m = Double.parseDouble(bestand.getChild("Rechtswert_m").getText());
-         st.hochwert_m = Double.parseDouble(bestand.getChild("Hochwert_m").getText());
-         st.hoehe_uNN_m = Double.parseDouble(bestand.getChild("Hoehe_uNN_m").getText());
-         st.exposition_Gon = Integer.parseInt(bestand.getChild("Exposition_Gon").getText());
-         st.hangneigungProzent = Double.parseDouble(bestand.getChild("Hangneigung_Prozent").getText());
-         st.wuchsgebiet = bestand.getChild("Wuchsgebiet").getText();
-         st.wuchsbezirk = bestand.getChild("Wuchsbezirk").getText();
-         st.standortsKennziffer = bestand.getChild("Standortskennziffer").getText();
+         st.addName(bestand.getChild("Identificación").getText());
+         st.addsize(Double.parseDouble(bestand.getChild("Tamaño de la zona_m2").getText())/10000.0);
+         st.monat = Integer.parseInt(bestand.getChild("Mes de grabacion").getText());
+         st.year=Integer.parseInt(bestand.getChild("Año de grabacion").getText());
+         st.datenHerkunft = bestand.getChild("Origen de datos").getText();
+         st.standort = bestand.getChild("Ubicación").getText();
+         st.rechtswert_m = Double.parseDouble(bestand.getChild("Valor derecho_m").getText());
+         st.hochwert_m = Double.parseDouble(bestand.getChild("Valor alto_m").getText());
+         st.hoehe_uNN_m = Double.parseDouble(bestand.getChild("Altura_uNN_m").getText());
+         st.exposition_Gon = Integer.parseInt(bestand.getChild("Exposicion_Gon").getText());
+         st.hangneigungProzent = Double.parseDouble(bestand.getChild("Porcentaje de pendiente").getText());
+         st.wuchsgebiet = bestand.getChild("Área de vegetación").getText();
+         st.wuchsbezirk = bestand.getChild("Distrito de crecimiento").getText();
+         st.standortsKennziffer = bestand.getChild("Codigo de ubicación").getText();
          
          st.ncpnt=0;
          st.ntrees=0;
          st.nspecies=0;
          st.center.no="undefined";
-         List eckpunkte = bestand.getChildren("Eckpunkt");
+         List eckpunkte = bestand.getChildren("Vértice");
          Iterator i = eckpunkte.iterator();
          while (i.hasNext()) {
             Element eckpunkt = (Element) i.next();
             String nrx = eckpunkt.getChild("Nr").getText();
-            if (nrx.indexOf("circle") > -1 || nrx.indexOf("polygon") > -1){
+            if (nrx.indexOf("circulo") > -1 || nrx.indexOf("poligono") > -1){
                st.center.no=nrx;    
-               st.center.x=Double.parseDouble(eckpunkt.getChild("RelativeXKoordinate_m").getText());
-               st.center.y=Double.parseDouble(eckpunkt.getChild("RelativeYKoordinate_m").getText());
-               st.center.z=Double.parseDouble(eckpunkt.getChild("RelativeBodenhoehe_m").getText());
+               st.center.x=Double.parseDouble(eckpunkt.getChild("Coordenada relativa X_m").getText());
+               st.center.y=Double.parseDouble(eckpunkt.getChild("Coordenada relativa Y_m").getText());
+               st.center.z=Double.parseDouble(eckpunkt.getChild("Coordenada relativa Z_m").getText());
             }
             else {
                 st.addcornerpoint(eckpunkt.getChild("Nr").getText(),
-                   Double.parseDouble(eckpunkt.getChild("RelativeXKoordinate_m").getText()),
-                   Double.parseDouble(eckpunkt.getChild("RelativeYKoordinate_m").getText()),
-                   Double.parseDouble(eckpunkt.getChild("RelativeBodenhoehe_m").getText()));
+                   Double.parseDouble(eckpunkt.getChild("Coordenada relativa X_m").getText()),
+                   Double.parseDouble(eckpunkt.getChild("Coordenada relativa Y_m").getText()),
+                   Double.parseDouble(eckpunkt.getChild("Coordenada relativa Z_m").getText()));
             }
          } 
 //         
-         List baeume = bestand.getChildren("Baum");
+         List baeume = bestand.getChildren("Arbol");
          i = baeume.iterator();
          while (i.hasNext()) {
             Element baum = (Element) i.next();
             int out = -1 ;
             //if (Boolean.parseBoolean(baum.getChild("Entnommen").getText())==false) // wenn so dann muss hier flase nuss hier mit true abgeglichen werden
-            out = Integer.parseInt(baum.getChild("AusscheideJahr").getText());
+            out = Integer.parseInt(baum.getChild("Año de rechazo").getText());
             int outtype=0;
-            String ausGrund = baum.getChild("AusscheideGrund").getText();
-            if (ausGrund.contains("Mort")) outtype=1;
-            if (ausGrund.contains("Durch")) outtype=2;
-            if (ausGrund.contains("Ernte")) outtype=3;
+            String ausGrund = baum.getChild("Razón de rechazo").getText();
+            if (ausGrund.contains("Muerte")) outtype=1;
+            if (ausGrund.contains("Corte")) outtype=2;
+            if (ausGrund.contains("Cosecha")) outtype=3;
 
-            st.addXMLTree (Integer.parseInt(baum.getChild("BaumartcodeLokal").getText()),
-                    baum.getChild("Kennung").getText(),
-                    Integer.parseInt(baum.getChild("Alter_Jahr").getText()),
+            st.addXMLTree (Integer.parseInt(baum.getChild("Codigo local especie de arbol").getText()),
+                    baum.getChild("Identificación").getText(),
+                    Integer.parseInt(baum.getChild("Antigüedad_años").getText()),
                     out, outtype,
                     Double.parseDouble(baum.getChild("BHD_mR_cm").getText()),
-                    Double.parseDouble(baum.getChild("Hoehe_m").getText()),
-                    Double.parseDouble(baum.getChild("Kronenansatz_m").getText()),
-                    Double.parseDouble(baum.getChild("MittlererKronenDurchmesser_m").getText()),
-                    Double.parseDouble(baum.getChild("SiteIndex_m").getText()),
-                    Double.parseDouble(baum.getChild("Flaechenfaktor").getText()),
-                    Double.parseDouble(baum.getChild("RelativeXKoordinate_m").getText()),
-                    Double.parseDouble(baum.getChild("RelativeYKoordinate_m").getText()),
-                    Double.parseDouble(baum.getChild("RelativeBodenhoehe_m").getText()),
-                    Boolean.parseBoolean(baum.getChild("ZBaum").getText()),
-                    Boolean.parseBoolean(baum.getChild("ZBaumtemporaer").getText()),
-                    Boolean.parseBoolean(baum.getChild("HabitatBaum").getText()),
-                    Integer.parseInt(baum.getChild("Schicht").getText()),
+                    Double.parseDouble(baum.getChild("Altura_m").getText()),
+                    Double.parseDouble(baum.getChild("Base de corona_m").getText()),
+                    Double.parseDouble(baum.getChild("Diametro de la corona media_m").getText()),
+                    Double.parseDouble(baum.getChild("Indice de sitio_m").getText()),
+                    Double.parseDouble(baum.getChild("Factor de área").getText()),
+                    Double.parseDouble(baum.getChild("Coordenada relativa X_m").getText()),
+                    Double.parseDouble(baum.getChild("Coordenada relativa Y_m").getText()),
+                    Double.parseDouble(baum.getChild("Coordenada relativa Z_m").getText()),
+                    Boolean.parseBoolean(baum.getChild("Arbol Z").getText()),
+                    Boolean.parseBoolean(baum.getChild("Arbol temporal Z").getText()),
+                    Boolean.parseBoolean(baum.getChild("Habitat de arbol").getText()),
+                    Integer.parseInt(baum.getChild("Capat").getText()),
                     Double.parseDouble(baum.getChild("VolumenTotholz_cbm").getText()),
                     baum.getChild("Bemerkung").getText()
             );
