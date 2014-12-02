@@ -258,9 +258,9 @@ public class TreegrossXML2 {
                     Boolean.parseBoolean(baum.getChild("Arbol Z").getText()),
                     Boolean.parseBoolean(baum.getChild("Arbol temporal Z").getText()),
                     Boolean.parseBoolean(baum.getChild("Habitat de arbol").getText()),
-                    Integer.parseInt(baum.getChild("Capat").getText()),
-                    Double.parseDouble(baum.getChild("VolumenTotholz_cbm").getText()),
-                    baum.getChild("Bemerkung").getText()
+                    Integer.parseInt(baum.getChild("Capa").getText()),
+                    Double.parseDouble(baum.getChild("Volumen de madera muerta_cbm").getText()),
+                    baum.getChild("Observación").getText()
             );
          }
        }
