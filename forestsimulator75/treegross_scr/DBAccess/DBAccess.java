@@ -16,7 +16,7 @@ public class DBAccess implements PlugInDBAccess {
     
 public void startDialog(java.awt.Frame frame, Stand st, String dirx){
     String dir =dirx;
-    System.out.println("starte Dialog");
+    System.out.println("Dialogo iniciado");
     DBAccessDialog dialog = new DBAccessDialog(frame,true,st, dir);
     dialog.setVisible(true);
     

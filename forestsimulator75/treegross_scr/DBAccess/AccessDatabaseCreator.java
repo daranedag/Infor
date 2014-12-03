@@ -64,7 +64,7 @@ public class AccessDatabaseCreator extends DatabaseCreator {
     
     public boolean showFileSaveDialog(){
         boolean created=false;
-        // 1. eine leere Datenbank im gewünschten Verzeichnis erzeugen:
+        // 1. eine leere Datenbank im gewünschten Verzeichnis erzeugen:  Crear una base de datos vacia en el directorio especificado
         JFileChooser fc = new JFileChooser();
         fc.setFileFilter( new FileFilter() {
           public boolean accept( File f ) {
@@ -72,14 +72,14 @@ public class AccessDatabaseCreator extends DatabaseCreator {
                    f.getName().toLowerCase().endsWith(".mdb");
           }
           public String getDescription() {
-            return "Access Datenbank";
+            return "Acceso Base de Datos";
           }
         } );    
         int returnVal = fc.showSaveDialog( null );    
         if ( returnVal == JFileChooser.APPROVE_OPTION ){
             File file = fc.getSelectedFile();
             if  (file.exists()){
-                System.out.println("file already exists");
+                System.out.println("Archivo ya existe");
                 newdbpath=file.getAbsolutePath();
                 created=true;
             }
@@ -88,7 +88,7 @@ public class AccessDatabaseCreator extends DatabaseCreator {
             }
         }
         else{
-            System.out.println( "Auswahl abgebrochen" );
+            System.out.println( "Selección Abortada" );
             created=false;
         }
         return created;
@@ -135,7 +135,7 @@ public class AccessDatabaseCreator extends DatabaseCreator {
       try{
           copyFile(emptydb,newdb);
       }
-      catch (Exception e){JOptionPane.showMessageDialog(null,"Fehler beim Anlegen der neuen Datenbank","Projekt anlegen",JOptionPane.ERROR_MESSAGE);} 
+      catch (Exception e){JOptionPane.showMessageDialog(null,"Error al crear la nueva base de datos","Crear Proyecto",JOptionPane.ERROR_MESSAGE);} 
     }
     
 }

@@ -39,7 +39,7 @@ public class LoadTreegrossStand {
            Statement stmt = dbconn.Connections[0].createStatement(); 
            ResultSet rs = stmt.executeQuery("select * from Versfl where edv_id = \'"+idx.substring(0, 6)+"\'  ");
            if (rs.next()) {
-              flaechenName= rs.getObject("forstamt").toString();
+              flaechenName= rs.getObject("oficina forestal").toString();
               abtName=rs.getObject("abt").toString();
            }
        	}	catch (Exception e)  {	System.out.println(e); }	
@@ -54,7 +54,7 @@ public class LoadTreegrossStand {
            Statement stmt = dbconn.Connections[0].createStatement(); 
            ResultSet rs = stmt.executeQuery("select * from Auf where edvid = \'"+idx+"\' And auf = " + selectedAufn  );
            if (rs.next()) {
-              stl.year = rs.getInt("Jahr");
+              stl.year = rs.getInt("Año");
               stl.addsize(rs.getDouble("flha"));
            }
        	}	catch (Exception e)  {	System.out.println(e); }	
@@ -156,7 +156,7 @@ public class LoadTreegrossStand {
                 double yp = rs.getDouble("y");
                 String nox = rs.getObject("nr").toString();
                 nox=nox.trim();
-                int artx = rs.getInt("art");
+                int artx = rs.getInt("tipo");
                 for (int i=0; i<stl.ntrees;i++) {
                    if ( (nox.compareTo(stl.tr[i].no.trim())==0) && (artx==stl.tr[i].code)){
                        stl.tr[i].x=xp;
@@ -170,7 +170,7 @@ public class LoadTreegrossStand {
              }
           }	catch (Exception e)  {	System.out.println(e); }	
         
-//data quality
+//data quality 
 /*            for (int i=0; i<stl.ntrees;i++) {
                 if (stl.tr[i].d > 0) stl.tr[i].remarks=stl.tr[i].remarks+"D;";
                 else stl.tr[i].remarks=stl.tr[i].remarks+"d";
@@ -225,15 +225,15 @@ public class LoadTreegrossStand {
            Statement stmt = dbconn.Connections[0].createStatement(); 
            ResultSet rs = stmt.executeQuery("select * from Vorschrift where (edvid = \'"+idx+" \' AND auf = "+auf+"  )");
            if (rs.next()) {
-              int jj = rs.getInt("Zufall");
+              int jj = rs.getInt("Accidemte");
               if (jj == 0) stl.randomGrowthEffects=false;else stl.randomGrowthEffects=true;
-                  jj = rs.getInt("Einwuchs");
+                  jj = rs.getInt("Crecimiento");
               if (jj == 0) stl.ingrowthActive=false; else stl.ingrowthActive=true;
-                  stl.temp_Integer = rs.getInt("Schritte");
-              ebaum = rs.getInt("EBaum");
-              bestand = rs.getInt("Bestand");
-              baumart = rs.getInt("Baumart");
-              durchforstung_an = rs.getInt("Durchforstung");
+                  stl.temp_Integer = rs.getInt("Pasos");
+              ebaum = rs.getInt("Arbol E");
+              bestand = rs.getInt("Valores");
+              baumart = rs.getInt("Especie arbol");
+              durchforstung_an = rs.getInt("Adelgazamiento");
 
            }
        	 }   catch (Exception e)  {	System.out.println(e); }

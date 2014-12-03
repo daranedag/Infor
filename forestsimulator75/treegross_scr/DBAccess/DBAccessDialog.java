@@ -72,28 +72,28 @@ public class DBAccessDialog extends javax.swing.JDialog {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton2.setText("Bestand laden");
+        jButton2.setText("Inventario de carga");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Bestand rechnen");
+        jButton3.setText("Valores contados");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("alle rechnen");
+        jButton4.setText("Todos contados");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("save Stand to db");
+        jButton5.setText("Guardar estado en la BD");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -158,10 +158,10 @@ public class DBAccessDialog extends javax.swing.JDialog {
                Statement stmt = dbconnAC.Connections[0].createStatement(); 
                ResultSet rs = stmt.executeQuery("SELECT * FROM Auf WHERE (edvid = '"+jTextField2.getText()+"') " );
                while (rs.next()){
-                     jComboBox1.addItem(rs.getInt("auf"));
+                     jComboBox1.addItem(rs.getInt("Sobre"));
                }
               }
-           catch (Exception e){  System.out.println("Problem: "+" "+e); }
+           catch (Exception e){  System.out.println("Problema: "+" "+e); }
        dbconnAC.closeAll();
         
         // TODO add your handling code here:
@@ -257,11 +257,11 @@ public class DBAccessDialog extends javax.swing.JDialog {
                ResultSet rs = stmt.executeQuery("SELECT * FROM Vorschrift  " );
                while (rs.next()){
                      ida[nauf]= rs.getObject("edvid").toString();
-                     aufa[nauf]=rs.getInt("auf");
+                     aufa[nauf]=rs.getInt("sobre");
                      nauf = nauf +1;
                }
               }
-           catch (Exception e){  System.out.println("Problem: "+" "+e); }
+           catch (Exception e){  System.out.println("Problema: "+" "+e); }
         
         for (int ii=0; ii < nauf; ii++){
            String ids = ida[ii];
@@ -272,10 +272,10 @@ public class DBAccessDialog extends javax.swing.JDialog {
                Statement stmt = dbconnAC.Connections[0].createStatement();
                ResultSet rs = stmt.executeQuery("SELECT * FROM Vorschrift WHERE edvid='"+ids+"' AND auf = "+aufs+"  " );
                while (rs.next()){
-                     nwiederh=rs.getInt("wiederholung");
+                     nwiederh=rs.getInt("repetición");
                }
               }
-           catch (Exception e){  System.out.println("Problem: "+" "+e); }
+           catch (Exception e){  System.out.println("Problema: "+" "+e); }
 //
           for (int iw=0; iw <nwiederh;iw++){
            st=lts.loadFromDB( dbconnAC, st, ids, aufs , true, true);
