@@ -144,13 +144,13 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel13.setText("TreeGrOSS xml Datei :");
+        jLabel13.setText("Fichero de datos de TreeGrOSS xml:");
         jPanel8.add(jLabel13);
 
         jTextField13.setPreferredSize(new java.awt.Dimension(511, 19));
         jPanel8.add(jTextField13);
 
-        jButton5.setText("laden");
+        jButton5.setText("Cargar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -173,19 +173,19 @@ public class DeadwoodPanel extends javax.swing.JPanel {
 
         jPanel9.setLayout(new java.awt.GridLayout(1, 8));
 
-        jLabel1.setText("Name");
+        jLabel1.setText("Nombre");
         jPanel9.add(jLabel1);
 
-        jTextField1.setText("Name");
+        jTextField1.setText("Nombre");
         jPanel9.add(jTextField1);
 
-        jLabel2.setText("Art von");
+        jLabel2.setText("Tipo de");
         jPanel9.add(jLabel2);
 
         jTextField2.setText("211");
         jPanel9.add(jTextField2);
 
-        jLabel3.setText("Art bis");
+        jLabel3.setText("Ordenar por");
         jPanel9.add(jLabel3);
 
         jTextField3.setText("499");
@@ -196,7 +196,7 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Entnahme, wenn nein dann Totholz");
+        jCheckBox1.setText("Retirada, si no entonces madera muerta");
         jCheckBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jCheckBox1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel12.add(jCheckBox1);
@@ -213,10 +213,10 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         jLabel6.setText("max D");
         jPanel5.add(jLabel6);
 
-        jLabel7.setText("min Zopf");
+        jLabel7.setText("Trenza min");
         jPanel5.add(jLabel7);
 
-        jLabel8.setText("max Zopf");
+        jLabel8.setText("Trenza max");
         jPanel5.add(jLabel8);
 
         jLabel9.setText("min L");
@@ -225,7 +225,7 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         jLabel5.setText("max L");
         jPanel5.add(jLabel5);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Zugabe %", "Zugabe cm" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Añadidura %", "Añadidura cm" }));
         jPanel5.add(jComboBox1);
         jPanel5.add(jPanel7);
 
@@ -259,16 +259,16 @@ public class DeadwoodPanel extends javax.swing.JPanel {
 
         jPanel6.setLayout(new java.awt.GridLayout(2, 4));
 
-        jLabel10.setText("Wertigkeit");
+        jLabel10.setText("Valencia");
         jPanel6.add(jLabel10);
 
-        jLabel11.setText("Preis");
+        jLabel11.setText("Precio");
         jPanel6.add(jLabel11);
 
-        jLabel12.setText("Prozent der Bäume");
+        jLabel12.setText("Porcentaje de los árboles");
         jPanel6.add(jLabel12);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "alle Bäume", "Z- Bäume" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos los árboles", "Árboles-Z" }));
         jPanel6.add(jComboBox3);
 
         jTextField11.setText("10.0");
@@ -280,12 +280,12 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         jTextField14.setText("100.0");
         jPanel6.add(jTextField14);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "mehrfach", "einfach" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Múltiple", "Simple" }));
         jPanel6.add(jComboBox4);
 
         jPanel2.add(jPanel6);
 
-        jButton3.setText("neu ");
+        jButton3.setText("Nuevo ");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -293,7 +293,7 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         });
         jPanel3.add(jButton3);
 
-        jButton2.setText("speichern");
+        jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -301,7 +301,7 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         });
         jPanel3.add(jButton2);
 
-        jButton4.setText("löschen");
+        jButton4.setText("Borrar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -326,7 +326,7 @@ public class DeadwoodPanel extends javax.swing.JPanel {
 
         jPanel11.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-        jLabel15.setText("Sortimente");
+        jLabel15.setText("Surtidos");
         jPanel11.add(jLabel15, java.awt.BorderLayout.NORTH);
 
         jPanel1.add(jPanel11, java.awt.BorderLayout.WEST);
@@ -480,7 +480,7 @@ public class DeadwoodPanel extends javax.swing.JPanel {
         else { listModel.setElementAt((String) ls[m].name,m);}
         neuspeichern = false;
         nls = nlist;
-        System.out.println("Array Länge "+ls.length);
+        System.out.println("Largo arreglo "+ls.length);
         savels(proDir+System.getProperty("file.separator")+"DeadwoodSortiments.xml");
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -503,7 +503,7 @@ public class DeadwoodPanel extends javax.swing.JPanel {
        Element elt2;
 /** Creates an Treegross xml */
        Document doc = new Document();
-       rootElt = new Element("Sortimente");
+       rootElt = new Element("Surtidos");
        ProcessingInstruction pi = new ProcessingInstruction("xml-stylesheet",
                  "type=\"text/xsl\" href=\"loggingSortimente.xsl\"");
        doc.addContent(pi);
@@ -512,27 +512,27 @@ public class DeadwoodPanel extends javax.swing.JPanel {
 //         
 /* Alle Sortimente */;
         for (int i=0;i< nlist;i++){
-            elt = new Element("Sortiment");
+            elt = new Element("Surtidos");
             elt = addString(elt, "Id", new Integer(i).toString());
-            elt = addString(elt, "Name",ls[i].name);
-            elt = addString(elt, "Art_von", new Integer(ls[i].artvon).toString());
-            elt = addString(elt, "Art_bis", new Integer(ls[i].artbis).toString());
+            elt = addString(elt, "Nombre",ls[i].name);
+            elt = addString(elt, "Tipo_de", new Integer(ls[i].artvon).toString());
+            elt = addString(elt, "Ordenar_por", new Integer(ls[i].artbis).toString());
             elt = addString(elt, "minD",f.format(ls[i].minD));
             elt = addString(elt, "maxD",f.format(ls[i].maxD));
             elt = addString(elt, "minTop",f.format(ls[i].minTop));
             elt = addString(elt, "maxTop",f.format(ls[i].maxTop));
             elt = addString(elt, "minH",f.format(ls[i].minH));
             elt = addString(elt, "maxH",f.format(ls[i].maxH));
-            elt = addString(elt, "ZugabeProzent",f.format(ls[i].zugabeProzent));
-            elt = addString(elt, "ZugabeCm",f.format(ls[i].zugabeCm));
-            elt = addString(elt, "Preis",f.format(ls[i].preis));
-            elt = addString(elt, "Gewicht",f.format(ls[i].gewicht));
-            elt = addString(elt, "Wahrscheinlichkeit",f.format(ls[i].wahrscheinlich));
-            elt = addString(elt, "nurZBaum",new Boolean(ls[i].nurZBaum).toString());
-            elt = addString(elt, "mehrfach",new Boolean(ls[i].mehrfach).toString());
-            elt = addString(elt, "Entnahme",new Boolean(ls[i].entnahme).toString());
+            elt = addString(elt, "PorcentajeAñadidura",f.format(ls[i].zugabeProzent));
+            elt = addString(elt, "AñadiduraCm",f.format(ls[i].zugabeCm));
+            elt = addString(elt, "Precio",f.format(ls[i].preis));
+            elt = addString(elt, "Peso",f.format(ls[i].gewicht));
+            elt = addString(elt, "Probabilidad",f.format(ls[i].wahrscheinlich));
+            elt = addString(elt, "soloArbolZ",new Boolean(ls[i].nurZBaum).toString());
+            elt = addString(elt, "Multiple",new Boolean(ls[i].mehrfach).toString());
+            elt = addString(elt, "Eliminacion",new Boolean(ls[i].entnahme).toString());
             elt = addString(elt, "bisKA",new Boolean(ls[i].bisKronenansatz).toString());
-            elt = addString(elt, "ausgewaehlt",new Boolean(ls[i].ausgewaehlt).toString());
+            elt = addString(elt, "seleccionado",new Boolean(ls[i].ausgewaehlt).toString());
             rootElt.addContent(elt);
         }
 /* Abspeichern des doc */
@@ -608,10 +608,10 @@ public class DeadwoodPanel extends javax.swing.JPanel {
 // Sortimente nach xml
        for (int j=0; j< nls; j++)
            if (ls[j].ausgewaehlt) {
-            elt = new Element("Sortiment_gesucht");
-            elt = addString(elt, "Code", ls[j].name);
-            elt = addString(elt, "Art_von", new Integer(ls[j].artvon).toString());
-            elt = addString(elt, "Art_bis", new Integer(ls[j].artbis).toString());
+            elt = new Element("Surtido_buscado");
+            elt = addString(elt, "Codigo", ls[j].name);
+            elt = addString(elt, "Tipo_de", new Integer(ls[j].artvon).toString());
+            elt = addString(elt, "Ordenar_por", new Integer(ls[j].artbis).toString());
             elt = addString(elt, "L_min", f.format(ls[j].minH));
             elt = addString(elt, "L_min", f.format(ls[j].minH));
             elt = addString(elt, "L_max", f.format(ls[j].maxH));
@@ -754,13 +754,13 @@ public class DeadwoodPanel extends javax.swing.JPanel {
 
 
         elt3 = new Element("Year");
-        elt3 = addString(elt3, "Code", new Integer(st.sp[k].code).toString());
-        elt3 = addString(elt3, "Jahr",new Integer(startyear).toString());
+        elt3 = addString(elt3, "Codigo", new Integer(st.sp[k].code).toString());
+        elt3 = addString(elt3, "Año",new Integer(startyear).toString());
         elt3 = addString(elt3, "Stubben",f.format(volumenStubben));
-        elt3 = addString(elt3, "Naturschutz",f.format(volumenNaturschutz));
-        elt3 = addString(elt3, "Totholz",f.format(volumenTotholz));
-        elt3 = addString(elt3, "Stehend",f.format(volumenStehend));
-        elt3 = addString(elt3, "Gesamt",f.format(volumenGesamt));
+        elt3 = addString(elt3, "Conservacion",f.format(volumenNaturschutz));
+        elt3 = addString(elt3, "Madera Muerta",f.format(volumenTotholz));
+        elt3 = addString(elt3, "De pie",f.format(volumenStehend));
+        elt3 = addString(elt3, "Total",f.format(volumenGesamt));
         rootElt.addContent(elt3);
 
        } // for k species
@@ -818,19 +818,19 @@ public class DeadwoodPanel extends javax.swing.JPanel {
          
          while (i.hasNext()) {
             Element sortiment = (Element) i.next();
-            ls[nls] = new LoggingSortiment(sortiment.getChild("Name").getText(),
-                    Integer.parseInt(sortiment.getChild("Art_von").getText()),Integer.parseInt(sortiment.getChild("Art_bis").getText()),
+            ls[nls] = new LoggingSortiment(sortiment.getChild("Nombre").getText(),
+                    Integer.parseInt(sortiment.getChild("Tipo_de").getText()),Integer.parseInt(sortiment.getChild("Ordenar_por").getText()),
                     Double.parseDouble(sortiment.getChild("minD").getText()),Double.parseDouble(sortiment.getChild("maxD").getText()),
                     Double.parseDouble(sortiment.getChild("minTop").getText()),Double.parseDouble(sortiment.getChild("maxTop").getText()),
                     Double.parseDouble(sortiment.getChild("minH").getText()),Double.parseDouble(sortiment.getChild("maxH").getText()),
-                    Double.parseDouble(sortiment.getChild("ZugabeProzent").getText()),Double.parseDouble(sortiment.getChild("ZugabeCm").getText()),
-                    Double.parseDouble(sortiment.getChild("Preis").getText()),Double.parseDouble(sortiment.getChild("Gewicht").getText()),
-                    Double.parseDouble(sortiment.getChild("Wahrscheinlichkeit").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("nurZBaum").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("mehrfach").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("Entnahme").getText()),
+                    Double.parseDouble(sortiment.getChild("PorcentajeAñadidura").getText()),Double.parseDouble(sortiment.getChild("AñadiduraCm").getText()),
+                    Double.parseDouble(sortiment.getChild("Precio").getText()),Double.parseDouble(sortiment.getChild("Peso").getText()),
+                    Double.parseDouble(sortiment.getChild("Probabilidad").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("soloArbolZ").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("Multiple").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("Eliminacion").getText()),
                     Boolean.parseBoolean(sortiment.getChild("bisKA").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("ausgewaehlt").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("seleccionado").getText()),
                     nls,0
                     );
             listModel.addElement((String) ls[nls].name);

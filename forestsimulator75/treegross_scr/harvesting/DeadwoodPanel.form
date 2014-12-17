@@ -132,7 +132,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Art bis"/>
+                        <Property name="text" type="java.lang.String" value="Ordenar por"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField3">
@@ -151,7 +151,7 @@
                     <Component class="javax.swing.JCheckBox" name="jCheckBox1">
                       <Properties>
                         <Property name="selected" type="boolean" value="true"/>
-                        <Property name="text" type="java.lang.String" value="Entnahme, wenn nein dann Totholz"/>
+                        <Property name="text" type="java.lang.String" value="Retirada, si no entonces la madera muerta"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                             <EmptyBorder bottom="0" left="0" right="0" top="0"/>
@@ -185,12 +185,12 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="min Zopf"/>
+                    <Property name="text" type="java.lang.String" value="Trenza min"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="max Zopf"/>
+                    <Property name="text" type="java.lang.String" value="Trenza max"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
@@ -207,8 +207,8 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
-                        <StringItem index="0" value="Zugabe %"/>
-                        <StringItem index="1" value="Zugabe cm"/>
+                        <StringItem index="0" value="Añadidura %"/>
+                        <StringItem index="1" value="Añadidura cm"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -276,25 +276,25 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Wertigkeit"/>
+                    <Property name="text" type="java.lang.String" value="Valencia"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Preis"/>
+                    <Property name="text" type="java.lang.String" value="Precio"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Prozent der B&#xe4;ume"/>
+                    <Property name="text" type="java.lang.String" value="Porcentaje de los árboles"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox3">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
-                        <StringItem index="0" value="alle B&#xe4;ume"/>
-                        <StringItem index="1" value="Z- B&#xe4;ume"/>
+                        <StringItem index="0" value="todos los árboles"/>
+                        <StringItem index="1" value="Arboles-Z"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -318,8 +318,8 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
-                        <StringItem index="0" value="mehrfach"/>
-                        <StringItem index="1" value="einfach"/>
+                        <StringItem index="0" value="Multiple"/>
+                        <StringItem index="1" value="Simple"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -332,7 +332,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jButton3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="neu "/>
+                    <Property name="text" type="java.lang.String" value="Nuevo "/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
@@ -340,7 +340,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="speichern"/>
+                    <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -348,7 +348,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="l&#xf6;schen"/>
+                    <Property name="text" type="java.lang.String" value="Borrar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
@@ -398,7 +398,7 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sortimente"/>
+                <Property name="text" type="java.lang.String" value="Surtidos"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">

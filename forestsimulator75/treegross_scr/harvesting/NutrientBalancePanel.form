@@ -40,7 +40,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
-            <Property name="text" type="java.lang.String" value="TreeGrOSS xml Datei :"/>
+            <Property name="text" type="java.lang.String" value="Fichero de datos de TreeGrOSS xml:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField13">
@@ -52,7 +52,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="laden"/>
+            <Property name="text" type="java.lang.String" value="Cargar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
@@ -84,7 +84,7 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Sortimente">
-                <Property name="tabTitle" type="java.lang.String" value="Sortimente"/>
+                <Property name="tabTitle" type="java.lang.String" value="Surtidos"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -107,12 +107,12 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="20">
-                        <Column editable="true" title="Auswahl" type="java.lang.Boolean"/>
-                        <Column editable="false" title="Sortiment" type="java.lang.Object"/>
-                        <Column editable="false" title="Arten" type="java.lang.Object"/>
-                        <Column editable="false" title="min Zopf" type="java.lang.Object"/>
+                        <Column editable="true" title="Seleccion" type="java.lang.Boolean"/>
+                        <Column editable="false" title="Suritdo" type="java.lang.Object"/>
+                        <Column editable="false" title="Tipos" type="java.lang.Object"/>
+                        <Column editable="false" title="Trenza min" type="java.lang.Object"/>
                         <Column editable="false" title="min Mitt.D" type="java.lang.Object"/>
-                        <Column editable="false" title="max L&#xe4;nge" type="java.lang.Object"/>
+                        <Column editable="false" title="Largo max" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -125,7 +125,7 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Durchforstungen">
-                <Property name="tabTitle" type="java.lang.String" value="Durchforstungen"/>
+                <Property name="tabTitle" type="java.lang.String" value="Raleos"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -148,12 +148,12 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="20">
-                        <Column editable="true" title="Einschlag" type="java.lang.Object"/>
-                        <Column editable="true" title="Laubholz m&#xb3;/ha" type="java.lang.Object"/>
-                        <Column editable="true" title="Nadelholz m&#xb3;/ha" type="java.lang.Object"/>
-                        <Column editable="true" title="Sortimente" type="java.lang.Boolean"/>
-                        <Column editable="true" title="Brennholz" type="java.lang.Boolean"/>
-                        <Column editable="true" title="Restholz" type="java.lang.Boolean"/>
+                        <Column editable="true" title="Impacto" type="java.lang.Object"/>
+                        <Column editable="true" title="Madera Dura m&#xb3;/ha" type="java.lang.Object"/>
+                        <Column editable="true" title="Madera Blanda m&#xb3;/ha" type="java.lang.Object"/>
+                        <Column editable="true" title="Surtidos" type="java.lang.Boolean"/>
+                        <Column editable="true" title="Madera Quemada" type="java.lang.Boolean"/>
+                        <Column editable="true" title="Madera Residual" type="java.lang.Boolean"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -189,11 +189,11 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="30">
-                        <Column editable="true" title="Jahr" type="java.lang.Object"/>
-                        <Column editable="true" title="Sortimente  t/ha" type="java.lang.Object"/>
-                        <Column editable="true" title="Brennholz  t/ha" type="java.lang.Object"/>
-                        <Column editable="true" title="Restholz  t/ha" type="java.lang.Object"/>
-                        <Column editable="true" title="Gesamt t/ha" type="java.lang.Object"/>
+                        <Column editable="true" title="Año" type="java.lang.Object"/>
+                        <Column editable="true" title="Surtdos  t/ha" type="java.lang.Object"/>
+                        <Column editable="true" title="Madera Quemada  t/ha" type="java.lang.Object"/>
+                        <Column editable="true" title="Madera Residual  t/ha" type="java.lang.Object"/>
+                        <Column editable="true" title="Total t/ha" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -206,7 +206,7 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="N&#xe4;hrstoffbilanz">
-                <Property name="tabTitle" type="java.lang.String" value="N&#xe4;hrstoffbilanz"/>
+                <Property name="tabTitle" type="java.lang.String" value="Balance de nutrientes"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -229,9 +229,9 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="9">
-                        <Column editable="true" title="Name" type="java.lang.Object"/>
-                        <Column editable="true" title="Nachieferung" type="java.lang.Object"/>
-                        <Column editable="true" title="Entnahme " type="java.lang.Object"/>
+                        <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                        <Column editable="true" title="Entrega adicional" type="java.lang.Object"/>
+                        <Column editable="true" title="Eliminacion " type="java.lang.Object"/>
                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                       </Table>
                     </Property>

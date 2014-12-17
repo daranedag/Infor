@@ -162,13 +162,13 @@ public class LoggingPanel extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel13.setText("TreeGrOSS xml Datei :");
+        jLabel13.setText("Fichero de datos de TreeGrOSS xml:");
         jPanel8.add(jLabel13);
 
         jTextField13.setPreferredSize(new java.awt.Dimension(511, 19));
         jPanel8.add(jTextField13);
 
-        jButton5.setText("laden");
+        jButton5.setText("Cargar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -182,7 +182,7 @@ public class LoggingPanel extends javax.swing.JPanel {
 
         jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel14.setText("Einstellen und auswählen der Sortimente für folgende Jahre:");
+        jLabel14.setText("Configure y seleccione los rangos para los siguientes años:");
         jPanel10.add(jLabel14);
 
         jTextField15.setText("all out");
@@ -194,7 +194,7 @@ public class LoggingPanel extends javax.swing.JPanel {
         });
         jPanel10.add(jTextField15);
 
-        jLabel16.setText("Fällschnitt [m]");
+        jLabel16.setText("Tala [m]");
         jPanel10.add(jLabel16);
 
         jTextField16.setText("0.3");
@@ -209,19 +209,19 @@ public class LoggingPanel extends javax.swing.JPanel {
 
         jPanel9.setLayout(new java.awt.GridLayout(1, 8));
 
-        jLabel1.setText("Name");
+        jLabel1.setText("Nombre: ");
         jPanel9.add(jLabel1);
 
-        jTextField1.setText("Name");
+        jTextField1.setText("Nombre: ");
         jPanel9.add(jTextField1);
 
-        jLabel2.setText("Art von");
+        jLabel2.setText("Tipo de");
         jPanel9.add(jLabel2);
 
         jTextField2.setText("211");
         jPanel9.add(jTextField2);
 
-        jLabel3.setText("Art bis");
+        jLabel3.setText("Ordenar por");
         jPanel9.add(jLabel3);
 
         jTextField3.setText("499");
@@ -232,7 +232,7 @@ public class LoggingPanel extends javax.swing.JPanel {
         jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Entnahme, wenn nein dann Totholz");
+        jCheckBox1.setText("Retirada, si no entonces madera muerta ");
         jCheckBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jCheckBox1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel12.add(jCheckBox1);
@@ -249,10 +249,10 @@ public class LoggingPanel extends javax.swing.JPanel {
         jLabel6.setText("max D");
         jPanel5.add(jLabel6);
 
-        jLabel7.setText("min Zopf");
+        jLabel7.setText("Trenza min");
         jPanel5.add(jLabel7);
 
-        jLabel8.setText("max Zopf");
+        jLabel8.setText("Trenza max");
         jPanel5.add(jLabel8);
 
         jLabel9.setText("min L");
@@ -261,7 +261,7 @@ public class LoggingPanel extends javax.swing.JPanel {
         jLabel5.setText("max L");
         jPanel5.add(jLabel5);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Zugabe %", "Zugabe cm" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Añadidura %", "Añadidura cm" }));
         jPanel5.add(jComboBox1);
         jPanel5.add(jPanel7);
 
@@ -295,16 +295,16 @@ public class LoggingPanel extends javax.swing.JPanel {
 
         jPanel6.setLayout(new java.awt.GridLayout(2, 4));
 
-        jLabel10.setText("Wertigkeit");
+        jLabel10.setText("Valencia");
         jPanel6.add(jLabel10);
 
-        jLabel11.setText("Preis");
+        jLabel11.setText("Precio");
         jPanel6.add(jLabel11);
 
-        jLabel12.setText("Prozent der Bäume");
+        jLabel12.setText("Porcentaje de los árboles");
         jPanel6.add(jLabel12);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "alle Bäume", "Z- Bäume" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "todos los árboles", "Árboles-Z" }));
         jPanel6.add(jComboBox3);
 
         jTextField11.setText("10.0");
@@ -316,7 +316,7 @@ public class LoggingPanel extends javax.swing.JPanel {
         jTextField14.setText("100.0");
         jPanel6.add(jTextField14);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "mehrfach", "einfach" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Multiple", "Simple" }));
         jPanel6.add(jComboBox4);
 
         jPanel2.add(jPanel6);
@@ -374,7 +374,7 @@ public class LoggingPanel extends javax.swing.JPanel {
 
         jPanel11.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-        jLabel15.setText("Sortimente");
+        jLabel15.setText("Surtidos");
         jPanel11.add(jLabel15, java.awt.BorderLayout.NORTH);
 
         jPanel1.add(jPanel11, java.awt.BorderLayout.WEST);
@@ -529,7 +529,7 @@ public class LoggingPanel extends javax.swing.JPanel {
         else { listModel.setElementAt((String) ls[m].name,m);}
         neuspeichern = false;
         nls = nlist;
-        System.out.println("Array Länge "+ls.length);
+        System.out.println("Largo Arreglo "+ls.length);
         savels(proDir+System.getProperty("file.separator")+"loggingSortiment.xml");
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -560,7 +560,7 @@ public class LoggingPanel extends javax.swing.JPanel {
        Element elt2;
 /** Creates an Treegross xml */
        Document doc = new Document();
-       rootElt = new Element("Sortimente");
+       rootElt = new Element("Surtidos");
        ProcessingInstruction pi = new ProcessingInstruction("xml-stylesheet",
                  "type=\"text/xsl\" href=\"loggingSortimente.xsl\"");
        doc.addContent(pi);
@@ -569,28 +569,28 @@ public class LoggingPanel extends javax.swing.JPanel {
 //         
 /* Alle Sortimente */;
         for (int i=0;i< nlist;i++){
-            elt = new Element("Sortiment");
+            elt = new Element("Surtidos");
             elt = addString(elt, "Id", new Integer(i).toString());
-            elt = addString(elt, "Name",ls[i].name);
-            elt = addString(elt, "Art_von", new Integer(ls[i].artvon).toString());
-            elt = addString(elt, "Art_bis", new Integer(ls[i].artbis).toString());
+            elt = addString(elt, "Nombre",ls[i].name);
+            elt = addString(elt, "Tipo_de", new Integer(ls[i].artvon).toString());
+            elt = addString(elt, "Ordenar_por", new Integer(ls[i].artbis).toString());
             elt = addString(elt, "minD",f.format(ls[i].minD));
             elt = addString(elt, "maxD",f.format(ls[i].maxD));
             elt = addString(elt, "minTop",f.format(ls[i].minTop));
             elt = addString(elt, "maxTop",f.format(ls[i].maxTop));
             elt = addString(elt, "minH",f.format(ls[i].minH));
             elt = addString(elt, "maxH",f.format(ls[i].maxH));
-            elt = addString(elt, "ZugabeProzent",f.format(ls[i].zugabeProzent));
-            elt = addString(elt, "ZugabeCm",f.format(ls[i].zugabeCm));
-            elt = addString(elt, "Preis",f.format(ls[i].preis));
-            elt = addString(elt, "Gewicht",f.format(ls[i].gewicht));
-            elt = addString(elt, "Wahrscheinlichkeit",f.format(ls[i].wahrscheinlich));
-            elt = addString(elt, "nurZBaum",new Boolean(ls[i].nurZBaum).toString());
-            elt = addString(elt, "mehrfach",new Boolean(ls[i].mehrfach).toString());
-            elt = addString(elt, "Entnahme",new Boolean(ls[i].entnahme).toString());
+            elt = addString(elt, "PorcentajeAñadidura",f.format(ls[i].zugabeProzent));
+            elt = addString(elt, "AñadiduraCm",f.format(ls[i].zugabeCm));
+            elt = addString(elt, "Precio",f.format(ls[i].preis));
+            elt = addString(elt, "Peso",f.format(ls[i].gewicht));
+            elt = addString(elt, "Probabilidad",f.format(ls[i].wahrscheinlich));
+            elt = addString(elt, "soloArbolZ",new Boolean(ls[i].nurZBaum).toString());
+            elt = addString(elt, "Multiple",new Boolean(ls[i].mehrfach).toString());
+            elt = addString(elt, "Eliminacion",new Boolean(ls[i].entnahme).toString());
             elt = addString(elt, "bisKA",new Boolean(ls[i].bisKronenansatz).toString());
-            elt = addString(elt, "ausgewaehlt",new Boolean(ls[i].ausgewaehlt).toString());
-            elt = addString(elt, "Zeitbedarfsfunktion", new Integer(ls[i].zeitFunktion).toString());
+            elt = addString(elt, "Selección",new Boolean(ls[i].ausgewaehlt).toString());
+            elt = addString(elt, "FuncionDeTiempoRequerida", new Integer(ls[i].zeitFunktion).toString());
             rootElt.addContent(elt);
         }
 /* Abspeichern des doc */
@@ -654,7 +654,7 @@ public class LoggingPanel extends javax.swing.JPanel {
        Element elt3;
 /** Creates an Treegross xml */
        Document doc = new Document();
-       rootElt = new Element("Stoffhaushalt");
+       rootElt = new Element("Materia");
        ProcessingInstruction pi = new ProcessingInstruction("xml-stylesheet",
                  "type=\"text/xsl\" href=\"treegrosslogging.xsl\"");
        doc.addContent(pi);
@@ -682,10 +682,10 @@ public class LoggingPanel extends javax.swing.JPanel {
 // Sortimente nach xml
        for (int j=0; j< nls; j++)
            if (ls[j].ausgewaehlt) {
-            elt = new Element("Sortiment_gesucht");
-            elt = addString(elt, "Code", ls[j].name);
-            elt = addString(elt, "Art_von", new Integer(ls[j].artvon).toString());
-            elt = addString(elt, "Art_bis", new Integer(ls[j].artbis).toString());
+            elt = new Element("Surtidos_buscados");
+            elt = addString(elt, "Codigo", ls[j].name);
+            elt = addString(elt, "Tipo_de", new Integer(ls[j].artvon).toString());
+            elt = addString(elt, "Ordenar_por", new Integer(ls[j].artbis).toString());
             elt = addString(elt, "L_min", f.format(ls[j].minH));
             elt = addString(elt, "L_min", f.format(ls[j].minH));
             elt = addString(elt, "L_max", f.format(ls[j].maxH));
@@ -732,8 +732,8 @@ public class LoggingPanel extends javax.swing.JPanel {
             double sumvn =0.0;
 
        for (int k=0;k<st.nspecies;k++) {
-            elt = new Element("Art");
-            elt = addString(elt, "Code", new Integer(st.sp[k].code).toString());
+            elt = new Element("Tipo");
+            elt = addString(elt, "Codigo", new Integer(st.sp[k].code).toString());
 
             for (int i=0;i<st.ntrees;i++)
                 if (st.sp[k].code == st.tr[i].code &&
@@ -800,18 +800,18 @@ public class LoggingPanel extends javax.swing.JPanel {
                                        else volumenToth = volumenToth + vo1HmR;
 // Sortimentsstücke nach xml
 //
-                                   elt3 = new Element("Sortiment");
-                                   elt3 = addString(elt3, "Art",new Integer(st.tr[i].code).toString());
-                                   elt3 = addString(elt3, "Baum_Nr",st.tr[i].no);
+                                   elt3 = new Element("Surtidos");
+                                   elt3 = addString(elt3, "Tipo",new Integer(st.tr[i].code).toString());
+                                   elt3 = addString(elt3, "Arbol_Nr",st.tr[i].no);
                                    elt3 = addString(elt3, "BHD",f.format(st.tr[i].d));
-                                   elt3 = addString(elt3, "Name",ls[j].name);
-                                   elt3 = addString(elt3, "Entnahmejahr",new Integer(st.tr[i].out).toString());
-                                   elt3 = addString(elt3, "Entnahmetyp",new Integer(st.tr[i].outtype).toString());
-                                   elt3 = addString(elt3, "Starthoehe",f.format(startHeight));
-                                   elt3 = addString(elt3, "Laenge",f.format(l_m));
+                                   elt3 = addString(elt3, "Nombre",ls[j].name);
+                                   elt3 = addString(elt3, "AñoRetiro",new Integer(st.tr[i].out).toString());
+                                   elt3 = addString(elt3, "TipoRetiro",new Integer(st.tr[i].outtype).toString());
+                                   elt3 = addString(elt3, "AlturaInicial",f.format(startHeight));
+                                   elt3 = addString(elt3, "Largo",f.format(l_m));
                                    elt3 = addString(elt3, "VolHuber_mR",f.format(vo1HmR*st.tr[i].fac/st.size));
                                    elt3 = addString(elt3, "VolHuber_oR",f.format(vo1HoR*st.tr[i].fac/st.size));
-                                   elt3 = addString(elt3, "Zeitbedarf_minha",f.format(zeitbedarf*st.tr[i].fac/st.size));
+                                   elt3 = addString(elt3, "TiempoRequerido_minha",f.format(zeitbedarf*st.tr[i].fac/st.size));
                                    elt3 = addString(elt3, "D_mR",f.format(dmR_cm));
                                    rootElt.addContent(elt3);
 
@@ -830,43 +830,43 @@ public class LoggingPanel extends javax.swing.JPanel {
 //           if (volumenEntn > 0.0 || volumenToth > 0.0)
            BiomasseFaktoren bf = new BiomasseFaktoren();
            if (st.tr[i].out > 0 ) volumenToth = vol - volumenEntn;
-           elt2 = new Element("Baum");
+           elt2 = new Element("Arbol");
            elt2 = addString(elt2, "Nr",st.tr[i].no);
-           elt2 = addString(elt2, "Baumart", new Integer(st.tr[i].code).toString());
+           elt2 = addString(elt2, "TipoArbol", new Integer(st.tr[i].code).toString());
            elt2 = addString(elt2, "BHD",f.format(st.tr[i].d));
-           elt2 = addString(elt2, "Hoehe",f.format(st.tr[i].h));
+           elt2 = addString(elt2, "Altura",f.format(st.tr[i].h));
            elt2 = addString(elt2, "KA",f.format(st.tr[i].cb));
            elt2 = addString(elt2, "v_lebend",f.format(volumen/st.size));
            elt2 = addString(elt2, "v_toth",f.format(volumenToth/st.size));
            elt2 = addString(elt2, "v_entnommen",f.format(volumenEntn/st.size));
-           elt2 = addString(elt2, "Biomasse_lebend", f.format(volumen*bf.getFactor(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Biomasse_entn", f.format(volumenEntn*bf.getFactor(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Biomasse_toth", f.format(volumenToth*bf.getFactor(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Biomasse_Zweig", f.format(biomasseZweige/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Biomasse_Blatt", f.format(biomasseNadeln/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Biomasse_Zweig_ent", f.format(biomasseZweigeOut/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Biomasse_Blatt_ent", f.format(biomasseNadelnOut/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Ca_lebend", f.format(volumen*bf.getFactor(st.tr[i].code)*bf.getFactorCa(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Ca_entn", f.format(volumenEntn*bf.getFactor(st.tr[i].code)*bf.getFactorCa(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Ca_toth", f.format(volumenToth*bf.getFactor(st.tr[i].code)*bf.getFactorCa(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Ca_Zweig", f.format(biomasseZweige*bf.getFactorCaAst(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Ca_Blatt", f.format(biomasseNadeln*bf.getFactorCaBlatt(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Ca_Zweig_ent", f.format(biomasseZweigeOut*bf.getFactorCaAst(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Ca_Blatt_ent", f.format(biomasseNadelnOut*bf.getFactorCaBlatt(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "K_lebend", f.format(volumen*bf.getFactor(st.tr[i].code)*bf.getFactorK(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "K_entn", f.format(volumenEntn*bf.getFactor(st.tr[i].code)*bf.getFactorK(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "K_toth", f.format(volumenToth*bf.getFactor(st.tr[i].code)*bf.getFactorK(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "K_Zweig", f.format(biomasseZweige*bf.getFactorKAst(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "K_Blatt", f.format(biomasseNadeln*bf.getFactorKBlatt(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "K_Zweig_ent", f.format(biomasseZweigeOut*bf.getFactorKAst(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "K_Blatt_ent", f.format(biomasseNadelnOut*bf.getFactorKBlatt(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Mg_lebend", f.format(volumen*bf.getFactor(st.tr[i].code)*bf.getFactorMg(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Mg_entn", f.format(volumenEntn*bf.getFactor(st.tr[i].code)*bf.getFactorMg(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Mg_toth", f.format(volumenToth*bf.getFactor(st.tr[i].code)*bf.getFactorMg(st.tr[i].code)/st.size) );
-           elt2 = addString(elt2, "Mg_Zweig", f.format(biomasseZweige*bf.getFactorMgAst(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Mg_Blatt", f.format(biomasseNadeln*bf.getFactorMgBlatt(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Mg_Zweig_ent", f.format(biomasseZweigeOut*bf.getFactorMgAst(st.tr[i].code)/(1000.0*st.size)) );
-           elt2 = addString(elt2, "Mg_Blatt_ent", f.format(biomasseNadelnOut*bf.getFactorMgBlatt(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Biomasa_viva", f.format(volumen*bf.getFactor(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Biomasa_eliminada", f.format(volumenEntn*bf.getFactor(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Biomasa_muerta", f.format(volumenToth*bf.getFactor(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Biomasa_rama", f.format(biomasseZweige/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Biomasa_hoja", f.format(biomasseNadeln/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Biomasa_rama_eliminada", f.format(biomasseZweigeOut/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Biomasa_hoja_eliminada", f.format(biomasseNadelnOut/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Ca_vivo", f.format(volumen*bf.getFactor(st.tr[i].code)*bf.getFactorCa(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Ca_eliminado", f.format(volumenEntn*bf.getFactor(st.tr[i].code)*bf.getFactorCa(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Ca_muerto", f.format(volumenToth*bf.getFactor(st.tr[i].code)*bf.getFactorCa(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Ca_Rama", f.format(biomasseZweige*bf.getFactorCaAst(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Ca_Hoja", f.format(biomasseNadeln*bf.getFactorCaBlatt(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Ca_Rama_eliminado", f.format(biomasseZweigeOut*bf.getFactorCaAst(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Ca_Hoja_eliminado", f.format(biomasseNadelnOut*bf.getFactorCaBlatt(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "K_viva", f.format(volumen*bf.getFactor(st.tr[i].code)*bf.getFactorK(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "K_eliminada", f.format(volumenEntn*bf.getFactor(st.tr[i].code)*bf.getFactorK(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "K_muerta", f.format(volumenToth*bf.getFactor(st.tr[i].code)*bf.getFactorK(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "K_rama", f.format(biomasseZweige*bf.getFactorKAst(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "K_hoja", f.format(biomasseNadeln*bf.getFactorKBlatt(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "K_rama_eliminado", f.format(biomasseZweigeOut*bf.getFactorKAst(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "K_hoja_eliminado", f.format(biomasseNadelnOut*bf.getFactorKBlatt(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Mg_viva", f.format(volumen*bf.getFactor(st.tr[i].code)*bf.getFactorMg(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Mg_eliminada", f.format(volumenEntn*bf.getFactor(st.tr[i].code)*bf.getFactorMg(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Mg_muerta", f.format(volumenToth*bf.getFactor(st.tr[i].code)*bf.getFactorMg(st.tr[i].code)/st.size) );
+           elt2 = addString(elt2, "Mg_rama", f.format(biomasseZweige*bf.getFactorMgAst(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Mg_hoja", f.format(biomasseNadeln*bf.getFactorMgBlatt(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Mg_rama_eliminado", f.format(biomasseZweigeOut*bf.getFactorMgAst(st.tr[i].code)/(1000.0*st.size)) );
+           elt2 = addString(elt2, "Mg_hoja_eliminado", f.format(biomasseNadelnOut*bf.getFactorMgBlatt(st.tr[i].code)/(1000.0*st.size)) );
            elt.addContent(elt2);
 
 
@@ -923,25 +923,25 @@ public class LoggingPanel extends javax.swing.JPanel {
          DocType docType = doc.getDocType();
 //        
          Element sortimente =  doc.getRootElement();  
-         List Sortiment = sortimente.getChildren("Sortiment");
+         List Sortiment = sortimente.getChildren("Surtidos");
          Iterator i = Sortiment.iterator();
          
          while (i.hasNext()) {
             Element sortiment = (Element) i.next();
-            ls[nls] = new LoggingSortiment(sortiment.getChild("Name").getText(),
-                    Integer.parseInt(sortiment.getChild("Art_von").getText()),Integer.parseInt(sortiment.getChild("Art_bis").getText()),
+            ls[nls] = new LoggingSortiment(sortiment.getChild("Nombre").getText(),
+                    Integer.parseInt(sortiment.getChild("Tipo_de").getText()),Integer.parseInt(sortiment.getChild("Ordenar_por").getText()),
                     Double.parseDouble(sortiment.getChild("minD").getText()),Double.parseDouble(sortiment.getChild("maxD").getText()),
                     Double.parseDouble(sortiment.getChild("minTop").getText()),Double.parseDouble(sortiment.getChild("maxTop").getText()),
                     Double.parseDouble(sortiment.getChild("minH").getText()),Double.parseDouble(sortiment.getChild("maxH").getText()),
-                    Double.parseDouble(sortiment.getChild("ZugabeProzent").getText()),Double.parseDouble(sortiment.getChild("ZugabeCm").getText()),
-                    Double.parseDouble(sortiment.getChild("Preis").getText()),Double.parseDouble(sortiment.getChild("Gewicht").getText()),
-                    Double.parseDouble(sortiment.getChild("Wahrscheinlichkeit").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("nurZBaum").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("mehrfach").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("Entnahme").getText()),
+                    Double.parseDouble(sortiment.getChild("PorcentajeAñadidura").getText()),Double.parseDouble(sortiment.getChild("AñadiduraCm").getText()),
+                    Double.parseDouble(sortiment.getChild("Precio").getText()),Double.parseDouble(sortiment.getChild("Peso").getText()),
+                    Double.parseDouble(sortiment.getChild("Probabilidad").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("soloArbolZ").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("Multiple").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("Eliminacion").getText()),
                     Boolean.parseBoolean(sortiment.getChild("bisKA").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("ausgewaehlt").getText()),
-                    nls,Integer.parseInt(sortiment.getChild("Zeitbedarfsfunktion").getText())
+                    Boolean.parseBoolean(sortiment.getChild("Selección").getText()),
+                    nls,Integer.parseInt(sortiment.getChild("FuncionDeTiempoRequerida").getText())
                     );
             listModel.addElement((String) ls[nls].name);
             nlist = nlist + 1;
@@ -968,11 +968,11 @@ public class LoggingPanel extends javax.swing.JPanel {
          while (i.hasNext()) {
             Element function = (Element) i.next();
             tef[ntef] = new TimeEstimateFunction(Integer.parseInt(function.getChild("id").getText()),
-                    function.getChild("Baumartengruppe").getText() ,
-                    function.getChild("Sortiment").getText() ,
-                    function.getChild("Taetigkeit").getText() ,
-                    Integer.parseInt(function.getChild("Min_Mittendurchmesser").getText().trim()),
-                    Integer.parseInt(function.getChild("Max_Mittendurchmesser").getText().trim()),
+                    function.getChild("Grupo de especies de árbol").getText() ,
+                    function.getChild("Surtido").getText() ,
+                    function.getChild("Actividad").getText() ,
+                    Integer.parseInt(function.getChild("Min_DiametroMedio").getText().trim()),
+                    Integer.parseInt(function.getChild("Max_DiametroMedio").getText().trim()),
                     Double.parseDouble(function.getChild("a").getText().trim()),
                     Double.parseDouble(function.getChild("b").getText().trim()),
                     Double.parseDouble(function.getChild("c").getText().trim())

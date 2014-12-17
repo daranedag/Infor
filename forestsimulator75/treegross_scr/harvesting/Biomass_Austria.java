@@ -38,13 +38,13 @@ public class Biomass_Austria {
     }
 // Coefficients for needle biomass ND Table 3
     private void loadCoeffientsND(int code){
-        //Oak Quelle 2
+        //Oak Quelle 2    Fuente Roble 2
         if (code < 200) { p0 = 0.0; p1=0.0; p2=0.0; p3= 0.0; type=1;} 
-        // beech Quelle 2
+        // beech Quelle 2  Fuente Haya 2 
         if (code > 199 && code < 500) { p0 = 0.0; p1=0.0; p2=0.0; p3=0.0; type=1;}
-        // spruce Quelle 1
+        // spruce Quelle 1  Fuente Picea 1
         if (code > 499) { p0 = -2.5487; p1=2.4961; p2=-0.6365; p3=-0.3385; type=2;}
-        // pine Quelle 1
+        // pine Quelle 1    Fuente Pino 1
         if (code > 699 && code < 800) { p0 = -0.8577; p1=1.9417; p2=-0.6182; p3= 0.0; type=2;}
     }    
 // Coefficients for branch biomass BR Table 3
