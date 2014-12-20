@@ -50,7 +50,7 @@ public class SortingDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sorting Dialog");
 
-        jButton1.setText("Entnahmemengen auf der Basis der Sortimente berechnen");
+        jButton1.setText("Calcular las cantidades de abstinencia en base a los rangos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

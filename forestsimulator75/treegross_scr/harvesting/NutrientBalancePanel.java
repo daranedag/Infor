@@ -185,7 +185,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Auswahl", "Sortiment", "Arten", "min Zopf", "min Mitt.D", "max Länge"
+                "Selección", "Surtido", "Tipo", "Trenza min", "min Mitt.D", "Largo max"
             }
         ) {
             Class[] types = new Class [] {
@@ -207,7 +207,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
 
         jPanel15.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
-        jTabbedPane1.addTab("Sortimente", jPanel15);
+        jTabbedPane1.addTab("Surtidos", jPanel15);
 
         jPanel14.setLayout(new java.awt.BorderLayout());
 
@@ -235,7 +235,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Einschlag", "Laubholz m³/ha", "Nadelholz m³/ha", "Sortimente", "Brennholz", "Restholz"
+                "Impacto", "Madera Dura m³/ha", "Madera Blanda m³/ha", "Surtidos", "Madera quemada", "Madera residual"
             }
         ) {
             Class[] types = new Class [] {
@@ -250,7 +250,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
 
         jPanel14.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jTabbedPane1.addTab("Durchforstungen", jPanel14);
+        jTabbedPane1.addTab("Raleos", jPanel14);
 
         jPanel16.setLayout(new java.awt.BorderLayout());
 
@@ -288,7 +288,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Jahr", "Sortimente  t/ha", "Brennholz  t/ha", "Restholz  t/ha", "Gesamt t/ha"
+                "Año", "Surtidos  t/ha", "Madera quemada  t/ha", "Madera residual  t/ha", "Total t/ha"
             }
         ));
         jScrollPane4.setViewportView(jTable3);
@@ -312,7 +312,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Nachieferung", "Entnahme ", "Title 4"
+                "Nombre", "Entrega adicional", "Eliminación ", "Title 4"  //Nachieferung o Nachlieferung
             }
         ));
         jScrollPane2.setViewportView(jTable4);
@@ -358,26 +358,26 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
         for (int i=0;i< nlist;i++){
             elt = new Element("Sortiment");
             elt = addString(elt, "Id", new Integer(i).toString());
-            elt = addString(elt, "Name",ls[i].name);
-            elt = addString(elt, "Art_von", new Integer(ls[i].artvon).toString());
-            elt = addString(elt, "Art_bis", new Integer(ls[i].artbis).toString());
+            elt = addString(elt, "Nombre",ls[i].name);
+            elt = addString(elt, "Tipo de", new Integer(ls[i].artvon).toString());
+            elt = addString(elt, "Ordenar por", new Integer(ls[i].artbis).toString());
             elt = addString(elt, "minD",f.format(ls[i].minD));
             elt = addString(elt, "maxD",f.format(ls[i].maxD));
             elt = addString(elt, "minTop",f.format(ls[i].minTop));
             elt = addString(elt, "maxTop",f.format(ls[i].maxTop));
             elt = addString(elt, "minH",f.format(ls[i].minH));
             elt = addString(elt, "maxH",f.format(ls[i].maxH));
-            elt = addString(elt, "ZugabeProzent",f.format(ls[i].zugabeProzent));
-            elt = addString(elt, "ZugabeCm",f.format(ls[i].zugabeCm));
-            elt = addString(elt, "Preis",f.format(ls[i].preis));
-            elt = addString(elt, "Gewicht",f.format(ls[i].gewicht));
-            elt = addString(elt, "Wahrscheinlichkeit",f.format(ls[i].wahrscheinlich));
-            elt = addString(elt, "nurZBaum",new Boolean(ls[i].nurZBaum).toString());
-            elt = addString(elt, "mehrfach",new Boolean(ls[i].mehrfach).toString());
-            elt = addString(elt, "Entnahme",new Boolean(ls[i].entnahme).toString());
+            elt = addString(elt, "PorcentajeAñadidura",f.format(ls[i].zugabeProzent));
+            elt = addString(elt, "AñadiduraCm",f.format(ls[i].zugabeCm));
+            elt = addString(elt, "Precio",f.format(ls[i].preis));
+            elt = addString(elt, "Peso",f.format(ls[i].gewicht));
+            elt = addString(elt, "Probabilidad",f.format(ls[i].wahrscheinlich));
+            elt = addString(elt, "soloArbolZ",new Boolean(ls[i].nurZBaum).toString());
+            elt = addString(elt, "Multiple",new Boolean(ls[i].mehrfach).toString());
+            elt = addString(elt, "Eliminacion",new Boolean(ls[i].entnahme).toString());
             elt = addString(elt, "bisKA",new Boolean(ls[i].bisKronenansatz).toString());
-            elt = addString(elt, "ausgewaehlt",new Boolean(ls[i].ausgewaehlt).toString());
-            elt = addString(elt, "Zeitbedarfsfunktion", new Integer(ls[i].zeitFunktion).toString());
+            elt = addString(elt, "Seleccionado",new Boolean(ls[i].ausgewaehlt).toString());
+            elt = addString(elt, "Función de tiempo requerida", new Integer(ls[i].zeitFunktion).toString());
             rootElt.addContent(elt);
         }
 /* Abspeichern des doc */
@@ -638,8 +638,8 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
 
     public void calculateNutrientBalance(){
         getTableDfSetting();
-// Sortierung
-// Logging Sortimente nach ausgewaehlt bzw. nicht sortieren
+// Sortierung  Clasificacion
+// Logging Sortimente nach ausgewaehlt bzw. nicht sortieren         Kits de registro de seleccion, no ordenar
         LoggingSortiment temp = new LoggingSortiment();
         for (int i=0;i< nls-1;i++)
            for (int j=i+1;j< nls;j++)
@@ -648,10 +648,10 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                    ls[i]=ls[j];
                    ls[j]=temp;
                }
-// Festellen der Anzahl ausgewaehlter ls
+// Festellen der Anzahl ausgewaehlter ls        Determinacion del numero de seleccion
          int nausgewaehlt = 0;
          for (int i=0;i< nls;i++) if (ls[i].ausgewaehlt) nausgewaehlt = nausgewaehlt +1;
-// ausgewaehlte Logging Sortimente nach Gewichtung sortieren
+// ausgewaehlte Logging Sortimente nach Gewichtung sortieren        Ordenar kits de registro de seleccion despues de ponderar
         for (int i=0;i< nausgewaehlt-1;i++)
            for (int j=i+1;j< nausgewaehlt;j++)
                if (ls[j].gewicht > ls[i].gewicht) {
@@ -659,7 +659,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                    ls[i]=ls[j];
                    ls[j]=temp;
                }
-// Sortierung
+// Sortierung           Ordenamiento
         JSortiererNFV sortierer = new JSortiererNFV(nbs[0].taperFuctionClass);
         FunctionInterpreter fi = new FunctionInterpreter();
 
@@ -673,7 +673,7 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                     double volSortimente =0.0;
                     double volFirewood=0.0;
                     double volRestwood=0.0;
-// Sortimente
+// Sortimente           Surtidos
                     if(nbl[k].sortiments){
                        double startHeight=0.3;
                        for (int j=0;j<nausgewaehlt;j++) {
@@ -692,15 +692,15 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
                                    if (ls[j].entnahme) volSortimente = volSortimente+sortierer.getAVolmR_m3();
                                    startHeight=startHeight + sortierer.getALae_m();
                                 }
-                               if (ls[j].mehrfach == false) logFound = false; //Abbruch
+                               if (ls[j].mehrfach == false) logFound = false; //Abbruch  break
                             }// while log found
 
-                           } // Baumart
+                           } // Baumart  tipo arbol
                         }   // for j
                        nbl[k].sortimentsBM = nbl[k].sortimentsBM + 
                                fi.getValueForTree(st.tr[i],nbs[st.tr[i].sp.spDef.internalCode].woodDensity)*volSortimente*st.tr[i].fac/st.size;
                     }
-// Ende der Sortimente
+// Ende der Sortimente  Fin de Surtidos
                     if (nbl[k].firewood){
                         if (vol - volSortimente > 0.0) volFirewood = vol - volSortimente;
                         nbl[k].firewoodBM = nbl[k].firewoodBM +
@@ -796,20 +796,20 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
          
          while (i.hasNext()) {
             Element sortiment = (Element) i.next();
-            ls[nls] = new LoggingSortiment(sortiment.getChild("Name").getText(),
-                    Integer.parseInt(sortiment.getChild("Art_von").getText()),Integer.parseInt(sortiment.getChild("Art_bis").getText()),
+            ls[nls] = new LoggingSortiment(sortiment.getChild("Nombre").getText(),
+                    Integer.parseInt(sortiment.getChild("Tipo_de").getText()),Integer.parseInt(sortiment.getChild("Ordenar_por").getText()),
                     Double.parseDouble(sortiment.getChild("minD").getText()),Double.parseDouble(sortiment.getChild("maxD").getText()),
                     Double.parseDouble(sortiment.getChild("minTop").getText()),Double.parseDouble(sortiment.getChild("maxTop").getText()),
                     Double.parseDouble(sortiment.getChild("minH").getText()),Double.parseDouble(sortiment.getChild("maxH").getText()),
-                    Double.parseDouble(sortiment.getChild("ZugabeProzent").getText()),Double.parseDouble(sortiment.getChild("ZugabeCm").getText()),
-                    Double.parseDouble(sortiment.getChild("Preis").getText()),Double.parseDouble(sortiment.getChild("Gewicht").getText()),
-                    Double.parseDouble(sortiment.getChild("Wahrscheinlichkeit").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("nurZBaum").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("mehrfach").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("Entnahme").getText()),
+                    Double.parseDouble(sortiment.getChild("PorcentajeAñadidura").getText()),Double.parseDouble(sortiment.getChild("PorcentajeCm").getText()),
+                    Double.parseDouble(sortiment.getChild("Precio").getText()),Double.parseDouble(sortiment.getChild("Peso").getText()),
+                    Double.parseDouble(sortiment.getChild("Probabilidad").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("soloArbolZ").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("Multiple").getText()),
+                    Boolean.parseBoolean(sortiment.getChild("Eliminacion").getText()),
                     Boolean.parseBoolean(sortiment.getChild("bisKA").getText()),
-                    Boolean.parseBoolean(sortiment.getChild("ausgewaehlt").getText()),
-                    nls,Integer.parseInt(sortiment.getChild("Zeitbedarfsfunktion").getText())
+                    Boolean.parseBoolean(sortiment.getChild("Seleccionado").getText()),
+                    nls,Integer.parseInt(sortiment.getChild("Funcion de tiempo requerida").getText())
                     );
             listModel.addElement((String) ls[nls].name);
             nlist = nlist + 1;
@@ -836,11 +836,11 @@ public class NutrientBalancePanel extends javax.swing.JPanel {
          while (i.hasNext()) {
             Element function = (Element) i.next();
             tef[ntef] = new TimeEstimateFunction(Integer.parseInt(function.getChild("id").getText()),
-                    function.getChild("Baumartengruppe").getText() ,
-                    function.getChild("Sortiment").getText() ,
-                    function.getChild("Taetigkeit").getText() ,
-                    Integer.parseInt(function.getChild("Min_Mittendurchmesser").getText().trim()),
-                    Integer.parseInt(function.getChild("Max_Mittendurchmesser").getText().trim()),
+                    function.getChild("Grupo de especies de arbol").getText() ,
+                    function.getChild("Surtido").getText() ,
+                    function.getChild("Actividad").getText() ,
+                    Integer.parseInt(function.getChild("Min_DiametroMedio").getText().trim()),
+                    Integer.parseInt(function.getChild("Max_DiametroMedio").getText().trim()),
                     Double.parseDouble(function.getChild("a").getText().trim()),
                     Double.parseDouble(function.getChild("b").getText().trim()),
                     Double.parseDouble(function.getChild("c").getText().trim())
