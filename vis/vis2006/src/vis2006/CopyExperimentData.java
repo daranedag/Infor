@@ -75,13 +75,13 @@ public class CopyExperimentData {
            
 // Prüfen, ob Anzahl der Zeilen gleich ist
            if (kontrollZeilen==AnzahlZeilenTempdaten(s, id, false)){ //für alle Parzellen (parzOnly = false)
-                meldung ="Daten kopiert.";
+                meldung ="Datos copiados.";
                 zieldatei = f.toString(); 
             }
-           else meldung = "FEHLER: Daten nicht vollständig kopiert!" ;
+           else meldung = "ERROR: Datos no copiados completamente!" ;
         }
         else 
-            meldung = "Datei vorhanden.";
+            meldung = "Datos disponibles.";
         return meldung;
      }
 
@@ -136,13 +136,13 @@ public class CopyExperimentData {
            dbconn.closeAll();
 // Prüfen, ob Anzahl der Zeilen gleich ist
            if (kontrollZeilen==AnzahlZeilenTempdaten(s, id, true)){ //Pfad, edvid, parzOnly
-                meldung ="Daten kopiert";
+                meldung ="Datos copiados";
                 zieldatei = f.toString();
            }
            
-           else meldung = "FEHLER: Daten nicht vollständig kopiert!" ; 
+           else meldung = "Error: Datos no copiados completamente!" ; 
         }
-        else meldung ="Datei vorhanden";    
+        else meldung ="Datos disponibles";    
         return meldung;
      }
     
@@ -246,7 +246,7 @@ public class CopyExperimentData {
 
 
 // Einfügen der Aufnahmedaten
-        System.out.println("Einfügen der Aufnahmedaten");
+        System.out.println("Inserte datos registrados");
         stmt2 = dbconn.Connections[1].createStatement(); 
         rs = stmt2.executeQuery("SELECT * FROM Auf WHERE edvid= '"+ids+"'");
         meta = rs.getMetaData();
@@ -303,7 +303,7 @@ public class CopyExperimentData {
            stmt.execute("UPDATE waldwachstum.Auf SET Stempel = now() WHERE edvid= \'"+ids+"\'" ); //Stempel aktualisiert sich eigentlich selbst (warum ist das hier drin?)
         } 
 // Einfügen der Baumdaten
-        System.out.println("Einfügen der Baumdaten");
+        System.out.println("Pegue los datos de árboles");
         stmt2 = dbconn.Connections[1].createStatement(); 
         rs = stmt2.executeQuery("SELECT * FROM Baum WHERE edvid= '"+ids+"'");
         meta = rs.getMetaData();
@@ -366,7 +366,7 @@ public class CopyExperimentData {
            stmt.execute("update waldwachstum.Baum set Stempel = now() WHERE edvid= \'"+ids+"\'" );//Stempel aktualisiert sich eigentlich selbst (warum ist das hier drin?)
         } 
 // Einfügen der Stammvdaten
-        System.out.println("Einfügen der Stammvdaten");
+        System.out.println("Pegue los datos de Stammv");
         stmt2 = dbconn.Connections[1].createStatement(); 
         rs = stmt2.executeQuery("SELECT * FROM Stammv WHERE edvid= '"+ids+"'");
         meta = rs.getMetaData();
@@ -425,7 +425,7 @@ public class CopyExperimentData {
         } 
        
   // Einfügen der Qualitdaten
-        System.out.println("Einfügen der Qualitdaten");
+        System.out.println("Pegue los datos de Calidad");
         stmt2 = dbconn.Connections[1].createStatement(); 
         rs = stmt2.executeQuery("SELECT * FROM Qualit WHERE edvid= '"+ids+"'");
         meta = rs.getMetaData();
@@ -488,12 +488,12 @@ public class CopyExperimentData {
         }
         
        catch (Exception e){  
-           System.out.println("Datenbank Fehler :"+e);
+           System.out.println("Error en la base de datos :"+e);
            e.printStackTrace(); }
        dbconn.closeAll();
  //      
-       String status = "FEHLER: beim Einfügen";
-       if (kontrollZeilen==AnzahlZeilenWaldwachstum(ids, parzOnly)) status = "erfolgreich eingefügt !" ;
+       String status = "ERROR: al pegar";
+       if (kontrollZeilen==AnzahlZeilenWaldwachstum(ids, parzOnly)) status = "Insertado con éxito !" ;
        return status ;
         
     }
@@ -532,7 +532,7 @@ public class CopyExperimentData {
           try {
              stmt.execute("DROP INDEX id on Baum");
           }
-          catch (Exception e){  System.out.println("Datenbank kein index :"+e); }
+          catch (Exception e){  System.out.println("Sin indice en la base de datos :"+e); }
           stmt.execute("CREATE INDEX id ON Baum (id) ");
           
            for (int i=0;i<ndoppel;i++){
@@ -542,10 +542,10 @@ public class CopyExperimentData {
         
        }
         
-       catch (Exception e){  System.out.println("Datenbank Fehler Clean :"+e); }
+       catch (Exception e){  System.out.println("Error al limpiar base de datos :"+e); }
        dbconn.closeAll();
         
-        return "doppelte Einträge entfernt";
+        return "Entradas duplicadas eliminadas";
     }
     
     int AnzahlZeilenWaldwachstum(String id, boolean parzOnly){
@@ -611,7 +611,7 @@ public class CopyExperimentData {
       }
 
       dbconn.closeAll();
-      System.out.println("Anzahl der Zeilen: "+ zeilen);
+      System.out.println("Numero de filas: "+ zeilen);
       return zeilen;
     }
 
@@ -649,7 +649,7 @@ public class CopyExperimentData {
                   zeilen = zeilen + zeile;
               }
 
-          } catch (Exception e){System.out.println("Datenbank Fehler :"+e); }
+          } catch (Exception e){System.out.println("Error en la base de datos :"+e); }
       dbconn.closeAll();
       }
       else{
@@ -678,11 +678,11 @@ public class CopyExperimentData {
                   int zeile = rs.getInt("anzahl");
                   zeilen = zeilen + zeile;
               }
-        } catch (Exception e){  System.out.println("Datenbank Fehler :"+e); }
+        } catch (Exception e){  System.out.println("Error en la base de datos :"+e); }
       dbconn.closeAll();          
       }
 
-      System.out.println("Anzahl der Zeilen: "+ zeilen);
+      System.out.println("Número de filas: "+ zeilen);
       return zeilen;
     }
 

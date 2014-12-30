@@ -31,13 +31,13 @@ public class CheckVisData {
                "table{border-collapse: collapse; }td{border:1px solid black; padding:5px;}</style>");
        out.println("<span class=\"titel\">Hinweise</span>");
        if(edvid != null){ 
-           out.println("<br><strong> - für "+edvid.substring(0,6)+", Parzelle "+edvid.substring(6,8)+" - </strong>");
-           out.println("<br><strong>Die folgenden Datensätze sind möglicherweise fehlerhaft. Bitte überprüfen.</strong><br>");
+           out.println("<br><strong> - para "+edvid.substring(0,6)+", Parcela "+edvid.substring(6,8)+" - </strong>");
+           out.println("<br><strong>Los siguientes registros pueden estar defectuosos. Comprueba, por favor.</strong><br>");
        }
        
-       out.println("<br><TABLE><TR bgcolor=\"#7CB083\"><TD><strong>Fehler</strong></TD><TD><strong>Datensatz</strong></TR>");
+       out.println("<br><TABLE><TR bgcolor=\"#7CB083\"><TD><strong>Fallas</strong></TD><TD><strong>Registro</strong></TR>");
       }
-      catch (Exception e) {System.out.println(e+ " Kein File geschrieben");}
+      catch (Exception e) {System.out.println(e+ " Ningún archivo escrito");}
       return(out);
     }  
     
@@ -68,7 +68,7 @@ public class CheckVisData {
                         && nrx.indexOf("nurH")<0 && nrx.indexOf("cm")<0 && ! nrx.trim().equals("onum")
                         && ! nrx.trim().equals("HB")&& ! nrx.trim().equals("HG")) {
                     ndoppel=ndoppel+1;
-                    out.println("<TR><TD>Doppelter Datensatz</TD><TD>"+ids+" "+aufx+" "+artx+" "+nrx+" </TD></TR>");
+                    out.println("<TR><TD>Registro duplicado</TD><TD>"+ids+" "+aufx+" "+artx+" "+nrx+" </TD></TR>");
                 }
                 zeileAlt=zeile;
                 nrAlt=nrx;
@@ -77,7 +77,7 @@ public class CheckVisData {
            }
            ndoppelRueck = ndoppel;
         } catch (Exception e){
-            System.out.println("Datenbank Doppelte Einträge :"+e); }
+            System.out.println("Duplicados de base de datos :"+e); }
         finally {
             try{
                 if(rs!=null) rs.close();
@@ -97,10 +97,10 @@ public class CheckVisData {
                Object idobj = rs2.getObject("id");
                if(idobj != null) id = idobj.toString();
                ndoppel=ndoppel+1;
-               out.println("<TR><TD>Doppelte id in Aufnahme-Tabelle</TD><TD> "+id+" </TD></TR>");
+               out.println("<TR><TD>Id duplicada en tabla de grabación</TD><TD> "+id+" </TD></TR>");
             }
         } catch (Exception e){
-            System.out.println("Datenbank Doppelte Einträge :"+e); }
+            System.out.println("Duplicados de base de datos  :"+e); }
         finally {
             try{
                 if(rs2!=null) rs2.close();
@@ -138,12 +138,12 @@ public class CheckVisData {
                 if (nrtest != null) {
                     nrx = nrtest.toString().trim();
                 }
-                out.println("<TR><TD>Doppelter Eintrag in Stammv</TD><TD>" + aufx + " " + artx + " " + nrx + " </TD></TR>");
+                out.println("<TR><TD>Entradas duplicadas en tabla Stammv</TD><TD>" + aufx + " " + artx + " " + nrx + " </TD></TR>");
             }
             nFehlerRueck = nFehler;
 
         } catch (Exception e) {
-            System.out.println("Stammverteilung überprüfen: " + e);
+            System.out.println("Comprobar distribución de la deformación: " + e);
         }
         finally{
             try{
@@ -261,61 +261,61 @@ public class CheckVisData {
 
 // Aufnahme 0 (führt zum Abbruch, wenn ein Feld in der Auf-Spalte der Baumtabelle nicht ausgefüllt ist) 2.2.2011
                 if(auf2 == 0){
-                     System.out.println("Fehlende Aufnahmenummer oder Aufnahmenummer ist 0 in Auf oder Baum");
+                     System.out.println("Falta el número de admisión o número de admisión es 0 en tabla Auf o en tabla Baum");
                 }
                 
 // Ungekennzeichnete Nebenaufnahme
                 if(nebenaufs.contains(auf2) & !typ2.equals("N")){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Unmarkierte Nebenaufnahme?</TD><TD>" + auf2 + "("+jahr2+") </TD></TR>");
+                    out.println("<TR><TD>Desmarcar al grabar?</TD><TD>" + auf2 + "("+jahr2+") </TD></TR>");
                 }
 
 // Höhe über 60 m
                 if (h2 > 600) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Höhe über 60 m</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " Höhe = " + h2 + " </TD></TR>");
+                    out.println("<TR><TD>Altura sobre 60 m</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " Altura = " + h2 + " </TD></TR>");
                 }
 
 // Kronenansatz über der Höhe
                 if (h2 > 0 && k2 > h2) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Kronenansatz größer als Baumhöhe</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h = " + h2 + ", k = " + k2 + " </TD></TR>");
+                    out.println("<TR><TD>Base de la copa más grande que la altura del árbol</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h = " + h2 + ", k = " + k2 + " </TD></TR>");
                 }
 
 
 // BHD = 0      bei Probenahmebäume in U-Aufnahmen kann der d-Wert fehlen
                 if (d2 < 1 && !(rand.equals("P") && typ2.equals("U"))) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Durchmesser 0</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d = " + d2 + " </TD></TR>");
+                    out.println("<TR><TD>Diámetro 0</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d = " + d2 + " </TD></TR>");
                 }                
                 
 
 // Fehlstamm mit h, k
                 if (aus2.equals("F") && (h2!=0 || k2 != 0)) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Fehlstamm mit Messwerten?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " a2 = "+aus2+" h = " + h2 + ", k = " + k2 + " </TD></TR>");
+                    out.println("<TR><TD>Fracaso en lecturas de deformación?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " a2 = "+aus2+" h = " + h2 + ", k = " + k2 + " </TD></TR>");
                 }
                 
 // Verschiedene Durchmesser in d und dmess, obwohl Messhöhe 13 (und umgekehrt)
                 if (mh2 == 13 && dmess2 > 0 && d2 != dmess2 && ! typ2.equals("U")) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Verschiedene Durchmesser trozt mh 13</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d= " + d2 + " und dmess= " + dmess2 + " </TD></TR>");
+                    out.println("<TR><TD>Diferentes diametros a través de mh 13</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d= " + d2 + " y diametro= " + dmess2 + " </TD></TR>");
                 }
                 if (mh2 != 13 && dmess2 > 0 && d2 == dmess2 && ! typ2.equals("U") ) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Falsch berechneter Durchmesser? (mh nicht in 1,3m!)</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " mh="+mh2+" d= " + d2 + " und dmess= " + dmess2 + " </TD></TR>");
+                    out.println("<TR><TD>Diametro mal calculado?(mh fuera de 1,3m!)</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " mh="+mh2+" d= " + d2 + " y diametro= " + dmess2 + " </TD></TR>");
                 }
 
 // Mittlerer jährlicher Durchmesserzuwachs größer 2 cm
                 if(alt2 > 0 && d2 > 0 && d2/10/alt2 > 2){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Mittlerer jährlicher Durchmesserzuwachs größer als 2 cm</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d= " + d2 + ", Alter= " + alt2 + " </TD></TR>");
+                    out.println("<TR><TD>Media de diametro anual mayor a 2 cm</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d= " + d2 + ", Edad= " + alt2 + " </TD></TR>");
                 }
 
 // Mittlerer jährlicher Höhenzuwachs größer 2 m
                 if(alt2 > 0 && h2 > 0 && h2/10/alt2 > 2){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Mittlerer jährlicher Höhenzuwachs größer als 2 m</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h= " + h2 + ", Alter= " + alt2 + " </TD></TR>");
+                    out.println("<TR><TD>Incremento de altura media anual mayor a 2 m</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h= " + h2 + ", Edad= " + alt2 + " </TD></TR>");
                 }
 
 // hd-Wert
@@ -324,48 +324,48 @@ public class CheckVisData {
                     double hd = (h2/10)/((double)d2/1000);
                     if(hd < 20 || hd > 300){
                         nFehler = nFehler + 1;
-                        out.println("<TR><TD>Höhe/Durchmesser-Verhältnis unwahrscheinlich</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h= " + h2 + ", d= " + d2 + " </TD></TR>");
+                        out.println("<TR><TD>Altura / ratio de diámetro poco probable</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h= " + h2 + ", d= " + d2 + " </TD></TR>");
                     }
                 }
 
 // Bei U-Aufnahme nur Eintrag in ddauer (nicht dmess)
                 if(typ2.equals("U") && dmess2>0){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Eintrag in dmess bei U-Aufnahme</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " dmess="+dmess2+" </TD></TR>");
+                    out.println("<TR><TD>Entrada de diámetro en grabación U</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " diámetro="+dmess2+" </TD></TR>");
                 }
 // Bei H/N-Aufnahme nur Eintrag in dmess (nicht ddauer)
                 if((typ2.equals("N")||typ2.equals("H")) && ddauer2>0){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Eintrag in ddauer bei Nicht-U-Aufnahme</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " ddauer="+ddauer2+" </TD></TR>");
+                    out.println("<TR><TD>Entrada en ddauer para no realizar Grabación U</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " ddauer="+ddauer2+" </TD></TR>");
                 }
                 
 // Art 0                     
                 if (art2 == 0) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Angabe der Art fehlt</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " und art= " + art2 + " </TD></TR>");
+                    out.println("<TR><TD>Indicación del tipo que falta</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " y tipo= " + art2 + " </TD></TR>");
                 }
 // Alter 0
                 if (nr2.matches("\\d+\\w*") && alt2 < 1.0) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Alter 0</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " und Alter= " + alt2 + " </TD></TR>");
+                    out.println("<TR><TD>Edad 0</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " y edad= " + alt2 + " </TD></TR>");
                 }
 // Alter 0 für HG, nurH, HB
                 if((hinweisNurHAlt0 && nr2.equals("nurH") || nr2.equals("HG") || nr2.equals("HB")) && alt2 < 1.0){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Altersangabe für nurH, HG, HB fehlt</TD><TD>z.B.: " + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
+                    out.println("<TR><TD>Indicación de edad para nurH, HG, HB que falta</TD><TD>z.B.: " + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
                     hinweisNurHAlt0 = false;
                 }
                 
 // Anzahl = 0 für nummerierte Nicht-Rand-Bäume
                 if (nr2.matches("\\d+\\w*") && rand.equals("") && anz2 == 0) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Nummerierter Nicht-Randbaum mit anzahl = 0</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
+                    out.println("<TR><TD>Arbol sin borde numerado = 0</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
                 }
                 
 // Anzahl = 1 für HG, nurH, HB
                 if((nr2.equals("nurH") || nr2.equals("HG") || nr2.equals("HB")) && anz2 == 1){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>nurH oder HG mit anzahl = 1</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
+                    out.println("<TR><TD>nurH o HG numerado = 1</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
                 }
 // Faktor 0
 //                if(anz2 > 0 && fac < 0.0){
@@ -376,7 +376,7 @@ public class CheckVisData {
 // Faktor > 1 für ausscheidenden Bestand
                 if(hinweisRepfacAussch && fac2>1 && aus2.length() > 0){
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Repräsentationsfaktor für ausscheinden Bestand korrekt?</TD>"
+                    out.println("<TR><TD>Factor de representación para inventario de corte correcto?</TD>"
                             + "<TD>z.B." + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " repfl="+ fac2 +" </TD></TR>");
                     hinweisRepfacAussch = false;
                 }
@@ -384,7 +384,7 @@ public class CheckVisData {
 // Messhöhe                    
                 if (mh2 < 10 || mh2 > 30) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Messhöhe korrekt?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
+                    out.println("<TR><TD>Altura de medición correcta?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
                 }
                                 
 // Ausscheidender Bestand
@@ -392,39 +392,39 @@ public class CheckVisData {
                     nFehler = nFehler + 1;
                     //Hier gehts nicht, test mit 89721001
                     if(hinweisAus1 && aus2.equals("1")){
-                        out.println("<TR><TD>Ausscheide-Grund 1</TD><TD>z.B.: " + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " a= "+aus2+" </TD></TR>");
+                        out.println("<TR><TD>Razón de rechazo 1</TD><TD>z.B.: " + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " a= "+aus2+" </TD></TR>");
                         hinweisAus1 = false;
                     }else if(!aus2.equals("1")){
-                        out.println("<TR><TD>Ausscheide-Grund?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " a= "+aus2+" </TD></TR>");
+                        out.println("<TR><TD>Razón de rechazo?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " a= "+aus2+" </TD></TR>");
                     }
                 }
 
 // ZF
                 if (zf2.length() > 0 && !"F".equals(zf2) && ! "Z".equals(zf2)) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Eintrag in ZF?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " ZF= "+zf2+" </TD></TR>");
+                    out.println("<TR><TD>Entrada en ZF?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " ZF= "+zf2+" </TD></TR>");
                 }
 
 // OU
                 if (ou2.length() > 0 && !"O".equals(ou2) && ! "U".equals(ou2)) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Eintrag in OU?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " OU= "+ou2+" </TD></TR>");
+                    out.println("<TR><TD>Entrada en OU?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " OU= "+ou2+" </TD></TR>");
                 }
 
 // R            erlaubt: R und für U-Aufnahmen auch P
                 if (rand.length() > 0 && !("R".equals(rand) || "P".equals(rand))) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Eintrag in r?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " r= "+rand+" </TD></TR>");
+                    out.println("<TR><TD>Entrada en r?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " r= "+rand+" </TD></TR>");
                 }
 // e
                 if (ein2.length() > 0 && !"e".equals(ein2)) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Eintrag in e?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " e= "+ein2+" </TD></TR>");
+                    out.println("<TR><TD>Entrada en e?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " e= "+ein2+" </TD></TR>");
                 }
 // Einwuchs im Oberstand
                 if (ein2.length() > 0 && "O".equals(ou2)) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Einwuchs im Oberstand?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
+                    out.println("<TR><TD>Crecimiento interno en estado superior?</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " </TD></TR>");
                 }
 
                 
@@ -437,7 +437,7 @@ public class CheckVisData {
                     double zeit= jahr2+aDez.getAltersdezimale(monat2)-(jahr1+aDez.getAltersdezimale(monat1));
                     if(zeit == 0.0 && monat2==monat1 && !typ2.equals("U")){
                         nFehler = nFehler + 1;
-                        out.println("<TR><TD>Zwei Aufnahmen zur gleichen Zeit</TD><TD>" + auf2 + "("+jahr2+")" + " " + auf1 + "("+jahr1+")</TD></TR>");
+                        out.println("<TR><TD>Dos disparos simultáneos</TD><TD>" + auf2 + "("+jahr2+")" + " " + auf1 + "("+jahr1+")</TD></TR>");
                     }
 
     // 1. Höhenwert, kleiner -10%, größer 30%/50% (Fünfjahreszuwachs)                  
@@ -445,17 +445,17 @@ public class CheckVisData {
                         int hdiff = (int) Math.round(h1 * 0.10);
                         if (((h2 - h1)/zeit*5) < -hdiff) {
                             nFehler = nFehler + 1;
-                            out.println("<TR><TD>Höhenwert kleiner</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h1= " + h1 + " h2= " + h2 + " </TD></TR>");
+                            out.println("<TR><TD>Valor altura menor</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h1= " + h1 + " h2= " + h2 + " </TD></TR>");
                         }
                         hdiff = (int) Math.round(h1*0.3); // für Bäume über 20 m
                         if (h1 > 200 && (((h2 - h1)/zeit*5) > hdiff)){
                             nFehler = nFehler + 1;
-                            out.println("<TR><TD>Höhenzuwachs über 30%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h1= " + h1 + " h2= " + h2 + " </TD></TR>");
+                            out.println("<TR><TD>Aumento de la altura sobre 30%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h1= " + h1 + " h2= " + h2 + " </TD></TR>");
                         }
                         hdiff = (int) Math.round(h1*0.5); // für Bäume unter 20 m
                         if (h1 <= 200 && (((h2 - h1)/zeit*5) > hdiff)){
                             nFehler = nFehler + 1;
-                            out.println("<TR><TD>Höhenzuwachs über 50%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h1= " + h1 + " h2= " + h2 + " </TD></TR>");
+                            out.println("<TR><TD>Aumento de la altura sobre 50%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " h1= " + h1 + " h2= " + h2 + " </TD></TR>");
                         }
                     }
                   
@@ -465,45 +465,45 @@ public class CheckVisData {
                         if (ddiff < 8) ddiff = 8;
                         if (((d2 - d1)/zeit*5) < -ddiff && aus2.equalsIgnoreCase("T") == false) {
                             nFehler = nFehler + 1;
-                            out.println("<TR><TD>BHD-Wert kleiner</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
+                            out.println("<TR><TD>Valor BHD menor</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
                         }
                         // T-Bäume dürfen höchsten 2 cm pro 5 Jahre kleiner werden (22.06.2011)
                         if(aus2.equalsIgnoreCase("T") && d2 < d1 && (d1-d2)/zeit*5 > 20) {
                             nFehler = nFehler + 1;
-                            out.println("<TR><TD>BHD-Wert für ausscheidenden Baum(T) mehr als 2 cm kleiner</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
+                            out.println("<TR><TD>Valor BHD para árbol(T) retirado más de 2 cm más pequeño</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
                         }                        
                         ddiff = (int) Math.round(d1 * 0.3); // für Bäume über 30 cm
                         if (d1 > 300 && (((d2 - d1)/zeit*5) > ddiff)) {
                             nFehler = nFehler + 1;
-                            out.println("<TR><TD>BHD-Zuwachs über 30%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
+                            out.println("<TR><TD>Crecimiento-BHD sobre 30%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
                         }
                         ddiff = (int) Math.round(d1 * 0.5); // für Bäume unter 30 cm
                         if (d1 <= 300 && (((d2 - d1)/zeit*5) > ddiff)) {
                             nFehler = nFehler + 1;
-                            out.println("<TR><TD>BHD-Zuwachs über 50%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
+                            out.println("<TR><TD>Crecimiento-BHD sobre 50%</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " d1= " + d1 + " d2= " + d2 + " </TD></TR>");
                         }
                     }
                     
     // 3. Baum bereits ausgeschieden
                     if (aus1.equals("") == false && d2 > 0) {
                         nFehler = nFehler + 1;
-                        out.println("<TR><TD>Baum bereits ausgeschieden</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " aus1= " + aus1 + " aus2= " + aus2 + " </TD></TR>");
+                        out.println("<TR><TD>Árbol ya eliminado</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " aus1= " + aus1 + " aus2= " + aus2 + " </TD></TR>");
                     }
    // 4. Alter darf nicht kleiner werden
                     if(alt2 < alt1){
                         nFehler = nFehler + 1;
-                        out.println("<TR><TD>Alter geringer</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " alt1= " + alt1 + " alt2= " + alt2 + " </TD></TR>");
+                        out.println("<TR><TD>Edad menor</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " alt1= " + alt1 + " alt2= " + alt2 + " </TD></TR>");
                     }
    // 5. Übereinstimmung Altersdifferenz und Abstand zwischen den Aufnahmen                                       
                     if(hinweisAlterdiff && (Math.abs((Math.round((alt2-alt1)*10)/10.0) - zeit) > 0.1)){ //kein exakter Vergleich möglich <- Rundungsfehler
                         nFehler = nFehler + 1;                                    // zeit nicht runden! sonst Probleme zB mit 56151100
                         hinweisAlterdiff = false;
-                        out.println("<TR><TD>Fehler beim Alter?</TD><TD>z.B. " + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " alt1= " + alt1 + " alt2= " + alt2 + " (Zeit zwischen den Aufnahmen: "+ zeit + " Jahre) </TD></TR>");
+                        out.println("<TR><TD>Edad de falla?</TD><TD>z.B. " + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 + " alt1= " + alt1 + " alt2= " + alt2 + " (Tiempo entre muestras: "+ zeit + " Años) </TD></TR>");
                     }
    // 6. Einwachser schon vorhanden (funktioniert nicht, wenn eine Nebenaufnahme dazwischen ist)
                     if(auf1 > 0 && ein2.equals("e")){
                         nFehler = nFehler + 1;
-                        out.println("<TR><TD>Einwachser schon in Voraufnahme vorhanden</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 +"</TD></TR>");
+                        out.println("<TR><TD>Einwachser ya disponible en pre-grabacion</TD><TD>" + auf2 + "("+jahr2+")"  + " " + art2 + " " + nr2 +"</TD></TR>");
 
                     }
                     
@@ -539,7 +539,7 @@ public class CheckVisData {
                     //   oder Baum wurde in einer Aufnahme vergessen (-> Baum taucht wieder auf, nr und art identisch, aber nicht in der richtigen Aufnahme)
                     if ("H".equals(auftyp[k+1]) && (folgeauf != auf2 || !(nr1.equals(nr2) && art1==art2))) {
                         nFehler = nFehler + 1;
-                        out.println("<TR><TD>Verbleibender Baum fehlt</TD><TD>" + auf1 + "("+jahr1+")"  + " " + art1 + " " + nr1 + " fehlt in Aufnahme " + folgeauf + " </TD></TR>");
+                        out.println("<TR><TD>Árbol restante</TD><TD>" + auf1 + "("+jahr1+")"  + " " + art1 + " " + nr1 + " falta en grabación " + folgeauf + " </TD></TR>");
                     }
                 }
 
@@ -568,7 +568,7 @@ public class CheckVisData {
                 // Wenn keine Nebenaufnahme
                 if (!auftyp[k].equals("N")) {
                     nFehler = nFehler + 1;
-                    out.println("<TR><TD>Verbleibender Baum fehlt</TD><TD>" + auf1 + " " + art1 + " " + nr1 + " fehlt in Aufnahme " + folgeauf + " </TD></TR>");
+                    out.println("<TR><TD>Árbol restante</TD><TD>" + auf1 + " " + art1 + " " + nr1 + " falta en grabación " + folgeauf + " </TD></TR>");
                 }
             }
 
@@ -589,19 +589,19 @@ public class CheckVisData {
         int kronenFehler = checkKronenabl(ids, dbconn);
         if (kronenFehler < 0 || nFehlerRueck < 0) nFehlerRueck = -1;
         else nFehlerRueck = nFehlerRueck + kronenFehler; 
-        System.out.println("PlausiCheck: "+nFehlerRueck+" Hinweise für Baum");
+        System.out.println("PlausiCheck: "+nFehlerRueck+" Información para tabla Baum");
         
 // Stammverteilungstabelle prüfen        
         int stammFehler = checkStammv(ids, dbconn);
         if (stammFehler < 0 || nFehlerRueck < 0) nFehlerRueck = -1;
         else nFehlerRueck = nFehlerRueck + stammFehler; 
-        System.out.println("             "+stammFehler+" Hinweise für Stammv");
+        System.out.println("             "+stammFehler+" Información para tabla Stammv");
         
 // Qualitätstabelle prüfen        
         int qualitFehler = checkQualit(ids, dbconn, qualAuf);
         if (qualitFehler < 0 || nFehlerRueck < 0) nFehlerRueck = -1;
         else nFehlerRueck = nFehlerRueck + qualitFehler; 
-        System.out.println("             "+qualitFehler+" Hinweise für Qualit");        
+        System.out.println("             "+qualitFehler+" Información para tabla Qualit");        
         return nFehlerRueck;
         
     }
@@ -631,13 +631,13 @@ public class CheckVisData {
                     if(nrtest != null) nrx = nrtest.toString().trim();
                     if(nrx.matches("\\d+\\w+")){
                         stammFehler = stammFehler + 1;
-                        out.println("<TR><TD>Fehlende Artangabe in Stammv</TD><TD>" +artx + " " + nrx +"</TD></TR>");
+                        out.println("<TR><TD>Falta Artangabe en tabla Stammv</TD><TD>" +artx + " " + nrx +"</TD></TR>");
                     } 
                 }
             }
             if(nStamm<5) stammFehlerRueck = 0;
         } catch(Exception e){
-            System.out.println("checkStammv: "+e);
+            System.out.println("Revisar tabla Stammv: "+e);
         }
         finally{
             try{
@@ -681,12 +681,12 @@ public class CheckVisData {
                     // Fehlender Eintrag in Stammv
                     if(nrStammv.equals("") && aufBaum >= aufStamm && !fehlnr.equals(nrBaum)){
                         stammFehler = stammFehler + 1;
-                        out.println("<TR><TD>Fehlender Eintrag in Stammv</TD><TD>"+ aufBaum + "("+jahr+") " + artBaum + " " + nrBaum +"</TD></TR>");
+                        out.println("<TR><TD>Entrada no encontrada en tabla Stammv</TD><TD>"+ aufBaum + "("+jahr+") " + artBaum + " " + nrBaum +"</TD></TR>");
                         fehlnr = nrBaum;
                     }
                     // Verschiedene Arten Baum - Stammv (zwischenspeichern)
                     if(nrBaum.equals(nrStammv) && aufBaum >= aufStamm && artBaum != artStammv){
-                        falschArt.put(nrBaum + "-" + artBaum, "<TR><TD>Art stimmt nicht überein</TD><TD>"+ aufBaum + "("+jahr+") " + " Baum: " +artBaum+ " " + nrBaum +","
+                        falschArt.put(nrBaum + "-" + artBaum, "<TR><TD>Tipo no coincide</TD><TD>"+ aufBaum + "("+jahr+") " + " Baum: " +artBaum+ " " + nrBaum +","
                                     + " Stammv: " + artStammv + " " + nrStammv +"</TD></TR>");
                         vorhandenInStammv.add(nrStammv + "-" + artStammv);                       
                     }
@@ -706,7 +706,7 @@ public class CheckVisData {
                 
                 stammFehlerRueck = stammFehler;
             }catch(Exception e){
-                System.out.println("checkStammv: "+e);
+                System.out.println("Revisar tabla Stammv: "+e);
             }
             finally{
                 try{
@@ -767,7 +767,7 @@ public class CheckVisData {
                 // Fehlender Eintrag in Qualit
                 if (nrQual.equals("") && !fehlnr.equals(nrBaum)) {   ///aufBaum >= aufQual && 
                     qualitFehler = qualitFehler + 1;
-                    out.println("<TR><TD>Fehlender Eintrag in Qualit</TD><TD>" + aufBaum + "(" + jahr + ") " + artBaum + " " + nrBaum + "</TD></TR>");
+                    out.println("<TR><TD>Entrada no encontrada en tabla Qualit</TD><TD>" + aufBaum + "(" + jahr + ") " + artBaum + " " + nrBaum + "</TD></TR>");
                     fehlnr = nrBaum;
                 }
                 
@@ -791,7 +791,7 @@ public class CheckVisData {
                 
                 // Verschiedene Arten Baum - Stammv (zwischenspeichern)
                 if (nrBaum.equals(nrQual) &&  artBaum != artQual) { // aufBaum >= aufQual &&
-                    falschArt.put(nrBaum + "-" + artBaum, "<TR><TD>Art stimmt nicht überein</TD><TD>" + aufBaum + "(" + jahr + ") " + " Baum: " + artBaum + " " + nrBaum + ","
+                    falschArt.put(nrBaum + "-" + artBaum, "<TR><TD>Tipo no coincide</TD><TD>" + aufBaum + "(" + jahr + ") " + " Baum: " + artBaum + " " + nrBaum + ","
                             + " Qualit: " + artQual + " " + nrQual + "</TD></TR>");
                     vorhandenInQualit.add(nrQual + "-" + artQual);
                 }
@@ -807,11 +807,11 @@ public class CheckVisData {
             } else if(vorauf > 0) zusAufsinQual.add(vorauf);
             Iterator ite = qualAuf.iterator();
             while(ite.hasNext()){
-                out.println("<TR><TD>Aufnahme (Tabelle Auf Spalte qualitat) <br> ohne Eintrag in Tabelle Qualit</TD><TD>Aufnahme " + ite.next() + "</TD></TR>");
+                out.println("<TR><TD>Grabación (Gráfico en columna qualitat) <br> sin entrada en tabla Qualit</TD><TD>Grabación " + ite.next() + "</TD></TR>");
             }
             Iterator iter = zusAufsinQual.iterator();
             while(iter.hasNext()){
-                out.println("<TR><TD>Aufnahme (Tabelle Qualit) <br> ohne Verwendung in Tabelle Auf</TD><TD>Aufnahme " + iter.next() + "</TD></TR>");
+                out.println("<TR><TD>Grabación (Tabla Qualit) <br> sin utilizar en la tabla Auf</TD><TD>Grabación " + iter.next() + "</TD></TR>");
                 
             }
 
@@ -890,7 +890,7 @@ public class CheckVisData {
                     }
                     kronenFehler = kronenFehler + 1;
                     String ablotStr = ablot[0] + "," + ablot[1] + "," + ablot[2] + "," + ablot[3] + "," + ablot[4] + "," + ablot[5] + "," + ablot[6] + "," + ablot[7];
-                    out.println("<TR><TD>g0-g35. Fehler?</TD><TD>" + aufx + " " + artx + " " + nrx + " g0-g35=" + ablotStr + "</TD></TR>");
+                    out.println("<TR><TD>g0-g35. Fallas?</TD><TD>" + aufx + " " + artx + " " + nrx + " g0-g35=" + ablotStr + "</TD></TR>");
                     ablfehler = 0;
                 }
 // sfe = sfg
@@ -921,7 +921,7 @@ public class CheckVisData {
                     }
                     
                     kronenFehler = kronenFehler + 1;
-                    out.println("<TR><TD>Eintrag in sfg korrekt?</TD><TD>" + aufx + " " + artx + " " + nrx + " sfg=" + sfg + "</TD></TR>");
+                    out.println("<TR><TD>Entrada en sfg correcta?</TD><TD>" + aufx + " " + artx + " " + nrx + " sfg=" + sfg + "</TD></TR>");
                 }
 // sfe
                 if(sfe < 0 || sfe > 120){
@@ -935,7 +935,7 @@ public class CheckVisData {
                     }
                     
                     kronenFehler = kronenFehler + 1;
-                    out.println("<TR><TD>Eintrag in sfe korrekt?</TD><TD>" + aufx + " " + artx + " " + nrx + " sfe=" + sfe + "</TD></TR>");
+                    out.println("<TR><TD>Entrada en sfe correcta?</TD><TD>" + aufx + " " + artx + " " + nrx + " sfe=" + sfe + "</TD></TR>");
 
                 }
 

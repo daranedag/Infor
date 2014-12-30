@@ -88,7 +88,7 @@ public class AccessDatabaseCreator extends DatabaseCreator {
             }
         }
         else{
-            System.out.println( "Auswahl abgebrochen" );
+            System.out.println( "Selección abortada" );
             created=false;
         }
         return created;
@@ -135,7 +135,7 @@ public class AccessDatabaseCreator extends DatabaseCreator {
       try{
           copyFile(emptydb,newdb);
       }
-      catch (Exception e){JOptionPane.showMessageDialog(null,"Fehler beim Anlegen der neuen Datenbank","Projekt anlegen",JOptionPane.ERROR_MESSAGE);} 
+      catch (Exception e){JOptionPane.showMessageDialog(null,"Error al crear la nueva base de datos","Crear proyecto",JOptionPane.ERROR_MESSAGE);} 
     }
     
 }
