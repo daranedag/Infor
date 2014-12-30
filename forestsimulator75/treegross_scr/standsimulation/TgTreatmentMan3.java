@@ -168,7 +168,7 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabel10.setText("Simulation: Dauer");
+        jLabel10.setText("Simulación: Duración");
         jPanel1.add(jLabel10);
 
         jTextField5.setText("5");
@@ -180,26 +180,26 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         });
         jPanel1.add(jTextField5);
 
-        jLabel11.setText("Jahre");
+        jLabel11.setText("Años");
         jPanel1.add(jLabel11);
 
         jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Zufallseffekte nutzen");
+        jCheckBox1.setText("Utilizar efectos aleatorios");
         jCheckBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jCheckBox1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel1.add(jCheckBox1);
 
         jCheckBox2.setSelected(true);
-        jCheckBox2.setText("Einwuchsmodell aktivieren");
+        jCheckBox2.setText("Activar modelo de crecimiento");
         jCheckBox2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jCheckBox2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel1.add(jCheckBox2);
 
         jCheckBox5.setSelected(true);
-        jCheckBox5.setText("Risikomodell aktivieren");
+        jCheckBox5.setText("Activar modelo de riesgo");
         jPanel1.add(jCheckBox5);
 
-        jButton2.setText("Simulation starten");
+        jButton2.setText("Iniciar Simulación");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -216,14 +216,14 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabel14.setText("Szenarioeinstellungen");
+        jLabel14.setText("Ajustes de escenario");
         jPanel11.add(jLabel14);
 
         jPanel4.add(jPanel11);
 
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel12.setText("Erschließung:  ");
+        jLabel12.setText("Apertura:  ");
         jPanel6.add(jLabel12);
 
         jCheckBox3.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -235,14 +235,14 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         });
         jPanel6.add(jCheckBox3);
 
-        jLabel6.setText("Gassenabstand");
+        jLabel6.setText("Distancia calles");
         jPanel6.add(jLabel6);
 
         jTextField1.setText("20.0");
         jTextField1.setPreferredSize(new java.awt.Dimension(35, 20));
         jPanel6.add(jTextField1);
 
-        jLabel7.setText("Gassenbreite");
+        jLabel7.setText("Ancho calles");
         jPanel6.add(jLabel7);
 
         jTextField2.setText("4.0");
@@ -253,10 +253,10 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
 
         jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel1.setText("Durchforstungsart:");
+        jLabel1.setText("Tipo Adelgazamiento:");
         jPanel7.add(jLabel1);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Auslesedurchforstung", "Hochdurchforstung", "Niederdurchforstung" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Raleo selectivo", "Adelgazamiento de la copa", "Adelgazamiento" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -264,13 +264,13 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         });
         jPanel7.add(jComboBox1);
 
-        jLabel4.setText("Durchforstungsstärke:");
+        jLabel4.setText("Intensidad adelgazamiento:");
         jPanel7.add(jLabel4);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "null", "schwach", "mäßig", "stark" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nulo", "debil", "moderado", "fuerte" }));
         jPanel7.add(jComboBox4);
 
-        jLabel8.setText("Durchforstungsmenge min.");
+        jLabel8.setText("Cantidad min. adelgazamiento");
         jPanel7.add(jLabel8);
 
         jTextField3.setText("0");
@@ -289,7 +289,7 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         });
         jPanel7.add(jTextField6);
 
-        jCheckBox4.setText("nur Z-Bäume freistellen");
+        jCheckBox4.setText("Eximir solo árboles de cultivo (Arbol-Z)");
         jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox4ActionPerformed(evt);
@@ -301,10 +301,10 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
 
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel2.setText("Erntetyp:");
+        jLabel2.setText("Tipo de cultivo:");
         jPanel8.add(jLabel2);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Zielstärkennutzung", "Schirmschlag", "Kahlschlag" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Intensidad objetivo de uso", "Shelterwood", "Clearcutting" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -312,7 +312,7 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         });
         jPanel8.add(jComboBox2);
 
-        jLabel9.setText("Erntemenge min.");
+        jLabel9.setText("Cosecha min.");
         jPanel8.add(jLabel9);
 
         jTextField7.setText("10");
@@ -331,7 +331,7 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
         });
         jPanel8.add(jTextField4);
 
-        jLabel17.setText("Räumung bei <");
+        jLabel17.setText("Evacuación en <");
         jPanel8.add(jLabel17);
 
         jTextField8.setText("0.3");
@@ -342,30 +342,30 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
 
         jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel3.setText("Naturschutz:");
+        jLabel3.setText("Conservación:");
         jPanel9.add(jLabel3);
 
-        jLabel18.setText("Habitatbäume [n/ha]");
+        jLabel18.setText("Árboles Habitat [n/ha]");
         jPanel9.add(jLabel18);
 
         jTextField9.setText("0");
         jTextField9.setPreferredSize(new java.awt.Dimension(35, 20));
         jPanel9.add(jTextField9);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nur Laubholz", "nur Nadelholz", "alle" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "solo Madera Dura", "solo Madera Blanda", "Todos" }));
         jPanel9.add(jComboBox3);
 
-        jCheckBox6.setText("Minderheitenschutz");
+        jCheckBox6.setText("Protección de minorías");
         jPanel9.add(jCheckBox6);
 
-        jLabel21.setText("Mindestbeschirmung");
+        jLabel21.setText("Dosel Mínimo");
         jPanel9.add(jLabel21);
 
         jTextField12.setText("0.0");
         jTextField12.setPreferredSize(new java.awt.Dimension(26, 20));
         jPanel9.add(jTextField12);
 
-        jLabel22.setText("geschützt ab BHD ");
+        jLabel22.setText("Protegidos de BHD ");
         jPanel9.add(jLabel22);
 
         jTextField13.setText("150");
@@ -380,23 +380,23 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
 
         jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel13.setText("Pflanzung: ");
+        jLabel13.setText("Plantación: ");
         jPanel10.add(jLabel13);
 
-        jCheckBox8.setText("aktiviert");
+        jCheckBox8.setText("activado");
         jPanel10.add(jCheckBox8);
 
-        jCheckBox7.setText("Unterstand entfernen ;");
+        jCheckBox7.setText("Retirar protección;");
         jPanel10.add(jCheckBox7);
 
-        jLabel19.setText("Pflanzen ab B°  <");
+        jLabel19.setText("Plantas de B°  <");
         jPanel10.add(jLabel19);
 
         jTextField10.setText("0.1");
         jTextField10.setPreferredSize(new java.awt.Dimension(35, 20));
         jPanel10.add(jTextField10);
 
-        jLabel20.setText("; Baumartencode (fl/ha)");
+        jLabel20.setText("; Codigo de tipo de árbol (fl/ha)");
         jPanel10.add(jLabel20);
 
         jTextField11.setPreferredSize(new java.awt.Dimension(365, 20));
@@ -408,7 +408,7 @@ public class TgTreatmentMan3 extends javax.swing.JPanel {
 
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        jLabel5.setText("Einstellungen der Baumarten:");
+        jLabel5.setText("Ajustes de tipos de árbol:");
         jPanel5.add(jLabel5, java.awt.BorderLayout.NORTH);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

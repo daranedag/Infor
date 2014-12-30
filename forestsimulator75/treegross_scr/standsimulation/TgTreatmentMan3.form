@@ -37,7 +37,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Simulation: Dauer"/>
+            <Property name="text" type="java.lang.String" value="Simulación: Duración"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
@@ -59,7 +59,7 @@
         <Component class="javax.swing.JCheckBox" name="jCheckBox1">
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
-            <Property name="text" type="java.lang.String" value="Zufallseffekte nutzen"/>
+            <Property name="text" type="java.lang.String" value="Utilizar efectos aleatorios"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder bottom="0" left="0" right="0" top="0"/>
@@ -73,7 +73,7 @@
         <Component class="javax.swing.JCheckBox" name="jCheckBox2">
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
-            <Property name="text" type="java.lang.String" value="Einwuchsmodell aktivieren"/>
+            <Property name="text" type="java.lang.String" value="Activar modelo de crecimiento"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder bottom="0" left="0" right="0" top="0"/>
@@ -87,12 +87,12 @@
         <Component class="javax.swing.JCheckBox" name="jCheckBox5">
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
-            <Property name="text" type="java.lang.String" value="Risikomodell aktivieren"/>
+            <Property name="text" type="java.lang.String" value="Activar modelo de riesgo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Simulation starten"/>
+            <Property name="text" type="java.lang.String" value="Iniciar Simulación"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -130,7 +130,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Szenarioeinstellungen"/>
+                    <Property name="text" type="java.lang.String" value="Ajustes de escenario"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -143,7 +143,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Erschlie&#xdf;ung:  "/>
+                    <Property name="text" type="java.lang.String" value="Apertura:  "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox3">
@@ -163,7 +163,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Gassenabstand"/>
+                    <Property name="text" type="java.lang.String" value="Distancia calles"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField1">
@@ -176,7 +176,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Gassenbreite"/>
+                    <Property name="text" type="java.lang.String" value="Ancho calles"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField2">
@@ -197,16 +197,16 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Durchforstungsart:"/>
+                    <Property name="text" type="java.lang.String" value="Tipo de adelgazamiento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox1">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
-                        <StringItem index="0" value="Auslesedurchforstung"/>
-                        <StringItem index="1" value="Hochdurchforstung"/>
-                        <StringItem index="2" value="Niederdurchforstung"/>
+                        <StringItem index="0" value="Raleo selectivo"/>
+                        <StringItem index="1" value="Adelgazamiento de la copa"/>
+                        <StringItem index="2" value="Adelgazamiento"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -216,24 +216,24 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Durchforstungsst&#xe4;rke:"/>
+                    <Property name="text" type="java.lang.String" value="Intensidad adelgazamiento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox4">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
-                        <StringItem index="0" value="null"/>
-                        <StringItem index="1" value="schwach"/>
-                        <StringItem index="2" value="m&#xe4;&#xdf;ig"/>
-                        <StringItem index="3" value="stark"/>
+                        <StringItem index="0" value="nulo"/>
+                        <StringItem index="1" value="debil"/>
+                        <StringItem index="2" value="moderado"/>
+                        <StringItem index="3" value="fuerte"/>
                       </StringArray>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Durchforstungsmenge min."/>
+                    <Property name="text" type="java.lang.String" value="Cantidad min. adelgazamiento"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField3">
@@ -262,7 +262,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="nur Z-B&#xe4;ume freistellen"/>
+                    <Property name="text" type="java.lang.String" value="Eximir solo árboles de cultivo (Arbol-Z)"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox4ActionPerformed"/>
@@ -278,16 +278,16 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Erntetyp:"/>
+                    <Property name="text" type="java.lang.String" value="Tipo de cultivo:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox2">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
-                        <StringItem index="0" value="Zielst&#xe4;rkennutzung"/>
-                        <StringItem index="1" value="Schirmschlag"/>
-                        <StringItem index="2" value="Kahlschlag"/>
+                        <StringItem index="0" value="Intensidad objetivo de uso"/>
+                        <StringItem index="1" value="Shelterwood"/>
+                        <StringItem index="2" value="Clearcutting"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -297,7 +297,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Erntemenge min."/>
+                    <Property name="text" type="java.lang.String" value="Cosecha min."/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField7">
@@ -347,12 +347,12 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Naturschutz:"/>
+                    <Property name="text" type="java.lang.String" value="Conservación:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Habitatb&#xe4;ume [n/ha]"/>
+                    <Property name="text" type="java.lang.String" value="Habitat Arbol [n/ha]"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField9">
@@ -367,21 +367,21 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
-                        <StringItem index="0" value="nur Laubholz"/>
-                        <StringItem index="1" value="nur Nadelholz"/>
-                        <StringItem index="2" value="alle"/>
+                        <StringItem index="0" value="solo Madera Dura"/>
+                        <StringItem index="1" value="solo Madera Blanda"/>
+                        <StringItem index="2" value="Todos"/>
                       </StringArray>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Minderheitenschutz"/>
+                    <Property name="text" type="java.lang.String" value="Protección de las minorías"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel21">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Mindestbeschirmung"/>
+                    <Property name="text" type="java.lang.String" value="Dosel mínimo"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField12">
@@ -394,7 +394,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel22">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="gesch&#xfc;tzt ab BHD "/>
+                    <Property name="text" type="java.lang.String" value="protegidos de BHD "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField13">
@@ -415,22 +415,22 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Pflanzung: "/>
+                    <Property name="text" type="java.lang.String" value="Plantación: "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="aktiviert"/>
+                    <Property name="text" type="java.lang.String" value="Activado"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Unterstand entfernen ;"/>
+                    <Property name="text" type="java.lang.String" value="Retirar Protección ;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Pflanzen ab B&#xb0;  &lt;"/>
+                    <Property name="text" type="java.lang.String" value="Plantas de B&#xb0;  &lt;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField10">
@@ -443,7 +443,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel20">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="; Baumartencode (fl/ha)"/>
+                    <Property name="text" type="java.lang.String" value="; Codigo de Tipo de Árbol (fl/ha)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField11">
@@ -463,7 +463,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Einstellungen der Baumarten:"/>
+                <Property name="text" type="java.lang.String" value="Ajustes de tipos de árboles:"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">

@@ -48,7 +48,7 @@ public class TgUserDialog extends javax.swing.JDialog {
               } catch (Exception e){};
         System.out.println("User Setting Directory:"+user.fileExists("ForestSimulator.ini"));
         if (user.fileExists("ForestSimulator.ini")==true)
-             {System.out.println("Settings laden "); user.loadSettings(localPath);
+             {System.out.println("Cargar ajustes "); user.loadSettings(localPath);
               
               ProgramDir=user.getProgramDirIni();
               WorkingDir=user.getWorkingDirIni();

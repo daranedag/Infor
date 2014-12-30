@@ -144,7 +144,7 @@ public class Treatment2 {
 // selectCropTreesOfAllSpecies auch hier einbeziehen?
             //public double degreeOfThinningArea;
             if (st.trule.typeOfThinning == 1){
-                System.out.println("temporäre Zwischenfelder durchforsten");
+                System.out.println("Buscar en los campos intermedios temporales");
             //all temp crop tree are deselected
                 te.resetTempCropTrees(st);
 

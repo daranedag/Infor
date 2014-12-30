@@ -589,13 +589,13 @@ private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }
 
     private void loadTable(int m){
-        jTable1.setValueAt("Baumarten Code (I) ",0,0);
-        jTable1.setValueAt("Kurzname ",1,0);
-        jTable1.setValueAt("Name ",2,0);
-        jTable1.setValueAt("lateinisch ",3,0);
-        jTable1.setValueAt("Interner Code (I) ",4,0);
-        jTable1.setValueAt("Gruppen Code (I) ",5,0);
-        jTable1.setValueAt("Einstellungen wie Code (I) ",6,0);
+        jTable1.setValueAt("Codigo Tipo Arbol (I) ",0,0);
+        jTable1.setValueAt("Apodo ",1,0);
+        jTable1.setValueAt("Nombre ",2,0);
+        jTable1.setValueAt("latin ",3,0);
+        jTable1.setValueAt("Codigo Interno (I) ",4,0);
+        jTable1.setValueAt("Codigo Grupos (I) ",5,0);
+        jTable1.setValueAt("Ajustes de codigo (I) ",6,0);
         jTable1.setValueAt("Height Curve (I)",7,0);
         jTable1.setValueAt("Uniform Height Curve ",8,0);
         jTable1.setValueAt("Height Variation",9,0);
@@ -622,10 +622,10 @@ private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         jTable1.setValueAt("Color",30,0);
         jTable1.setValueAt("Plugin Competition",31,0);
         jTable1.setValueAt("Plugin Taper Fuction",32,0);
-        jTable1.setValueAt("Grobwurzelbiomasse Funktion",33,0);
-        jTable1.setValueAt("Kleinwurzelbiomasse Funktion",34,0);
-        jTable1.setValueAt("Feinwurzelbiomasse Funktion",35,0);
-        jTable1.setValueAt("Gesamtwurzelbiomasse Funktion",36,0);
+        jTable1.setValueAt("Función de Biomasa de raíces gruesas",33,0);
+        jTable1.setValueAt("Función de Biomasa de raíces pequeñas",34,0);
+        jTable1.setValueAt("Función de Biomasa de raíces finas",35,0);
+        jTable1.setValueAt("Función de Biomasa radical total",36,0);
         jTable1.setValueAt(new Integer(spd[m].code).toString(),0,1);
         jTable1.setValueAt(spd[m].shortName,1,1);
         jTable1.setValueAt(spd[m].longName,2,1);

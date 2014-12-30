@@ -147,7 +147,7 @@ class TgUser
                  
             }
   
-            catch (java.io.IOException e){System.out.println("kein Internet Check möglich !"); }
+            catch (java.io.IOException e){System.out.println("Verifica la conexion a internet !"); }
             if (updateInternet != null){
                 int yearNet = Integer.parseInt(updateInternet.substring(6,10));
                 int monthNet = Integer.parseInt(updateInternet.substring(3,5));
