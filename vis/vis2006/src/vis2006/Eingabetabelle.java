@@ -249,7 +249,7 @@ public class Eingabetabelle {
         }
 //  
         if (lastAuf >= auf) {
-            ergebnis="Daten bereits vorhanden";
+            ergebnis="Ya existen datos";
         }
         else {
         Statement stmt2 = null;
@@ -352,9 +352,9 @@ public class Eingabetabelle {
                        if(seigobj != null) seig = seigobj.toString().trim();
                        Set<Integer> merkmale = new HashSet<Integer>();
                        if(seig.length()%2!=0){          // wenn ungerade -> Fehler
-                           String text = "Ungerade Anzahl Zeichen in Feld SEIG "
-                                   + "bei Baum " + nrx + "(" + artx + "). Feldinhalt wird ignoriert!";
-                           JOptionPane.showMessageDialog(parent, text, "Fehler", JOptionPane.ERROR_MESSAGE);
+                           String text = "Número impar de caracteres en el campo SEIG "
+                                   + "en Árbol " + nrx + "(" + artx + "). Contenido del campo será ignorado!";
+                           JOptionPane.showMessageDialog(parent, text, "Error", JOptionPane.ERROR_MESSAGE);
                            System.out.println(text);
                        } else{    
                            for(int j = 0; j < seig.length()/2; j ++){
@@ -374,9 +374,9 @@ public class Eingabetabelle {
                            if(merkmale.contains(20)){rosen = 1; merkmale.remove(20);}
                            
                            if(merkmale.size()>0){
-                               String text = "Nicht vergebene Schlüsselzahl in Feld SEIG "
-                                       + "bei Baum " + nrx + " (" + artx + "). Zahl wird ignoriert!";
-                               JOptionPane.showMessageDialog(parent, text, "Fehler", JOptionPane.ERROR_MESSAGE);
+                               String text = "El número de teclas asignado en el campo SEIG "
+                                       + "en Árbol " + nrx + " (" + artx + "). Número se ignora!";
+                               JOptionPane.showMessageDialog(parent, text, "Error", JOptionPane.ERROR_MESSAGE);
                                System.out.println(text);
                            }
                            
@@ -438,7 +438,7 @@ public class Eingabetabelle {
            }           
            
            
-           ergebnis = "fertig";
+           ergebnis = "listo";
         } catch (Exception e){  e.printStackTrace();
         }
         finally {
@@ -457,7 +457,7 @@ public class Eingabetabelle {
 // Eingabetabelle löschen
 //
     public String deleteTable(){
-        String ergebnis = "Tabelle Eingabe erfolgreich gelöscht";
+        String ergebnis = "Entrada de la tabla eliminada correctamente";
 // Feststellen welche Tabelle angelegt werden soll. Pro Parzelle wird jeweils eine eigene Liste angelegt       
         DBConnection dbconn= new DBConnection(2);     // a class to manage the conection to a database
         dbconn.openDBConnection(DBConnection.ACCESS, 1, lokaleDB, "", "", false, true);
@@ -467,7 +467,7 @@ public class Eingabetabelle {
              
              stmt.execute("DROP TABLE Eingabe ");
            }
-          catch (Exception e){  System.out.println(e); ergebnis="Tabelle konnte nicht gelöscht werden, Tabelle nicht vorhanden !";}
+          catch (Exception e){  System.out.println(e); ergebnis="No se pudo eliminar la tabla. Tabla no existe!";}
           
 
         dbconn.closeAll();

@@ -90,7 +90,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Excel-Felddatendatei w&#xe4;hlen"/>
+        <Property name="text" type="java.lang.String" value="Seleccionar archivo de datos de campo desde Excel"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
@@ -116,7 +116,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="maximaler Durchmesserzuwachs"/>
+        <Property name="text" type="java.lang.String" value="máximo incremento en diámetro"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField2">
@@ -126,7 +126,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="maximaler H&#xf6;henzuwachs"/>
+        <Property name="text" type="java.lang.String" value="crecimiento de altura máxima"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField3">

@@ -22,7 +22,7 @@ public class Hessendaten extends javax.swing.JDialog {
     javax.swing.table.DefaultTableModel data= new javax.swing.table.DefaultTableModel(
             new Object [][] {  },
             new String [] {
-               "Datei", "Parzelle", "Jahr", "Zeit", "Alter",  "Typ", "cm", "Höhen", "ExtraH","ZB", "einlesen"
+               "Datos", "Parcela", "Año", "Temporada", "Edad",  "Tipo", "cm", "Alturas", "ExtraH","ZB", "lectura"
             }
         );
     Object[] rowData={" "," "," "," "," "," "," "," "," "," "," "};
@@ -34,7 +34,7 @@ public class Hessendaten extends javax.swing.JDialog {
         initComponents();
         this.id= idSelected;
         this.lokaleDB = lokaleDB;
-        jLabel1.setText("Ausgewählte ID : "+id);
+        jLabel1.setText("ID Seleccionada : "+id);
         setVisible(true);
         nhfi=0;
         jButton2.setEnabled(false);
@@ -61,7 +61,7 @@ public class Hessendaten extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Einlesen der Hessendaten");
+        setTitle("Lectura de datos Hessen");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -74,7 +74,7 @@ public class Hessendaten extends javax.swing.JDialog {
         jLabel1.setText("jLabel1");
         jPanel3.add(jLabel1);
 
-        jLabel2.setText("   hess. Versuchsnummer: ");
+        jLabel2.setText("   hess. Intento número: ");
         jPanel3.add(jLabel2);
 
         jTextField1.setText("2122");
@@ -101,7 +101,7 @@ public class Hessendaten extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jButton1.setText("Daten vorprüfen");
+        jButton1.setText("Datos pre-comprobados");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

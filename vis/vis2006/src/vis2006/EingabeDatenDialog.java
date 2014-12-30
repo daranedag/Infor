@@ -35,7 +35,7 @@ public class EingabeDatenDialog extends javax.swing.JDialog {
         this.lokaleDB = lokaleDB;
         initComponents();
         getLetzteAuf();
-        jLabel1.setText("ID: "+idSelected+" letze Aufn.: "+lastAuf+" Datum: "+lastMonat+"/"+lastJahr);
+        jLabel1.setText("ID: "+idSelected+" letze Aufn.: "+lastAuf+" Fecha: "+lastMonat+"/"+lastJahr);
         auf = lastAuf+1;
         jTextField1.setText(auf.toString());
         jTextField2.setText("0");
@@ -68,7 +68,7 @@ public class EingabeDatenDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Übernahme der Daten aus der Eingabetabelle");
+        setTitle("Transferencia de datos de la tabla de entrada");
         setModal(true);
 
         jPanel1.setLayout(new java.awt.GridLayout(5, 2));
@@ -76,7 +76,7 @@ public class EingabeDatenDialog extends javax.swing.JDialog {
         jLabel2.setText("Aufnahmetyp");
         jPanel1.add(jLabel2);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hauptaufnahme", "Nebenaufnahme", "Umfangmaßbandaufnahme" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Imagen principal", "Post grabación", "Circunferencia de grabación de cinta" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -84,25 +84,25 @@ public class EingabeDatenDialog extends javax.swing.JDialog {
         });
         jPanel1.add(jComboBox1);
 
-        jLabel3.setText("Aufnahmenummer");
+        jLabel3.setText("Número de grabación");
         jPanel1.add(jLabel3);
 
         jTextField1.setText("jTextField1");
         jPanel1.add(jTextField1);
 
-        jLabel4.setText("Jahr");
+        jLabel4.setText("Año");
         jPanel1.add(jLabel4);
 
         jTextField2.setText("jTextField2");
         jPanel1.add(jTextField2);
 
-        jLabel5.setText("Monat");
+        jLabel5.setText("Mes");
         jPanel1.add(jLabel5);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         jPanel1.add(jComboBox2);
 
-        jLabel6.setText("Flächengröße in ha");
+        jLabel6.setText("Tamaño del área en ha");
         jPanel1.add(jLabel6);
 
         jTextField3.setText("jTextField3");
@@ -110,7 +110,7 @@ public class EingabeDatenDialog extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jButton1.setText("Daten einfügen");
+        jButton1.setText("Ingresar Datos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -139,7 +139,7 @@ public class EingabeDatenDialog extends javax.swing.JDialog {
         monat = Integer.parseInt((String)(jComboBox2.getSelectedItem()));
         flha = Double.parseDouble(jTextField3.getText());
         if (flha <= 0.0) datenok=false;
-        if (datenok == false) jButton1.setText("Eingabefehler, neuer Versuch");
+        if (datenok == false) jButton1.setText("Error de entrada, inténtalo de nuevo");
         else {
             AltersDezimale aDez = new AltersDezimale(); 
             altersDifferenz= jahr+aDez.getAltersdezimale(monat)-(lastJahr+aDez.getAltersdezimale(lastMonat));

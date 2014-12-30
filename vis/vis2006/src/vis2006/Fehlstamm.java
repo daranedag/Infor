@@ -58,8 +58,8 @@ public class Fehlstamm extends javax.swing.JDialog {
         jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Fehlstammberechnung");
-        jButton1.setText("Fehlstammberechnung starten");
+        setTitle("Cálculo de cepas defectuosas");
+        jButton1.setText("Iniciar cálculo de cepas defectuosas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -70,13 +70,13 @@ public class Fehlstamm extends javax.swing.JDialog {
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 2));
 
-        jLabel1.setText("Messung 1");
+        jLabel1.setText("Medida 1");
         jPanel1.add(jLabel1);
 
         jTextField1.setText("1");
         jPanel1.add(jTextField1);
 
-        jLabel2.setText("Messung 2");
+        jLabel2.setText("Medida 2");
         jPanel1.add(jLabel2);
 
         jTextField2.setText("1");
@@ -143,8 +143,8 @@ public class Fehlstamm extends javax.swing.JDialog {
                         if (nrx.compareTo("nurH") != 0 && nrx.compareTo("cm") != 0) {
                             if(aufx == auf1 && fehlbaum && dx < 1){
                                 beenden = true;
-                                String text = "Keine Fehlstammberechnung für Baumnummer "+nrx+". Kein Durchmesser in der Voraufnahme.";
-                                javax.swing.JOptionPane.showMessageDialog (this, text, "Fehler", JOptionPane.ERROR_MESSAGE);
+                                String text = "Ningún cálculo de cepas defectuosas para árbol número "+nrx+". Sin diámetro en el pre-grabado.";
+                                javax.swing.JOptionPane.showMessageDialog (this, text, "Error", JOptionPane.ERROR_MESSAGE);
                             }
                             
                             else if(aufx == auf1) {
@@ -176,16 +176,16 @@ public class Fehlstamm extends javax.swing.JDialog {
                     a0 = getRegressionA0();  // Lineare Regression: Zuwachs <- d1
                     b1 = getRegressionB1();
                     rs2.close(); stmt2.close();
-                    System.out.println(nFehl + " Fehlstämme (Art: " + artx + ") gefunden, " + count + " Referenzbäume");
+                    System.out.println(nFehl + " Cepas de fallo (Art: " + artx + ") encontradas, " + count + " Árboles de referencia");
 
-                } catch (Exception e) {System.out.println("Fehlstammberechnung 2 :" + e);}
+                } catch (Exception e) {System.out.println("Cálculo de cepas defectuosas 2 :" + e);}
 //
                 try {
                     Statement stmt3 = dbcon.Connections[0].createStatement();
                     for (int i = 0; i < nFehl; i++) {
                         int dy = (int) Math.round(10 * (a0 + b1 * d1Fehl[i]));
                         if (dy < d1Fehl[i]*10) dy=(int)(d1Fehl[i]*10);   // Negativen Zuwachs ausschließen
-                        System.out.println("Baum " + nrFehl[i] + "  letzter d: " + (int) (d1Fehl[i] * 10) + "  neuer d: " + dy);
+                        System.out.println("Árbol " + nrFehl[i] + "  ultimo d: " + (int) (d1Fehl[i] * 10) + "  nuevo d: " + dy);
                         /*if(aufTypU) stmt3.execute("UPDATE Baum SET d = " + dy +  " " +
                                 " WHERE art= " + artx + " and TRIM(nr) = '" + nrFehl[i] + "' AND auf = " + auf2 +
                                 "  AND edvid= '" + ids + "' ");
@@ -195,19 +195,19 @@ public class Fehlstamm extends javax.swing.JDialog {
                                 "  AND edvid= '" + ids + "' ");
                     }
                     stmt3.close();
-                } catch (Exception e) {System.out.println("Fehlstammberechnung 3 (Update) :" + e);}
+                } catch (Exception e) {System.out.println("Cálculo de cepas defectuosas 3 (Actualizar) :" + e);}
                 nrFehl = new String[1000];
                 d1Fehl = new double[1000]; 
                 nFehl = 0;
                         
             }
             if(!fehlArtGefunden){
-                String text = "Keine Fehlstämme gefunden!";
+                String text = "Ninguna cepa defectuosa encontrada!";
                 javax.swing.JOptionPane.showMessageDialog (this, text, "Fehler", JOptionPane.ERROR_MESSAGE);
             }
             rs.close();
             stmt.close();
-        } catch (Exception e) { System.out.println("Fehlstammberechnung 1 (Fehlstämme suchen) :" + e);}
+        } catch (Exception e) { System.out.println("Cálculo de cepas defectuosas 1 (Buscar cepas defectuosas) :" + e);}
         this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -57,13 +57,13 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
      * Erstellt eine Tabelle mit Spalten zur Eingabe der Baumnummer, Baumart, Höhe und Kronenansatz
      */
     public String tabelleErstellen(){
-        ergebnis="Tabelle konnte nicht angelegt werden, Tabelle vorhanden ?";
+        ergebnis="No se pudo crear la Tabla, dejar Tabla disponible ?";
         BasicQueries basicQueries= new BasicQueries(dbconn.Connections[0]);
 
         String tabellenKopf="nr CHAR(6), art INT, h INT, ka INT";
         boolean tabelleErzeugt=basicQueries.makeTable("HöhenEingabe", tabellenKopf);
 
-        if(tabelleErzeugt) ergebnis = "Höheneingabetabelle angelegt.";
+        if(tabelleErzeugt) ergebnis = "Tabla de entrada de altura creada.";
         return ergebnis;
     }
 
@@ -73,7 +73,7 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
      * @return Erfolgs- bzw. Fehlermeldung als String
      */
     public String werteÜbertragen(){
-        ergebnis = "Fehler";
+        ergebnis = "Error";
 
         // Kontrollieren, ob schon Werte vorhanden sind
         Statement stmt = null;
@@ -91,7 +91,7 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
             while(rs.next()){
                 nvorhanden++;
                 if(nvorhanden==1){
-                    System.out.println("Werte für folgende Baumnummern bereits vorhanden:");
+                    System.out.println("Valores para los siguientes numeros de árbol ya existentes:");
                 }
                 String nrx = rs.getString("nr");
                 System.out.print(nrx+",");
@@ -103,7 +103,7 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
                 if(stmt != null) stmt.close();
             } catch (Exception e) {e.printStackTrace();}
         }
-        if(nvorhanden > 0) ergebnis = "Keine Übertragung in Baumtabelle. Es sind bereits Werte vorhanden!";
+        if(nvorhanden > 0) ergebnis = "No hay transferencia de datos en la tabla Baum. Hay valores ya existentes!";
         else{
             Statement stmt2 = null;
             try{
@@ -112,8 +112,8 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
                         "ON trim(Baum.nr) = trim(HöhenEingabe.nr) AND Baum.art = HöhenEingabe.art " +
                         "SET Baum.h = HöhenEingabe.h, Baum.k = HöhenEingabe.ka " +
                         "WHERE edvid = '"+edvid+"' AND auf = "+auf+";");
-                if(n==1) ergebnis  = "1 Datensatz aktualisiert!";
-                else ergebnis  =n + " Datensätze aktualisiert";
+                if(n==1) ergebnis  = "1 Registro actualizado!";
+                else ergebnis  =n + " Registros actualizados";
 
             }catch(Exception e){e.printStackTrace();
             } finally{
@@ -136,8 +136,8 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
                     Object nrxobj = rs.getObject("nr");
                     if(nrxobj != null) nrx = nrxobj.toString().trim();
                     int artx = rs.getInt("art");
-                    ergebnis = "Fehler! Nicht alle Werte konnten zugeordnet werden.  "+ergebnis;
-                    System.out.println("Keine Entsprechung in Baum für "+nrx+"(Art "+artx+")");
+                    ergebnis = "Error! No todos los valores pueden ser asignados.  "+ergebnis;
+                    System.out.println("No tiene equivalente en el árbol "+nrx+"(Tipo "+artx+")");
                 }
 
 
@@ -160,15 +160,15 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
     * Löscht eine evtl. vorhandene Höheneingabetabelle
     */
     public String tabelleLöschen(){
-        ergebnis = "Fehler beim Löschen!";
+        ergebnis = "Error al borrar!";
         Statement stmt = null;
         try{
              stmt = dbconn.Connections[0].createStatement();
              stmt.execute("DROP TABLE HöhenEingabe;");
-             ergebnis = "Tabelle gelöscht.";
+             ergebnis = "Tabla eliminada.";
         } catch (Exception e){
             e.printStackTrace();
-            ergebnis="Tabelle konnte nicht gelöscht werden, Tabelle nicht vorhanden!";
+            ergebnis="Tabla no pudo ser borrada, No se opera la tabla!";
         } finally{
             try{
                 if(stmt != null) stmt.close();
@@ -200,7 +200,7 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Übernahme von Höhe und Kronenansatz in die Baumtabelle");
+        setTitle("Adquisición de la altura y basde de la corona en la tabla Baum");
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,9 +208,9 @@ public class HöhenEingabetabelle extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Parzelle (edvid)");
+        jLabel1.setText("Parcela (edvid)");
 
-        jLabel2.setText("Aufnahme");
+        jLabel2.setText("Grabación");
 
         jButton1.setText("ok");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

@@ -375,7 +375,7 @@ public class ExcelFelddaten {
                  } // Ende While
              }
              if (nnebenauf == 2) {
-                 System.out.println("Keine Werte, die letzten beiden Aufnahmen sind Nebenaufnahmen!");
+                 System.out.println("No hay valores, las dos ultimas grabaciones son por disparos!");
              }
              if(!kreuzklupp){  // Spalten für Kreuzkluppung löschen
                  Iterator rowIter = sheet.rowIterator();
@@ -385,11 +385,11 @@ public class ExcelFelddaten {
                      HSSFCell cell2 = rowx.getCell(11);
                      rowx.removeCell(cell1);
                      rowx.removeCell(cell2);
-                     System.out.println("***** Zeile *****");
+                     System.out.println("***** Linea *****");
                      for(int i = 12; i<nspalten; i++){
                          Integer zieltemp = i-2;
                          short ziel =  zieltemp.shortValue();
-                         System.out.println("Verschieben von Spalte "+i+" auf "+ziel);
+                         System.out.println("Columna móvil "+i+" sobre "+ziel);
                          if(rowx.getCell(i) != null) rowx.moveCell(rowx.getCell(i), ziel);
                      }
                      
@@ -589,17 +589,17 @@ public class ExcelFelddaten {
                         "(TRIM(Baum.a)='') " +
                         "AND TRIM(Baum.nr) NOT IN (\'nurH\', \'cm\', \'onum\', \'HG\', \'HB\') " +
                         "AND Eingabe.nr IS NULL");
-                    System.out.println(zeilen+" Bäume aus Baum ergänzt");
+                    System.out.println(zeilen+" Árboles añadidos del árbol");
                 }
      
-                erg = "Daten übertragen."; 
-            } else erg = "Fehler beim Einlesen: " +eBaum.getHinweis();
+                erg = "Transferir Datos."; 
+            } else erg = "Error de lectura: " +eBaum.getHinweis();
             
-            System.out.print("fertig!");
+            System.out.print("Terminado!");
             stmt.close();
             localconnect.close();               
         } catch(Exception e){
-            System.out.println("\nFehler beim Einlesen: ");e.printStackTrace();
+            System.out.println("\nError de lectura: ");e.printStackTrace();
         } finally {
             try{
             if(input != null) input.close();

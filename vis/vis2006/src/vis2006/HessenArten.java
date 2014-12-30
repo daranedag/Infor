@@ -42,7 +42,7 @@ public class HessenArten {
 
          in.close();
         }
-        catch (Exception e) {System.out.println("Fehler in HessenArten"+e); }   
+        catch (Exception e) {System.out.println("Error en Tipos Hesse"+e); }   
     }
     
     public int getCode(String baumArt){

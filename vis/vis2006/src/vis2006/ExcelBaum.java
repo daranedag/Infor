@@ -87,7 +87,7 @@ public class ExcelBaum {
                     // Leerspalte zwischen den Datenspalten?
                     if(spaltenIndex != letzterSpaltenIndex+1){
                         ok = false;
-                        hinweis = "Leerspalte zwischen den Datenspalten";
+                        hinweis = "Espacios vacíos entre las columnas de datos";
                         System.out.println(hinweis);
                         break;
                     }
@@ -99,14 +99,14 @@ public class ExcelBaum {
                             spaltenordnung.put(spaltenTitel, spaltenIndex);
                         }else{
                             ok = false;
-                            System.out.println("Doppelter Spaltenkopf: " + spaltenTitel);
-                            hinweis = "Spaltenkopf " + spaltenTitel + " doppelt";
+                            System.out.println("Doble encabezado de columna: " + spaltenTitel);
+                            hinweis = "Encabezado " + spaltenTitel + " dos veces";
                         }
                     }else {
                         if (!cell.getStringCellValue().trim().isEmpty()){
                             ok = false;
-                            System.out.println("Fehler: Unzulässiger Spaltenkopf ("+cell.getStringCellValue()+")");
-                            hinweis = "Unzulässiger Spaltenkopf ("+cell.getStringCellValue()+")";
+                            System.out.println("Error: Cabecera de columna no válida ("+cell.getStringCellValue()+")");
+                            hinweis = "Encabezado de columna no válida ("+cell.getStringCellValue()+")";
                         }
                     }
     
@@ -115,7 +115,7 @@ public class ExcelBaum {
                 } else if(cell.getCellType()==Cell.CELL_TYPE_FORMULA && cell.getCellFormula().equals("")){ // das auch
                 } else {
                     ok = false;
-                    hinweis = "Spaltenkopf muss als Text vorliegen. Anderes Format in Spalte " + (spaltenIndex+1) +".";
+                    hinweis = "Título de la columna debe estar presente en forma de texto. Cambiar a otro tamaño en la columna. " + (spaltenIndex+1) +".";
                     System.out.println(hinweis);
                 }     
             }
@@ -125,7 +125,7 @@ public class ExcelBaum {
             if(spaltenordnung.containsKey("BEZNR")) stringcols.add(spaltenordnung.get("BEZNR"));
             //System.out.println("Stringspalten: "+stringcols);
         }catch(Exception e)
-                {System.out.println("Fehler beim Erstellen der Spaltenordnung: "+e);}
+                {System.out.println("Error al crear el orden de las columnas: "+e);}
         
         return(ok);
     }
@@ -135,7 +135,7 @@ public class ExcelBaum {
      * @param zeile Einzulesende Zeile einer Excel-Felddatendatei (org.apache.poi.ss.usermodel.Row)
      */
     public String zeileLesen(Row zeile){
-        String ergebnis = "Fehler";
+        String ergebnis = "Error";
         Object werte[] = new Object[spalten.size()];
         zusatzWerte.clear();
         for(Cell cell : zeile){
@@ -194,9 +194,9 @@ public class ExcelBaum {
                             break;
                         default:
                             if(cell.getCellType() != Cell.CELL_TYPE_BLANK){
-                                ergebnis = "Abweichendes Zellformat in Spalte "+(colind-1)+":\n Es können nur Zahlen, Text und Formeln eingelesen werden.";
+                                ergebnis = "Formato de celda erroneo en la columna "+(colind-1)+":\n Solo se pueden leer Números, texto y fórmulas.";
                                 String dattyp = String.valueOf(cell.getCellType());
-                                System.out.println("Anderes Zellformat: "+dattyp);
+                                System.out.println("Otro formato de celda: "+dattyp);
                             }
                     }
                     if (typ==Cell.CELL_TYPE_NUMERIC && stringcols.contains(colind)){
@@ -217,12 +217,12 @@ public class ExcelBaum {
                     break;
                 default:
                     System.out.println("raus");
-                        ergebnis = "Abweichendes Zellformat in Spalte "+(colind-1)+":\n Es können nur Zahlen, Text und Formeln eingelesen werden.";
+                        ergebnis = "Formato de celda de columna incorrecto "+(colind-1)+":\n Solo se pueden leer Números, texto y fórmulas.";
                         String dattyp = String.valueOf(cell.getCellType());
-                        System.out.println("Anderes Zellformat: "+dattyp);
+                        System.out.println("Otro formato de celda: "+dattyp);
 
             }
-            if(ergebnis.equals("Fehler")) ergebnis = "";
+            if(ergebnis.equals("Error")) ergebnis = "";
             
         } // Ende der Zeile
         String fehlerSpalte = "";
@@ -486,7 +486,7 @@ public class ExcelBaum {
 
         } catch (ClassCastException e) {
             //e.printStackTrace();
-            ergebnis = "Falscher Datentyp in Spalte " + fehlerSpalte + " bei Baum-Nummer "+nr+" (z.B. Text statt Zahl)";
+            ergebnis = "Tipos de datos incorrectos en la columna " + fehlerSpalte + " por Número de Árbol "+nr+" (por Ej. Texto en lugar de número)";
         }
 
         return ergebnis;

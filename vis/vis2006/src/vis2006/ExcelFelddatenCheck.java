@@ -72,7 +72,7 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Excel-Felddatendatei wählen");
+        jLabel1.setText("Seleccionar archivo de datos de campo Excel");
 
         jTextField1.setText("jTextField1");
 
@@ -90,11 +90,11 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setText("maximaler Durchmesserzuwachs");
+        jLabel2.setText("maximo incremento en diámetro");
 
         jTextField2.setText("jTextField2");
 
-        jLabel3.setText("maximaler Höhenzuwachs");
+        jLabel3.setText("maximo crecimiento de altura");
 
         jTextField3.setText("jTextField3");
 
@@ -164,8 +164,8 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Felddatendatei wählen (browse)
         JFileChooser fc = new JFileChooser(pfad);
-        fc.setDialogTitle(" Excel-Datei auswählen ");
-        fc.setApproveButtonText("übernehmen");
+        fc.setDialogTitle(" Seleccionar archivo de Excel ");
+        fc.setApproveButtonText("Controlar");
         ExcelFileFilter eff = new ExcelFileFilter();
         fc.addChoosableFileFilter(eff); // nur Excel-Dateien (.xls) und Verzeichnisse
 
@@ -174,7 +174,7 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
         String exten = eff.getExtension(inputFile);
         if ("xls".equals(exten))
             pfad = inputFile.getAbsolutePath();
-        else System.out.println("Excel-Datei wählen. Andere Formate unzulässig!");
+        else System.out.println("Seleccionar archivo de Excel. Otros formatos inadmisibles!");
         jTextField1.setText(pfad);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -207,18 +207,18 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
             boolean ausgeblendet = false;
             int i = 0;
             while(i < eBaum.getMaxAnzahlSpalten() && ausgeblendet == false) {
-                System.out.println("Spalte " + i);
+                System.out.println("Columna " + i);
                 ausgeblendet = sheet.isColumnHidden(i);
                 i ++;
             }
-            if(ausgeblendet) out.println("<TR><TD colspan=2>Mindestens eine Spalte ist ausgeblendet!</TD></TR>");
+            if(ausgeblendet) out.println("<TR><TD colspan=2> Mínimo una columna está oculta!</TD></TR>");
 
             if(strukturOk){
                 String fehlerbaum ="";
                 String checkEdvid = "";
                 boolean edvidFehler = false;
                 boolean einlesenAbbrechen = false;
-                System.out.println("Anzahl Zeilen: " +sheet.getLastRowNum());
+                System.out.println("Numero de Líneas: " +sheet.getLastRowNum());
                 for(Row row : sheet){
                     if(row.getRowNum() > 0){ //nur für Datenzeilen (nicht Spaltenüberschriften)
                         if(einlesenAbbrechen) break;
@@ -235,8 +235,8 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
                         // (s.auch ExcelFelddaten.java Methode uebernehmen)
                         if(eBaum.edvid.equals("") && eBaum.nr.equals("") && eBaum.art<1 && eBaum.dn<1){
                             einlesenAbbrechen = true;
-                            String text = "Zeile " + (row.getRowNum()+1) + " scheint leer zu sein.\n"
-                                    + "Eventuell vorhandene Daten ab dieser Zeile werden ignoriert.";
+                            String text = "Linea " + (row.getRowNum()+1) + " parece estar vacía.\n"
+                                    + "Se ignoran todos los datos existentes en esta línea.";
                             JOptionPane.showMessageDialog(this, text);
                             break;
                         }
@@ -246,7 +246,7 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
                         if(!eBaum.zusatzWerte.containsKey("DDN") && eBaum.dn == 0 && !eBaum.an.equals("F") && eBaum.a2.trim().isEmpty()
                                 && eBaum.nr.matches("\\d+\\w*")){
                             nfehler= nfehler+1;
-                            out.println("<TR><TD>Fehlender Durchmesser</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Diametro no encontrado</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
 
                         // Durchmesserzuwachs
@@ -258,12 +258,12 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
                         if(zuwachs <= 0 && (eBaum.d2 > 0 || eBaum.dk21+eBaum.dk22 > 0) && eBaum.dn > 0
                                 && !eBaum.bem.contains("BHD!") && !eBaum.an.equals("T")){
                             nfehler=nfehler+1;
-                            out.println("<TR><TD>Geringerer/gleicher Durchmesser</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Baja/mismo Diámetro</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
                         if(zuwachs > maxDzuwachs && (eBaum.d2 > 0 || eBaum.dk21+eBaum.dk22 > 0) && eBaum.dn > 0
                                 && !eBaum.bem.contains("BHD!")){
                             nfehler=nfehler+1;
-                            out.println("<TR><TD>Durchmesserzuwachs über "+maxDzuwachs+" mm</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Incremento en el diámetro sobre "+maxDzuwachs+" mm</TD><TD> Árbol "+fehlerbaum+"</TD></TR>");
                         }
 
 
@@ -276,33 +276,33 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
                         }
                         if(pruefH && zuwachs <= 0 && !eBaum.an.equals("T")){
                             nfehler=nfehler+1;
-                            out.println("<TR><TD>Geringere/gleiche Höhe</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Baja/misma altura</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
                         if(pruefH && zuwachs > maxHzuwachs){
                             nfehler=nfehler+1;
-                            out.println("<TR><TD>Höhenzuwachs über "+maxHzuwachs+" dm</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Incremento de altura sobre "+maxHzuwachs+" dm</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
 
                         //Kronenansatz
                         if(eBaum.kn > 0 && eBaum.hn>0 && eBaum.kn >= eBaum.hn){
                             nfehler=nfehler+1;
-                            out.println("<TR><TD>Kronenansatz über Baumhöhe</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Base de la copa sobre la altura del árbol</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
 
                         //Einwachser
                         if(!eBaum.en.trim().isEmpty() && eBaum.alt_en < 1){
                             nfehler=nfehler+1;
-                            out.println("<TR><TD>Einwuchsalter fehlt</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Edad de crecimiento no encontrada</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
                         if(!eBaum.en.trim().isEmpty() && !eBaum.en.trim().equals("e")){
                             nfehler=nfehler+1;
-                            out.println("<TR><TD>Unzulässiger Eintrag in Spalte EN</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Entrada ilegal en la columna EN</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
 
                         // Verschiedene/fehlende edvids
                         if(eBaum.edvid.equals("")){
                             nfehler++;
-                            out.println("<TR><TD>Eintrag der edvid fehlt</TD><TD> Baum"+fehlerbaum+"</TD></TR>");
+                            out.println("<TR><TD>Entrada de edvid no encontrada</TD><TD> Árbol"+fehlerbaum+"</TD></TR>");
                         }
                         if(!checkEdvid.equals("") && !eBaum.edvid.equals("") && !checkEdvid.equals(eBaum.edvid)) edvidFehler = true;
                         checkEdvid = eBaum.edvid;
@@ -310,11 +310,11 @@ public class ExcelFelddatenCheck extends javax.swing.JDialog {
                 }
                 if(edvidFehler){
                     nfehler= nfehler+1;
-                    out.println("<TR><TD>Mehr als eine edvid!</TD><TD> </TD></TR>");
+                    out.println("<TR><TD>Más de una edvid!</TD><TD> </TD></TR>");
                 }
             }
             else nfehler = -999; //Wenn Fehler bei Einlesen (Spaltenerkennung)
-            System.out.println("fertig!");
+            System.out.println("Terminado!");
         } catch(Exception e){
             nfehler = -999;
             e.printStackTrace();

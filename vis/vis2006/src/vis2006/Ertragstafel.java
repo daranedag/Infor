@@ -101,7 +101,7 @@ public class Ertragstafel {
                 nEt = nEt + 1;
                 
             }
-        } catch (Exception e) { System.out.println("Problem mit: "+datei+" : "+e); }
+        } catch (Exception e) { System.out.println("Problema con: "+datei+" : "+e); }
 
 // Suchhöhe
         if(oberhoehe)
@@ -178,7 +178,7 @@ public class Ertragstafel {
         }
         else{
             etz.ekl = -9999.0;
-            System.out.println("Keine Höhe verfügbar!");
+            System.out.println("Ninguna cantidad disponible!");
         }
         // Check: Extrapolation mit negativer Grundfläche
         if(etz.gha < 0){
@@ -201,7 +201,7 @@ public class Ertragstafel {
         }
         test = new File(datei);
         if(!test.exists()){
-            System.out.println("Keine Ertragstafel für Art "+sp.code+" verfügbar.");
+            System.out.println("No hay tabla de producción para el tipo "+sp.code+" disponible.");
         }
     }
 

@@ -3,7 +3,7 @@
 <Form version="1.2" maxVersion="1.2" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Fehlstammberechnung"/>
+    <Property name="title" type="java.lang.String" value="Cálculo de cepas defectuosas"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -24,7 +24,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fehlstammberechnung starten"/>
+        <Property name="text" type="java.lang.String" value="Iniciar cálculo de cepas defectuosas"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -49,7 +49,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Messung 1"/>
+            <Property name="text" type="java.lang.String" value="Medida 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">
@@ -59,7 +59,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Messung 2"/>
+            <Property name="text" type="java.lang.String" value="Medida 2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2">
