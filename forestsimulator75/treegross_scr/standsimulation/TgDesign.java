@@ -232,13 +232,13 @@ public class TgDesign extends javax.swing.JPanel {
         jPanel2.add(jTextField5);
         jTextField5.setBounds(200, 360, 40, 20);
 
-        jCheckBox1.setText("Erschlieﬂungslinien");
+        jCheckBox1.setText("Linea de apertura");
         jCheckBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jCheckBox1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jCheckBox1);
         jCheckBox1.setBounds(20, 390, 220, 15);
 
-        jLabel10.setText("Abstand");
+        jLabel10.setText("Distancia");
         jPanel2.add(jLabel10);
         jLabel10.setBounds(40, 420, 60, 14);
 
@@ -246,7 +246,7 @@ public class TgDesign extends javax.swing.JPanel {
         jPanel2.add(jTextField6);
         jTextField6.setBounds(100, 420, 40, 20);
 
-        jLabel11.setText("Breite");
+        jLabel11.setText("Ancho");
         jPanel2.add(jLabel11);
         jLabel11.setBounds(150, 420, 60, 14);
 
@@ -254,11 +254,11 @@ public class TgDesign extends javax.swing.JPanel {
         jPanel2.add(jTextField7);
         jTextField7.setBounds(210, 420, 30, 20);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Einzelstamm", "Trupp", "Gruppe", "Horst" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cepa individual", "Equipo", "Grupo", "Bosque" }));
         jPanel2.add(jComboBox4);
         jComboBox4.setBounds(100, 260, 140, 20);
 
-        jLabel12.setText("Mischung");
+        jLabel12.setText("Mezcla");
         jPanel2.add(jLabel12);
         jLabel12.setBounds(20, 260, 70, 14);
 

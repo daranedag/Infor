@@ -29,7 +29,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButton6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bestand lesen"/>
+            <Property name="text" type="java.lang.String" value="Leer valores"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
@@ -37,7 +37,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bestand Speichern"/>
+            <Property name="text" type="java.lang.String" value="Guardar valores"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -45,7 +45,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Maske l&#xf6;schen"/>
+            <Property name="text" type="java.lang.String" value="Borrar mascara"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
@@ -109,7 +109,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Bestandesgr&#xf6;&#xdf;e [ha]"/>
+                        <Property name="text" type="java.lang.String" value="Bestandesgr&#xf6;&#xdf;e [ha]"/> <!-- Tamaño de la cartera  -->
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField2">
@@ -125,7 +125,7 @@
                       <SubComponents>
                         <Component class="javax.swing.JLabel" name="jLabel4">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Aufnahme Monat /J ahr"/>
+                            <Property name="text" type="java.lang.String" value="Mes de grabación /Año"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -164,7 +164,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Lage: Rechtswert [m]"/>
+                        <Property name="text" type="java.lang.String" value="Ubicación: Direccion del este [m]"/>
                         <Property name="horizontalTextPosition" type="int" value="4"/>
                       </Properties>
                     </Component>
@@ -177,7 +177,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Hochwert [m]"/>
+                        <Property name="text" type="java.lang.String" value="Valor Alto [m]"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField6">
@@ -189,7 +189,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel7">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="H&#xf6;hen &#xfc;berNN. [m]"/>
+                        <Property name="text" type="java.lang.String" value="Altura sobre NN. [m]"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField7">
@@ -210,7 +210,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Wuchsgebiet"/>
+                        <Property name="text" type="java.lang.String" value="Area de vegetación"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField8">
@@ -222,7 +222,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel9">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Wuchsbezirk"/>
+                        <Property name="text" type="java.lang.String" value="Distrito crecimiento"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField9">
@@ -234,7 +234,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel10">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Standort"/>
+                        <Property name="text" type="java.lang.String" value="Ubicación"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField10">
@@ -262,14 +262,14 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel12">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Hangneigung [%]"/>
+                        <Property name="text" type="java.lang.String" value="Pendiente [%]"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField12">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel13">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Standortskennziffer"/>
+                        <Property name="text" type="java.lang.String" value="Codigo de Ubicación"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField13">
@@ -312,7 +312,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="jButton3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Eckpunkt hinzuf&#xfc;gen"/>
+                        <Property name="text" type="java.lang.String" value="Añadir vertice"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
@@ -320,7 +320,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Eckpunkt l&#xf6;schen"/>
+                        <Property name="text" type="java.lang.String" value="Borrar vertice"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
@@ -371,7 +371,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jButton1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Leere Zeilen hinzuf&#xfc;gen"/>
+                    <Property name="text" type="java.lang.String" value="Añadir lineas en blanco"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -379,7 +379,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="ausgew&#xe4;hlten Baum l&#xf6;schen"/>
+                    <Property name="text" type="java.lang.String" value="Borrar arboles seleccionados"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>

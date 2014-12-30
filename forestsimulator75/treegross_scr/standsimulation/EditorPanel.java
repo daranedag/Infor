@@ -30,8 +30,8 @@ public class EditorPanel extends javax.swing.JPanel {
     javax.swing.table.DefaultTableModel data= new javax.swing.table.DefaultTableModel(
             new Object [][] {  },
             new String [] {
-               "Code", "Nr", "Alter", "BHD", "Höhe",  "Bon", "KA", "KB", "lebend", "Entnahme",
-               "x","y","z","ZBaum","Habitatb.","Fac","Bemerk"
+               "Code", "Nr", "Edad", "BHD", "Altura",  "Bon", "KA", "KB", "vida", "Eliminacion",
+               "x","y","z","ZBaum","Habitatb.","Fac","Observacion"
             }
         );
     Object[] rowData={" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "};
@@ -277,7 +277,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        jButton6.setText("Bestand lesen");
+        jButton6.setText("Leer valores");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -286,7 +286,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel3.add(jButton6);
 
-        jButton2.setText("Bestand Speichern");
+        jButton2.setText("Guardar valores");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -295,7 +295,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel3.add(jButton2);
 
-        jButton7.setText("Maske l\u00f6schen");
+        jButton7.setText("Borrar máscara");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -323,20 +323,20 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel9.setLayout(new java.awt.GridLayout());
 
-        jLabel1.setText("Bestand");
+        jLabel1.setText("Valores");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel9.add(jLabel1);
 
         jTextField1.setPreferredSize(new java.awt.Dimension(200, 19));
         jPanel9.add(jTextField1);
 
-        jLabel2.setText("Bestandesgr\u00f6\u00dfe [ha]");
+        jLabel2.setText("Tamaño cartera [ha]");
         jPanel9.add(jLabel2);
 
         jTextField2.setPreferredSize(new java.awt.Dimension(50, 19));
         jPanel9.add(jTextField2);
 
-        jLabel4.setText("Aufnahme Monat /J ahr");
+        jLabel4.setText("Grabación Mes /Año ");
         jPanel14.add(jLabel4);
 
         jPanel9.add(jPanel14);
@@ -355,20 +355,20 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel10.setLayout(new java.awt.GridLayout());
 
-        jLabel5.setText("Lage: Rechtswert [m]");
+        jLabel5.setText("Ubicación: Lado este [m]");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel10.add(jLabel5);
 
         jTextField5.setPreferredSize(new java.awt.Dimension(91, 19));
         jPanel10.add(jTextField5);
 
-        jLabel6.setText("Hochwert [m]");
+        jLabel6.setText("Valor alto [m]");
         jPanel10.add(jLabel6);
 
         jTextField6.setPreferredSize(new java.awt.Dimension(91, 19));
         jPanel10.add(jTextField6);
 
-        jLabel7.setText("H\u00f6hen \u00fcberNN. [m]");
+        jLabel7.setText("Altura sobre NN. [m]");
         jPanel10.add(jLabel7);
 
         jTextField7.setPreferredSize(new java.awt.Dimension(91, 19));
@@ -378,19 +378,19 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel11.setLayout(new java.awt.GridLayout());
 
-        jLabel8.setText("Wuchsgebiet");
+        jLabel8.setText("Area de crecimientot");
         jPanel11.add(jLabel8);
 
         jTextField8.setPreferredSize(new java.awt.Dimension(91, 19));
         jPanel11.add(jTextField8);
 
-        jLabel9.setText("Wuchsbezirk");
+        jLabel9.setText("Distrito crecimiento");
         jPanel11.add(jLabel9);
 
         jTextField9.setPreferredSize(new java.awt.Dimension(91, 19));
         jPanel11.add(jTextField9);
 
-        jLabel10.setText("Standort");
+        jLabel10.setText("Ubicacion");
         jPanel11.add(jLabel10);
 
         jTextField10.setPreferredSize(new java.awt.Dimension(91, 19));
@@ -405,12 +405,12 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel12.add(jTextField11);
 
-        jLabel12.setText("Hangneigung [%]");
+        jLabel12.setText("Pendiente [%]");
         jPanel12.add(jLabel12);
 
         jPanel12.add(jTextField12);
 
-        jLabel13.setText("Standortskennziffer");
+        jLabel13.setText("Identificador Ubicacion");
         jPanel12.add(jLabel13);
 
         jPanel12.add(jTextField13);
@@ -427,7 +427,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel8.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jButton3.setText("Eckpunkt hinzuf\u00fcgen");
+        jButton3.setText("Añadir vértice");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -436,7 +436,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel6.add(jButton3);
 
-        jButton5.setText("Eckpunkt l\u00f6schen");
+        jButton5.setText("Borrar vértice");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -460,7 +460,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel5.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-        jButton1.setText("Leere Zeilen hinzuf\u00fcgen");
+        jButton1.setText("Añadir lineas en blanco");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -469,7 +469,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel7.add(jButton1);
 
-        jButton4.setText("ausgew\u00e4hlten Baum l\u00f6schen");
+        jButton4.setText("Borrar árboles seleccionados");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);

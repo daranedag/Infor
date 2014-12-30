@@ -99,14 +99,14 @@ public class TgSpeciesManXML extends javax.swing.JDialog {
         setTitle("Species Manager XML");
         setBackground(java.awt.Color.white);
 
-        jLabel3.setText("Allgemeine Einstellungen");
+        jLabel3.setText("Configuracion General");
 
-        jLabel4.setText("Modellregion: ");
+        jLabel4.setText("Modelo de region: ");
 
         jTextField1.setText("jTextField1");
 
         jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Zufallskomponente ");
+        jCheckBox1.setText("Componente aleatorio ");
 
         jCheckBox2.setText("Einwuchsmodell");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class TgSpeciesManXML extends javax.swing.JDialog {
             }
         });
 
-        jCheckBox3.setText("Totholzmodul");
+        jCheckBox3.setText("Modulo Madera Muerta");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -159,7 +159,7 @@ public class TgSpeciesManXML extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(10, 10));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel2.setText("ausgewählte Art");
+        jLabel2.setText("Tipo escogido");
         jPanel1.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel5.setLayout(new java.awt.BorderLayout());
@@ -237,7 +237,7 @@ public class TgSpeciesManXML extends javax.swing.JDialog {
             }
         });
 
-        jButton4.setText("Löschen");
+        jButton4.setText("Borrar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -280,7 +280,7 @@ public class TgSpeciesManXML extends javax.swing.JDialog {
         jPanel2.setPreferredSize(new java.awt.Dimension(100, 600));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setText("Baumarten");
+        jLabel1.setText("Tipos de arboles");
         jPanel2.add(jLabel1, java.awt.BorderLayout.NORTH);
 
         jList1.setModel(listModel);

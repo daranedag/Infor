@@ -114,7 +114,7 @@ public class TgJFrame extends JFrame implements ActionListener, ItemListener, St
                     JOptionPane.showMessageDialog(this, about, "About", JOptionPane.INFORMATION_MESSAGE);
                     System.exit(0);
             }
-            else {System.out.println("Settings laden "); 
+            else {System.out.println("Cargar opciones "); 
                       user.loadSettings(localPath);
                       language=user.getLanguageShort();
                       plugIn=user.getPlugIn();
@@ -288,8 +288,8 @@ public class TgJFrame extends JFrame implements ActionListener, ItemListener, St
                 gr.starten();
                 tfUpdateTrue=true;
                // sd.showdesigner(st); 
-                if(!available3d) JOptionPane.showMessageDialog(null,"Es ist keine Java3D-API installiert.","Java3D",JOptionPane.ERROR_MESSAGE);
-                if (user.needsUpdate(bwinproLastUpdate)) JOptionPane.showMessageDialog(null,"Es gibt eine neue Version auf http://www.nw-fva.de. update empfohlen","ForestSimulator BWINPro7 Update Check",JOptionPane.ERROR_MESSAGE);
+                if(!available3d) JOptionPane.showMessageDialog(null,"API de Java3D no está instalada.","Java3D",JOptionPane.ERROR_MESSAGE);
+                if (user.needsUpdate(bwinproLastUpdate)) JOptionPane.showMessageDialog(null,"Existe una nueva versión en http://www.nw-fva.de. update empfohlen","ForestSimulator BWINPro7 Update Check",JOptionPane.ERROR_MESSAGE);
                
 	}
         
@@ -712,7 +712,7 @@ public class TgJFrame extends JFrame implements ActionListener, ItemListener, St
                    String verzeichnisUndDateiName= filechooser.getSelectedFile().getPath();
                    DataExchangeFormat data = new DataExchangeFormat();
                    data.readOldFormat1(st, verzeichnisUndDateiName);
-                   filechooser.setApproveButtonText("speichern");
+                   filechooser.setApproveButtonText("Guardar");
                    filechooser.showOpenDialog(this);
                    verzeichnisUndDateiName= filechooser.getSelectedFile().getPath();
                    TreegrossXML2 txml = new TreegrossXML2();
@@ -744,8 +744,8 @@ public class TgJFrame extends JFrame implements ActionListener, ItemListener, St
                        catch (Exception e2){  }
 
                        JFileChooser filechooser = new JFileChooser();
-                       filechooser.setDialogTitle("Als GML File speichern");
-                       filechooser.setApproveButtonText("speichern");
+                       filechooser.setDialogTitle("Guardar como archivo GML");
+                       filechooser.setApproveButtonText("Guardar");
                        filechooser.showOpenDialog(this);
                        String verzeichnisUndDateiName= filechooser.getSelectedFile().getPath();
                        treegrossXML2.saveAsGML(st, verzeichnisUndDateiName);

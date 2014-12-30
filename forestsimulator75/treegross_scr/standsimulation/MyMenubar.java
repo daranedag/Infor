@@ -200,7 +200,7 @@ class MyMenubar extends JMenuBar
 		mi.addActionListener(listener); 
 		m.add(mi);  
 //1.5.5 Structure table                
-		mi = new JMenuItem("Baumtabelle"); 
+		mi = new JMenuItem("Tabla_Arboles"); 
 		mi.setActionCommand("tree_table"); 
 		mi.addActionListener(listener); 
                 mi.setVisible(false);

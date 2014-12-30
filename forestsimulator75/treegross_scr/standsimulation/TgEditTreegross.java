@@ -60,7 +60,7 @@ public class TgEditTreegross extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Änderungen übernehmen");
+        jButton1.setText("Aplicar cambios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
