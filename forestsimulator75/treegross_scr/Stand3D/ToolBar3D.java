@@ -71,8 +71,8 @@ public class ToolBar3D extends javax.swing.JToolBar {
 //        
         javax.swing.ImageIcon icon;
         jToggleButton1.setSelected(true);
-        jToggleButton1.setText("Status");
-        jToggleButton1.setToolTipText("Status anzeigen");
+        jToggleButton1.setText("Estado");
+        jToggleButton1.setToolTipText("Ver estado");
         jToggleButton1.setActionCommand("setstatus");
         if(path!=null){
             try {
@@ -87,8 +87,8 @@ public class ToolBar3D extends javax.swing.JToolBar {
         }
         add(jToggleButton1);
 
-        jToggleButton2.setText("tote");
-        jToggleButton2.setToolTipText("tote Bäume anzeigen");
+        jToggleButton2.setText("Muerto");
+        jToggleButton2.setToolTipText("Ver árboles muertos");
         jToggleButton2.setActionCommand("setdead");
         if(path!=null){
             try {
@@ -103,8 +103,8 @@ public class ToolBar3D extends javax.swing.JToolBar {
         } 
         add(jToggleButton2);
 
-        jToggleButton3.setText("Textur");
-        jToggleButton3.setToolTipText("Objekte texturieren");
+        jToggleButton3.setText("Textura");
+        jToggleButton3.setToolTipText("Texturizar objetos");
         jToggleButton3.setActionCommand("settexture");
         if(path!=null){
             try {
@@ -119,8 +119,8 @@ public class ToolBar3D extends javax.swing.JToolBar {
         } 
         add(jToggleButton3);
 
-        jToggleButton4.setText("Arten");
-        jToggleButton4.setToolTipText("Bäume nach Art einfärben");
+        jToggleButton4.setText("Tipos");
+        jToggleButton4.setToolTipText("Colorear árboles por tipo");
         jToggleButton4.setActionCommand("setspecies");
         if(path!=null){
             try {
@@ -135,9 +135,9 @@ public class ToolBar3D extends javax.swing.JToolBar {
         } 
         add(jToggleButton4);
         
-        jToggleButton5.setText("Bauminfo");
+        jToggleButton5.setText("Información del árbol");
         jToggleButton5.setSelected(true);
-        jToggleButton5.setToolTipText("Bauminfo einblenden");
+        jToggleButton5.setToolTipText("Mostrar información del árbol");
         jToggleButton5.setActionCommand("showinfo");
         if(path!=null){
             try {
@@ -153,9 +153,9 @@ public class ToolBar3D extends javax.swing.JToolBar {
         add(jToggleButton5);
         
         jToggleButton6.setSelected(true);
-        jToggleButton6.setText("Nebel");
+        jToggleButton6.setText("Niebla");
         jToggleButton6.setSelected(true);
-        jToggleButton6.setToolTipText("Nebel einblenden");
+        jToggleButton6.setToolTipText("Mostrar niebla");
         jToggleButton6.setActionCommand("showfog");
         if(path!=null){
             try {
@@ -171,9 +171,9 @@ public class ToolBar3D extends javax.swing.JToolBar {
         add(jToggleButton6);
         
         jToggleButton7.setSelected(true);
-        jToggleButton7.setText("Gitter");
+        jToggleButton7.setText("Cuadrícula");
         jToggleButton7.setSelected(true);
-        jToggleButton7.setToolTipText("Gitter einblenden");
+        jToggleButton7.setToolTipText("Mostrar Cuadrícula");
         jToggleButton7.setActionCommand("showmesh");
         if(path!=null){
             try {
@@ -189,7 +189,7 @@ public class ToolBar3D extends javax.swing.JToolBar {
         add(jToggleButton7);
 
         jButton1.setText("Sshot");
-        jButton1.setToolTipText("Szene als JPG speichern");
+        jButton1.setToolTipText("Guardar escena como JPG");
         jButton1.setActionCommand("screenshot");
         if(path!=null){
             try {
@@ -205,7 +205,7 @@ public class ToolBar3D extends javax.swing.JToolBar {
         add(jButton1);
 
         jButton2.setText("f\u00e4llen");
-        jButton2.setToolTipText("markierte Bäume fällen");
+        jButton2.setToolTipText("markierte Bäume fällen");  //botar arboles marcados
         jButton2.setActionCommand("harvest");
         if(path!=null){
             try {
@@ -220,8 +220,8 @@ public class ToolBar3D extends javax.swing.JToolBar {
         } 
         add(jButton2);
 
-        jButton3.setText("Start");
-        jButton3.setToolTipText("Ausgangsansicht wiederherstellen");
+        jButton3.setText("Iniciar");
+        jButton3.setToolTipText("Restablecer vista original");
         jButton3.setActionCommand("goback");
         if(path!=null){
             try {
@@ -237,7 +237,7 @@ public class ToolBar3D extends javax.swing.JToolBar {
         add(jButton3);
         
         jButton4.setText("Toolbar");
-        jButton4.setToolTipText("Toolbar anordnen (oben links)");
+        jButton4.setToolTipText("Organizar barra de herramientas (arriba a la izquierda)");
         jButton4.setActionCommand("toolpos");
         if(path!=null){
             try {

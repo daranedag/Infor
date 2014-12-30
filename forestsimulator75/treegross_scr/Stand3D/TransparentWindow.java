@@ -131,15 +131,15 @@ public void paint(Graphics graphics){
     tempImgGraphics.drawLine(x2-3,y1+3,x1+3,y2-3); 
     tempImgGraphics.drawRoundRect(0,0, getWidth()-1, getHeight()-1,10,10);
     tempImgGraphics.setColor(Color.red);
-    tempImgGraphics.drawString("Baum: "+u.name.trim(),5,textheight-2);
+    tempImgGraphics.drawString("Árbol: "+u.name.trim(),5,textheight-2);
     tempImgGraphics.drawLine(0, textheight+2, getWidth()-1, textheight+2);
     tempImgGraphics.drawString("BHD "+Double.toString(Math.round(u.dbh)),5,textheight*2);
-    tempImgGraphics.drawString("Höhe "+Double.toString(Math.round(u.h)),5, (3*textheight));
-    String t="Alter "+u.age;
-    if(!u.living && u.standing) t="tot / stehend";
-    if(!u.living && !u.standing) t="tot / entnommen";
+    tempImgGraphics.drawString("Altura "+Double.toString(Math.round(u.h)),5, (3*textheight));
+    String t="Edad "+u.age;
+    if(!u.living && u.standing) t="muertos / parados";
+    if(!u.living && !u.standing) t="muerto / eliminados";
     tempImgGraphics.drawString(t,5, (4*textheight));
-    tempImgGraphics.drawString("Art: "+u.specname,5, (5*textheight));
+    tempImgGraphics.drawString("Tipo: "+u.specname,5, (5*textheight));
     graphics.drawImage(temporaryImage,0,0,null);    
 }
 

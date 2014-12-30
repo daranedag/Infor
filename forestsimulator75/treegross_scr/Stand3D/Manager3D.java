@@ -83,7 +83,7 @@ public class Manager3D implements ActionListener {
             showfog = false;
             showmesh = false;
         }
-        if(!available3d) JOptionPane.showMessageDialog(null,"Es ist keine Java3D-API installiert.","Java3D",JOptionPane.ERROR_MESSAGE);
+        if(!available3d) JOptionPane.showMessageDialog(null,"La API de Java3D no está instalada.","Java3D",JOptionPane.ERROR_MESSAGE);
         if (showtoolbar) loadTextures();        
     }
     
@@ -343,7 +343,7 @@ public class Manager3D implements ActionListener {
         int ok=JOptionPane.YES_OPTION;
         if  (file.exists()){
             System.out.println("file alrerady exists");
-            ok = JOptionPane.showConfirmDialog(home,"Die Datei existiert bereits! Überschreiben?","Speichern",JOptionPane.YES_NO_OPTION);                            
+            ok = JOptionPane.showConfirmDialog(home,"El archivo ya existe! Sobreescribir?","Guardar",JOptionPane.YES_NO_OPTION);                            
         }    
         if (ok == JOptionPane.YES_OPTION){
             try{
@@ -398,9 +398,9 @@ public class Manager3D implements ActionListener {
                 if (path.toLowerCase().endsWith(".jpg")==false) path=path+".jpg";
                 saveImageAsJPEG(img, path ); 
             }
-            else System.out.println( "Speichern abgebrochen" );
+            else System.out.println( "Guardado abortado" );
        }
-       else{JOptionPane.showMessageDialog(home,"Sie haben kein File geöffnet.","Speichern",JOptionPane.INFORMATION_MESSAGE);}
+       else{JOptionPane.showMessageDialog(home,"No ha abierto ningún archivo.","Guardar",JOptionPane.INFORMATION_MESSAGE);}
    }
         
     
