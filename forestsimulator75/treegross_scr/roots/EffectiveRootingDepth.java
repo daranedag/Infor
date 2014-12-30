@@ -137,8 +137,8 @@ public class EffectiveRootingDepth {
 
      private void loadSpeciesTypes(){
          speciestypes = new String[2];
-         speciestypes[0]=new String("Buche,Eiche,Kiefer,Douglasie");
-         speciestypes[1]=new String("Fichte");
+         speciestypes[0]=new String("Haya,Roble,Pino,Abeto Douglas");
+         speciestypes[1]=new String("Picea");
      }
 
 

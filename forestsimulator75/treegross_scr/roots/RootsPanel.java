@@ -126,7 +126,7 @@ public class RootsPanel extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel13.setText("TreeGrOSS xml Datei :");
+        jLabel13.setText("Datos TreeGrOSS xml :");
         jPanel8.add(jLabel13);
 
         jTextField13.setPreferredSize(new java.awt.Dimension(511, 19));
@@ -327,23 +327,23 @@ public class RootsPanel extends javax.swing.JPanel {
        try {
 // File 
         rootElt= addString(rootElt, "Id","1");
-        rootElt= addString(rootElt, "Kennung",st.standname);
-        rootElt= addString(rootElt, "Allgemeines"," ");
-        rootElt= addString(rootElt, "Flaechengroesse_m2",new Double(st.size*10000).toString());
-        rootElt= addString(rootElt, "HauptbaumArtCodeStd",new Integer(st.sp[0].code).toString());
-        rootElt= addString(rootElt, "HauptbaumArtCodeLokal",new Integer(st.sp[0].code).toString());
-        rootElt= addString(rootElt, "AufnahmeJahr",new Integer(st.year).toString());
-        rootElt= addString(rootElt, "AufnahmeMonat",new Integer(st.monat).toString());
-        rootElt= addString(rootElt, "DatenHerkunft",st.datenHerkunft);
-        rootElt= addString(rootElt, "Standort",st.standort);
-        rootElt= addString(rootElt, "Hochwert_m",new Double(st.hochwert_m).toString());
-        rootElt= addString(rootElt, "Rechtswert_m",new Double(st.rechtswert_m).toString());
-        rootElt= addString(rootElt, "Hoehe_uNN_m",new Double(st.hoehe_uNN_m).toString());
+        rootElt= addString(rootElt, "Identificacion",st.standname);
+        rootElt= addString(rootElt, "General"," ");
+        rootElt= addString(rootElt, "TamañoZona_m2",new Double(st.size*10000).toString());
+        rootElt= addString(rootElt, "CodigoStdTipoArbolPrincipal",new Integer(st.sp[0].code).toString());
+        rootElt= addString(rootElt, "CodigoLokalTipoArbolPrincipal",new Integer(st.sp[0].code).toString());
+        rootElt= addString(rootElt, "AñoGrabacion",new Integer(st.year).toString());
+        rootElt= addString(rootElt, "MesGrabacion",new Integer(st.monat).toString());
+        rootElt= addString(rootElt, "AscendenciaDatos",st.datenHerkunft);
+        rootElt= addString(rootElt, "Ubicacion",st.standort);
+        rootElt= addString(rootElt, "ValorAltura_m",new Double(st.hochwert_m).toString());
+        rootElt= addString(rootElt, "ValorDerecho_m",new Double(st.rechtswert_m).toString());
+        rootElt= addString(rootElt, "Altura_uNN_m",new Double(st.hoehe_uNN_m).toString());
         rootElt= addString(rootElt, "Exposition_Gon",new Integer(st.exposition_Gon).toString());
-        rootElt= addString(rootElt, "Hangneigung_Prozent",new Double(st.hangneigungProzent).toString());
-        rootElt= addString(rootElt, "Wuchsgebiet",st.wuchsgebiet);
-        rootElt= addString(rootElt, "Wuchsbezirk",st.wuchsbezirk);
-        rootElt= addString(rootElt, "Standortskennziffer",st.standortsKennziffer);
+        rootElt= addString(rootElt, "Porcentaje_Pendiente",new Double(st.hangneigungProzent).toString());
+        rootElt= addString(rootElt, "AreaVegetacion",st.wuchsgebiet);
+        rootElt= addString(rootElt, "DistritoCrecimiento",st.wuchsbezirk);
+        rootElt= addString(rootElt, "IdentificadorUbicacion",st.standortsKennziffer);
     
 // Table of functions
            for (int jj=0; jj< nrss; jj++){
