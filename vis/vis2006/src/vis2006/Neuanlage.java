@@ -39,9 +39,9 @@ public class Neuanlage extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Neuanlage");
+        setTitle("Diseñado");
 
-        jLabel1.setText("Parzelle");
+        jLabel1.setText("Parcela");
 
         jTextField1.setText("00");
 

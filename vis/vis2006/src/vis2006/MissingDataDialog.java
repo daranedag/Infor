@@ -24,18 +24,18 @@ public class MissingDataDialog extends javax.swing.JDialog {
         st = stl;
         initComponents();
         
-        jLabel1.setText("Baumart");
-        jLabel2.setText("Höhenkurve");
-        jLabel3.setText("Schicht");
-        jLabel4.setText("Ersetzen");
-        jLabel5.setText("Höhenvariation");
+        jLabel1.setText("Tipo de árbol");
+        jLabel2.setText("Curva de altura");
+        jLabel3.setText("Capa");
+        jLabel4.setText("Reemplazar");
+        jLabel5.setText("Variación de altura");
         for (int i=0;i<st.nspecies;i++){
            jComboBox1.addItem(st.sp[i].spDef.longName);
         }
-        jComboBox3.addItem("alle");
-        jComboBox4.addItem("alle Werte");
-        jComboBox4.addItem("fehlende Werte");
-        jComboBox5.addItem("nein");
+        jComboBox3.addItem("todo");
+        jComboBox4.addItem("todos los valores Werte");
+        jComboBox4.addItem("valores faltantesWerte");
+        jComboBox5.addItem("no");
 //        jComboBox5.addItem("hinzufügen");
         
         speciesChanged();
@@ -73,7 +73,7 @@ public class MissingDataDialog extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ersetzen fehlen Höhenwerte");
+        setTitle("Reemplace los valores de altura faltantes");
         setModal(true);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 400));
@@ -140,7 +140,7 @@ public class MissingDataDialog extends javax.swing.JDialog {
 
         jPanel5.setLayout(new java.awt.GridLayout(1, 2));
 
-        jButton1.setText("Höhenkurve erneuern");
+        jButton1.setText("Renovar curva de altura ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -148,7 +148,7 @@ public class MissingDataDialog extends javax.swing.JDialog {
         });
         jPanel5.add(jButton1);
 
-        jButton2.setText("übernehmen und Ergebnisbogen berechnen");
+        jButton2.setText("Calcular y generar hoja de resultados");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -228,19 +228,19 @@ public class MissingDataDialog extends javax.swing.JDialog {
            heightCurveInFocus=st.sp[speciesInFocus].spDef.heightCurve;
         }
         if (ndh <= 4){
-              jComboBox2.addItem("Einheitshöhenkurve");
+              jComboBox2.addItem("Curva de altura unida");
         }
 
         if (ndh == 0){
            for (int i=0;i<st.nspecies;i++){
-              if ( i != speciesInFocus) jComboBox2.addItem("wie Art "+st.sp[i].code);
+              if ( i != speciesInFocus) jComboBox2.addItem("como tipo "+st.sp[i].code);
         }}
 //
         heightCurveRenew();
         grafikErsetzen(st.sp[speciesInFocus].code);
 	DecimalFormat f  = new DecimalFormat("0.0000");
 
-        jLabel6.setText("Höhenkurve : "+ st.sp[speciesInFocus].heightcurveUsed);
+        jLabel6.setText("Curva de altura : "+ st.sp[speciesInFocus].heightcurveUsed);
         jLabel7.setText("const : "+ f.format(st.sp[speciesInFocus].heightcurveUsedP0));
         jLabel8.setText("b1 : "+ f.format(st.sp[speciesInFocus].heightcurveUsedP1));
         jLabel9.setText("b2 : "+ f.format(st.sp[speciesInFocus].heightcurveUsedP2));

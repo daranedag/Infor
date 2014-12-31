@@ -109,7 +109,7 @@ public class Hessendaten extends javax.swing.JDialog {
         });
         jPanel2.add(jButton1);
 
-        jButton2.setText("nach Tabelle übernehmen");
+        jButton2.setText("en conformidad con la Tabla");
         jButton2.setEnabled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +165,7 @@ public class Hessendaten extends javax.swing.JDialog {
           try {
              stmt.execute("DROP INDEX edvid on Baum");
           }
-          catch (Exception e){  System.out.println("Datenbank kein index :"+e); }
+          catch (Exception e){  System.out.println("Ningún índice de base de datos :"+e); }
           stmt.execute("CREATE INDEX edvid ON Baum (edvid, auf) ");
           for (int i=0;i<nhfi; i++)
               
@@ -332,7 +332,7 @@ public class Hessendaten extends javax.swing.JDialog {
 // Ende                
              }
        }
-       catch (Exception e){  System.out.println("Datenbank Fehler :"+s+e); }
+       catch (Exception e){  System.out.println("Error de base de datos :"+s+e); }
        dbconn.closeAll();
        this.dispose();
 // TODO add your handling code here:
@@ -351,8 +351,8 @@ public class Hessendaten extends javax.swing.JDialog {
         
         javax.swing.JFileChooser fc = new javax.swing.JFileChooser();
         fc.setCurrentDirectory(new File(localPath+"//Hessendaten"));
-        fc.setDialogTitle(" Verzeichnis mit Hessen-Daten einer Versuchsanlage auswählen");
-        fc.setApproveButtonText("übernehmen");
+        fc.setDialogTitle(" Seleccione un directorio con datos Hessen de un laboratorio");
+        fc.setApproveButtonText("Tomar el control");
       
         fc.setFileSelectionMode(javax.swing.JFileChooser.DIRECTORIES_ONLY);
         int k=fc.showOpenDialog(this);
@@ -489,9 +489,9 @@ public class Hessendaten extends javax.swing.JDialog {
                 String ka = stx.nextToken();
                 String zf = stx.nextToken();
                 String bemerk = stx.nextToken();
-                if (hessenArten.getCode(art)==0) { System.out.println("baumart fehlt "+art);
-                    JTextArea about = new JTextArea("Baumart :"+art+" in File HessenArten.txt nicht definiert");
-                    JOptionPane.showMessageDialog(this, about, "About", JOptionPane.INFORMATION_MESSAGE);
+                if (hessenArten.getCode(art)==0) { System.out.println("Falta tipo de árbol: "+art);
+                    JTextArea about = new JTextArea("Tipo de arbol :"+art+" en Archivo HessenArten.txt no está definido");
+                    JOptionPane.showMessageDialog(this, about, "Acerca de", JOptionPane.INFORMATION_MESSAGE);
                     jButton2.setEnabled(false);
 
                     break;
@@ -553,7 +553,3 @@ public class Hessendaten extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
     
 }
-
-
-
-

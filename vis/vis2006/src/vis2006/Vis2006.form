@@ -6,7 +6,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="bearbeiten"/>
+            <Property name="text" type="java.lang.String" value="editar"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu1MouseClicked"/>
@@ -15,7 +15,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="lokale Daten &#xf6;ffnen"/>
+                <Property name="text" type="java.lang.String" value="Abrir datos locales"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
@@ -23,7 +23,7 @@
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="jMenu7">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Eingabetabelle"/>
+                <Property name="text" type="java.lang.String" value="Tabla de entrada"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu7ActionPerformed"/>
@@ -31,7 +31,7 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Eingabetabelle erstellen"/>
+                    <Property name="text" type="java.lang.String" value="Crear una tabla de entrada "/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem12ActionPerformed"/>
@@ -39,7 +39,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Eingabetabelle nach Baum &#xfc;bernehmen"/>
+                    <Property name="text" type="java.lang.String" value="Tabla de entrada controlada por Arbol"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem13ActionPerformed"/>
@@ -47,7 +47,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem25">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Eingabetabelle l&#xf6;schen"/>
+                    <Property name="text" type="java.lang.String" value="Borrar tabla de entrada"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem25ActionPerformed"/>
@@ -55,7 +55,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem41">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="H&#xf6;heneingabetabelle erstellen"/>
+                    <Property name="text" type="java.lang.String" value="Crear Tabla de entrada de altura"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem41ActionPerformed"/>
@@ -63,7 +63,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem42">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="H&#xf6;heneingabetabelle: Werte nach Baum &#xfc;bernehmen"/>
+                    <Property name="text" type="java.lang.String" value="Ordenar tabla de entrada de altura por valor del árbol"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem42ActionPerformed"/>
@@ -71,7 +71,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem43">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="H&#xf6;heneingabetabelle l&#xf6;schen"/>
+                    <Property name="text" type="java.lang.String" value="Borrar tabla de entrada de altura"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem43ActionPerformed"/>
@@ -79,7 +79,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem34">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Excel-Daten in Eingabetabelle &#xfc;bernehmen"/>
+                    <Property name="text" type="java.lang.String" value="Tomar datos de Excel en tabla de entrada"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem34ActionPerformed"/>
@@ -89,12 +89,12 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Baumtabelle"/>
+                <Property name="text" type="java.lang.String" value="Tabla de Árbol"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Durchmesser berechnen"/>
+                    <Property name="text" type="java.lang.String" value="Calcular diámetro"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem14ActionPerformed"/>
@@ -102,7 +102,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem15">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Baumnummer positionieren"/>
+                    <Property name="text" type="java.lang.String" value="Posicionar numero de árbol"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem15ActionPerformed"/>
@@ -110,7 +110,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem22">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Fehlstammberechnung"/>
+                    <Property name="text" type="java.lang.String" value="Calculo de cepas defectuosas"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem22ActionPerformed"/>
@@ -118,7 +118,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem29">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Umnummerieren"/>
+                    <Property name="text" type="java.lang.String" value="Nueva numeración"/>
                     <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;Neue Baumnummern vergeben&lt;/strong&gt;&lt;br&gt;  Diese Funktion erm&#xf6;glicht es neue Baumnummern f&#xfc;r eine ganze Parzelle&lt;br&gt; mit allen Aufnahmen zu vergeben.&lt;br&gt;&lt;br&gt; &lt;strong&gt;Vorbereitung&lt;/strong&gt;&lt;br&gt; 1. Letzte Aufnahme: alle Nummern nach nralt &#xfc;bertragen (mit SQL)&lt;br&gt; 2. Neue Nummern in die Spalte nr eintragen&lt;br&gt; &lt;br&gt; In Vis die gew&#xfc;nschte Parzelle und die letzte Aufnahme ausw&#xe4;hlen &lt;br&gt; und &quot;umnummerieren&quot; klicken.&lt;br&gt; &lt;br&gt; &lt;strong&gt;Achtung!&lt;/strong&gt;&lt;br&gt; Dabei wird die Nummerierung aller vorhergehenden Aufnahmen angepasst. &lt;br&gt; Sollten Eintr&#xe4;ge unter nralt bereits von einer fr&#xfc;heren Umnummerierung &lt;br&gt; vorhanden sein, gehen diese verloren. "/>
                   </Properties>
                   <Events>
@@ -129,7 +129,7 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lokale Datenbank"/>
+                <Property name="text" type="java.lang.String" value="Bases de datos local"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu9ActionPerformed"/>
@@ -137,7 +137,7 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem17">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="HessenDaten als Neuanlage einlesen"/>
+                    <Property name="text" type="java.lang.String" value="Leer datos Hessen como nueva instalación"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem17ActionPerformed"/>
@@ -145,7 +145,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem39">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Sachsen-Anhalt-Daten einlesen"/>
+                    <Property name="text" type="java.lang.String" value="Lectura de datos de Sachsen-Anhalt"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem39ActionPerformed"/>
@@ -153,7 +153,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Doppelte Eintr&#xe4;ge aus Parzelle entfernen"/>
+                    <Property name="text" type="java.lang.String" value="Eliminar entradas duplicadas de parcela"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem20ActionPerformed"/>
@@ -161,7 +161,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem37">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stammverteilungsplan erstellen"/>
+                    <Property name="text" type="java.lang.String" value="Crear programa maestro de asignación"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem37ActionPerformed"/>
@@ -169,7 +169,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem38">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stammverteilungsplan: Nullpunkt neu w&#xe4;hlen"/>
+                    <Property name="text" type="java.lang.String" value="Plan Maestro de la asignación: Seleccione el punto cero"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem38ActionPerformed"/>
@@ -179,7 +179,7 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Daten in SQL-Datenbank"/>
+                <Property name="text" type="java.lang.String" value="Datos en Base de datos SQL"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu10ActionPerformed"/>
@@ -187,7 +187,7 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem18">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="locale Parzelle in SQL-Datenbank kopieren"/>
+                    <Property name="text" type="java.lang.String" value="Copiar parcelas locales en base de datos SQL "/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem18ActionPerformed"/>
@@ -195,7 +195,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem19">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Versuchsanlage in SQL Datenk kopieren"/>
+                    <Property name="text" type="java.lang.String" value="Copiar planta experimental en Datos SQL "/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem19ActionPerformed"/>
@@ -216,7 +216,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem21">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Vis-Daten"/>
+                <Property name="text" type="java.lang.String" value="Datos-Vis"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem21ActionPerformed"/>
@@ -224,7 +224,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem35">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Excel Felddaten"/>
+                <Property name="text" type="java.lang.String" value="Datos de campo Excel"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem35ActionPerformed"/>
@@ -232,7 +232,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem40">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Stammverteilungsplan"/>
+                <Property name="text" type="java.lang.String" value="Plan maestro de asignación"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem40ActionPerformed"/>
@@ -242,7 +242,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="kopieren"/>
+            <Property name="text" type="java.lang.String" value="copiar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu2ActionPerformed1"/>
@@ -250,7 +250,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem28">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Excel Felddatendatei"/>
+                <Property name="text" type="java.lang.String" value="Archivo de Datos de campo Excel"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem28ActionPerformed"/>
@@ -258,7 +258,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem31">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Parzelle in tempor&#xe4;re Datei kopieren"/>
+                <Property name="text" type="java.lang.String" value="Copiar parcela en archivo temporal"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem31ActionPerformed"/>
@@ -266,7 +266,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Versuchsfl&#xe4;che in tempor&#xe4;re Datei kopieren"/>
+                <Property name="text" type="java.lang.String" value="Copiar parcela experimental en archivos temporales"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
@@ -274,7 +274,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Neuanlage"/>
+                <Property name="text" type="java.lang.String" value="Diseñado"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem16ActionPerformed"/>
@@ -284,7 +284,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Einstellungen"/>
+            <Property name="text" type="java.lang.String" value="Ajustes"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu4ActionPerformed"/>
@@ -292,7 +292,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="PDF statt HTML"/>
+                <Property name="text" type="java.lang.String" value="PDF en lugar de HTML"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
@@ -300,7 +300,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Stammverzeichnis mit alten Nummern"/>
+                <Property name="text" type="java.lang.String" value="Directorio raíz con numeros antiguos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItem1ActionPerformed"/>
@@ -308,7 +308,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Stammverzeichnis nach Baumnummer sortieren"/>
+                <Property name="text" type="java.lang.String" value="Ordenar directorio raíz por numero de árbol"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItem3ActionPerformed"/>
@@ -316,7 +316,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ergebnisbogen mit Dauerumfangmessungen"/>
+                <Property name="text" type="java.lang.String" value="Hoja de resultados con duración de mediciones de circunferencia"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItem2ActionPerformed"/>
@@ -326,7 +326,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ausgabe"/>
+            <Property name="text" type="java.lang.String" value="Problema"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu5ActionPerformed"/>
@@ -334,7 +334,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
-                <Property name="text" type="java.lang.String" value="H&#xf6;henverzeichnis"/>
+                <Property name="text" type="java.lang.String" value="Directorio de Altura"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem7ActionPerformed"/>
@@ -342,7 +342,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Stammverzeichnis"/>
+                <Property name="text" type="java.lang.String" value="Directorio raíz"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
@@ -350,7 +350,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Einzelberechnung (Ergebnisbogen Aufnahme)"/>
+                <Property name="text" type="java.lang.String" value="Cálculo individual (Hoja de resultados de grabación)"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
@@ -358,7 +358,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ergebnisbogen Parzelle"/>
+                <Property name="text" type="java.lang.String" value="Hoja de resultados de Parcelas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
@@ -366,7 +366,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ergebnisbogen Versuch"/>
+                <Property name="text" type="java.lang.String" value="Ensayo de hoja de resultados"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem10ActionPerformed"/>
@@ -374,7 +374,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem27">
               <Properties>
-                <Property name="text" type="java.lang.String" value="XML-Rohdaten f&#xfc;r TreeGrOSS exportieren"/>
+                <Property name="text" type="java.lang.String" value=" Exportar Datos en bruto XML para TreeGrOSS"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem27ActionPerformed"/>
@@ -382,7 +382,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem36">
               <Properties>
-                <Property name="text" type="java.lang.String" value="BZE Datenauswertung"/>
+                <Property name="text" type="java.lang.String" value="BZE Análisis de datos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem36ActionPerformed"/>
@@ -392,7 +392,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Dateneditor"/>
+            <Property name="text" type="java.lang.String" value="Editor de datos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu6ActionPerformed"/>
@@ -400,7 +400,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem26">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Stammverteilungsplan"/>
+                <Property name="text" type="java.lang.String" value="Plan maestro de asignación"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem26ActionPerformed"/>
@@ -410,12 +410,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu11">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sonderfunktionen"/>
+            <Property name="text" type="java.lang.String" value="Funciones especiales"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem32">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Bestandeswerte (aktueller Versuch)"/>
+                <Property name="text" type="java.lang.String" value="Valores de archivo (aktueller Versuch)"/>
                 <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;Berechnen von Kennzahlen&lt;/strong&gt;&lt;br&gt;&lt;br&gt; Es werden bestandesweise und baumartenweise grupperierte Kennzahlen &lt;br&gt; f&#xfc;r den ausgew&#xe4;hlten Versuch (alle Parzellen und Aufnahmen) &lt;br&gt; in die vorbereiteten Tabellen &quot;Bestandeswerte&quot; und &quot;Baumartenwerte&quot; &lt;br&gt; der Datenbank geschrieben. &lt;br&gt;F&#xfc;r Berechnungen in der lokalen Datenbank m&#xfc;ssen diese Tabellen &lt;br&gt; sowie die Tabelle tempAuf zuvor angelegt werden."/>
               </Properties>
               <Events>
@@ -424,7 +424,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem30">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Bestandeswerte (alle)"/>
+                <Property name="text" type="java.lang.String" value="Valores de archivo (alle)"/>
                 <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;Berechnen von Kennzahlen&lt;/strong&gt;&lt;br&gt;&#xa;&lt;br&gt;&#xa;Es werden bestandesweise und baumartenweise grupperierte Kennzahlen &lt;br&gt;&#xa;f&#xfc;r alle(&lt;strong&gt;!&lt;/strong&gt;) Versuche (alle Parzellen und Aufnahmen) &lt;br&gt;&#xa;in die vorbereiteten Tabellen &quot;Bestandeswerte&quot; und &quot;Baumartenwerte&quot; &lt;br&gt;&#xa;der Datenbank geschrieben.&lt;br&gt;&#xa;&lt;br&gt;F&#xfc;r Berechnungen in der lokalen Datenbank m&#xfc;ssen diese Tabellen &lt;br&gt; sowie die Tabelle tempAuf zuvor angelegt werden.&lt;br&gt;&#xa;&lt;br&gt;&#xa;&lt;strong&gt;Achtung!&lt;/strong&gt;&lt;br&gt;&#xa;Die Berechnung in der Waldwachstums-Datenbank kann einige Zeit dauern.&#xa;"/>
               </Properties>
               <Events>
@@ -510,17 +510,17 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Datenbank"/>
+                    <Property name="text" type="java.lang.String" value="Base de datos"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox7">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
-                        <StringItem index="0" value="keine"/>
-                        <StringItem index="1" value="Waldwachstum"/>
-                        <StringItem index="2" value="Lokal"/>
-                        <StringItem index="3" value="Waldwachstum (BZE)"/>
+                        <StringItem index="0" value="Sin"/>
+                        <StringItem index="1" value="Crecimiento Forestal"/>
+                        <StringItem index="2" value="Local"/>
+                        <StringItem index="3" value="Crecimiento Forestal (BZE)"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -530,7 +530,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="sichern"/>
+                    <Property name="text" type="java.lang.String" value="guardar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -538,7 +538,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="laden"/>
+                    <Property name="text" type="java.lang.String" value="cargar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
@@ -572,7 +572,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="suchen"/>
+                    <Property name="text" type="java.lang.String" value="buscar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -582,7 +582,7 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="alle"/>
+                        <StringItem index="0" value="todos"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -615,7 +615,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Land"/>
+                    <Property name="text" type="java.lang.String" value="País"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox1">
@@ -696,7 +696,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Parzelle"/>
+                    <Property name="text" type="java.lang.String" value="Parcela"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox4">
@@ -715,7 +715,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Aufnahme"/>
+                    <Property name="text" type="java.lang.String" value="Grabación"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox5">

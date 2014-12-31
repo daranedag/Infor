@@ -120,7 +120,7 @@ public class Stammverzeichnis {
               while (rsMessh.next()) {
                   auf = rsMessh.getInt("auf");
                   if(auf==0){     // 2.2.2011
-                      System.out.println("Fehlende Aufnahmenummer oder Aufnahmenummer ist 0 in Auf oder Baum");
+                      System.out.println("Falta el número de admisión o el número de admisión es 0 en tabla Auf o en tabla Baum");
                   }
                   if (auf == aufalt || aufalt == 0){
                       if (rsMessh.getInt("mh") == 13) nmessh = nmessh + 1;
@@ -136,7 +136,7 @@ public class Stammverzeichnis {
                   aufalt = auf;
               }
               if (aufalt > messH.length-1) 
-                  System.out.println("Fehler: Ungleiche Anzahl Aufnahmen in Tabellen Baum und auf!");
+                  System.out.println("Error: Numero desigual de disparos en tabla Baum y tabla Auf!");
               messH[aufalt] = nmessh; //letzten Wert eintragen
               rsMessh.close();
           
@@ -268,15 +268,15 @@ public class Stammverzeichnis {
                                 cellleft.setBorder(Rectangle.NO_BORDER); 
                                 cellleft.setHorizontalAlignment(Element.ALIGN_LEFT);
                                 datatable3.addCell(cellleft);
-                                String text = " *  von 1.3 m abweichende Messhöhe \n ** verschiedene Messhöhen";
-                                if(legendeErweitern) text = text + "\n U Ablesung Dauerumfangmessband";
+                                String text = " *  von 1.3 m de diferente altura de medición \n ** diferentes alturas de medición ";
+                                if(legendeErweitern) text = text + "\n U Tiempo de medición de la cinta de lectura";
                                 Cell cellrigth = new Cell(new Phrase(7 , text, FontFactory.getFont(FontFactory.HELVETICA, 8, Font.NORMAL)));
                                 cellrigth.setBorder(Rectangle.NO_BORDER); 
                                 cellrigth.setHorizontalAlignment(Element.ALIGN_LEFT);
                                 datatable3.addCell(cellrigth); 
                                 document.add(datatable3);
                              }
-                             else document.add(new Paragraph("Durchmesser der nummerierten Bäume Aufnahmen "+
+                             else document.add(new Paragraph("Grabación del diámetro de árboles numerados "+
                                      (k*dhSpalten+1)+" bis "+((k+1)*dhSpalten)));                                          
                             
                              document.add(datatable);
@@ -431,7 +431,7 @@ public class Stammverzeichnis {
               
                 document.close();
                 //ok = true;   verschoben nach oben 29.10.2010
-        } catch ( Exception e){System.out.println("Fehler creating pdf:"+e); e.printStackTrace();};
+        } catch ( Exception e){System.out.println("Error al crear PDF:"+e); e.printStackTrace();};
         return(ok);
     }
 
@@ -442,7 +442,7 @@ public class Stammverzeichnis {
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
             
-        } catch ( Exception e){System.out.println("Fehler creating Cell");};        
+        } catch ( Exception e){System.out.println("Error al crear celda");};        
         return cell;
     } 
     

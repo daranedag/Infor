@@ -110,7 +110,7 @@ public class StammvErstellen extends javax.swing.JDialog {
         df.setMinimumFractionDigits(2);
         df.setGroupingUsed(false);
 
-        String fehlertext="Unbekannter Fehler!";
+        String fehlertext="Error desconocido!";
         try{
             buff = new BufferedReader(new FileReader(datei));
             StammvStandpunkt stp = new StammvStandpunkt("",0.0,0.0,0.0,0.0);
@@ -121,24 +121,24 @@ public class StammvErstellen extends javax.swing.JDialog {
                 // Sicherstellen, dass zuerst ein Gerätestandpunkt definiert wird
                 // sonst haben die ersten Bäume keinen Bezug
                 if(zaehler==1 && !line.startsWith("Topcon Messwertdatei")){
-                    JOptionPane.showMessageDialog (this, "Fehler im Dateiformat? \n"
-                            + "Zu Beginn muss ein Gerätestandpunkt definiert sein: \n"
-                            + "Topcon Messwertdatei \n"
+                    JOptionPane.showMessageDialog (this, "Error en formato de datos? \n"
+                            + "Se debe definir inicialmente la estación del instrumento: \n"
+                            + "Archivo de datos Topcon \n"
                             + "STP...",
-                    "Fehler", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
                     break;
                 }
                 nElement=0;
                 StringTokenizer tok = new StringTokenizer(line,",");
                 StammvBaum baumx = new StammvBaum();
-                fehlertext = "Fehler beim Lesen folgender Zeile: \n"+line;
+                fehlertext = "Error al leer la siguiente linea: \n"+line;
                 while (tok.hasMoreTokens()){
                     String element = tok.nextToken().trim();
                     if(element.contains("`")){
                         element = element.substring(element.indexOf("`")+1);
                     }
                     if(element.equalsIgnoreCase("Topcon Messwertdatei")){
-                        System.out.println("Neuer Standpunkt");
+                        System.out.println("Nueva posición");
                         stpunkt = true;
                     } else if(stpunkt == true){
                         while(tok.hasMoreTokens()) element = element +" "+ tok.nextToken().trim();
@@ -200,12 +200,12 @@ public class StammvErstellen extends javax.swing.JDialog {
                         
                 }
             }
-            fehlertext = "Fehler bei der Koordinatenberechnung.";
+            fehlertext = "Errores en el cálculo de coordenadas.";
             // Koordinaten für alle nicht-S-Bäume berechnen
             // sind Standpunkte vorhanden?
             if (standpunkte.size() < 1) {
-                JOptionPane.showMessageDialog (this, "Es wurde kein Gerätestandpunkt gefunden!",
-                    "Fehler", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog (this, "No se encontró ninguna estación del instrumento!",
+                    "Error", JOptionPane.ERROR_MESSAGE);
             }else{
                 StammvStandpunkt bezug = null;
                 for (int i = 0; i < baeume.size(); i++) {
@@ -230,10 +230,10 @@ public class StammvErstellen extends javax.swing.JDialog {
                             n++;
                         }
                     }
-                    text = text + "Standpunkt " + stp2.name + " (Kordinaten: " + df.format(stp2.x) + ","
-                            + df.format(stp2.y) + ") " + n + " Bäume \n";
+                    text = text + "posición " + stp2.name + " (Coordenada: " + df.format(stp2.x) + ","
+                            + df.format(stp2.y) + ") " + n + " Árboles \n";
                 }
-                JOptionPane.showMessageDialog(this, text, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, text, "Nota", JOptionPane.INFORMATION_MESSAGE);
 
                 // xy-Koordinaten als txt ablegen
                 if (txtSchreiben) {
@@ -245,7 +245,7 @@ public class StammvErstellen extends javax.swing.JDialog {
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog (this, fehlertext,
-                    "Fehler", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }finally{
             try{
                 if(buff!=null) buff.close();
@@ -269,7 +269,7 @@ public class StammvErstellen extends javax.swing.JDialog {
                 baumnrs.add(baumx.name);
             }
         }
-        System.out.println("Anzahl Nummern: " + baumnrs.size());
+        System.out.println("Número de puntos: " + baumnrs.size());
         //System.out.println(" Serienlänge: " + series2.getItemCount());
         dataset.addSeries(series);
         dataset.addSeries(series2);
@@ -359,7 +359,7 @@ public class StammvErstellen extends javax.swing.JDialog {
         } catch (IOException ex) {
             Logger.getLogger(StammvErstellen.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Koordinaten als txt abgelegt");
+        System.out.println("Coordenadas almacenadas como txt");
     }
 
 
@@ -411,7 +411,7 @@ public class StammvErstellen extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Stammverteilungsplan erstellen");
+        setTitle("Crear programa maestro de asignación");
         setLocationByPlatform(true);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -424,7 +424,7 @@ public class StammvErstellen extends javax.swing.JDialog {
 
         jTextField1.setText("jTextField1");
 
-        jLabel1.setText("Topcon-Datei wählen");
+        jLabel1.setText("Seleccionar archivo de Topcon");
 
         jButton1.setText("Browse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -434,7 +434,7 @@ public class StammvErstellen extends javax.swing.JDialog {
         });
 
         jLabel2.setLabelFor(jComboBox1);
-        jLabel2.setText("Nummer der Aufnahme");
+        jLabel2.setText("Número de grabación");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -482,8 +482,8 @@ public class StammvErstellen extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // Datei wählen
     JFileChooser fc = new JFileChooser(pfad);
-    fc.setDialogTitle(" Topcon-Datei auswählen ");
-    fc.setApproveButtonText("übernehmen");
+    fc.setDialogTitle(" Seleccionar archivo de Topcon ");
+    fc.setApproveButtonText("Tomar control");
     fc.showOpenDialog(this);
     File inputFile = fc.getSelectedFile();
     jTextField1.setText(inputFile.getAbsolutePath());
@@ -507,7 +507,7 @@ public class StammvErstellen extends javax.swing.JDialog {
     ok = topconLesen(datei, false);  // lesen, aber keine txt mit Koordinaten ablegen
 
     // Ergebnisse schreiben
-    System.out.println("Ergebnisse schreiben");
+    System.out.println("Escribir resultados");
     if(ok){
         HeuteString datum = new HeuteString();
         String datumStr = datum.get();
@@ -532,12 +532,12 @@ public class StammvErstellen extends javax.swing.JDialog {
                         "VALUES('"+edvid+"','"+stp2.name+"',"+0+
                         ","+auf+","+df.format(stp2.x)+","+df.format(stp2.y)+","+df.format(stp2.z)+",'"+datumStr+"','"+datumStr+"');");
             }
-            System.out.println("fertig");
+            System.out.println("Terminado");
             
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog (this, "Fehler beim Schreiben: "+e,
-                    "Fehler", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog (this, "Error al escribir: "+e,
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }finally{
             try{
                 if(stmt!=null) stmt.close();

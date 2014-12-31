@@ -54,7 +54,7 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
         // Artenschlüssel einlesen
         BufferedReader in = null;
         StringTokenizer tok = null;
-        System.out.println("Artenschlüssel einlesen");
+        System.out.println("Leer los tipos de llave");
         try{
             in=new BufferedReader(new InputStreamReader(
                 new FileInputStream(pfad+System.getProperty("file.separator")+"ArtenschlüsselST.txt")));
@@ -72,8 +72,8 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
             }
        } catch (Exception ex){
            ex.printStackTrace();
-           status = "Fehler beim Einlesen des Artenschlüssels!";
-           JOptionPane.showMessageDialog (this, status, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+           status = "Error al leer los tipos de llave!";
+           JOptionPane.showMessageDialog (this, status, "Nota", JOptionPane.INFORMATION_MESSAGE);
        } finally { 
            try{
                in.close();
@@ -116,18 +116,18 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Daten aus Sachsen-Anhalt einlesen");
+        setTitle("Lectura de datos de Sachsen-Anhalt");
 
         jLabel2.setText("Sachsen-Anhalt ID");
 
-        jButton2.setText("einlesen");
+        jButton2.setText("lectura");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Parzelle");
+        jLabel3.setText("Parcela");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,7 +179,7 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
         saID = jTextField2.getText().trim();
         parz = jTextField3.getText().trim();
         if (parz.length() < 2) parz = "0" + parz.trim();
-        if(!isInteger(parz)) status = "Falsche Parzellenbezeichnung!";
+        if(!isInteger(parz)) status = "Identificación incorrecta de la parcela!";
         
         // Vorbereitung zur Berechnung von Kreuzkluppwerten
         Kreuzkluppung krzklupp = new Kreuzkluppung();
@@ -200,8 +200,8 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                    ntab++;
                }
             }catch (Exception ex){
-                status = "Fehler beim Auflisten der einzulesenden Tabellen";
-                JOptionPane.showMessageDialog (this, status, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                status = "Error al listar el analisis de tablas";
+                JOptionPane.showMessageDialog (this, status, "Nota", JOptionPane.INFORMATION_MESSAGE);
                 ex.printStackTrace();
             }finally{
                 try{
@@ -274,9 +274,9 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                                 int code = (Integer)arten.get(arts);
                                 if(code > 0) art = code;
                                 else {
-                                    System.out.println("Unbekannte Art: " + art);
-                                    status = "Unbekannte Art: " + art;
-                                    JOptionPane.showMessageDialog (this, status, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                                    System.out.println("Tipo desconocido: " + art);
+                                    status = "Tipo desconocido: " + art;
+                                    JOptionPane.showMessageDialog (this, status, "Nota", JOptionPane.INFORMATION_MESSAGE);
                                 }
                             }
 
@@ -324,8 +324,8 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    status = "Fehler bei den Voraufnahmen";
-                    JOptionPane.showMessageDialog (this, status, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                    status = "Errores en las grabaciones anteriores";
+                    JOptionPane.showMessageDialog (this, status, "Nota", JOptionPane.INFORMATION_MESSAGE);
                 } finally {
                     try {
                         
@@ -366,9 +366,9 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                             int code = (Integer)arten.get(arts);
                             if(code > 0) art = code;
                             else {
-                            System.out.println("Unbekannte Art: " + art);
-                            status = "Unbekannte Art: " + art;
-                            JOptionPane.showMessageDialog (this, status, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                            System.out.println("Tipo desconocido: " + art);
+                            status = "Tipo desconocido: " + art;
+                            JOptionPane.showMessageDialog (this, status, "Nota", JOptionPane.INFORMATION_MESSAGE);
                             }
                         } 
                         double alt = 0.0;
@@ -407,7 +407,7 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                                             break;
                                         case 'L':
                                             a = "D";
-                                            bemerk = bemerk+" Durchforstungsstamm mit einer Baumlänge";
+                                            bemerk = bemerk+" Adelgazamiento del tronco del arbol ";
                                             break;
                                         case 'D':
                                             a = "D"; break;
@@ -428,7 +428,7 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                                     }
                                 }
                                 if(bstat.contains("B")){
-                                    bemerk = bemerk + " beherrschter Bestand";
+                                    bemerk = bemerk + " inventario dominado";
                                     ou = "U";
                                     bstat = bstat.replace("B", "");
                                 }
@@ -437,7 +437,7 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                                     bstat = bstat.replace("H", "");
                                 }
                                 if(bstat.contains("U")){
-                                    bemerk = bemerk + " Unterstand";
+                                    bemerk = bemerk + " Abrigo";
                                     ou = "U";
                                     bstat = bstat.replace("U", "");
                                 }
@@ -450,7 +450,7 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                                     bstat = bstat.replace("F", "");
                                 }
                                 if(bstat.contains("K")){
-                                    bemerk = bemerk+" Konkurrenzbaum (Bedränger)";
+                                    bemerk = bemerk+" Arbol de competencia (Adversario)";
                                     bstat = bstat.replace("K", "");
                                 }
                                 if(bstat.contains("Y")){
@@ -458,33 +458,33 @@ public class SachsenAnhaltDaten extends javax.swing.JDialog {
                                     bstat = bstat.replace("Y", "");
                                 }
                                 if(bstat.contains("wr")){
-                                    bemerk = bemerk+" Wasserreiser";
+                                    bemerk = bemerk+" Agua reiser";
                                     bstat = bstat.replace("wr", "");
                                 }
                                 if(bstat.contains("kr")){
-                                    bemerk = bemerk+" krank";
+                                    bemerk = bemerk+" enfermo";
                                     bstat = bstat.replace("dr", "");
                                 }
                                 if(bstat.contains("dw")){
-                                    bemerk = bemerk+" Drehwuchs";
+                                    bemerk = bemerk+" Interlocked";
                                     bstat = bstat.replace("dw", "");
                                 }
                                 if(bstat.contains("fr")){
-                                    bemerk = bemerk+" Frostriss";
+                                    bemerk = bemerk+" Escarcha agrietada";
                                     bstat = bstat.replace("fr", "");
                                 }
                                 if(bstat.contains("s")){
-                                    bemerk = bemerk+" geschält";
+                                    bemerk = bemerk+" pelada";
                                     bstat = bstat.replace("s", "");
                                 }
                                 bstat = bstat.trim();
                                 if(bstat.contains(",")) bstat = bstat.replace(",", "");
                                 if(bstat.contains("V")) bstat = bstat.replace("V", "");
                                 if(bstat.length()>0){
-                                    status = "Unbekannter Eintrag in Spalte BST";
-                                    System.out.println("Unbekannter Eintrag in Spalte BST"+i+" " +
-                                            "(Tabelle "+tabellen[j]+"): "+ bstatorg);
-                                    JOptionPane.showMessageDialog (this, status, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                                    status = "Entrada desconocida en la columna BST";
+                                    System.out.println("Entrada desconocida en la columna BST"+i+" " +
+                                            "(Tabla "+tabellen[j]+"): "+ bstatorg);
+                                    JOptionPane.showMessageDialog (this, status, "Nota", JOptionPane.INFORMATION_MESSAGE);
                                     
                                 }
                             }

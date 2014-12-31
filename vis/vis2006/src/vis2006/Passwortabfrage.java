@@ -52,7 +52,7 @@ public class Passwortabfrage extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Passwortabfrage");
+        setTitle("Solicitud de contraseña");
 
         jButton1.setText("ok");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -61,14 +61,14 @@ public class Passwortabfrage extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setText("abbrechen");
+        jButton2.setText("Abortar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Bitte geben Sie das Datenbankkennwort ein: ");
+        jLabel1.setText("Por favor ingrese la contraseña de la base de datos: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -34,8 +34,8 @@ import java.awt.Cursor;
  */
 public class Vis2006 extends javax.swing.JFrame {
     
-    static boolean full = false; // Programmumfang: true -> inkl. aller Menueinträge (Sonderfunktionen und Altes)
-    static boolean plus = false; // Programmumfang: true -> inkl. Sonderfunktionen
+    static boolean full = false; // Programmumfang: true -> inkl. aller Menueinträge (Funciones especiales und Altes)
+    static boolean plus = false; // Programmumfang: true -> inkl. Funciones especiales
     String edvid6="";
     String parzelleSelected="";
     String landSelected="auswählen";
@@ -128,15 +128,15 @@ public class Vis2006 extends javax.swing.JFrame {
         st.setSDM(SDM);
 
         if(!full){ // alte Funktionalitäten für Standardbenutzer ausblenden zum Einschalten Programmaufruf mit Zusatz "full"
-            System.out.println("Ausgeblendet");
+            System.out.println("Oculto");
             //jMenu2.remove(jMenuItem3);   // Husky-Daten erzeugen
             //jMenu7.remove(jMenuItem23); // Husky-Daten (csv) einlesen, jetzt werden Excel-Dateien direkt eingelesen
             if(!plus){
-               jMenuBar1.remove(jMenu11);  //Sonderfunktionen
+               jMenuBar1.remove(jMenu11);  //Funciones especiales
             }
             validate();
         }
-        visdatum = "keine Angabe";
+        visdatum = "no especificado";
         try{
             visdatum = LastModificationTime.getModificationDate(localPath+System.getProperty("file.separator")+
                         "dist"+System.getProperty("file.separator")+"Vis2006.jar");
@@ -273,10 +273,10 @@ public class Vis2006 extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(880, 80));
         jPanel13.setMinimumSize(new java.awt.Dimension(480, 33));
         jPanel13.setPreferredSize(new java.awt.Dimension(490, 33));
-        jLabel8.setText("Datenbank");
+        jLabel8.setText("Base de datos");
         jPanel13.add(jLabel8);
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "keine", "Waldwachstum", "Lokal", "Waldwachstum (BZE)" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sin", "Crecimiento del bosque", "Local", "Crecimiento del bosque (BZE)" }));
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox7ActionPerformed(evt);
@@ -285,7 +285,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jPanel13.add(jComboBox7);
 
-        jButton2.setText("sichern");
+        jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -294,7 +294,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jPanel13.add(jButton2);
 
-        jButton3.setText("laden");
+        jButton3.setText("Cargar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -315,7 +315,7 @@ public class Vis2006 extends javax.swing.JFrame {
         jTextField1.setColumns(8);
         jPanel12.add(jTextField1);
 
-        jButton1.setText("suchen");
+        jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -324,7 +324,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jPanel12.add(jButton1);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "alle" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "todo" }));
         jComboBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox8ActionPerformed(evt);
@@ -341,7 +341,7 @@ public class Vis2006 extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(233, 40));
         jPanel6.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel2.setText("Land");
+        jLabel2.setText("País");
         jPanel6.add(jLabel2);
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -402,7 +402,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jPanel10.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel5.setText("Parzelle");
+        jLabel5.setText("Parcelas");
         jPanel10.add(jLabel5);
 
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
@@ -417,7 +417,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jPanel11.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel6.setText("Aufnahme");
+        jLabel6.setText("Grabación");
         jPanel11.add(jLabel6);
 
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -482,7 +482,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.SOUTH);
 
-        jMenu1.setText("bearbeiten");
+        jMenu1.setText("Editar");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -494,7 +494,7 @@ public class Vis2006 extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("lokale Daten \u00f6ffnen");
+        jMenuItem1.setText("Abrir datos locales");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -503,14 +503,14 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu1.add(jMenuItem1);
 
-        jMenu7.setText("Eingabetabelle");
+        jMenu7.setText("Tabla de Entrada");
         jMenu7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu7ActionPerformed(evt);
             }
         });
 
-        jMenuItem12.setText("Eingabetabelle erstellen");
+        jMenuItem12.setText("Crear Tabla de Entrada");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
@@ -519,7 +519,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu7.add(jMenuItem12);
 
-        jMenuItem13.setText("Eingabetabelle nach Baum \u00fcbernehmen");
+        jMenuItem13.setText("Ordenar Tabla de Entrada por Árbol");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem13ActionPerformed(evt);
@@ -528,7 +528,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu7.add(jMenuItem13);
 
-        jMenuItem25.setText("Eingabetabelle l\u00f6schen");
+        jMenuItem25.setText("Borrar Tabla de Entrada");
         jMenuItem25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem25ActionPerformed(evt);
@@ -537,7 +537,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu7.add(jMenuItem25);
 
-        jMenuItem41.setText("H\u00f6heneingabetabelle erstellen");
+        jMenuItem41.setText("Crear Tabla de Entrada de Alturas");
         jMenuItem41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem41ActionPerformed(evt);
@@ -546,7 +546,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu7.add(jMenuItem41);
 
-        jMenuItem42.setText("H\u00f6heneingabetabelle: Werte nach Baum \u00fcbernehmen");
+        jMenuItem42.setText("Ordenar Tabla de Entrada de alturas por valores de árbol");
         jMenuItem42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem42ActionPerformed(evt);
@@ -555,7 +555,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu7.add(jMenuItem42);
 
-        jMenuItem43.setText("H\u00f6heneingabetabelle l\u00f6schen");
+        jMenuItem43.setText("Borrar Tabla de Entrada de Alturas");
         jMenuItem43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem43ActionPerformed(evt);
@@ -564,7 +564,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu7.add(jMenuItem43);
 
-        jMenuItem34.setText("Excel-Daten in Eingabetabelle \u00fcbernehmen");
+        jMenuItem34.setText("Tomar datos de Excel en la tabla de entrada");
         jMenuItem34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem34ActionPerformed(evt);
@@ -575,8 +575,8 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu1.add(jMenu7);
 
-        jMenu8.setText("Baumtabelle");
-        jMenuItem14.setText("Durchmesser berechnen");
+        jMenu8.setText("Tabla Árbol");
+        jMenuItem14.setText("Calcular diámetro");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem14ActionPerformed(evt);
@@ -585,7 +585,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu8.add(jMenuItem14);
 
-        jMenuItem15.setText("Baumnummer positionieren");
+        jMenuItem15.setText("Posicionar numero de árbol");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem15ActionPerformed(evt);
@@ -594,7 +594,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu8.add(jMenuItem15);
 
-        jMenuItem22.setText("Fehlstammberechnung");
+        jMenuItem22.setText("Cálculo de cepas defectuosas");
         jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem22ActionPerformed(evt);
@@ -603,7 +603,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu8.add(jMenuItem22);
 
-        jMenuItem29.setText("Umnummerieren");
+        jMenuItem29.setText("Nueva numeración");
         jMenuItem29.setToolTipText("<html><strong>Neue Baumnummern vergeben</strong><br>  Diese Funktion erm\u00f6glicht es neue Baumnummern f\u00fcr eine ganze Parzelle<br> mit allen Aufnahmen zu vergeben.<br><br> <strong>Vorbereitung</strong><br> 1. Letzte Aufnahme: alle Nummern nach nralt \u00fcbertragen (mit SQL)<br> 2. Neue Nummern in die Spalte nr eintragen<br> <br> In Vis die gew\u00fcnschte Parzelle und die letzte Aufnahme ausw\u00e4hlen <br> und \"umnummerieren\" klicken.<br> <br> <strong>Achtung!</strong><br> Dabei wird die Nummerierung aller vorhergehenden Aufnahmen angepasst. <br> Sollten Eintr\u00e4ge unter nralt bereits von einer fr\u00fcheren Umnummerierung <br> vorhanden sein, gehen diese verloren. ");
         jMenuItem29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -615,14 +615,14 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu1.add(jMenu8);
 
-        jMenu9.setText("Lokale Datenbank");
+        jMenu9.setText("Base de datos local");
         jMenu9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu9ActionPerformed(evt);
             }
         });
 
-        jMenuItem17.setText("HessenDaten als Neuanlage einlesen");
+        jMenuItem17.setText("Leer Datos Hessen como nueva instalación ");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem17ActionPerformed(evt);
@@ -631,7 +631,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu9.add(jMenuItem17);
 
-        jMenuItem39.setText("Sachsen-Anhalt-Daten einlesen");
+        jMenuItem39.setText("Lectura de datos de Sachsen-Anhalt");
         jMenuItem39.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem39ActionPerformed(evt);
@@ -640,7 +640,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu9.add(jMenuItem39);
 
-        jMenuItem20.setText("Doppelte Eintr\u00e4ge aus Parzelle entfernen");
+        jMenuItem20.setText("Eliminar entradas duplicades de parcelas");
         jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem20ActionPerformed(evt);
@@ -649,7 +649,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu9.add(jMenuItem20);
 
-        jMenuItem37.setText("Stammverteilungsplan erstellen");
+        jMenuItem37.setText("Crear plan maestro de asignación");
         jMenuItem37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem37ActionPerformed(evt);
@@ -658,7 +658,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu9.add(jMenuItem37);
 
-        jMenuItem38.setText("Stammverteilungsplan: Nullpunkt neu w\u00e4hlen");
+        jMenuItem38.setText("Plan maestro de asignación: Escoger nuevo punto cero");
         jMenuItem38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem38ActionPerformed(evt);
@@ -669,14 +669,14 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu1.add(jMenu9);
 
-        jMenu10.setText("Daten in SQL-Datenbank");
+        jMenu10.setText("Datos en Base de datos SQL");
         jMenu10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu10ActionPerformed(evt);
             }
         });
 
-        jMenuItem18.setText("locale Parzelle in SQL-Datenbank kopieren");
+        jMenuItem18.setText("Copiar parcelas en Base de datos SQL local");
         jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem18ActionPerformed(evt);
@@ -685,7 +685,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu10.add(jMenuItem18);
 
-        jMenuItem19.setText("Versuchsanlage in SQL Datenk kopieren");
+        jMenuItem19.setText("Copiar planta experimental en Base de datos SQL");
         jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem19ActionPerformed(evt);
@@ -698,7 +698,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Pr\u00fcfen");
+        jMenu3.setText("Probar");
         jMenu3.setToolTipText("<html>Folgende <strong>Spaltennamen</strong> werden erkannt:<br> EDVID &#32;&#32; Nr &#32;&#32; Art &#32;&#32; ZF &#32;&#32; OU &#32;&#32; MH &#32;&#32; D1 &#32;&#32; A1 &#32;&#32; H1 &#32;&#32; Alt2 &#32;&#32; D2 &#32;&#32; D2_1 &#32;&#32; D2_2 &#32;&#32; A2 &#32;&#32; H2 &#32;&#32; K2<br>   MHN &#32;&#32; DN &#32;&#32; DNK &#32;&#32; AN &#32;&#32; EN &#32;&#32; Alt_EN &#32;&#32; HN &#32;&#32; KN &#32;&#32; R &#32;&#32; Bemerk &#32;&#32; ZFN &#32;&#32; OUN &#32;&#32; Qua<br><br>  Reihenfolge der Spalten sowie Gro\u00df- und Kleinschreibung sind dabei unerheblich.");
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -715,7 +715,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu3.add(jMenuItem21);
 
-        jMenuItem35.setText("Excel Felddaten");
+        jMenuItem35.setText("Datos de campo Excel");
         jMenuItem35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem35ActionPerformed(evt);
@@ -724,7 +724,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu3.add(jMenuItem35);
 
-        jMenuItem40.setText("Stammverteilungsplan");
+        jMenuItem40.setText("Plan maestro de asignación");
         jMenuItem40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem40ActionPerformed(evt);
@@ -735,14 +735,14 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu2.setText("kopieren");
+        jMenu2.setText("copiar");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed1(evt);
             }
         });
 
-        jMenuItem28.setText("Excel Felddatendatei");
+        jMenuItem28.setText("Archivo de datos de campo Excel ");
         jMenuItem28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem28ActionPerformed(evt);
@@ -751,7 +751,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu2.add(jMenuItem28);
 
-        jMenuItem31.setText("Parzelle in tempor\u00e4re Datei kopieren");
+        jMenuItem31.setText("Copiar parcelas en datos temporales");
         jMenuItem31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem31ActionPerformed(evt);
@@ -760,7 +760,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu2.add(jMenuItem31);
 
-        jMenuItem9.setText("Versuchsfl\u00e4che in tempor\u00e4re Datei kopieren");
+        jMenuItem9.setText("Copiar área experimental en datos temporales");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -769,7 +769,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu2.add(jMenuItem9);
 
-        jMenuItem16.setText("Neuanlage");
+        jMenuItem16.setText("Diseñado");
         jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem16ActionPerformed(evt);
@@ -780,14 +780,14 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu4.setText("Einstellungen");
+        jMenu4.setText("Ajustes");
         jMenu4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu4ActionPerformed(evt);
             }
         });
 
-        jMenuItem6.setText("PDF statt HTML");
+        jMenuItem6.setText("PDF en lugar de HTML");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -796,7 +796,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu4.add(jMenuItem6);
 
-        jCheckBoxMenuItem1.setText("Stammverzeichnis mit alten Nummern");
+        jCheckBoxMenuItem1.setText("Directorio raíz con numeros antiguos");
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxMenuItem1ActionPerformed(evt);
@@ -805,7 +805,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu4.add(jCheckBoxMenuItem1);
 
-        jCheckBoxMenuItem3.setText("Stammverzeichnis nach Baumnummer sortieren");
+        jCheckBoxMenuItem3.setText("Ordenar directorio raíz por número de árbol");
         jCheckBoxMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxMenuItem3ActionPerformed(evt);
@@ -814,7 +814,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu4.add(jCheckBoxMenuItem3);
 
-        jCheckBoxMenuItem2.setText("Ergebnisbogen mit Dauerumfangmessungen");
+        jCheckBoxMenuItem2.setText("Hoja de resultados con duración de mediciones de circunferencia");
         jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxMenuItem2ActionPerformed(evt);
@@ -825,14 +825,14 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Ausgabe");
+        jMenu5.setText("Problema");
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu5ActionPerformed(evt);
             }
         });
 
-        jMenuItem7.setText("H\u00f6henverzeichnis");
+        jMenuItem7.setText("Directorio de altura");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -841,7 +841,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu5.add(jMenuItem7);
 
-        jMenuItem8.setText("Stammverzeichnis");
+        jMenuItem8.setText("Directorio raíz");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -850,7 +850,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu5.add(jMenuItem8);
 
-        jMenuItem4.setText("Einzelberechnung (Ergebnisbogen Aufnahme)");
+        jMenuItem4.setText("Calculo unitario (Hoja de resultados de grabación)");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -859,7 +859,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu5.add(jMenuItem4);
 
-        jMenuItem5.setText("Ergebnisbogen Parzelle");
+        jMenuItem5.setText("Hoja de resultados parcelas");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -868,7 +868,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu5.add(jMenuItem5);
 
-        jMenuItem10.setText("Ergebnisbogen Versuch");
+        jMenuItem10.setText("Hoja de resultados intentos");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -877,7 +877,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu5.add(jMenuItem10);
 
-        jMenuItem27.setText("XML-Rohdaten f\u00fcr TreeGrOSS exportieren");
+        jMenuItem27.setText("Exportar datos en bruto XML para TreeGrOSS");
         jMenuItem27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem27ActionPerformed(evt);
@@ -886,7 +886,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu5.add(jMenuItem27);
 
-        jMenuItem36.setText("BZE Datenauswertung");
+        jMenuItem36.setText("BZE Análisis de datos");
         jMenuItem36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem36ActionPerformed(evt);
@@ -897,14 +897,14 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setText("Dateneditor");
+        jMenu6.setText("Editor de datos");
         jMenu6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu6ActionPerformed(evt);
             }
         });
 
-        jMenuItem26.setText("Stammverteilungsplan");
+        jMenuItem26.setText("Plan maestro de asignación");
         jMenuItem26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem26ActionPerformed(evt);
@@ -915,8 +915,8 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMenu11.setText("Sonderfunktionen");
-        jMenuItem32.setText("Bestandeswerte (aktueller Versuch)");
+        jMenu11.setText("Funciones especiales");
+        jMenuItem32.setText("Valores de archivo (aktueller Versuch)");
         jMenuItem32.setToolTipText("<html><strong>Berechnen von Kennzahlen</strong><br><br> Es werden bestandesweise und baumartenweise grupperierte Kennzahlen <br> f\u00fcr den ausgew\u00e4hlten Versuch (alle Parzellen und Aufnahmen) <br> in die vorbereiteten Tabellen \"Bestandeswerte\" und \"Baumartenwerte\" <br> der Datenbank geschrieben. <br>F\u00fcr Berechnungen in der lokalen Datenbank m\u00fcssen diese Tabellen <br> sowie die Tabelle tempAuf zuvor angelegt werden.");
         jMenuItem32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -926,7 +926,7 @@ public class Vis2006 extends javax.swing.JFrame {
 
         jMenu11.add(jMenuItem32);
 
-        jMenuItem30.setText("Bestandeswerte (alle)");
+        jMenuItem30.setText("Valores de archivo (todo)");
         jMenuItem30.setToolTipText("<html><strong>Berechnen von Kennzahlen</strong><br>\n<br>\nEs werden bestandesweise und baumartenweise grupperierte Kennzahlen <br>\nf\u00fcr alle(<strong>!</strong>) Versuche (alle Parzellen und Aufnahmen) <br>\nin die vorbereiteten Tabellen \"Bestandeswerte\" und \"Baumartenwerte\" <br>\nder Datenbank geschrieben.<br>\n<br>F\u00fcr Berechnungen in der lokalen Datenbank m\u00fcssen diese Tabellen <br> sowie die Tabelle tempAuf zuvor angelegt werden.<br>\n<br>\n<strong>Achtung!</strong><br>\nDie Berechnung in der Waldwachstums-Datenbank kann einige Zeit dauern.\n");
         jMenuItem30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1003,7 +1003,7 @@ public class Vis2006 extends javax.swing.JFrame {
             // Pfad für zu ladende Daten herausfinden
             javax.swing.JFileChooser fc = new javax.swing.JFileChooser();
             fc.setCurrentDirectory(new File(localPath + "//tempdaten"));
-            fc.setDialogTitle("Versuchsanlage auswählen");
+            fc.setDialogTitle("Seleccione una instalación de prueba");
             fc.setApproveButtonText("übernehmen");
             // FileFilter
             javax.swing.filechooser.FileFilter ff = new javax.swing.filechooser.FileFilter() {
@@ -1032,13 +1032,13 @@ public class Vis2006 extends javax.swing.JFrame {
                     if(dbconnOpen){
                         jTextField1.setText(edvid.substring(0,6));
                         loadID(edvid.substring(0,6));
-                        jLabel9.setText("geladen");
+                        jLabel9.setText("Cargando");
                     }
-                } else jLabel9.setText("Nicht aus dem Sicherungsverzeichnis laden, das ist gefährlich!");
+                } else jLabel9.setText("No cargue en el directorio de copia de seguridad, es peligroso!");
             }
-            else jLabel9.setText("Datenbank konnte nicht geöffnet werden.");    
+            else jLabel9.setText("No se pudo abrir la base de datos.");    
         }
-        else jLabel9.setText("Fehler beim Sichern der bisher verwendeten Daten.");
+        else jLabel9.setText("Error al guardar los datos utilizados anteriormente.");
 
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
@@ -1051,8 +1051,8 @@ public class Vis2006 extends javax.swing.JFrame {
         boolean ok = false;
         if(datenPfad.length()> 0 ){
             ok = tempDatenSichern(datenPfad);
-            if(ok) text = "Sicherung von " + edvid6 + " erfolgreich.";
-        } else text = "Keine Datei zum Sichern!";
+            if(ok) text = "Asegurando " + edvid6 + " exitoso.";
+        } else text = "No hay datos para asegurar!";
         jLabel9.setText(text);
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -1070,12 +1070,12 @@ public class Vis2006 extends javax.swing.JFrame {
 //  Verzeichnis wählen
         javax.swing.JFileChooser fc = new javax.swing.JFileChooser(); //javax.swing.JF
         fc.setCurrentDirectory(new File(excelPfad2));
-        fc.setDialogTitle(" Verzeichnis für Excel Daten auswählen");
+        fc.setDialogTitle(" Escoger directorio para datos Excel");
         fc.setApproveButtonText("übernehmen");
         fc.setFileSelectionMode(javax.swing.JFileChooser.DIRECTORIES_ONLY);   
-        javax.swing.JCheckBox parzOnlyCheck = new javax.swing.JCheckBox("alle Parzellen");
+        javax.swing.JCheckBox parzOnlyCheck = new javax.swing.JCheckBox("todas las parcelas");
         //fc.add(parzOnlyCheck, java.awt.BorderLayout.LINE_END);
-        javax.swing.JCheckBox uAufCheck = new javax.swing.JCheckBox("Ablesung Dauerumfangmessung");
+        javax.swing.JCheckBox uAufCheck = new javax.swing.JCheckBox("Lectura de medición de alcance de tiempo");
         JPanel checkPanel = new JPanel();    // Panel rechts des Hauptfensters
         checkPanel.setLayout(new BorderLayout());
         JPanel checkPanel2 = new JPanel();   // Panel innerhalb des ersten (unten)
@@ -1108,7 +1108,7 @@ public class Vis2006 extends javax.swing.JFrame {
                 ok = excelFelddaten.erzeugen(con, inOrdner, auf2, auf1, uAuf);
                 if (ok) ndateien = ndateien+1;
             }
-            jLabel9.setText(ndateien + " von "+ nparz + " Dateien erzeugt");       
+            jLabel9.setText(ndateien + " de "+ nparz + " archivos generados");       
         }
         else{ 
             // Letzte und vorletzte Aufnahme raussuchen
@@ -1118,10 +1118,10 @@ public class Vis2006 extends javax.swing.JFrame {
             
             ExcelFelddaten excelFelddaten = new ExcelFelddaten(this, idSelected);
             ok = excelFelddaten.erzeugen(con, inOrdner, auf2, auf1, uAuf);
-            if (ok) jLabel9.setText("Eine Datei erzeugt");
-            else jLabel9.setText("Fehler! keine Datei erstellt");
+            if (ok) jLabel9.setText("Un dato generado");
+            else jLabel9.setText("Error! Ningún dato generado");
         }
-        System.out.println("beendet");
+        System.out.println("Terminado");
     }//GEN-LAST:event_jMenuItem28ActionPerformed
 
     private void jMenuItem27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem27ActionPerformed
@@ -1136,9 +1136,9 @@ public class Vis2006 extends javax.swing.JFrame {
              // Bestand laden ohne Randbäume
              st=lts.loadFromDB(this, dbconn, st, idSelected,aufNr, false, false, false);
          } else{
-             String text = "Bitte einzelne Parzelle auswählen.";
+             String text = "Por favor escoja una única parcela.";
              if(jComboBox8.getSelectedIndex()==0){
-                javax.swing.JOptionPane.showMessageDialog (this, text, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                javax.swing.JOptionPane.showMessageDialog (this, text, "Nota", JOptionPane.INFORMATION_MESSAGE);
                 abbrechen = true;
              }
                  
@@ -1152,8 +1152,8 @@ public class Vis2006 extends javax.swing.JFrame {
                 if((st.tr[i].x ==-9.0 || st.tr[i].y==-9.0)&& !st.tr[i].no.trim().equals("cm")) fehlkoord = fehlkoord + 1;
             }
             if(fehlkoord > 0){
-              String text = fehlkoord + " fehlende Koordinate(n)! \n       (ohne cm-Bäume)";
-              javax.swing.JOptionPane.showMessageDialog (this, text, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+              String text = fehlkoord + " coordenadas faltantes(n)! \n       (sin cm-Árboles)";
+              javax.swing.JOptionPane.showMessageDialog (this, text, "Nota", JOptionPane.INFORMATION_MESSAGE);
             }
          
             System.out.println("LTS down");
@@ -1173,7 +1173,7 @@ public class Vis2006 extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem27ActionPerformed
 
     private void jMenuItem26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem26ActionPerformed
-// Stammverteilungsplan bearbeiten
+// Plan maestro de asignació bearbeiten
         boolean bzedaten = false;
         boolean stammvOeffnen = true;
         int aufNr = 0;
@@ -1213,8 +1213,8 @@ public class Vis2006 extends javax.swing.JFrame {
          }
          else {   // für BZE-Daten
              if(idSelected.length()< 1){
-                 String text = "Konkreten BZE-Plot auswählen";
-                 javax.swing.JOptionPane.showMessageDialog (this, text, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+                 String text = "Seleccione Plano BZE concreto";
+                 javax.swing.JOptionPane.showMessageDialog (this, text, "Nota", JOptionPane.INFORMATION_MESSAGE);
                  stammvOeffnen = false;
              }
              else {
@@ -1228,7 +1228,7 @@ public class Vis2006 extends javax.swing.JFrame {
          if(stammvOeffnen){
               boolean viewOnly = true;
               if (jComboBox7.getSelectedIndex() == 2) viewOnly=false;
-              StammVerteilungsPlan stv = new StammVerteilungsPlan(this,true,stx,viewOnly);
+              Plan maestro de asignació stv = new Plan maestro de asignació(this,true,stx,viewOnly);
               stv.setVisible(true);
 
 // Koordinaten abspeichern
@@ -1295,7 +1295,7 @@ public class Vis2006 extends javax.swing.JFrame {
             // Durchführung der Fehlstammberechnung
             Fehlstamm fehlstamm = new Fehlstamm(this,true,idSelected,dbconn, fehlAuf, vorauf, fehlAufTypU);
         }
-        jLabel9.setText("fertig");
+        jLabel9.setText("Terminado");
     */
         jLabel9.setText("");
         boolean beenden = false;
@@ -1314,8 +1314,8 @@ public class Vis2006 extends javax.swing.JFrame {
                 if(typobj != null) typx = typobj.toString().trim();
                 if(aufx == fehlAuf && typx.equals("U")){
                     beenden = true;
-                    String text= "Keine Fehlstammberechnung für U-Aufnahmen.";
-                    JOptionPane.showMessageDialog (this, text, "Fehler", JOptionPane.ERROR_MESSAGE);
+                    String text= "No se calculó cepa defectuosa para U-Grabaciones.";
+                    JOptionPane.showMessageDialog (this, text, "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else if(aufx < fehlAuf){
                     vorauf = aufx;
@@ -1331,13 +1331,13 @@ public class Vis2006 extends javax.swing.JFrame {
             }catch (Exception e) {}
         }
         if(vorauf == 0 && beenden == false) {
-            String text = "Für die erste Aufnahme ist keine Fehlstammberechnung möglich.";
-            JOptionPane.showMessageDialog (this, text, "Fehler", JOptionPane.ERROR_MESSAGE);
+            String text = "Para la primera grabación no es posible calcular cepas defectuosas.";
+            JOptionPane.showMessageDialog (this, text, "Error", JOptionPane.ERROR_MESSAGE);
         }else if (vorauf > 0){
             // Durchführung der Fehlstammberechnung
             Fehlstamm fehlstamm = new Fehlstamm(this,true,idSelected,dbconn, fehlAuf, vorauf);
         }
-        jLabel9.setText("fertig");
+        jLabel9.setText("Terminado");
     }//GEN-LAST:event_jMenuItem22ActionPerformed
 
     private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
@@ -1356,8 +1356,8 @@ public class Vis2006 extends javax.swing.JFrame {
                 try {
                     Runtime.getRuntime().exec(" rundll32 url.dll,FileProtocolHandler " + filename);
                 } catch (Exception e2) {System.out.println(e2);}
-                jLabel9.setText(ndoppel + " doppelte Datensätze, " + fehler + " Hinweise");
-            } else jLabel9.setText("Keine Hinweise, kein Datensatz doppelt");   
+                jLabel9.setText(ndoppel + " Registros duplicados, " + fehler + " Nota");
+            } else jLabel9.setText("Sin nota, sin registro duplicado");   
         }        
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
@@ -1395,16 +1395,16 @@ public class Vis2006 extends javax.swing.JFrame {
                 rs.close();
                 stmt.close();
             } catch (Exception e) {
-                System.out.println("Parzellen: " + e);
+                System.out.println("Parcelas: " + e);
             }
             for (int i = 0; i < nparzellen; i++) {
 //           System.out.println("Parzelle: "+parzellen[i]);
                 CopyExperimentData ced = new CopyExperimentData();
                 String txt = ced.addTempDaten(parzellen[i], datenPfad, false);
                 if (txt.indexOf("FEHLER") == -1) {
-                    jLabel9.setText("erfolgreich eingefügt");
+                    jLabel9.setText("Insertado con éxito");
                 } else {
-                    jLabel9.setText("FEHLER beim einfügen");
+                    jLabel9.setText("Insertado con Errores");
                 }
             }
         }
@@ -1478,9 +1478,9 @@ public class Vis2006 extends javax.swing.JFrame {
                         if(stmt != null) stmt.close();
                     }catch(Exception e){e.printStackTrace();}
                 }
-            } else text = text + " Parzelle konnte nicht angelegt werden.";     
+            } else text = text + " No se pudo crear terreno.";     
         }
-        else text = "Fehler beim Sichern der bisherigen Daten!";
+        else text = "Error al guardar datos anteriores!";
         jLabel9.setText(text);
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
@@ -1495,21 +1495,21 @@ public class Vis2006 extends javax.swing.JFrame {
         try{
             stmt = dbconn.Connections[0].createStatement();
             stmt.executeUpdate("UPDATE Baum SET nr = trim(nr);" );
-            System.out.println(" 1. Statement fertig");
+            System.out.println(" 1. Statement Terminado");
             //stmt.executeUpdate("UPDATE Baum SET nr = rtrim(nr)  " );
-            //System.out.println(" 2. Statement fertig");
+            //System.out.println(" 2. Statement Terminado");
             stmt.executeUpdate("UPDATE Baum SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 2. Statement fertig");
+            System.out.println(" 2. Statement Terminado");
             stmt.executeUpdate("UPDATE Baum SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 3. Statement fertig");
+            System.out.println(" 3. Statement Terminado");
             stmt.executeUpdate("UPDATE Baum SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 4. Statement fertig");
+            System.out.println(" 4. Statement Terminado");
             stmt.executeUpdate("UPDATE Baum SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 5. Statement fertig");
+            System.out.println(" 5. Statement Terminado");
             stmt.executeUpdate("UPDATE Baum SET nr = nr+' '  WHERE (asc(mid(nr,5,1)) < 64 AND len(nr) = 5)" );
-            System.out.println(" 6. Statement fertig");
+            System.out.println(" 6. Statement Terminado");
             stmt.executeUpdate("UPDATE Baum SET nr = ' '+nr  WHERE (asc(mid(nr,5,1)) > 64 AND len(nr) = 5)" );
-            System.out.println(" Baum fertig!");
+            System.out.println(" Baum Terminado!");
             //
             try {
                 stmt.execute("DROP INDEX edvid on Baum");  
@@ -1518,7 +1518,7 @@ public class Vis2006 extends javax.swing.JFrame {
                 stmt.execute("CREATE INDEX edvid ON Baum (edvid, auf) ");
             }catch(Exception e){}
         } catch(Exception e){
-            System.out.println("Baumnummer setzen ");
+            System.out.println("Fijar numero de árbol ");
             e.printStackTrace();
         } finally{
             try{
@@ -1531,27 +1531,27 @@ public class Vis2006 extends javax.swing.JFrame {
         try{
             stmt2 = dbconn.Connections[0].createStatement();
             stmt2.executeUpdate("UPDATE Stammv SET nr = trim(nr);" );
-            System.out.println(" 1. Statement fertig");
+            System.out.println(" 1. Statement terminado");
             //stmt.executeUpdate("UPDATE Baum SET nr = rtrim(nr)  " );
-            //System.out.println(" 2. Statement fertig");
+            //System.out.println(" 2. Statement Terminado");
             stmt2.executeUpdate("UPDATE Stammv SET nr = '    '+ trim(nr) WHERE len(trim(nr)) = 1;" );
-            System.out.println(" 2. Statement fertig");
+            System.out.println(" 2. Statement terminado");
             stmt2.executeUpdate("UPDATE Stammv SET nr = '   '+ trim(nr) WHERE len(trim(nr)) = 2;" );
-            System.out.println(" 3. Statement fertig");
+            System.out.println(" 3. Statement terminado");
             stmt2.executeUpdate("UPDATE Stammv SET nr = '  '+ trim(nr) WHERE len(trim(nr)) = 3;" );
 
             stmt2.executeUpdate("UPDATE Stammv SET nr = ' '+ trim(nr) WHERE len(trim(nr)) = 4;" );
-            System.out.println(" 4. Statement fertig");
+            System.out.println(" 4. Statement terminado");
             stmt2.executeUpdate("UPDATE Stammv SET nr = ' '+ rtrim(nr) WHERE RIGHT(trim(nr),1) NOT BETWEEN '0' AND '9' " +
                     "AND LEFT(trim(nr),1) BETWEEN '0' AND '9'" );
-            System.out.println(" Stammv fertig!");
+            System.out.println(" Stammv terminado!");
             //           
             try {
                 stmt2.execute("DROP INDEX edvid on Stammv");
             }
             catch (Exception e){ }
             stmt2.execute("CREATE INDEX edvid ON Stammv (edvid, auf) ");
-        } catch(Exception e){System.out.println("Baumnummer setzen "+e);
+        } catch(Exception e){System.out.println("Fijar numero de árbol "+e);
         } finally{
             try{
                 if(stmt2 != null) stmt2.close();
@@ -1563,21 +1563,21 @@ public class Vis2006 extends javax.swing.JFrame {
         try{
             stmt3 = dbconn.Connections[0].createStatement();
             stmt3.executeUpdate("UPDATE Qualit SET nr = trim(nr);" );
-            System.out.println(" 1. Statement fertig");
+            System.out.println(" 1. Statement terminado");
             //stmt3.executeUpdate("UPDATE Qualit SET nr = rtrim(nr)  " );
-            //System.out.println(" 2. Statement fertig");
+            //System.out.println(" 2. Statement Terminado");
             stmt3.executeUpdate("UPDATE Qualit SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 2. Statement fertig");
+            System.out.println(" 2. Statement terminado");
             stmt3.executeUpdate("UPDATE Qualit SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 3. Statement fertig");
+            System.out.println(" 3. Statement terminado");
             stmt3.executeUpdate("UPDATE Qualit SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 4. Statement fertig");
+            System.out.println(" 4. Statement terminado");
             stmt3.executeUpdate("UPDATE Qualit SET nr = ' '+nr  WHERE len(nr) < 5 " );
-            System.out.println(" 5. Statement fertig");
+            System.out.println(" 5. Statement terminado");
             stmt3.executeUpdate("UPDATE Qualit SET nr = nr+' '  WHERE (asc(mid(nr,5,1)) < 64 AND len(nr) = 5)" );
-            System.out.println(" 6. Statement fertig");
+            System.out.println(" 6. Statement terminado");
             stmt3.executeUpdate("UPDATE Qualit SET nr = ' '+nr  WHERE (asc(mid(nr,5,1)) > 64 AND len(nr) = 5)" );
-            System.out.println(" Qualit fertig!");
+            System.out.println(" Qualit terminado!");
             //
             try {
                 stmt3.execute("DROP INDEX edvid on Qualit");  
@@ -1586,7 +1586,7 @@ public class Vis2006 extends javax.swing.JFrame {
                 stmt3.execute("CREATE INDEX edvid ON Qualit (edvid, auf) ");
             }catch(Exception e){}
         } catch(Exception e){
-            System.out.println("Baumnummer setzen ");
+            System.out.println("Fijar numero de árbol");
             e.printStackTrace();
         } finally{
             try{
@@ -1622,16 +1622,16 @@ public class Vis2006 extends javax.swing.JFrame {
            anz = anz + stmt4.executeUpdate("UPDATE Baum SET d = 10.0*((dmess/10.0)^0.98841)*((mh/10.)^0.12338)  WHERE (dmess > 0 AND mh <> 13 AND art = 611 ) " );
            stmt4.close();
            
-           System.out.println("Durchmesser berechnen, Anzahl  :"+anz);
+           System.out.println("Calcular diámetro, Número  :"+anz);
            stmt.close();
            
      }
            
-           catch(Exception e){System.out.println("BHD berechen: "+e);}
+           catch(Exception e){System.out.println("Calcular BHD: "+e);}
      
      
 // Dauerumfangmessungen: Anpassung an ertragskundliche Daten und Datenergänzung
-     System.out.println("Anpassung der Dauerumfangmessungen");
+     System.out.println(" Duración de la adaptación de las Medidas de la circunferencia ");
      int maxauf = 0;
      int minauf = 1000;
      int nart = 0;
@@ -1823,8 +1823,8 @@ public class Vis2006 extends javax.swing.JFrame {
                          mitaddiff[i][j] = 0.0;
                      }
                  } else if (mitaddiff[i][j] < 0){    // Warnung bei negativem mittleren Zuwachs
-                     String text = "Negativer mittlerer Zuwachs für Art " + arten[i] + " berechnet (Aufnahme " +j+ "). \n"
-                             + "Bitte Durchmesser überprüfen.";
+                     String text = "Media de crecimiento negativo para el tipo " + arten[i] + " calculado (grabación " +j+ "). \n"
+                             + "Favor de probar diámetro.";
                      JOptionPane.showMessageDialog(this, text);
                  }
              }
@@ -1833,7 +1833,7 @@ public class Vis2006 extends javax.swing.JFrame {
          // ggf. Werte aus anderer Baumart (-> häufigste andere Laub- bzw. Nadelbaumart) 
          int[] nProArt = new int[nart];
          for(int i = 0; i < nart; i++){ // i = Artnummer (!= Artencode)
-             System.out.println("Baumart " + arten[i]);
+             System.out.println("Tipo de árbol " + arten[i]);
              boolean nProArtBerechnet = false;
              int vonart = 0;
              for(int j = minauf; j < maxauf+1; j++){
@@ -1864,7 +1864,7 @@ public class Vis2006 extends javax.swing.JFrame {
                      }
                       mitaddiff[i][j] = mitaddiff[vonart][j];                     
                  }
-                 System.out.println("Mittlerer Zuwachs Aufnahme " + j + ": " + mitaddiff[i][j] +"");
+                 System.out.println("Aumento de absorción media " + j + ": " + mitaddiff[i][j] +"");
              }
          }
             
@@ -1944,7 +1944,7 @@ public class Vis2006 extends javax.swing.JFrame {
          }catch (Exception e){
          }
      }
-     jLabel9.setText("Durchmesserübernahme und -berechnung durchgeführt");
+     jLabel9.setText("Adquisición y cálculo realizado de diámetro");
      jLabel9.setVisible(true);
      this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
@@ -1969,9 +1969,9 @@ public class Vis2006 extends javax.swing.JFrame {
         //String [] edvids = new String[jComboBox4.getItemCount()];
         //for(int i = 0; i < jComboBox4.getItemCount(); i++) edvids[i] = edvid6.concat(jComboBox4.getItemAt(i).toString());
         
-        String text = "Tabelle konnte nicht angelegt werden, Tabelle vorhanden?";
+        String text = "No se pudo crear la tabla. Tabla disponible?";
         boolean erfolg = egt.eingabetabelleAnlegen(edvid6, true);   // alle Parzellen, Struktur und Daten
-        if(erfolg) text = "Eingabetabelle erfolgreich angelegt.";
+        if(erfolg) text = "Tabla de entrada creada con éxito.";
         jLabel9.setText(text);
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_jMenuItem12ActionPerformed
@@ -2033,11 +2033,11 @@ public class Vis2006 extends javax.swing.JFrame {
                 ok = ergebnisPDF(filename, false, bzedaten);  // ganzerVersuch false
                 if(!ok){
                     fehler = fehler + 1;
-                    System.out.println("Fehler bei Plot " + plot);
+                    System.out.println("Error al graficar " + plot);
                 }
             }
-            if(fehler > 0) jLabel9.setText("Fehler bei " + fehler + " Plots!");
-            else jLabel9.setText("fertig");
+            if(fehler > 0) jLabel9.setText("Error " + fehler + " Plots!");
+            else jLabel9.setText("Terminado");
         }
         // Ertragskunde-Daten oder BZE-Daten Einzelplot
         else{
@@ -2047,9 +2047,9 @@ public class Vis2006 extends javax.swing.JFrame {
                 try{
                     Runtime.getRuntime().exec(" rundll32 url.dll,FileProtocolHandler " + filename);
                 }catch (Exception e2) { System.out.println(e2);}
-                jLabel9.setText("fertig");
+                jLabel9.setText("Terminado");
             } else {
-                jLabel9.setText("Fehler!");
+                jLabel9.setText("Error!");
             }
         } 
 	 
@@ -2114,7 +2114,7 @@ public class Vis2006 extends javax.swing.JFrame {
             Eingabetabelle egt = new Eingabetabelle(this, zieldatei);
             eingabeOk = egt.eingabetabelleAnlegen(edvid6, true);  // Struktur und Daten
         }
-        if(! eingabeOk) s = "Fehler! Eingabetabelle konnte nicht erstellt werden.";
+        if(! eingabeOk) s = "Error! No se pudo crear tabla de entrada.";
 
         jLabel9.setText(s);
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -2152,8 +2152,8 @@ public class Vis2006 extends javax.swing.JFrame {
             try {
                 Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+filename);}
             catch ( Exception e2){ System.out.println(e2); }
-            jLabel9.setText("Höhenverzeichnis vollständig.");
-        } else jLabel9.setText("Fehler: Höhenverzeichnis unvollständig!");
+            jLabel9.setText("Directorio de altura completo.");
+        } else jLabel9.setText("Error: Directorio de altura incompleto!");
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
        
     }//GEN-LAST:event_jMenuItem7ActionPerformed
@@ -2270,8 +2270,8 @@ private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         
         if(dat.exists()){
             Object[] options = { "Ja", "Nein"};     
-            int res = javax.swing.JOptionPane.showOptionDialog(this, "Die Datei ist bereits vorhanden. Überschreiben?", 
-                "Warnung", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, 1);
+            int res = javax.swing.JOptionPane.showOptionDialog(this, "Los datos ya existen. Sobreescribir?", 
+                "Advertencia", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, 1);
             if(res==0){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 dat.delete();
@@ -2290,7 +2290,7 @@ private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             Eingabetabelle egt = new Eingabetabelle(this, zieldatei);
             eingabeOk = egt.eingabetabelleAnlegen(edvid6, true);   // Struktur und Daten 
         }
-        if(!eingabeOk) s = "Fehler! Eingabetabelle konnte nicht erzeugt werden.";
+        if(!eingabeOk) s = "Error! No se pudo generar tabla de entrada.";
         jLabel9.setText(s);
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 }//GEN-LAST:event_jMenuItem31ActionPerformed
@@ -2343,11 +2343,11 @@ private void jMenuItem35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     excelPfad = check.getPfad();
     fehler = check.getFehler();
      
-    if (fehler.length()<5 && fehler.length()>0) jLabel9.setText(fehler+" Hinweis(e)");
-    else if(fehler.equals("")) jLabel9.setText("gut");
+    if (fehler.length()<5 && fehler.length()>0) jLabel9.setText(fehler+" Nota(s)");
+    else if(fehler.equals("")) jLabel9.setText("Bueno");
     else {
-        jLabel9.setText("Fehler beim Lesen!");
-        JOptionPane.showMessageDialog (this, fehler, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+        jLabel9.setText("Error de lectura!");
+        JOptionPane.showMessageDialog (this, fehler, "Nota", JOptionPane.INFORMATION_MESSAGE);
     }
     this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 }//GEN-LAST:event_jMenuItem35ActionPerformed
@@ -2359,8 +2359,8 @@ private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
 private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
     jLabel9.setText("");
     if (ausgabePDF == true){
-        ausgabePDF=false; jMenuItem6.setText("PDF statt HTML");
-    } else { ausgabePDF=true; jMenuItem6.setText("HTML statt PDF");}
+        ausgabePDF=false; jMenuItem6.setText("PDF en lugar de HTML");
+    } else { ausgabePDF=true; jMenuItem6.setText("HTML en lugar de PDF");}
 }//GEN-LAST:event_jMenuItem6ActionPerformed
 
 private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
@@ -2405,7 +2405,7 @@ private void jMenuItem36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             try {
                 Runtime.getRuntime().exec( " rundll32 url.dll,FileProtocolHandler "+filename);
             } catch ( Exception e2){ System.out.println(e2); }
-        } else jLabel9.setText("Fehler!");
+        } else jLabel9.setText("Error!");
 
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
@@ -2414,19 +2414,19 @@ private void jMenuItem36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 }//GEN-LAST:event_jMenuItem36ActionPerformed
 
 private void jMenuItem37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem37ActionPerformed
-// Stammverteilungsplan erstellen aus Topcon-Datei
+// Plan maestro de asignació erstellen aus Topcon-Datei
     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
     jLabel9.setText("");
  
     StammvErstellen sve = new StammvErstellen(this, true, dbconn, idSelected, stammvPfad, true);
     stammvPfad = sve.getPfad();
 
-    jLabel9.setText("fertig");
+    jLabel9.setText("Terminado");
     this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 }//GEN-LAST:event_jMenuItem37ActionPerformed
 
 private void jMenuItem38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem38ActionPerformed
-// Stammverteilungsplan: Nullpunkt neu festlegen und Koordinaten entsprechend umrechnen
+// Plan maestro de asignació: Nullpunkt neu festlegen und Koordinaten entsprechend umrechnen
 
     // Minimalen x- bzw. y-Wert bestimmen (Bäume und Punkte)
     double minx = 0.0;
@@ -2451,9 +2451,9 @@ private void jMenuItem38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     }
     // Keine Aktualisierung
     if(minx >= 0 && miny >= 0){
-        System.out.println("Keine negativen Koordinaten vorhanden");
-        String text = "Keine negativen Koordinaten vorhanden";
-        JOptionPane.showMessageDialog (this, text, "Hinweis", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println("No hay coordenadas negativas disponibles");
+        String text = "No hay coordenadas negativas disponibles";
+        JOptionPane.showMessageDialog (this, text, "Nota", JOptionPane.INFORMATION_MESSAGE);
     }
 
 
@@ -2467,10 +2467,10 @@ private void jMenuItem38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         miny = Math.abs(Math.floor(miny));
         
         // Nachfrage
-        String text = "Alle Punkte (Bäume, Ecken, Standpunkte o.ä.) werden um \n \n" +
-                " "+minx+" bzw. "+miny+" \n \n in x- bzw. y-Richtung verschoben.\n" +
-                " (Werte ggf. bitte in der Akte vermerken!)";
-        int abbrechen = JOptionPane.showConfirmDialog(this, text, "Stammverteilungsplan verschieben?",
+        String text = "Todos los puntos serán movidos desde (Árboles, Esquinas, Vistas o.ä.) \n \n" +
+                " "+minx+" respectivamente. "+miny+" \n \n en x- respectivamente. y-dirección.\n" +
+                " (Si es necesario, tenga en cuenta los valores del archivo!)";
+        int abbrechen = JOptionPane.showConfirmDialog(this, text, "Mover Plan maestro de asignación?",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if(abbrechen==0){
@@ -2481,7 +2481,7 @@ private void jMenuItem38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 stmt2 = dbconn.Connections[0].createStatement();
                 int update = stmt2.executeUpdate("UPDATE Stammv SET x = x + "+minx+", y = y + "+miny+
                         " WHERE edvid = '"+idSelected+"';");
-                System.out.println(update + " Zeilen aktualisiert");
+                System.out.println(update + " Linea actualizada");
             } catch (Exception e){e.printStackTrace();
             } finally {
                 try{
@@ -2508,14 +2508,14 @@ private void jMenuItem39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 }//GEN-LAST:event_jMenuItem39ActionPerformed
 
 private void jMenuItem40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem40ActionPerformed
-    // Stammverteilungsplan prüfen
+    // Plan maestro de asignació prüfen
     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
     jLabel9.setText("");
     String text = "";
 
     JFileChooser fc = new JFileChooser(stammvPfad);
-    fc.setDialogTitle(" Topcon-Datei auswählen ");
-    fc.setApproveButtonText("übernehmen");
+    fc.setDialogTitle(" Seleccionar datos Topcon ");
+    fc.setApproveButtonText("Controlar");
     fc.showOpenDialog(this);
     File inputFile = fc.getSelectedFile();
     stammvPfad = inputFile.getAbsolutePath();
@@ -2593,8 +2593,8 @@ private void jMenuItem34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     excelPfad = datei; 
     String arbeitsEdvid = datei.substring(datei.lastIndexOf("\\")+1, datei.indexOf(".xls"));
     if(arbeitsEdvid.length() != 8){
-        arbeitsEdvid = JOptionPane.showInputDialog(this, "Dateiname der Felddaten scheinbar keine edvid. \n"
-                + "Welche Parzelle (8-stellige edvid) soll bearbeitet werden?");
+        arbeitsEdvid = JOptionPane.showInputDialog(this, "Nombre de archivo de los datos de campo al parecer no edvid. \n"
+                + "Cuáles parcelas (8-digitos edvid) serían editadas?");
         if(arbeitsEdvid == null) arbeitsEdvid = "";
     }
     
@@ -2606,8 +2606,8 @@ private void jMenuItem34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     
     // Eingabetabelle leeren
     if(vorhanden && zeilen > 0){
-        Object text = "Eingabetabelle enthält " +zeilen+ " Datensätze für Parzelle " + arbeitsEdvid + ". \nErsetzen?";
-        int ok = JOptionPane.showConfirmDialog(this, text, "Hinweis", JOptionPane.OK_CANCEL_OPTION);
+        Object text = "Contiene tabla de entrada " +zeilen+ " Los registros de parcela " + arbeitsEdvid + ". \nreemplazar?";
+        int ok = JOptionPane.showConfirmDialog(this, text, "Nota", JOptionPane.OK_CANCEL_OPTION);
         if(ok == JOptionPane.OK_OPTION){
             eing.parzelleLoeschen(arbeitsEdvid);
             zeilen = 0;
@@ -2632,12 +2632,12 @@ private void jMenuItem34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             if(jComboBox5.getItemCount()>0) letztAuf = Integer.parseInt((String)(jComboBox5.getItemAt(jComboBox5.getItemCount()-1)));
             res = excelFelddaten.uebernehmen(datei, lokalcon.Connections[1], letztAuf);
             
-        } else res = "Nur Excel Dateien können ausgewählt werden";
+        } else res = "Solo pueden ser escogidos datos de Excel";
     } else{
-        if(!vorhanden) res = "Eingabetabelle konnte nicht erstellt werden.";
-        if(zeilen > 0) res = "Daten konnten nicht übernommen werden, Eingabetabelle nicht leer.";
-        if(jComboBox7.getSelectedIndex() != 2) res = "Fehler: Datenübernahme nur in lokale Kopie!";
-        if(arbeitsEdvid.length() != 8) res = "Ungültige edvid (Name der Felddaten-Datei).";
+        if(!vorhanden) res = "No se pudo crear tabla de entrada.";
+        if(zeilen > 0) res = "No se pueden aplicar datos, la tabla de entrada no está vacía.";
+        if(jComboBox7.getSelectedIndex() != 2) res = "Error: Transferencia de datos única, copia local!";
+        if(arbeitsEdvid.length() != 8) res = "edvid inválido (Nombre del archivo de datos de campo).";
      }
     jLabel9.setText(res);
     this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -2675,7 +2675,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
             } 
             catch(Exception e) {e.printStackTrace(); }
         }
-        else jLabel9.setText("Keine Datei geladen.");
+        else jLabel9.setText("No se cargaron datos.");
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -2703,7 +2703,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
     
 
     public boolean ergebnisPDF(String filename, boolean ganzeVersuchsanlage, boolean bzedaten){
-        boolean fertig = false;
+        boolean Terminado = false;
         openDataBank();
         
         NumberFormat df=NumberFormat.getInstance();
@@ -2816,7 +2816,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
             int aufx = 1;
             aufAnzeigen[ii] = true;
             if(!bzedaten) aufx = Integer.parseInt((String)(jComboBox5.getItemAt(ii)));
-            System.out.println("in Berechnung : "+idSelected+"  "+aufx);
+            System.out.println("en Calculo : "+idSelected+"  "+aufx);
             LoadStand lts = new  LoadStand();
             // Bestand ohne Randbäume und ohne Verjüngung laden
             if(!bzedaten){
@@ -2825,12 +2825,12 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
             else st = lts.loadBZE(this, dbconn, st, idSelected, true, true);
     
 // Informationen zur Aufnahme extrahieren
-            System.out.println("Ergebnisse berechnen...");
+            System.out.println("Calcular resultados...");
             Statement stmt2 = dbconn.Connections[0].createStatement();
             ResultSet rs2=null;
             String auftitel = String.valueOf(aufx);
             if(auftitel.length() < 2) auftitel = "  " + auftitel;
-            auftitel =  "Aufnahme " + auftitel;
+            auftitel =  "Grabación " + auftitel;
             String info= "" ;
             String reptext = "";
             int monatsnum = 0;
@@ -2865,9 +2865,9 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
                     if(!uAufsAnzeigen){ 
                         aufAnzeigen[ii] = false;
                         for(int i = 0; i < st.ntrees; i++) if(st.tr[i].out > 1 && st.tr[i].fac>0.0) aufAnzeigen[ii] = true; 
-                        if(aufAnzeigen[ii]) auftitel = auftitel + " Ablesung Dauerumfangmessband (nur ausscheidender Bestand)";
-                        else auftitel = auftitel + " Ablesung Dauerumfangmessband";
-                    } else auftitel = auftitel + " Ablesung Dauerumfangmessband";
+                        if(aufAnzeigen[ii]) auftitel = auftitel + " Lectura de tiempo de cinta de medición (sólo acciones salientes)";
+                        else auftitel = auftitel + " Lectura de tiempo de cinta de medición";
+                    } else auftitel = auftitel + " Lectura de tiempo de cinta de medición";
                 }
                 // Bemerkungen übernehmen
                 Object bem = rs2.getObject("bemerk");
@@ -2878,7 +2878,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
                 Object rep = rs2.getObject("repfac");
                 if(rep != null) reptext = rep.toString().trim();
                 if(reptext.length() > 5){
-                    System.out.println("Repräsentationsfaktoren: "+reptext);
+                    System.out.println("Factores de representación: "+reptext);
                     String art = reptext.substring(0,2);
                     if(isInteger(art)) {
                         
@@ -2956,7 +2956,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
                 if (st.tr[tno].hMeasuredValue>0) hmess = true;
                 tno = tno+1;
             } 
-            if (! hmess) info = info + " keine Höhenmessung verfügbar";
+            if (! hmess) info = info + " ninguna medida de la altura disponible";
                         
             // the first cells spans 19 columns
             Cell cell = new Cell(new Phrase(auftitel , FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL)));
@@ -3323,7 +3323,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
                     document.add(datatable);
                     document.newPage();
                     datatable = getTable();
-                    System.out.println("Neue Seite");
+                    System.out.println("Nueva página");
                 }
             }
             } else{  // Wenn Aufnahme nicht angezeigt werden soll -> nur Info anzeigen
@@ -3341,7 +3341,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
                     document.add(datatable);
                     document.newPage();
                     datatable = getTable();
-                    System.out.println("Neue Seite");
+                    System.out.println("Nueva página");
                 }
             }
                 
@@ -3363,12 +3363,12 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
 
         }  // Ende der Schleife über alle Parzellen
         document.close();
-        if(alleAufnahmenOk) fertig = true;
-        } catch ( Exception e){System.out.println("Fehler creating "+filename+" :");
+        if(alleAufnahmenOk) Terminado = true;
+        } catch ( Exception e){System.out.println("Error creando "+filename+" :");
             e.printStackTrace();
         }
         idSelected = idSelected.substring(0,6)+jComboBox4.getSelectedItem(); // zurücksetzen
-        return fertig;
+        return Terminado;
     }
     
     private Table getTable() throws BadElementException, DocumentException {
@@ -3379,7 +3379,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
         datatable.setWidths(headerwidths);
         datatable.setWidth(100);
         // first Row
-        String parzStr="Parzelle ID "+((String)(idSelected));
+        String parzStr="Parcela ID "+((String)(idSelected));
         Cell cell1 = new Cell(new Phrase(parzStr, FontFactory.getFont(FontFactory.HELVETICA, 10, Font.BOLD)));
         cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell1.setColspan(5);
@@ -3497,7 +3497,7 @@ private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
         
 
          }
-         catch(Exception e){System.out.println("Fehler in setLand: "+e);}
+         catch(Exception e){System.out.println("Error en setLand: "+e);}
 
     }
     
@@ -3676,7 +3676,7 @@ System.out.println("Start einzelBerechnung");
               abbrechen = lts.abbrechen;
               if(!abbrechen){ 
 // Informationen zur Aufnahme extrahieren
-                  System.out.println("in Berechnung : "+idSelected+"  "+aufnahmeNr);
+                  System.out.println("en Calculo : "+idSelected+"  "+aufnahmeNr);
                   for (int i=0; i<st.nspecies; i++)
                   {
 // Wird nur erstellt, wenn gültige Bäume auf der Fläche, also keine Randbäume oder
@@ -4075,7 +4075,7 @@ System.out.println("Start einzelBerechnung");
                   document.add(new Paragraph(new Chunk("Keine Daten, Abbruch durch Benutzer")));
               }
                document.close();
-        } catch ( Exception e){System.out.println("Fehler creating pdf: "+e);
+        } catch ( Exception e){System.out.println("Error creando pdf: "+e);
             e.printStackTrace();}
         boolean ausgeben = true;
         if (abbrechen) ausgeben = false;
@@ -4159,7 +4159,7 @@ System.out.println("Start einzelBerechnung");
         jMenuItem36.setEnabled(true);
         jMenu6.setEnabled(true);    // Dateneditor
         jMenuItem26.setEnabled(true);
-        jMenu11.setEnabled(true);    // SonderFunktionen
+        jMenu11.setEnabled(true);    // Funciones especiales
         jMenuItem30.setEnabled(true);
         jMenuItem32.setEnabled(true);
 
@@ -4230,7 +4230,7 @@ System.out.println("Start einzelBerechnung");
              //jMenuItem36.setEnabled(true);
              jPanel3.setVisible(false);
              jPanel4.setVisible(false);
-             jLabel1.setText("Plot");
+             jLabel1.setText("Gráfico");
              jButton1.setVisible(false);
              jTextField1.setVisible(false);
              jComboBox8.setVisible(true);
@@ -4262,13 +4262,13 @@ System.out.println("Start einzelBerechnung");
     
     private void setFlaechenLabel(){
        try{          
-                jTable1.setValueAt("Baumart: ",0,0);
+                jTable1.setValueAt("Tipo árbol: ",0,0);
                 jTable1.setValueAt(" ",0,1);
-                jTable1.setValueAt("Versuchszweck: ",1,0);
+                jTable1.setValueAt("Propósito de la prueba: ",1,0);
                 jTable1.setValueAt(" ",1,1);
-                jTable1.setValueAt("letzte Aufnahme: ",2,0);
+                jTable1.setValueAt("última Grabación: ",2,0);
                 jTable1.setValueAt(" ",2,1);
-                jTable1.setValueAt("nächste Aufnahme: ",3,0);
+                jTable1.setValueAt("próxima Grabación: ",3,0);
                 jTable1.setValueAt(" ",3,1);
            Statement stmt = dbconn.Connections[0].createStatement(); 
            ResultSet rs = stmt.executeQuery("SELECT * FROM Versfl WHERE forstamt = \'"+foaSelected+"\'  AND abt = \'"+abtSelected+"\'");
@@ -4280,7 +4280,7 @@ System.out.println("Start einzelBerechnung");
                    txt = txt1.toString().trim();
                }
                jTable1.setValueAt(txt, 0, 1);
-               jTable1.setValueAt("Versuchszweck: ", 1, 0);
+               jTable1.setValueAt("Propósito de la prueba: ", 1, 0);
                txt = "";
                txt1 = rs.getObject("vers_zweck");
                if (txt1 != null) {
@@ -4288,14 +4288,14 @@ System.out.println("Start einzelBerechnung");
                }
                if (jComboBox7.getSelectedIndex() == 1) {// nur für Waldwachstums-DB
                    jTable1.setValueAt(txt, 1, 1);
-                   jTable1.setValueAt("letzte Aufnahme: ", 2, 0);
+                   jTable1.setValueAt("última Grabación: ", 2, 0);
                    
                    txt = "";
                    txt1 = rs.getObject("letzte_Auf");
                    if (txt1 != null) txt = txt1.toString().trim();
                    jTable1.setValueAt(txt, 2, 1);
                    
-                   jTable1.setValueAt("nächste Aufnahme: ", 3, 0);
+                   jTable1.setValueAt("próxima Grabación: ", 3, 0);
                    txt = "";
                    txt1 = rs.getObject("naechste_A");
                    if (txt1 != null) txt = txt1.toString().trim();
@@ -4305,21 +4305,21 @@ System.out.println("Start einzelBerechnung");
            edvid6=(String)(jComboBox6.getSelectedItem());
            jTextField1.setText(edvid6);
        }
-       catch(Exception e){System.out.println("setFlaechenLabel: "+e);}
+       catch(Exception e){System.out.println("superficies del conjunto de etiquetas: "+e);}
     }
     
     private void setParzellenLabel(){
         try {
-            jTable1.setValueAt("Parzelle: ", 4, 0);
-            jTable1.setValueAt("Durchforstungsart: ", 5, 0);
+            jTable1.setValueAt("Parcelas: ", 4, 0);
+            jTable1.setValueAt("Tipo de adelgazamiento: ", 5, 0);
             jTable1.setValueAt(" ", 5, 1);
-            jTable1.setValueAt("Durchforstungsstärke: ", 6, 0);
+            jTable1.setValueAt("Intensidad de adelgazamiento: ", 6, 0);
             jTable1.setValueAt(" ", 6, 1);
-            jTable1.setValueAt("Höhenlage: ", 7, 0);
+            jTable1.setValueAt("Altitud: ", 7, 0);
             jTable1.setValueAt(" ", 7, 1);
-            jTable1.setValueAt("Exposition: ", 8, 0);
+            jTable1.setValueAt("Exposición: ", 8, 0);
             jTable1.setValueAt(" ", 8, 1);
-            jTable1.setValueAt("Hanglage: ", 9, 0);
+            jTable1.setValueAt("Pendiente: ", 9, 0);
             jTable1.setValueAt(" ", 9, 1);
             Statement stmt = dbconn.Connections[0].createStatement();
             String idx = (String) (jComboBox6.getSelectedItem());
@@ -4327,16 +4327,16 @@ System.out.println("Start einzelBerechnung");
             if (idx != null && idxx != null) {
                 ResultSet rs = stmt.executeQuery("select * from ParzInfo where edvid = \'" + idx + "\' and PARZ = \'" + idxx + "\' ");
                 while (rs.next()) {
-                    jTable1.setValueAt("Parzelle: " + idxx, 4, 0);
-                    jTable1.setValueAt("Durchforstungsart: ", 5, 0);
+                    jTable1.setValueAt("Parcelas: " + idxx, 4, 0);
+                    jTable1.setValueAt("Tipo de adelgazamiento: ", 5, 0);
                     jTable1.setValueAt(getDurchforstungsartByID(idx + idxx), 5, 1);
-                    jTable1.setValueAt("Durchforstungsstärke: ", 6, 0);
+                    jTable1.setValueAt("Intensidad de adelgazamiento: ", 6, 0);
                     jTable1.setValueAt(getDurchforstungsstaerkeByID(idx + idxx), 6, 1);
-                    jTable1.setValueAt("Höhenlage: ", 7, 0);
+                    jTable1.setValueAt("Altitud: ", 7, 0);
                     jTable1.setValueAt(rs.getObject("HuNN_mean").toString(), 7, 1);
-                    jTable1.setValueAt("Exposition: ", 8, 0);
+                    jTable1.setValueAt("Exposición: ", 8, 0);
                     jTable1.setValueAt(rs.getObject("EXPO").toString(), 8, 1);
-                    jTable1.setValueAt("Hanglage: ", 9, 0);
+                    jTable1.setValueAt("Pendiente: ", 9, 0);
                     jTable1.setValueAt(rs.getObject("HANG").toString(), 9, 1);
                 }
                 edvid6 = (String) (jComboBox6.getSelectedItem());
@@ -4349,12 +4349,12 @@ System.out.println("Start einzelBerechnung");
 
     private void setAufnahmeLabel(){
        try{          
-          jTable1.setValueAt("Aufnahme: ",10,0);
-          jTable1.setValueAt("Zeitpunkt: ",11,0);
+          jTable1.setValueAt("Grabación: ",10,0);
+          jTable1.setValueAt("Tiempo: ",11,0);
           jTable1.setValueAt(" ",11,1);
-          jTable1.setValueAt("Flächengröße: ",12,0);
+          jTable1.setValueAt("Tamaño de la zona: ",12,0);
           jTable1.setValueAt(" ",12,1);
-          jTable1.setValueAt("Aufnahmetyp: ",13,0);
+          jTable1.setValueAt("Tipo de grabación: ",13,0);
           jTable1.setValueAt(" ",13,1);
            Statement stmt = dbconn.Connections[0].createStatement(); 
            String idx=(String)(jComboBox6.getSelectedItem())+(String)(jComboBox4.getSelectedItem());
@@ -4362,12 +4362,12 @@ System.out.println("Start einzelBerechnung");
            int aufx = Integer.parseInt(aufsx);
            ResultSet rs = stmt.executeQuery("select * from Auf where edvid = \'"+idx+"\' and auf = "+aufx+" ");
            while(rs.next()){
-                jTable1.setValueAt("Aufnahme: "+aufsx,10,0);
-                jTable1.setValueAt("Zeitpunkt: ",11,0);
+                jTable1.setValueAt("Grabación: "+aufsx,10,0);
+                jTable1.setValueAt("Tiempo: ",11,0);
                 jTable1.setValueAt(rs.getObject("monat").toString()+"/"+rs.getObject("jahr").toString(),11,1);
-                jTable1.setValueAt("Flächengröße: ",12,0);
+                jTable1.setValueAt("Tamaño de la zona: ",12,0);
                 jTable1.setValueAt(rs.getObject("flha").toString(),12,1);
-                jTable1.setValueAt("Aufnahmetyp: ",13,0);
+                jTable1.setValueAt("Tipo de grabación: ",13,0);
                 jTable1.setValueAt(rs.getObject("typ").toString(),13,1);
            }
            edvid6=(String)(jComboBox6.getSelectedItem());
@@ -4408,7 +4408,7 @@ System.out.println("Start einzelBerechnung");
                 if (rs2.next()) {
                     landNoSelectedCheck = rs2.getInt("land");
                 } else {
-                    ergebnis = "Forstamt in Forstaemter unbekannt";
+                    ergebnis = "Oficina forestal en oficinas forestales desconocidas";
                 }
                 
                 Statement stmt3 = dbconn.Connections[0].createStatement();
@@ -4416,7 +4416,7 @@ System.out.println("Start einzelBerechnung");
                 if (rs3.next()) {
                     landSelectedCheck = rs3.getObject("landname").toString();
                 } else {
-                    ergebnis = ergebnis + "Land nicht bekannt";
+                    ergebnis = ergebnis + "País desconocido";
                 }
                 //        String landSelectedCheck= ex.getString("landname");
                 jComboBox1.setSelectedItem(landSelectedCheck);
@@ -4458,8 +4458,8 @@ System.out.println("Start einzelBerechnung");
                durchforstungsart= rs11.getObject("inhalt").toString();
             }
           } 
-          else durchforstungsart="nicht eingegeben";
-       }  catch(Exception e){System.out.println("Durchforstungsart nicht gefunden: "+e);}
+          else durchforstungsart="no entró";
+       }  catch(Exception e){System.out.println("Tipo de adelgazamiento no encontrado: "+e);}
        return durchforstungsart;
 
     }
@@ -4481,7 +4481,7 @@ System.out.println("Start einzelBerechnung");
             }
           }
           else behandlungsart="nicht eingegeben!";
-       }  catch(Exception e){System.out.println("Behandlungsart nicht gefunden: "+e);}
+       }  catch(Exception e){System.out.println("Tipo de tratamiento no encontrado: "+e);}
        return behandlungsart;
 
     }
@@ -4671,8 +4671,8 @@ System.out.println("Start einzelBerechnung");
             }catch(Exception e){}
             Vis2006.this.setEnabled(true);
             if (zeilenBestWerte == pm.getMaximum())
-                jLabel9.setText("Werte für "+zeilenBestWerte+" Aufnahmen berechnet!");
-            else jLabel9.setText("Fehler! "+zeilenBestWerte+" von "+pm.getMaximum()+" Aufnahmen berechnet.");
+                jLabel9.setText("Valores para "+zeilenBestWerte+" Grabaciones Calculados!");
+            else jLabel9.setText("Error! "+zeilenBestWerte+" de "+pm.getMaximum()+" Grabaciones Calculado.");
             pm.close();
             Vis2006.this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR)); 
             
@@ -4681,7 +4681,7 @@ System.out.println("Start einzelBerechnung");
     
 
     public boolean auswertungBZE(String filename, boolean allePlots){
-        boolean fertig = false;
+        boolean Terminado = false;
         openDataBank();
         EklToAbsHAlter100 bonET = new EklToAbsHAlter100();
 
@@ -4718,7 +4718,7 @@ System.out.println("Start einzelBerechnung");
                  int nauf = 1;  // für mehr Aufnahmen nicht umgesetzt
                  for (int ii=0;ii<nauf;ii++){
                      alleAufnahmenOk = false;
-                     System.out.println("in Berechnung : "+idSelected);
+                     System.out.println("en Calculo : "+idSelected);
                      LoadStand lts = new  LoadStand();
                      // Bestand laden
                      st = new Stand();
@@ -4732,7 +4732,7 @@ System.out.println("Start einzelBerechnung");
                      st.descspecies();
                      
                      // Informationen zur Aufnahme extrahieren
-                     System.out.println("Ergebnisse berechnen...");
+                     System.out.println("Calcular resultados...");
                      //int mon=0;
                      //SimpleDateFormat monat = new SimpleDateFormat("MM"); // nur das erste Datum
                      //stmt = dbconn.Connections[0].createStatement();
@@ -4852,7 +4852,7 @@ System.out.println("Start einzelBerechnung");
                              // D100 bezieht sich auf den verbleibenden Bestand (ebenso H100, s.u.)
                              //if (iii == 0 && nhax + nhaax > 100) d100str = df.format(st2.sp[i].d100);
                              if (iii == 0 && nhax > 100) d100Str = df.format(st2.sp[i].d100);
-                             // H100     (statt dessen die gemessenen Werte der Oberschicht, s.u.)       
+                             // H100     (en lugar de dessen die gemessenen Werte der Oberschicht, s.u.)       
                              String h100Str = "";
                              //if (iii == 0 && nhax > 100 && st2.sp[i].h100 > 1.31) h100Str = df.format(st2.sp[i].h100);
                              // Gemessene Oberhöhe (Oberschicht und Höchstalter)
@@ -4959,10 +4959,10 @@ System.out.println("Start einzelBerechnung");
                  if(ausgabe != null) ausgabe.close();
              } catch(Exception e){e.printStackTrace();}
          }
-         if(alleAufnahmenOk) fertig = true;
+         if(alleAufnahmenOk) Terminado = true;
 
         idSelected = jComboBox8.getSelectedItem().toString().trim(); // zurücksetzen
-        return fertig;
+        return Terminado;
     }
     
     

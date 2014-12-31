@@ -188,7 +188,7 @@ public class LoadStand {
                   if (outr > 0) stl.tr[stl.ntrees-1].mortalityReason = outr;
              } 
           }         
-        System.out.println("fertig");
+        System.out.println("completado");
        	}catch (Exception ex){
             ex.printStackTrace();
         }finally{
@@ -263,8 +263,8 @@ public class LoadStand {
              }
           }	catch (Exception ex){
               ex.printStackTrace();
-              String text = "Fehler beim Zusammenstellen der verwendbaren Höhen aus der Voraufnahme!";
-              javax.swing.JOptionPane.showMessageDialog (jFrame, text, "Fehler", JOptionPane.ERROR_MESSAGE);
+              String text = "Error al compilar la altura útil de la pre-grabación!";
+              javax.swing.JOptionPane.showMessageDialog (jFrame, text, "Error", JOptionPane.ERROR_MESSAGE);
           } finally{
             try{
                 if(rs3 != null) rs3.close();
@@ -329,8 +329,8 @@ public class LoadStand {
              }
           }	catch (Exception e){
               e.printStackTrace();
-              String text = "Fehler beim Zusammenstellen der verwendbaren Höhen aus der Folgeaufnahme!";
-              javax.swing.JOptionPane.showMessageDialog (jFrame, text, "Fehler", JOptionPane.ERROR_MESSAGE);
+              String text = "Error al compilar la altura útil del disparo de seguimiento!";
+              javax.swing.JOptionPane.showMessageDialog (jFrame, text, "Error", JOptionPane.ERROR_MESSAGE);
 
           } finally{
             try{
@@ -577,7 +577,7 @@ public class LoadStand {
                  }
              }
           }
-        System.out.println("fertig");
+        System.out.println("completado");
        	}catch (Exception ex){
             ex.printStackTrace();
         }finally{
@@ -680,7 +680,7 @@ public class LoadStand {
               stmt.close();
 
                 }
-                catch (Exception e){  System.out.println("Datenbank Stammv :"+e); }
+                catch (Exception e){  System.out.println("Base de datos Stammv :"+e); }
 
            }
        for (int i=0;i<st.ncpnt;i++){
@@ -692,7 +692,7 @@ public class LoadStand {
                            "edvid = '"+idSelected+"' )");
                    stmt.close();    
                }
-               catch (Exception e){  System.out.println("Datenbank Stammv :"+e); }
+               catch (Exception e){  System.out.println("Base de datos Stammv :"+e); }
            // Neue Punkte, die nicht in st.tr vorhanden sind (Kennzeichen: art in remarks)
            } else if(st.cpnt[i].remarks != null){                      // 29.10.2010 
                Statement stmt = null;

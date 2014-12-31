@@ -206,7 +206,7 @@ public class Hoehenverzeichnis {
                               datatable.addCell(getCell(""));
                               datatable.addCell(getCell(""));
                        }
-              }	catch (Exception e)  {System.out.println("Höhenabfrage: "+e); }
+              }	catch (Exception e)  {System.out.println("Consulta Altura: "+e); }
            if (datatable.getNextRow()> 1){
                  if (nPage> 1 && (filename.indexOf(".pdf") >-1)) document.add(new Paragraph("Seite:"+nPage.toString()+"    Höhenverzeichnis ID:"+id+"     Die Verwendung der Daten ohne Genehmigung der NW-FVA ist untersagt!       "+datumStr ));
                  if (filename.indexOf(".pdf") >-1) document.add(new Paragraph("Höhen der nummerierten Bäume Aufnahmen "+(k*dhSpalten+1)+" bis "+((k+1)*dhSpalten)));
@@ -269,7 +269,7 @@ public class Hoehenverzeichnis {
                      }
                      
                 }
-              }	catch (Exception e)  {System.out.println("Fehler bei Abfrage unnumerierter Höhen: "+e); }	
+              }	catch (Exception e)  {System.out.println("Error al consultar altura sin numerar: "+e); }	
               
              if (datatableun.size()>1){
                  if (nPage> 1) document.add(new Paragraph("Seite:"+nPage.toString()+"    Höhenverzeichnis ID:"+id+"     Die Verwendung der Daten ohne Genehmigung der NW-FVA ist untersagt!       "+datumStr ));
@@ -280,7 +280,7 @@ public class Hoehenverzeichnis {
               document.close();
               ok = true;
 
-        } catch ( Exception e){System.out.println("Fehler creating pdf");}
+        } catch ( Exception e){System.out.println("Error creando pdf");}
         return (ok);
     }
 
@@ -291,7 +291,7 @@ public class Hoehenverzeichnis {
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
             
-        } catch ( Exception e){System.out.println("Fehler creating Cell");};        
+        } catch ( Exception e){System.out.println("Error creando celda");};        
         return cell;
     } 
     
