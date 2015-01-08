@@ -1228,7 +1228,7 @@ public class Vis2006 extends javax.swing.JFrame {
          if(stammvOeffnen){
               boolean viewOnly = true;
               if (jComboBox7.getSelectedIndex() == 2) viewOnly=false;
-              Plan maestro de asignació stv = new Plan maestro de asignació(this,true,stx,viewOnly);
+              StammVerteilungsPlan  stv = new StammVerteilungsPlan (this,true,stx,viewOnly);
               stv.setVisible(true);
 
 // Koordinaten abspeichern
