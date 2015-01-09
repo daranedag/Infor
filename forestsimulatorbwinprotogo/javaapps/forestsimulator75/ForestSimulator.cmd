@@ -1,1 +1,0 @@
-javaw -Xmx256m -jar ForestSimulator.jar
