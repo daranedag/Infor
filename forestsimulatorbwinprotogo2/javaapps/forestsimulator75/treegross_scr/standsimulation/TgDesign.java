@@ -258,7 +258,7 @@ public class TgDesign extends javax.swing.JPanel {
         jPanel2.add(jComboBox4);
         jComboBox4.setBounds(100, 260, 140, 20);
 
-        jLabel12.setText("Mischung");
+        jLabel12.setText("Mezcla");
         jPanel2.add(jLabel12);
         jLabel12.setBounds(20, 260, 70, 14);
 
