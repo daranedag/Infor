@@ -400,7 +400,7 @@ public class EditorPanel extends javax.swing.JPanel {
 
         jPanel12.setLayout(new java.awt.GridLayout(1, 6));
 
-        jLabel11.setText("Exposition [Gon]");
+        jLabel11.setText("Exposicion [Gon]");
         jPanel12.add(jLabel11);
 
         jPanel12.add(jTextField11);
